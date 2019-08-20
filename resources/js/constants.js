@@ -1,0 +1,26 @@
+module.exports = Object.freeze({
+  PLAYER_RADIUS: 18,
+  PLAYER_MAX_HP: 100,
+  PLAYER_SPEED: 200,
+  PLAYER_SWITCHES: 1,
+  PLAYER_TELEPORTS: 1,
+  PLAYER_PUSH_PLAYERS: 1,
+  // PLAYER_FIRE_COOLDOWN: 0.25,
+
+  // BULLET_RADIUS: 3,
+  // BULLET_SPEED: 800,
+  // BULLET_DAMAGE: 10,
+
+  SCORE: 10,
+  SCORE_PER_SECOND: 1 / 10,
+
+  MAP_SIZE: 6000,
+  MSG_TYPES: {
+    JOIN_GAME: 'join_game',
+    GAME_UPDATE: 'update',
+    INPUT: 'input',
+    GAME_OVER: 'dead',
+    PLAYER_ROTATE: 'rotate_player',
+    STATUS_UPDATE: 'status_update',
+  },
+});

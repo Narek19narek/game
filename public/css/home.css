@@ -1,0 +1,28 @@
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    background: radial-gradient(closest-side, red, green);
+}
+
+main {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#play-menu {
+    width: 80vw;
+    max-width: 400px;
+    min-width: 280px;
+    margin: auto;
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*bottom: 0;*/
+    /*right: 0;*/
+    /*transform: translate( 50%, 50%);*/
+}
