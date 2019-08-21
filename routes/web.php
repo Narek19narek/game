@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Auth;
 
 //Auth::routes();
 
-Route::get('/play', function () {
+Route::post('/play', function () {
     return view('game.start');
-});
+})->name('play');
 
 //Route::get('/play', function () {
 //    return view('game.start');

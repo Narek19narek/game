@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'level', 'switch', 'teleport', 'push', 'coins', 'total_time', 'skeen_id', 'game_count',
     ];
 
     /**
@@ -43,5 +43,13 @@ class User extends Authenticatable
     }
     public function isAdmin() {
         return $this->role_id === 1;
+    }
+
+    public function players() {
+        return $this->hasMany(Player::class, 'user_id', 'id');
+    }
+
+    public function skins () {
+        return $this->belongsToMany(Skin::class, 'user_skins', 'user_id', 'skin_id');
     }
 }

@@ -4,9 +4,15 @@
     <canvas id="game-canvas"></canvas>
     <div id="play-menu" class="hidden">
         <label for="username-input">
-            <input type="text" id="username-input" placeholder="Username" />
+            <input type="text" id="username-input" placeholder="Username"
+                   value="@if(auth()->check()){{auth()->user()->name}}@else{{request('nickname')}}@endif"/>
         </label>
         <button id="play-button" type="submit">PLAY</button>
+        <script>
+            window.onload = () => {
+                document.getElementById('play-button').click();
+            }
+        </script>
     </div>
     <div id="leaderboard" class="hidden">
         <table>
@@ -16,16 +22,46 @@
                 <th>Username</th>
                 <th>Score</th>
             </tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
-            <tr><td></td><td></td></tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -41,7 +77,7 @@
     <div id="disconnect-modal" class="hidden">
         <div>
             <h2>Disconnected from Server </h2>
-            <hr />
+            <hr/>
             <button id="reconnect-button">RECONNECT</button>
         </div>
     </div>
