@@ -1,6 +1,7 @@
 // import { debounce } from 'throttle-debounce';
 // import { getAsset } from './assets';
 import { getCurrentState } from './state';
+import {getAsset} from "./assets";
 
 // import { getScore } from './networking';
 
@@ -29,6 +30,8 @@ function render() {
     return;
   }
 
+  console.log(me);
+
   // Draw background
   renderBackground(me.x, me.y);
 
@@ -38,7 +41,7 @@ function render() {
   context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE);
 
   // Draw all bullets
-  // console.log(bullets);
+  console.log(me);
   // bullets.forEach(renderBullet.bind(null, me));
 
   // Draw all players
@@ -49,6 +52,7 @@ function render() {
 function renderBackground(x, y) {
   const backgroundX = MAP_SIZE / 2 - x + canvas.width / 2;
   const backgroundY = MAP_SIZE / 2 - y + canvas.height / 2;
+  // context.drawImage(getAsset('bg.png'), backgroundX, backgroundY);
   const backgroundGradient = context.createRadialGradient(
     backgroundX,
     backgroundY,
@@ -57,8 +61,10 @@ function renderBackground(x, y) {
     backgroundY,
     MAP_SIZE / 2,
   );
-  backgroundGradient.addColorStop(0, 'red');
-  backgroundGradient.addColorStop(1, 'green');
+  backgroundGradient.addColorStop(0, '#379C9C');
+  backgroundGradient.addColorStop(0.13, '#29282B');
+  backgroundGradient.addColorStop(0.66, '#2D882D');
+  backgroundGradient.addColorStop(1, '#490a09');
   context.fillStyle = backgroundGradient;
   context.fillRect(0, 0, canvas.width, canvas.height);
 }
@@ -124,20 +130,20 @@ function renderPlayer(me, player) {
   //   2,
   // );
   const textX = canvasX - PLAYER_RADIUS + 15;
-  let textPoint;
-  if (player.point.toString().length === 1) {
-    textPoint = textX - 1;
-  } else if (player.point.toString().length === 2) {
-    textPoint = textX - 4;
-  } else if (player.point.toString().length === 3) {
-    textPoint = textX - 8;
-  } else if (player.point.toString().length === 4) {
-    textPoint = textX - 12;
+  let textKill;
+  if (player.kill.toString().length === 1) {
+    textKill = textX - 1;
+  } else if (player.kill.toString().length === 2) {
+    textKill = textX - 4;
+  } else if (player.kill.toString().length === 3) {
+    textKill = textX - 8;
+  } else if (player.kill.toString().length === 4) {
+    textKill = textX - 12;
   } else {
-    textPoint = textX - 15;
+    textKill = textX - 15;
   }
   const textY = (player.status === 0) ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
-  context.fillText(Math.floor(player.point), textPoint, canvasY - PLAYER_RADIUS - 15);
+  context.fillText(Math.floor(player.kill), textKill, canvasY - PLAYER_RADIUS - 15);
   if (player.username) {
     let x1;
     if (player.username.length < 4) {
@@ -186,4 +192,9 @@ export function startRendering() {
 export function stopRendering() {
   clearInterval(renderInterval);
   renderInterval = setInterval(renderMainMenu, 1000 / 60);
+}
+
+export function getInfo() {
+    const { me } = getCurrentState();
+    return me;
 }

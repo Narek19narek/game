@@ -70,7 +70,7 @@ class Game {
     const status = this.getStatus();
     // const time = this.updateTime();
     // const score = 0;
-    this.players[socket.id] = new Player(socket.id, username, x, y, status, 0);
+    this.players[socket.id] = new Player(socket.id, username, x, y, status);
   }
 
   removePlayer(socket) {

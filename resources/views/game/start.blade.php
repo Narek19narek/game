@@ -8,11 +8,6 @@
                    value="@if(auth()->check()){{auth()->user()->name}}@else{{request('nickname')}}@endif"/>
         </label>
         <button id="play-button" type="submit">PLAY</button>
-        <script>
-            window.onload = () => {
-                document.getElementById('play-button').click();
-            }
-        </script>
     </div>
     <div id="leaderboard" class="hidden">
         <table>
@@ -70,7 +65,7 @@
         <div>T: <span></span></div>
         <div>P: <span></span></div>
     </div>
-    <div id="time" class="hidden"></div>
+    <div id="kill" class="hidden"></div>
     <div id="game-over" class="hidden">
         <h1>Game Over</h1>
     </div>
@@ -86,4 +81,13 @@
 
 @push('js')
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    <script>
+        window.onload = () => {
+            document.getElementById('play-button').click();
+        }
+        // window.onbeforeunload = () => {
+        //     console.log(window.location.pathname);
+        //     return window.location.pathname = '';
+        // };
+    </script>
 @endpush

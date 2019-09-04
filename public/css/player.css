@@ -1,3 +1,24 @@
-body {
-    background: red !important;
+.level-xp {
+    position: relative;
+    height: 30px;
+    border: 1px solid #20b423;
+    /*width: 80%;*/
+    /*max-width: 300px;*/
+    /*min-width: 200px;*/
+}
+
+.level-width {
+    background-color: red;
+    height: 100%;
+}
+
+.level-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

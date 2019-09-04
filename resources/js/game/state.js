@@ -80,7 +80,7 @@ function interpolateObject(object1, object2, ratio) {
   }
   const interpolated = {};
   Object.keys(object1).forEach(key => {
-    if (key === 'id' || key === 'status' || key === 'rotate' || key === 'score' || key === 'switches' || key === 'username' || key === 'time' || key === 'point') {
+    if (key === 'id' || key === 'status' || key === 'rotate' || key === 'score' || key === 'switches' || key === 'username' || key === 'time' || key === 'kill') {
       interpolated[key] = object1[key];
     } else if (key === 'direction') {
       interpolated[key] = interpolateDirection(object1[key], object2[key], ratio);

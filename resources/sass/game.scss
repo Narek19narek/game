@@ -167,18 +167,19 @@ button:focus {
     left: 0;
     padding: 5px;
     color: #ffeaea;
+    transition: all 1s linear;
 }
 
 #game-info div {
     margin: 0 2vw;
 }
 
-#time {
+#kill {
     background-color: rgb(56, 56, 56);
     position: fixed;
     top: 5px;
     left: 5px;
-    padding: 5px;
+    padding: 8px;
     color: #ffeaea;
 }
 

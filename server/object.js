@@ -1,12 +1,11 @@
 class Object {
-  constructor(id, x, y, dir, speed, status, angle) {
+  constructor(id, x, y, dir, speed, status) {
     this.id = id;
     this.x = x;
     this.y = y;
     this.direction = dir;
     this.speed = speed;
     this.status = status;
-    this.rotate = angle;
   }
 
   update(dt) {

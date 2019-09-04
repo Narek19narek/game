@@ -4,7 +4,7 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
+// require('./bootstrap');
 window.Constants = require('./constants');
 require('./game/index');
 require('./game/assets');

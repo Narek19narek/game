@@ -10,11 +10,6 @@
                             <li><a data-toggle="tab" href="#register">Register</a></li>
                         </ul>
                         <div class="tab-content">
-    {{--                        @if (Auth::user())--}}
-    {{--                            <h1>barev</h1>--}}
-    {{--                        @else--}}
-    {{--                            <h1>hajox</h1>--}}
-    {{--                        @endif--}}
                             <div id="login" class="tab-pane fade in active show">
                                 @include('player.login')
                             </div>
@@ -27,8 +22,12 @@
                             <div class="card">
                                 <img src="{{ asset('images/profile.png') }}" class="card-img-top img-thumbnail" alt="profile">
                                 <div class="card-body">
-                                    <h2 class="card-title">{{ Auth::user()->name }}</h2>
+{{--                                    <h2 class="card-title">{{ Auth::user()->name }}</h2>--}}
                                     <h4 class="card-title">Level {{ Auth::user()->level }}</h4>
+                                    <div class="level-xp">
+                                        <div class="level-width" style="width: {{ (Auth::user()->total_points % Auth::user()->level) * 100 / (Auth::user()->level * 6) }}%"></div>
+                                        <span class="level-text">{{ Auth::user()->total_points % Auth::user()->level }} / {{ Auth::user()->level * 6 }} XP</span>
+                                    </div>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -85,6 +84,15 @@
                                     </button>
                                 </div>
                             </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-12">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <div class="card">
+                        <div class="card-body">
+                            <i class="fas fa-shopping-cart"></i><h1>Shop</h1>
                         </div>
                     </div>
                 </div>

@@ -13,26 +13,18 @@
 
 use Illuminate\Support\Facades\Auth;
 
-//Auth::routes();
+Route::post('game-over', 'PlayerController@index');
 
 Route::post('/play', function () {
     return view('game.start');
 })->name('play');
 
-//Route::get('/play', function () {
-//    return view('game.start');
-//});
-
-//Route::get('/', function () {
-//    return view('game.home');
-//});
 
 Route::post('game/login', 'HomeController@login')->name('game.login');
 
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/', function() {
-  return view('player.index');
-});
+//Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index' )->name('home');
+

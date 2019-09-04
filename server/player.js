@@ -1,15 +1,15 @@
 const ObjectClass = require('./object');
-// const Bullet = require('./bullet');
 const Constants = require('../resources/js/constants');
 
 class Player extends ObjectClass {
   constructor(id, username, x, y, status, rotate) {
-    super(id, x, y, Math.random() * 2 * Math.PI, Constants.PLAYER_SPEED, status, rotate);
+    super(id, x, y, Math.random() * 2 * Math.PI, Constants.PLAYER_SPEED, status);
     this.username = username;
     this.hp = Constants.PLAYER_MAX_HP;
     this.fireCooldown = 0;
     this.score = 0;
     this.point = 0;
+    this.kill = 0;
     this.switches = Constants.PLAYER_SWITCHES;
     this.teleport = Constants.PLAYER_TELEPORTS;
     this.pushPlayer = Constants.PLAYER_PUSH_PLAYERS;
@@ -57,6 +57,7 @@ class Player extends ObjectClass {
 
   onDealtDamage() {
     this.score += Constants.SCORE;
+    this.kill += 1;
     this.point += 1;
     this.switches += 1;
     this.teleport += 0.1;
@@ -90,6 +91,7 @@ class Player extends ObjectClass {
       pushPlayer: this.pushPlayer,
       time: this.time,
       score: this.score,
+      kill: this.kill,
       point: this.point,
     };
   }

@@ -1,4 +1,5 @@
 const ASSET_NAMES = [
+  'bg.jpg',
   'triangle.svg',
   'square.svg',
   'circle.svg',
