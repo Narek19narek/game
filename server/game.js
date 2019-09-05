@@ -162,28 +162,12 @@ class Game {
     const dt = (now - this.lastUpdateTime) / 1000;
     this.lastUpdateTime = now;
 
-    // Update each bullet
-    // const bulletsToRemove = [];
-    // this.bullets.forEach(bullet => {
-    //   if (bullet.update(dt)) {
-    //     // Destroy this bullet
-    //     bulletsToRemove.push(bullet);
-    //   }
-    // });
-    // this.bullets = this.bullets.filter(bullet => !bulletsToRemove.includes(bullet));
-
     // Update each player
     Object.keys(this.sockets).forEach(playerID => {
       const player = this.players[playerID];
       player.update(dt);
-      // if (newBullet) {
-      //   this.bullets.push(newBullet);
-      // }
     });
 
-    // Apply collisions, give players score for hitting bullets
-    // const leaderboard = this.getLeaderboard();
-    // console.log(leaderboard);
     const destroyedPlayers = applyCollisions(Object.values(this.players), this.players);
     destroyedPlayers.forEach(obj => {
       if (this.players[obj.id]) {
@@ -204,11 +188,11 @@ class Game {
 
     // Send a game update to each player every other time
     if (this.shouldSendUpdate) {
-      const leaderboard = this.getLeaderboard();
+      const leaderBoard = this.getLeaderboard();
       Object.keys(this.sockets).forEach(playerID => {
         const socket = this.sockets[playerID];
         const player = this.players[playerID];
-        socket.emit(Constants.MSG_TYPES.GAME_UPDATE, this.createUpdate(player, leaderboard));
+        socket.emit(Constants.MSG_TYPES.GAME_UPDATE, this.createUpdate(player, leaderBoard));
       });
       this.shouldSendUpdate = false;
     } else {

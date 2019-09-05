@@ -6,6 +6,10 @@
         <label for="username-input">
             <input type="text" id="username-input" placeholder="Username"
                    value="@if(auth()->check()){{auth()->user()->name}}@else{{request('nickname')}}@endif"/>
+{{--            <input type="text" id="userId-input" hidden--}}
+{{--                   value="@if(auth()->check()){{auth()->user()->id}}@else{{'0'}}@endif"/>--}}
+{{--            {{dd(auth()->user()->id)}}--}}
+
         </label>
         <button id="play-button" type="submit">PLAY</button>
     </div>

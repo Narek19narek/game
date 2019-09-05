@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Auth;
 
 Route::post('game-over', 'PlayerController@index');
 
-Route::post('/play', function () {
-    return view('game.start');
-})->name('play');
+Route::post('/play', 'PlayerController@start')->name('play');
 
 
 Route::post('game/login', 'HomeController@login')->name('game.login');

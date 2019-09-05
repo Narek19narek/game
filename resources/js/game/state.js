@@ -78,14 +78,15 @@ function interpolateObject(object1, object2, ratio) {
   if (!object2) {
     return object1;
   }
+  console.log(object1);
   const interpolated = {};
   Object.keys(object1).forEach(key => {
-    if (key === 'id' || key === 'status' || key === 'rotate' || key === 'score' || key === 'switches' || key === 'username' || key === 'time' || key === 'kill') {
-      interpolated[key] = object1[key];
+    if (key === 'x' || key === 'y') {
+      interpolated[key] = object1[key] + (object2[key] - object1[key]) * ratio;
     } else if (key === 'direction') {
       interpolated[key] = interpolateDirection(object1[key], object2[key], ratio);
     } else {
-      interpolated[key] = object1[key] + (object2[key] - object1[key]) * ratio;
+      interpolated[key] = object1[key];
     }
   });
   return interpolated;

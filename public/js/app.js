@@ -11747,9 +11747,9 @@ function render() {
 
   if (!me) {
     return;
-  }
+  } // console.log(me);
+  // Draw background
 
-  console.log(me); // Draw background
 
   renderBackground(me.x, me.y); // Draw boundaries
 
@@ -11879,17 +11879,7 @@ function renderPlayer(me, player) {
     var text = player.username.length > 6 ? player.username.slice(0, 6) : player.username;
     context.fillText(text, textX - x1, textY + 22);
   }
-} // function renderBullet(me, bullet) {
-//   const { x, y } = bullet;
-//   context.drawImage(
-//     getAsset('bullet.svg'),
-//     canvas.width / 2 + x - me.x - BULLET_RADIUS,
-//     canvas.height / 2 + y - me.y - BULLET_RADIUS,
-//     BULLET_RADIUS * 2,
-//     BULLET_RADIUS * 2,
-//   );
-// }
-
+}
 
 function renderMainMenu() {
   var t = Date.now() / 7500;
@@ -12021,14 +12011,15 @@ function interpolateObject(object1, object2, ratio) {
     return object1;
   }
 
+  console.log(object1);
   var interpolated = {};
   Object.keys(object1).forEach(function (key) {
-    if (key === 'id' || key === 'status' || key === 'rotate' || key === 'score' || key === 'switches' || key === 'username' || key === 'time' || key === 'kill') {
-      interpolated[key] = object1[key];
+    if (key === 'x' || key === 'y') {
+      interpolated[key] = object1[key] + (object2[key] - object1[key]) * ratio;
     } else if (key === 'direction') {
       interpolated[key] = interpolateDirection(object1[key], object2[key], ratio);
     } else {
-      interpolated[key] = object1[key] + (object2[key] - object1[key]) * ratio;
+      interpolated[key] = object1[key];
     }
   });
   return interpolated;

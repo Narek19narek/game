@@ -37,6 +37,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected const K = 1.618003398875 ** 2;
+
     public function role()
     {
         return $this->belongsTo(Role::class);
@@ -51,5 +53,23 @@ class User extends Authenticatable
 
     public function skins () {
         return $this->belongsToMany(Skin::class, 'user_skins', 'user_id', 'skin_id');
+    }
+
+    public function levelXp() {
+        if ($this->level > 1) {
+            $xp = $this->total_points - round($this->level ** self::K);
+            return $xp;
+        } else {
+            return $this->total_points;
+        }
+    }
+    public function nextLevelXp() {
+        $level = $this->level;
+        if ($level > 1) {
+            $xp = round((($level + 1) ** self::K) - ($level ** self::K));
+            return $xp;
+        } else {
+            return round(($level + 1) ** self::K);
+        }
     }
 }

@@ -30,7 +30,7 @@ function render() {
     return;
   }
 
-  console.log(me);
+  // console.log(me);
 
   // Draw background
   renderBackground(me.x, me.y);
@@ -161,17 +161,6 @@ function renderPlayer(me, player) {
     context.fillText(text, textX - x1, textY + 22);
   }
 }
-
-// function renderBullet(me, bullet) {
-//   const { x, y } = bullet;
-//   context.drawImage(
-//     getAsset('bullet.svg'),
-//     canvas.width / 2 + x - me.x - BULLET_RADIUS,
-//     canvas.height / 2 + y - me.y - BULLET_RADIUS,
-//     BULLET_RADIUS * 2,
-//     BULLET_RADIUS * 2,
-//   );
-// }
 
 function renderMainMenu() {
   const t = Date.now() / 7500;

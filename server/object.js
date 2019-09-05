@@ -38,7 +38,6 @@ class Object {
       x: this.x,
       y: this.y,
       status: this.status,
-      rotate: this.rotate,
     };
   }
 }

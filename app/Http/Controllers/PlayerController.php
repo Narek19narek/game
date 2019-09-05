@@ -9,12 +9,11 @@ use Illuminate\Support\Facades\Session;
 
 class PlayerController extends Controller
 {
+    protected const K = 1.618003398875;
     public function index(Request $request)
     {
         $params = $request->all();
-        //Session::forget('count');
-        if (!Session::has('savePoints')) {
-            // dd($params);
+        if (Auth::check() && !Session::has('savePoints')) {
             $id = Auth::id();
             $user = User::findOrFail($id);
             $level = $user->level;
@@ -25,44 +24,40 @@ class PlayerController extends Controller
             $user->game_count = $gameCount;
             $totalPoints = $this->CalculateTotalPoints($level, $params['kill'], $totalPoints, $params['time']);
             $user->total_points = $totalPoints;
+//            dd($totalPoints);
             $user->level = $this->CalculateLevel($totalPoints);
             $user->save();
             Session::put('savePoints', 1);
         }
+
+        if(Session::has('is_playing') && Session::get('is_playing')) {
+            Session::put('is_playing', false);
+        }
+
         return view('player.gameOver', compact('params'));
     }
 
-    public function CalculateTotalPoints($level, $XP, $totalXP, $time) {
-        if ($level < 8) {
-            $totalXP += $XP + floor($time / 10);
-            return $totalXP;
-        } elseif ($level < 16) {
-            $totalXP += $XP * 2 + floor($time / 10);
-            return $totalXP;
-        }
+    public function CalculateTotalPoints($level, $kill, $totalXP, $time) {
+        $killXP = round(($level - 1) * (self::K - 1) / self::K ** 2);
+        $killXP = $killXP >= 1 ? $killXP : 1;
+//        dd($killXP, $totalXP);
+        $totalXP += $killXP * $kill + round($time / 10);
+        return $totalXP;
     }
 
     public function CalculateLevel($totalPoints) {
-        if ($totalPoints < 6) {
-            return $level = 1;
-        } elseif ($totalPoints < 18) {
-            return $level = 2;
-        } elseif ($totalPoints < 38) {
-            return $level = 3;
-        } elseif ($totalPoints < 68) {
-            return $level = 4;
-        } elseif ($totalPoints < 109) {
-            return $level = 5;
-        } elseif ($totalPoints < 163) {
-            return $level = 6;
-        } elseif ($totalPoints < 231) {
-            return $level = 7;
-        } elseif ($totalPoints < 315) {
-            return $level = 8;
-        } elseif ($totalPoints < 415) {
-            return $level = 9;
-        } elseif ($totalPoints < 535) {
-            return $level = 10;
-        } else return $level = 11;
+        $level = floor(10 ** (log10($totalPoints) / self::K ** 2));
+        return $level;
+    }
+
+    public function start()
+    {
+        if(Auth::user()) {
+            if(Session::has('is_playing') && Session::get('is_playing')) {
+                return redirect()->back();
+            }
+            Session::put('is_playing', true);
+        }
+        return view('game.start');
     }
 }

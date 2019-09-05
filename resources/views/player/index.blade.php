@@ -25,8 +25,8 @@
 {{--                                    <h2 class="card-title">{{ Auth::user()->name }}</h2>--}}
                                     <h4 class="card-title">Level {{ Auth::user()->level }}</h4>
                                     <div class="level-xp">
-                                        <div class="level-width" style="width: {{ (Auth::user()->total_points % Auth::user()->level) * 100 / (Auth::user()->level * 6) }}%"></div>
-                                        <span class="level-text">{{ Auth::user()->total_points % Auth::user()->level }} / {{ Auth::user()->level * 6 }} XP</span>
+                                        <div class="level-width" style="width: {{ $user->levelXp() * 100 / $user->nextLevelXp() }}%"></div>
+                                        <span class="level-text">{{ $user->levelXp() }} / {{ $user->nextLevelXp() }} XP</span>
                                     </div>
                                     <table class="table table-bordered">
                                         <thead>

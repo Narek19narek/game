@@ -35,7 +35,7 @@ io.on('connection', socket => {
 
   socket.on(Constants.MSG_TYPES.JOIN_GAME, joinGame);
   socket.on(Constants.MSG_TYPES.INPUT, handleInput);
-  socket.on(Constants.MSG_TYPES.PLAYER_ROTATE, rotatePlayer);
+  // socket.on(Constants.MSG_TYPES.PLAYER_ROTATE, rotatePlayer);
   socket.on(Constants.MSG_TYPES.STATUS_UPDATE, changePlayerStatus);
   socket.on('teleport', teleport);
   socket.on('push_players', pushPlayers);
