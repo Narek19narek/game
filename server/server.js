@@ -46,8 +46,8 @@ io.on('connection', socket => {
 // Setup the Game
 const game = new Game();
 
-function joinGame(username) {
-  game.addPlayer(this, username);
+function joinGame(username, userAbility) {
+  game.addPlayer(this, username, userAbility);
 }
 
 function handleInput(dir) {

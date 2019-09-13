@@ -63,14 +63,17 @@ class Game {
     return { x, y };
   }
 
-  addPlayer(socket, username) {
+  addPlayer(socket, username, userAbility) {
+    const switches = userAbility.isUser ? userAbility.userSwitches : Constants.PLAYER_SWITCHES;
+    const push = userAbility.isUser ? userAbility.userPush : Constants.PLAYER_PUSH_PLAYERS;
+    const teleport = userAbility.isUser ? userAbility.userTeleport : Constants.PLAYER_TELEPORTS;
     this.sockets[socket.id] = socket;
     const { x, y } = this.getCordinates();
     // Generate a position to start this player at.
     const status = this.getStatus();
     // const time = this.updateTime();
     // const score = 0;
-    this.players[socket.id] = new Player(socket.id, username, x, y, status);
+    this.players[socket.id] = new Player(socket.id, username, x, y, status, switches, teleport, push);
   }
 
   removePlayer(socket) {

@@ -22,6 +22,24 @@
                     <p>User Profile</p>
                 </a>
             </li>
+            <li class="{{ \Route::current()->getName() === 'boosts.index' ? 'active' : ''}}">
+                <a href="{{ route('boosts.index') }}">
+                    <i class="now-ui-icons users_single-02"></i>
+                    <p>Boosts</p>
+                </a>
+            </li>
+            <li class="{{ \Route::current()->getName() === 'coins.index' ? 'active' : ''}}">
+                <a href="{{ route('coins.index') }}">
+                    <i class="now-ui-icons users_single-02"></i>
+                    <p>Coins</p>
+                </a>
+            </li>
+            <li class="{{ \Route::current()->getName() === 'skins.index' ? 'active' : ''}}">
+                <a href="{{ route('skins.index') }}">
+                    <i class="now-ui-icons users_single-02"></i>
+                    <p>Skins</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

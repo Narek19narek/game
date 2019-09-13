@@ -2,16 +2,16 @@ const ObjectClass = require('./object');
 const Constants = require('../resources/js/constants');
 
 class Player extends ObjectClass {
-  constructor(id, username, x, y, status) {
+  constructor(id, username, x, y, status, switches, teleport, push) {
     super(id, x, y, Math.random() * 2 * Math.PI, Constants.PLAYER_SPEED, status);
     this.username = username;
     this.hp = Constants.PLAYER_MAX_HP;
     this.score = 0;
     this.point = 0;
     this.kill = 0;
-    this.switches = Constants.PLAYER_SWITCHES;
-    this.teleport = Constants.PLAYER_TELEPORTS;
-    this.pushPlayer = Constants.PLAYER_PUSH_PLAYERS;
+    this.switches = switches;
+    this.teleport = teleport;
+    this.pushPlayer = push;
     this.time = 0;
   }
 

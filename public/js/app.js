@@ -11421,13 +11421,25 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "d
 var playMenu = document.getElementById('play-menu');
 var playButton = document.getElementById('play-button');
 var usernameInput = document.getElementById('username-input');
+var userInfo = document.getElementById('user_info');
+var userAbility = {};
+
+if (userInfo) {
+  userAbility.isUser = true;
+  userAbility.userSwitches = userInfo.dataset.switches;
+  userAbility.userTeleport = userInfo.dataset.teleport;
+  userAbility.userPush = userInfo.dataset.push;
+} else {
+  userAbility.isUser = false;
+}
+
 Promise.all([(0, _networking.connect)(onGameOver), (0, _assets.downloadAssets)()]).then(function () {
   playMenu.classList.remove('hidden');
   usernameInput.focus();
 
   playButton.onclick = function () {
     // Play!
-    (0, _networking.play)(usernameInput.value);
+    (0, _networking.play)(usernameInput.value, userAbility);
     playMenu.classList.add('hidden');
     (0, _state.initState)();
     (0, _input.startCapturingInput)();
@@ -11672,8 +11684,8 @@ var connect = exports.connect = function connect(onGameOver) {
   });
 };
 
-var play = exports.play = function play(username) {
-  socket.emit(Constants.MSG_TYPES.JOIN_GAME, username);
+var play = exports.play = function play(username, userAbility) {
+  socket.emit(Constants.MSG_TYPES.JOIN_GAME, username, userAbility);
 };
 
 var updateDirection = exports.updateDirection = (0, _throttleDebounce.throttle)(20, function (dir) {
@@ -11747,7 +11759,7 @@ function render() {
 
   if (!me) {
     return;
-  } // console.log(me);
+  } // console.log(others);
   // Draw background
 
 
@@ -11756,8 +11768,8 @@ function render() {
   context.strokeStyle = 'black';
   context.lineWidth = 1;
   context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE); // Draw all bullets
-
-  console.log(me); // bullets.forEach(renderBullet.bind(null, me));
+  // console.log(me);
+  // bullets.forEach(renderBullet.bind(null, me));
   // Draw all players
 
   renderPlayer(me, me);
@@ -12009,9 +12021,9 @@ function getCurrentState() {
 function interpolateObject(object1, object2, ratio) {
   if (!object2) {
     return object1;
-  }
+  } // console.log(object1);
 
-  console.log(object1);
+
   var interpolated = {};
   Object.keys(object1).forEach(function (key) {
     if (key === 'x' || key === 'y') {
@@ -12065,14 +12077,26 @@ function interpolateDirection(d1, d2, ratio) {
 
 /***/ }),
 
+/***/ "./resources/sass/game.scss":
+/*!**********************************!*\
+  !*** ./resources/sass/game.scss ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
 /***/ 0:
-/*!*************************************************************!*\
-  !*** multi ./resources/js/app.js ./resources/sass/app.scss ***!
-  \*************************************************************/
+/*!****************************************************************************************!*\
+  !*** multi ./resources/js/app.js ./resources/sass/game.scss ./resources/sass/app.scss ***!
+  \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(/*! D:\xampp\htdocs\game\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! D:\xampp\htdocs\game\resources\sass\game.scss */"./resources/sass/game.scss");
 module.exports = __webpack_require__(/*! D:\xampp\htdocs\game\resources\sass\app.scss */"./resources/sass/app.scss");
 
 

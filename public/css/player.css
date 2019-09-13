@@ -22,3 +22,7 @@
     justify-content: center;
     align-items: center;
 }
+
+.payment {
+    font-size: 80px;
+}

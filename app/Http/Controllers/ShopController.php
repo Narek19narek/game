@@ -1,0 +1,32 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Boost;
+use App\Coin;
+use App\Skin;
+use App\User;
+use Session;
+use Stripe;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+
+class ShopController extends Controller
+{
+    public function index()
+    {
+//        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+//        $events = \Stripe\Event::all([
+//            'type' => 'checkout.session.completed',
+//            'created' => [
+//                // Check for events created in the last 24 hours.
+//                'gte' => time() - 24 * 60 * 60,
+//            ],
+//        ]);
+//        dd($events);
+        $coins = Coin::all();
+        $boosts = Boost::all();
+        $skins = Skin::all();
+        return view('player.shop.index', compact('coins', 'boosts', 'skins'));
+    }
+}

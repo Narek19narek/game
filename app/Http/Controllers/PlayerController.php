@@ -25,7 +25,9 @@ class PlayerController extends Controller
             $totalPoints = $this->CalculateTotalPoints($level, $params['kill'], $totalPoints, $params['time']);
             $user->total_points = $totalPoints;
 //            dd($totalPoints);
-            $user->level = $this->CalculateLevel($totalPoints);
+            $newLevel = $this->CalculateLevel($totalPoints);
+            $user->level = $newLevel;
+            $user->coins = $this->CalculateCoins($level, $newLevel);
             $user->save();
             Session::put('savePoints', 1);
         }
@@ -48,6 +50,16 @@ class PlayerController extends Controller
     public function CalculateLevel($totalPoints) {
         $level = floor(10 ** (log10($totalPoints) / self::K ** 2));
         return $level;
+    }
+
+    public function CalculateCoins($oldLevel, $thisLevel) {
+        if ($thisLevel - $oldLevel > 0) {
+            $coins = 0;
+            for ($i = 0; $i < ($thisLevel - $oldLevel); $i++) {
+                $coins += ($oldLevel + $i) * 16;
+            }
+        }
+        return $coins;
     }
 
     public function start()

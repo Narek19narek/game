@@ -6,8 +6,10 @@
         <label for="username-input">
             <input type="text" id="username-input" placeholder="Username"
                    value="@if(auth()->check()){{auth()->user()->name}}@else{{request('nickname')}}@endif"/>
-{{--            <input type="text" id="userId-input" hidden--}}
-{{--                   value="@if(auth()->check()){{auth()->user()->id}}@else{{'0'}}@endif"/>--}}
+            @if(auth()->check())
+                <input type="text" id="user_info" hidden data-switches="{{auth()->user()->switch}}"
+                       data-push="{{auth()->user()->push}}" data-teleport="{{auth()->user()->teleport}}" />
+            @endif
 {{--            {{dd(auth()->user()->id)}}--}}
 
         </label>

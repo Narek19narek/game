@@ -5,7 +5,7 @@
         @include('includes.header')
         @include('includes.sidebar')
         @include('includes.navbar')
-        <main>
+        <main class="pt-5">
             @yield('content')
         </main>
         @include('includes.footer')

@@ -23,7 +23,10 @@
                                 <img src="{{ asset('images/profile.png') }}" class="card-img-top img-thumbnail" alt="profile">
                                 <div class="card-body">
 {{--                                    <h2 class="card-title">{{ Auth::user()->name }}</h2>--}}
-                                    <h4 class="card-title">Level {{ Auth::user()->level }}</h4>
+                                    <div class="d-flex justify-content-around">
+                                        <h4 class="card-title">Level {{ Auth::user()->level }}</h4>
+                                        <h5 class="card-title">{{ Auth::user()->coins }} coins</h5>
+                                    </div>
                                     <div class="level-xp">
                                         <div class="level-width" style="width: {{ $user->levelXp() * 100 / $user->nextLevelXp() }}%"></div>
                                         <span class="level-text">{{ $user->levelXp() }} / {{ $user->nextLevelXp() }} XP</span>
@@ -92,7 +95,14 @@
                 <div class="shadow p-3 mb-5 bg-white rounded">
                     <div class="card">
                         <div class="card-body">
-                            <i class="fas fa-shopping-cart"></i><h1>Shop</h1>
+                            <a class="btn btn-primary" href="{{route('shop')}}">Shop</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    <div class="card">
+                        <div class="card-body">
+                            <a class="btn btn-primary" href="{{route('get-coin')}}">Coin</a>
                         </div>
                     </div>
                 </div>

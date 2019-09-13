@@ -24,6 +24,6 @@
 
     <!-- Scripts -->
     @stack('header-pre-scripts')
-    <script src="{{ asset('js/app.js') }}" defer></script>
+{{--    <script src="{{ asset('js/app.js') }}" defer></script>--}}
     @stack('header-post-scripts')
 </head>

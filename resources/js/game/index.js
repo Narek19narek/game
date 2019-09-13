@@ -10,6 +10,16 @@ import configs from "./configs";
 const playMenu = document.getElementById('play-menu');
 const playButton = document.getElementById('play-button');
 const usernameInput = document.getElementById('username-input');
+const userInfo = document.getElementById('user_info');
+const userAbility = {};
+if (userInfo) {
+    userAbility.isUser = true;
+    userAbility.userSwitches = userInfo.dataset.switches;
+    userAbility.userTeleport = userInfo.dataset.teleport;
+    userAbility.userPush = userInfo.dataset.push;
+} else {
+    userAbility.isUser = false;
+}
 
 Promise.all([
   connect(onGameOver),
@@ -19,7 +29,7 @@ Promise.all([
   usernameInput.focus();
   playButton.onclick = () => {
     // Play!
-    play(usernameInput.value);
+    play(usernameInput.value, userAbility);
     playMenu.classList.add('hidden');
     initState();
     startCapturingInput();

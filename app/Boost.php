@@ -4,12 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Skin extends Model
+class Boost extends Model
 {
-    protected $table = 'skins';
+    protected $table = 'boosts';
 
     protected $fillable = [
-        'skin',
+        'name',
+        'amount',
+        'duration',
         'coin',
     ];
 }
