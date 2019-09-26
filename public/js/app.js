@@ -11340,7 +11340,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports["default"] = {
-  BACKEND_URL: 'http://game.loc'
+  BACKEND_URL: 'http://game.loc',
+  URL: 'http://localhost:3000'
 };
 
 /***/ }),
@@ -11653,9 +11654,13 @@ var _throttleDebounce = __webpack_require__(/*! throttle-debounce */ "./node_mod
 
 var _state = __webpack_require__(/*! ./state */ "./resources/js/game/state.js");
 
+var _configs = __webpack_require__(/*! ./configs */ "./resources/js/game/configs.js");
+
+var _configs2 = _interopRequireDefault(_configs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var socket = (0, _socket2["default"])("http://localhost:3000", {
+var socket = (0, _socket2["default"])(_configs2["default"].URL, {
   reconnection: false
 });
 var connectedPromise = new Promise(function (resolve) {

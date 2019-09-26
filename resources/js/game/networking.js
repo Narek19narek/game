@@ -1,8 +1,9 @@
 import io from 'socket.io-client';
 import { throttle } from 'throttle-debounce';
 import { processGameUpdate } from './state';
+import configs from "./configs";
 
-const socket = io(`http://localhost:3000`, { reconnection: false });
+const socket = io(configs.URL, { reconnection: false });
 const connectedPromise = new Promise(resolve => {
   socket.on('connect', () => {
     console.log('Connected to server!');
