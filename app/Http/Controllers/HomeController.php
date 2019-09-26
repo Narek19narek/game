@@ -34,4 +34,17 @@ class HomeController extends Controller
             Session::forget('savePoints');
         return view('player.index', compact('user'));
     }
+
+    public function profile(Request $request) {
+        $user = Auth::user();
+        if ($request->segment(2) == $user->id) {
+            return view('player.profile', compact('user'));
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function settings () {
+        return view('player.settings');
+    }
 }

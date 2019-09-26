@@ -7,7 +7,6 @@ class Game {
     this.sockets = {};
     this.players = {};
     this.leaderboard = {};
-    // this.bullets = [];
     this.lastUpdateTime = Date.now();
     this.shouldSendUpdate = false;
     setInterval(this.update.bind(this), 1000 / 60);

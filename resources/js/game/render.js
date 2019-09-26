@@ -36,8 +36,9 @@ function render() {
   renderBackground(me.x, me.y);
 
   // Draw boundaries
+    context.beginPath();
   context.strokeStyle = 'black';
-  context.lineWidth = 1;
+  context.lineWidth = 5;
   context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE);
 
   // Draw all bullets
@@ -50,23 +51,53 @@ function render() {
 }
 
 function renderBackground(x, y) {
+
   const backgroundX = MAP_SIZE / 2 - x + canvas.width / 2;
   const backgroundY = MAP_SIZE / 2 - y + canvas.height / 2;
   // context.drawImage(getAsset('bg.png'), backgroundX, backgroundY);
   const backgroundGradient = context.createRadialGradient(
     backgroundX,
     backgroundY,
-    MAP_SIZE / 10,
+    0,
     backgroundX,
     backgroundY,
     MAP_SIZE / 2,
   );
-  backgroundGradient.addColorStop(0, '#379C9C');
-  backgroundGradient.addColorStop(0.13, '#29282B');
-  backgroundGradient.addColorStop(0.66, '#2D882D');
-  backgroundGradient.addColorStop(1, '#490a09');
+  backgroundGradient.addColorStop(1, 'rgba(255,255,255,0)');
+  backgroundGradient.addColorStop(0, '#ffffff');
   context.fillStyle = backgroundGradient;
   context.fillRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, MAP_SIZE, MAP_SIZE)
+    context.beginPath();
+    for (let i = 0; i < 250; i++) {
+        context.moveTo(canvas.width / 2 - x + (i - 125) * 40, -y);
+        context.lineTo(2 * (MAP_SIZE + canvas.width) - x + (i - 125) * 40,2 * (MAP_SIZE + canvas.height)- y);
+
+        context.moveTo(2 * (MAP_SIZE + canvas.width) - x - i * 40, -y);
+        context.lineTo(canvas.width / 2 - x - i * 40,2 * (MAP_SIZE + canvas.height) - y);
+
+        context.moveTo(2 * (MAP_SIZE + canvas.width) + x ,-y + i * ((canvas.height + MAP_SIZE) * 43.8 / (MAP_SIZE + canvas.width)));
+        context.lineTo(- x,-y  + i * ((canvas.height + MAP_SIZE) * 43.8 / (MAP_SIZE + canvas.width)));
+
+        // context.moveTo(canvas.width / 2 - x - (i + 1) * 40, -y);
+        // context.lineTo(2 * (MAP_SIZE + canvas.width) - x - (i + 1) * 40, 2 * (MAP_SIZE + canvas.height)- y);
+        // context.moveTo(2 * (MAP_SIZE + canvas.width) - x - (i + 120) * 40, -y);
+        // context.lineTo(canvas.width / 2 - x - (i + 120) * 40,2 * (MAP_SIZE + canvas.height) - y);
+    }
+
+    // console.log(canvas.width, canvas.height, MAP_SIZE, x, y);
+
+    var grad= context.createRadialGradient(backgroundX,
+        backgroundY,
+        MAP_SIZE / 10,
+        backgroundX,
+        backgroundY,
+        MAP_SIZE / 2,);
+    grad.addColorStop(0, "#707070");
+    grad.addColorStop(1, "rgba(112,112,112,0.1)");
+    context.strokeStyle = grad;
+    context.lineWidth = 1;
+    context.stroke();
 }
 
 // Renders a ship at the given coordinates
@@ -104,24 +135,13 @@ function renderPlayer(me, player) {
   } else {
     context.arc(0, 0, 25, 0, 2 * Math.PI);
   }
-
-  context.strokeStyle = '#ffffff';
+  context.strokeStyle = 'blue';
+    context.lineWidth = 4;
   context.stroke();
-  // context.fill();
-
-  // const img = 'circle.svg';
-  // context.drawImage(
-  //   getAsset(img),
-  //   0, 0,
-  //   // -PLAYER_RADIUS,
-  //   // -PLAYER_RADIUS,
-  //   // PLAYER_RADIUS * 2,
-  //   // PLAYER_RADIUS * 2,
-  // );
   context.restore();
 
   // Draw health bar
-  context.fillStyle = '#ffffff';
+  context.fillStyle = 'blue';
   context.font = '12px Verdana';
   // context.fillRect(
   //   canvasX - PLAYER_RADIUS,

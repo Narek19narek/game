@@ -5,9 +5,9 @@
     <div id="play-menu" class="hidden">
         <label for="username-input">
             <input type="text" id="username-input" placeholder="Username"
-                   value="@if(auth()->check()){{auth()->user()->name}}@else{{request('nickname')}}@endif"/>
+                   value=" @if (auth()->check()){{auth()->user()->name}} @else {{request('nickname')}} @endif"/>
             @if(auth()->check())
-                <input type="text" id="user_info" hidden data-switches="{{auth()->user()->switch}}"
+                <input type="hidden" id="user_info" data-switches="{{auth()->user()->switch}}"
                        data-push="{{auth()->user()->push}}" data-teleport="{{auth()->user()->teleport}}" />
             @endif
 {{--            {{dd(auth()->user()->id)}}--}}
@@ -19,9 +19,7 @@
         <table>
             <tbody>
             <tr>
-                <th>#</th>
-                <th>Username</th>
-                <th>Score</th>
+                <th colspan="2"><img src="{{asset("images/menu/logo.svg")}}" alt=""></th>
             </tr>
             <tr>
                 <td></td>
@@ -65,11 +63,12 @@
             </tr>
             </tbody>
         </table>
+        <div id="score"><h2></h2><span>Points</span></div>
     </div>
     <div id="game-info" class="hidden">
-        <div>S: <span></span></div>
-        <div>T: <span></span></div>
-        <div>P: <span></span></div>
+        <div><p>P</p><span></span></div>
+        <div><p>S</p><span></span></div>
+        <div><p>T</p><span></span></div>
     </div>
     <div id="kill" class="hidden"></div>
     <div id="game-over" class="hidden">
@@ -91,9 +90,5 @@
         window.onload = () => {
             document.getElementById('play-button').click();
         }
-        // window.onbeforeunload = () => {
-        //     console.log(window.location.pathname);
-        //     return window.location.pathname = '';
-        // };
     </script>
 @endpush

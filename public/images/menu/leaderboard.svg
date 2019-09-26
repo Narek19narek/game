@@ -1,0 +1,12 @@
+<svg id="Group_323" data-name="Group 323" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <g id="Circle" fill="#a63333" stroke="#a63333" stroke-width="11">
+    <circle cx="28" cy="28" r="28" stroke="none"/>
+    <circle cx="28" cy="28" r="22.5" fill="none"/>
+  </g>
+  <rect id="Rectangle_1534" data-name="Rectangle 1534" width="14.201" height="22.722" rx="2" transform="translate(20.781 16.277)" fill="#dedede"/>
+  <rect id="Rectangle_1535" data-name="Rectangle 1535" width="18.462" height="14.201" rx="2" transform="translate(8 24.799)" fill="#dedede"/>
+  <rect id="Rectangle_1536" data-name="Rectangle 1536" width="19.462" height="9.941" rx="2" transform="translate(47.344 39) rotate(180)" fill="#dedede"/>
+  <rect id="Rectangle_1537" data-name="Rectangle 1537" width="1.201" height="25.722" rx="0.601" transform="translate(19.781 16.277)" fill="#a63333"/>
+  <rect id="Rectangle_1538" data-name="Rectangle 1538" width="1.201" height="25.722" rx="0.601" transform="translate(34.781 16.277)" fill="#a63333"/>
+  <text id="_1" data-name="1" transform="translate(28 36)" fill="#a63333" font-size="24" font-family="SegoeUI, Segoe UI" letter-spacing="0.45em"><tspan x="-6.469" y="0">1</tspan></text>
+</svg>

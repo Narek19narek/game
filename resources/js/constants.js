@@ -5,16 +5,11 @@ module.exports = Object.freeze({
   PLAYER_SWITCHES: 3,
   PLAYER_TELEPORTS: 3,
   PLAYER_PUSH_PLAYERS: 3,
-  // PLAYER_FIRE_COOLDOWN: 0.25,
-
-  // BULLET_RADIUS: 3,
-  // BULLET_SPEED: 800,
-  // BULLET_DAMAGE: 10,
 
   SCORE: 10,
   SCORE_PER_SECOND: 1 / 10,
 
-  MAP_SIZE: 6000,
+  MAP_SIZE: 3000,
   MSG_TYPES: {
     JOIN_GAME: 'join_game',
     GAME_UPDATE: 'update',

@@ -24,8 +24,8 @@ class Store extends FormRequest
     public function rules()
     {
         return [
-            'coins' => 'required|numeric|min:0|max:999',
-            'price' => 'required|numeric|min:0|max:999'
+            'coins' => 'required|numeric|min:1|max:999999',
+            'price' => 'required|float|min:0.99|max:999'
         ];
     }
 }

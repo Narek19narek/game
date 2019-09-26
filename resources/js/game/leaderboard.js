@@ -19,20 +19,17 @@ export function updateLeaderboard(data, me) {
       rows[i + 1].classList.add('me');
       // console.log(document.querySelector('.me'));
     }
-    rows[i + 1].innerHTML = `<td>${(i + 1)}<td>${escape(data[i].username.slice(0, 15)) || 'Anonymous'}</td><td>${
-      data[i].score
-    }</td>`;
+    rows[i + 1].innerHTML = `<td>${(i + 1)}.<td>${escape(data[i].username.slice(0, 10)) || 'player'}</td>`;
+    document.querySelector('#score h2').innerText = data[i].score;
   }
   for (let i = data.length; i < 10; i++) {
-    rows[i + 1].innerHTML = `<td>${i + 1}</td><td>-</td><td>-</td>`;
+    rows[i + 1].innerHTML = `<td>${i + 1}.</td><td>-</td>`;
   }
   if (!document.querySelector('.me')) {
     const mePos = data.find(obj => obj.id === me.id);
     const tr = document.createElement('tr');
     tr.classList.add('me');
-    tr.innerHTML = `<td>${(data.indexOf(mePos) + 1)}<td>${escape(mePos.username.slice(0, 15)) || 'Anonymous'}</td><td>${
-      mePos.score
-    }</td>`;
+    tr.innerHTML = `<td>${(data.indexOf(mePos) + 1)}<td>${escape(mePos.username.slice(0, 10)) || 'player'}</td>`;
     document.querySelector('#leaderboard table tbody').appendChild(tr);
   }
 }

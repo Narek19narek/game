@@ -73,24 +73,39 @@ button:focus {
     position: fixed;
     top: 10px;
     right: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    padding: 10px;
-    border-radius: 5px;
-}
+    border: 5px solid #A63333;
+    padding: 3px;
+    border-radius: 200px;
+    color: #A63333;
+    font-size: 20px;
+    .me {
+        color: blue;
+        font-weight: 700;
+    }
 
-#leaderboard .me {
-    color: blue;
-    font-weight: 700;
-}
+    th {
+        text-align: center;
+        padding: 10px 20px;
+    }
 
-#leaderboard th {
-    text-align: center;
-    padding: 2px 5px;
-}
-
-#leaderboard td {
-    text-align: center;
-    padding: 2px 5px;
+    td {
+        text-align: left;
+        padding: 0 10px;
+    }
+    td:first-child {
+        text-align: center;
+    }
+    #score {
+        border-top: 5px solid #A63333;
+        text-align: center;
+        h2 {
+            margin: 0;
+            font-size: 50px;
+        }
+        span {
+            font-size: 15px;
+        }
+    }
 }
 
 #disconnect-modal {
@@ -160,18 +175,46 @@ button:focus {
 #game-info {
     display: flex;
     justify-content: center;
-    background-color: rgb(56, 56, 56);
+    //background-color: rgb(56, 56, 56);
     position: fixed;
     bottom: 0;
     right: 0;
     left: 0;
-    padding: 5px;
-    color: #ffeaea;
+    padding: 20px;
+    color: #A63333;
     transition: all 1s linear;
-}
-
-#game-info div {
-    margin: 0 2vw;
+    div {
+        width: 56px;
+        height: 56px;
+        margin: 0 8px;
+        border: 5px solid #A63333;
+        border-radius: 50%;
+        position: relative;
+        p {
+            position: absolute;
+            top: -40%;
+            right: 0;
+            left: 0;
+            text-align: center;
+            margin: 0;
+            font-size: calc(20px + ( 35 - 20 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+            font-weight: bold;
+        }
+        span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+        }
+    }
+    div:nth-child(2) {
+        transform: scale(1.5);
+    }
 }
 
 #kill {

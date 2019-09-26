@@ -1,0 +1,520 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background-color: #E1E1E1;
+  font-family: "FuturaPress Press", sans-serif;
+  color: #A63333;
+}
+
+/*-----HOME-----*/
+
+.menu-buttons.float-right {
+  margin-right: 15px;
+}
+
+.menu-buttons.float-right .logo {
+  margin-bottom: 100px;
+}
+
+.menu-buttons.float-right .menu {
+  margin-bottom: 50px;
+}
+
+.menu-buttons.float-right .menu .item {
+  margin-bottom: 30px;
+}
+
+.menu-buttons.float-right .menu .item .account {
+  background-color: #A63333;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  color: #DEDEDE;
+}
+
+.menu-buttons.float-right .menu .item .account .lvl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 11px;
+}
+
+.menu-buttons.float-right .menu .item .account .lvl-count {
+  position: absolute;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 38px;
+}
+
+#shareBtn {
+  cursor: pointer;
+  z-index: 2;
+}
+
+#share-buttons {
+  display: none;
+  z-index: 1;
+}
+
+#share-buttons div {
+  padding: 0 10px;
+}
+
+#share-buttons:after {
+  content: "";
+  background: url(/images/sharebg.png?03d373739a33c6a06dfd4cb491d50f3f) no-repeat;
+  background-position: -114px -10px;
+  top: -15px;
+  position: absolute;
+  padding: 60px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+#share-buttons.active {
+  display: flex;
+  flex-direction: row-reverse;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-right: 80px;
+}
+
+.switrio {
+  padding-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.switrio img {
+  width: 70%;
+}
+
+.play-btn #playBtn {
+  margin: auto;
+  max-width: 60%;
+}
+
+.play-btn .form-control-plaintext {
+  font-family: "FuturaPress Press", sans-serif;
+  font-size: 23px;
+  color: #A63333;
+  letter-spacing: 4px;
+}
+
+.play-btn .form-control-plaintext::-webkit-input-placeholder {
+  color: #A63333;
+}
+
+.play-btn .form-control-plaintext::-moz-placeholder {
+  color: #A63333;
+}
+
+.play-btn .form-control-plaintext:-ms-input-placeholder {
+  color: #A63333;
+}
+
+.play-btn .form-control-plaintext::-ms-input-placeholder {
+  color: #A63333;
+}
+
+.play-btn .form-control-plaintext::placeholder {
+  color: #A63333;
+}
+
+/*-----LOGIN-----*/
+
+#loginPage form label {
+  font-size: 23px;
+  letter-spacing: 4.5px;
+}
+
+#loginPage form input {
+  width: 100%;
+  height: 93%;
+  padding: 8px;
+  padding-left: 10px;
+  background-color: #E1E1E1 !important;
+  border: 3px solid #A63333;
+  border-radius: 20px;
+  outline: none;
+}
+
+#loginPage form a {
+  color: #A63333;
+  font-size: 17px;
+  letter-spacing: 0.5px;
+}
+
+#loginPage .register {
+  position: relative;
+  margin-top: 100px;
+  justify-content: space-evenly;
+  border-radius: 999px;
+  -webkit-filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
+          filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
+  background: transparent;
+  border: 50px solid #eee;
+}
+
+#loginPage .register .google-register,
+#loginPage .register .default-register,
+#loginPage .register .facebook-register {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #A63333;
+  border-radius: 999px;
+  transition: all 0.4s ease-in-out;
+  width: calc( 50px + ( 136 - 50 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+  height: calc( 50px + ( 136 - 50 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+}
+
+#loginPage .register .google-register a,
+#loginPage .register .default-register a,
+#loginPage .register .facebook-register a {
+  color: #E0E0E0;
+  font-size: calc( 30px + ( 80 - 30 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+}
+
+#loginPage .register .google-register svg,
+#loginPage .register .default-register svg,
+#loginPage .register .facebook-register svg {
+  width: calc( 15px + ( 60 - 15 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+}
+
+#loginPage .register .default-register:hover,
+#loginPage .register .google-register:hover,
+#loginPage .register .facebook-register:hover {
+  transform: scale(1.25);
+}
+
+#loginPage .register p {
+  color: #A63333;
+  font-size: calc( 13px + ( 36 - 13 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+  margin: 0;
+}
+
+#loginPage .register:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(0, #fff, transparent);
+  border-radius: 999px;
+  z-index: -1;
+}
+
+a.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.back-btn i {
+  color: #A63333;
+  font-size: 58px;
+}
+
+.form-btn button,
+.form-btn p {
+  display: flex;
+  align-items: center;
+  padding: 0 0.5em;
+  color: #A63333;
+  font-size: calc( 30px + ( 89 - 30 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+  letter-spacing: 4.5px;
+  border: none;
+  outline: none;
+  background: transparent;
+  -webkit-appearance: none;
+  position: relative;
+}
+
+.form-btn button:after,
+.form-btn button:before,
+.form-btn p:after,
+.form-btn p:before {
+  content: "";
+  width: 0.2em;
+  height: 0.22em;
+  background: #A63333;
+  border-radius: 0.2em;
+  position: absolute;
+  right: 0;
+}
+
+.form-btn button:before,
+.form-btn p:before {
+  left: 0;
+}
+
+.form-btn button:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.form-btn button:hover,
+.form-btn button:focus,
+.form-btn button:active {
+  color: #A63333;
+}
+
+/*-----REGISTER-----*/
+
+#registerPage .register {
+  position: relative;
+  margin-top: 100px;
+  justify-content: space-evenly;
+  border-radius: 999px;
+  -webkit-filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
+          filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
+  background: transparent;
+  border: 50px solid #eee;
+}
+
+#registerPage .register:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(0, #fff, transparent);
+  border-radius: 999px;
+  z-index: -1;
+}
+
+#registerPage form label {
+  font-size: calc( 13px + ( 23 - 13 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+  letter-spacing: 4.5px;
+}
+
+#registerPage form input {
+  width: 100%;
+  height: 93%;
+  padding: 8px;
+  padding-left: 10px;
+  background-color: #E1E1E1 !important;
+  border: 3px solid #A63333;
+  border-radius: 20px;
+  outline: none;
+}
+
+#registerPage form .conditions {
+  letter-spacing: 1px;
+}
+
+#registerPage form .conditions + div {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#registerPage form .conditions + div input {
+  width: 40px;
+  position: relative;
+}
+
+#registerPage form .conditions + div input:after {
+  content: "";
+  width: calc(32px + ( 40 - 32 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+  height: calc(32px + ( 40 - 32 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+  background-color: transparent;
+  border: 3px solid #A63333;
+  border-radius: 50px;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+#registerPage form .conditions + div label {
+  display: flex;
+  align-items: center;
+}
+
+/*-----PROFILE-----*/
+
+.formContent {
+  position: relative;
+  margin-top: 100px;
+  justify-content: space-evenly;
+  border-radius: 999px;
+  -webkit-filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
+          filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
+  background: transparent;
+  border: 50px solid #eee;
+}
+
+.formContent:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: linear-gradient(0, #fff, transparent);
+  border-radius: 999px;
+  z-index: -1;
+}
+
+#profile .account-lvl {
+  display: flex;
+  align-items: center;
+}
+
+#profile .account-lvl > div {
+  width: calc(50px + ( 140 - 50 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+  height: calc(50px + ( 140 - 50 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+  border-radius: 100px;
+  border: 3px solid #A63333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#profile .account-lvl > div .lvl {
+  font-size: calc(11px + ( 20 - 11 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+}
+
+#profile .account-lvl > div .lvl-count {
+  height: 80%;
+  font-size: calc(30px + ( 94 - 30 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+}
+
+#profile .account-info {
+  font-size: calc(30px + ( 30 - 14 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+  letter-spacing: 0.5px;
+}
+
+#profile .account-info p {
+  overflow: hidden;
+}
+
+#profile .account-info a {
+  font-size: inherit;
+  color: #A63333;
+}
+
+#profile .notifications p {
+  font-size: calc(30px + ( 30 - 14 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+  letter-spacing: 0.5px;
+}
+
+#profile .notifications form div {
+  align-items: center;
+}
+
+#profile .notifications form label {
+  font-size: calc(10px + ( 14 - 10 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+  letter-spacing: 0.5px;
+  margin: 0;
+  padding-right: 1em;
+}
+
+#profile #carousel ol {
+  justify-content: space-evenly;
+  align-items: baseline;
+  width: 60%;
+  margin: auto;
+}
+
+#profile #carousel ol li {
+  list-style-type: none;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+#profile #carousel ol li p {
+  display: none;
+  opacity: 0;
+}
+
+#profile #carousel ol li.active {
+  transform: scale(1.5);
+}
+
+#profile #carousel ol li.active p {
+  display: block;
+  opacity: 1;
+}
+
+#profile #carousel ol li.dot {
+  flex-basis: 22px;
+  height: 22px;
+  background: #A63333;
+  border-radius: 22px;
+}
+
+#profile #carousel .carousel-inner .carousel-item {
+  padding: 3% 13% 13%;
+}
+
+#profile .formContent {
+  margin-top: 0;
+}
+
+#profile .carousel-control-prev,
+#profile .carousel-control-next {
+  color: #A63333;
+  font-size: 6em;
+  opacity: 1;
+}
+
+/*-----COINS-----*/
+
+#coin .coin-count {
+  margin: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #DEDEDE;
+}
+
+#coin .popular > div,
+#coin .best {
+  background-color: #A63333;
+}
+
+#coin .popular > div h4,
+#coin .best h4 {
+  color: #FFFFFF;
+  position: absolute;
+  font-size: 15px;
+  text-align: center;
+  top: 0;
+}
+
+#coin .best > div {
+  background-color: #009223;
+}
+

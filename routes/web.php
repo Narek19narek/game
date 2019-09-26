@@ -18,7 +18,7 @@ Route::post('game-over', 'PlayerController@index');
 Route::post('/play', 'PlayerController@start')->name('play');
 
 
-Route::post('game/login', 'HomeController@login')->name('game.login');
+//Route::post('game/login', 'HomeController@login')->name('game.login');
 
 
 Auth::routes();
@@ -26,10 +26,14 @@ Auth::routes();
 //Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('/profile/{id}', 'HomeController@profile')->name('profile')->middleware('auth');
+
 Route::get('/shop', 'ShopController@index')->name('shop');
 
-Route::get('/get-coin', 'CoinsController@index')->name('get-coin');
-Route::get('/get-coin/success', 'CoinsController@success')->name('get-success');
+Route::get('/get-coin', 'CoinsController@index')->name('get-coin')->middleware('auth');
+
+Route::get('/settings', 'HomeController@settings')->name('settings');
+//Route::get('/get-coin/success', 'CoinsController@success')->name('get-success');
 Route::get('/payment/success', 'CoinsController@success2');
 
 Route::get('/payment/{id}', 'CoinsController@payment')->name('payment');

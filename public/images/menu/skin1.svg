@@ -1,0 +1,9 @@
+<svg id="Group_321" data-name="Group 321" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <g id="Circle" fill="#a63333" stroke="#a63333" stroke-width="11">
+    <circle cx="28" cy="28" r="28" stroke="none"/>
+    <circle cx="28" cy="28" r="22.5" fill="none"/>
+  </g>
+  <path id="Half_Face" data-name="Half Face" d="M19-2.336V40.795S-.922,40.016-.988,19,19-2.336,19-2.336Z" transform="translate(9 9)" fill="#dedede"/>
+  <path id="Left_Eye" data-name="Left Eye" d="M8918.525-8167.637s-1.811-2.954-4.548-3.657-6.4.844-6.4.844c0,.464.377,1.464,2.813,2.813S8918.525-8167.637,8918.525-8167.637Z" transform="translate(-8896 8191)" fill="#a63333"/>
+  <path id="Right_Eye" data-name="Right Eye" d="M8907.576-8167.637s1.811-2.954,4.548-3.657,6.4.844,6.4.844c0,.464-.377,1.464-2.813,2.813S8907.576-8167.637,8907.576-8167.637Z" transform="translate(-8875.051 8191)" fill="#dedede"/>
+</svg>

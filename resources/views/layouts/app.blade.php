@@ -3,6 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url"           content="{{env('APP_URL')}}" />
+    <meta property="og:type"          content="website" />
+    <meta property="og:title"         content="SWITRIO" />
+    <meta property="og:description"   content="Good game" />
+    <meta property="og:image"         content="{{asset('images/switrio.svg')}}" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -10,6 +15,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
+    <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -19,7 +28,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/player.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
 </head>
 <body>
     <div id="app">
@@ -73,9 +83,10 @@
 {{--                </div>--}}
 {{--            </div>--}}
 {{--        </nav>--}}
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
     </div>
+    <script type="text/javascript" src="{{ asset("js/main.js") }}"></script>
 </body>
 </html>

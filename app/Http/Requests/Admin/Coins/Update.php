@@ -24,8 +24,8 @@ class Update extends FormRequest
     public function rules()
     {
         return [
-            'coins' => 'required|numeric|min:0|max:999',
-            'price' => 'required|numeric|min:0|max:999'
+            'coins' => 'required|numeric|min:0|max:999999',
+            'price' => 'required|between:0,99.99|min:0|max:999'
         ];
     }
 }

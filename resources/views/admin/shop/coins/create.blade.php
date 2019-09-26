@@ -14,7 +14,7 @@
                 </div>
                 <div class="form-group @error('price') has-error @enderror">
                     <label for="coins_cost">Price</label>
-                    <input class="form-control" id="coins_cost" type="number" placeholder="Please enter coins price" name="price" value="{{ old('price') }}">
+                    <input class="form-control" id="coins_cost" type="text" placeholder="Please enter coins price" name="price" value="{{ old('price') }}">
                     @error('price')
                         <p class="text-danger">{{$message}}</p>
                     @enderror

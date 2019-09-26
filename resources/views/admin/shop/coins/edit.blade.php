@@ -8,14 +8,14 @@
                 <input type="hidden" name="_method" value="PUT">
                 <div class="form-group @error('coins') has-error @enderror">
                     <label for="coins_count">Coins</label>
-                    <input class="form-control" id="coins_count" type="number" placeholder="Please enter coins count" name="coins" value="{{ old('coins') ? old('coins') : $coin->coin }}">
+                    <input class="form-control" id="coins_count" type="number" step="0.01" placeholder="Please enter coins count" name="coins" value="{{ old('coins') ? old('coins') : $coin->coin }}">
                     @error('coins')
                     <p class="text-danger">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="form-group @error('price') has-error @enderror">
                     <label for="coins_cost">Price</label>
-                    <input class="form-control" id="coins_cost" type="number" placeholder="Please enter coins price" name="price" value="{{ old('price') ? old('price') : $coin->price }}">
+                    <input class="form-control" id="coins_cost" type="number" step="0.01" placeholder="Please enter coins price" name="price" value="{{ old('price') ? old('price') : $coin->price }}">
                     @error('price')
                     <p class="text-danger">{{$message}}</p>
                     @enderror

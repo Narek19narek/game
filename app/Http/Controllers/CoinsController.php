@@ -29,8 +29,6 @@ class CoinsController extends Controller
             $iterator++;
 //            dd($event->data->object);
         }
-        dd($iterator);
-        dd($request->all());
         return view('player.shop.coin.index', compact('coins'));
     }
 

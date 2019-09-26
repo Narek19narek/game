@@ -1,0 +1,20 @@
+<svg id="Group_326" data-name="Group 326" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+  <g id="Circle" fill="#a63333" stroke="#a63333" stroke-width="11">
+    <circle cx="28" cy="28" r="28" stroke="none"/>
+    <circle cx="28" cy="28" r="22.5" fill="none"/>
+  </g>
+  <g id="Ellipse_170" data-name="Ellipse 170" transform="translate(27 8)" fill="none" stroke="#dedede" stroke-width="4">
+    <circle cx="8" cy="8" r="8" stroke="none"/>
+    <circle cx="8" cy="8" r="6" fill="none"/>
+  </g>
+  <rect id="Rectangle_1539" data-name="Rectangle 1539" width="4" height="14" transform="matrix(0.454, -0.891, 0.891, 0.454, 17.318, 35.053)" fill="#dedede"/>
+  <g id="Ellipse_171" data-name="Ellipse 171" transform="translate(6 20)" fill="none" stroke="#dedede" stroke-width="4">
+    <circle cx="8" cy="8" r="8" stroke="none"/>
+    <circle cx="8" cy="8" r="6" fill="none"/>
+  </g>
+  <g id="Ellipse_172" data-name="Ellipse 172" transform="translate(27 33)" fill="none" stroke="#dedede" stroke-width="4">
+    <circle cx="8" cy="8" r="8" stroke="none"/>
+    <circle cx="8" cy="8" r="6" fill="none"/>
+  </g>
+  <rect id="Rectangle_1540" data-name="Rectangle 1540" width="4" height="13" transform="translate(19.219 25.273) rotate(-120)" fill="#dedede"/>
+</svg>
