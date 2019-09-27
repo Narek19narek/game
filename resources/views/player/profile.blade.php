@@ -85,84 +85,27 @@
                                         <table class="table table-borderless text-center">
                                             <thead>
                                                 <tr>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">Price</th>
-                                                    <th scope="col">Coins</th>
-                                                    <th scope="col">Method</th>
-                                                    <th scope="col">Status</th>
+                                                    <th scope="col" class="px-0 pl-3">Date</th>
+                                                    <th scope="col" class="px-1">Price</th>
+                                                    <th scope="col" class="px-0">Coins</th>
+                                                    <th scope="col" class="px-1">Method</th>
+                                                    <th scope="col" class="px-0 pr-3">Status</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Mark</td>
-                                                    <td>Otto</td>
-                                                    <td>@mdo</td>
-                                                    <td>@mdo</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Jacob</td>
-                                                    <td>Thornton</td>
-                                                    <td>@fat</td>
-                                                    <td>@fat</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td >Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                    <td>@twitter</td>
-                                                    <td>@twitter</td>
-                                                </tr>
-                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="formContent row justify-content-center">
-                                        <div class="col-md-2 account-lvl position-relative">
-                                            <div class="my-4">
-                                                <span class="lvl-count">{{ Auth::user()->level }}</span>
-                                                <span class="lvl">LVL</span>
-                                            </div>
+{{--                                        <div class="col-md-2 account-lvl position-relative">--}}
+
+{{--                                        </div>--}}
+                                        <div class="col-12 account-info my-4 d-flex justify-content-center align-items-center">
+                                            <h1 class="text-center">COMING SOON</h1>
                                         </div>
-                                        <div class="col-md-5 account-info my-4">
-                                            <div class="d-flex">
-                                                <p class="my-0">XP:</p>
-                                                <p class="my-0">{{ $user->levelXp() }} / {{ $user->nextLevelXp() }}</p>
-                                            </div>
-                                            <div class="d-flex">
-                                                <p class="my-0" title="{{  $user->email }}">{{ $user->email }}</p>
-                                            </div>
-                                            <div class="d-flex">
-                                                @if (Route::has('password.request'))
-                                                    <a class="btn p-0" href="{{ route('password.request') }}">
-                                                        {{ __('Reset pass') }}
-                                                    </a>
-                                                @endif
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 notifications my-4">
-                                            <div class="row justify-content-end">
-                                                <p>Notifications:</p>
-                                            </div>
-                                            <div>
-                                                <form>
-                                                    <div class="row justify-content-end">
-                                                        <label for="email">Email</label>
-                                                        <input type="checkbox" id="email" name="email">
-                                                    </div>
-                                                    <div class="row justify-content-end">
-                                                        <label for="newsletter">Newsletter</label>
-                                                        <input type="checkbox" id="newsletter" name="newsletter">
-                                                    </div>
-                                                    <div class="row justify-content-end">
-                                                        <label for="br_notification">Browser Notifications</label>
-                                                        <input type="checkbox" id="br_notification" name="br_notification">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+{{--                                        <div class="col-md-4 notifications my-4">--}}
+
+{{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,11 @@
 /node_modules
 /public/hot
+/public/js
+/public/css/app
+/public/css/game
+/public/css/main
 /public/storage
+/resources/js/game/configs
 /storage/*.key
 /vendor
 .env

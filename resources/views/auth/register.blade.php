@@ -16,7 +16,7 @@
             <div class="col">
                 <div class="row justify-content-center">
                     <div class="col-md-9">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" autocomplete="off">
                             @csrf
 
                             <div class="register">
@@ -49,7 +49,7 @@
                                 <div class="row justify-content-center">
                                     <label for="password" class="col-md-4 text-md-right">{{ __('PASSWORD:') }}</label>
                                     <div class="col-md-6 px-0">
-                                        <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                        <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required>
 
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
@@ -62,13 +62,13 @@
                                 <div class="row justify-content-center">
                                     <label for="password-confirm" class="col-md-4 text-md-right">{{ __('RE-ENTER:') }}</label>
                                     <div class="col-md-6 px-0">
-                                        <input id="password-confirm" type="password" name="password_confirmation" required autocomplete="new-password">
+                                        <input id="password-confirm" type="password" name="password_confirmation" required>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center pb-4">
                                     <label for="conditions" class="col-md-4 text-md-right conditions">{{ __('Terms and Conditions') }}</label>
                                     <div class="col-md-6 px-0 mt-1">
-                                        <input id="conditions" type="radio" name="conditions" required autocomplete="conditions">
+                                        <input id="conditions" type="radio" name="conditions" required>
                                         <label for="conditions" class="pl-2">ACCEPT</label>
                                     </div>
                                 </div>

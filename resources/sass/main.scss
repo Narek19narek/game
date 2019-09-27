@@ -10,7 +10,7 @@ html, body {
 
 body {
     background-color: #E1E1E1;
-    font-family: 'FuturaPress Press', sans-serif;
+    font-family: 'FuturaPress', sans-serif;
     color: #A63333;
 }
 
@@ -94,7 +94,7 @@ body {
     justify-content: center;
     align-items: center;
     img {
-        width: 70%;
+        width: 80%;
     }
 }
 
@@ -108,6 +108,8 @@ body {
         font-size: 23px;
         color: #A63333;
         letter-spacing: 4px;
+        width: 200px;
+        margin: auto;
     }
     .form-control-plaintext::placeholder {
         color: #A63333;
@@ -315,6 +317,7 @@ a.btn:focus {
 
 /*-----PROFILE-----*/
 .formContent {
+    height: 350px;
     position: relative;
     margin-top: 100px;
     justify-content: space-evenly;
@@ -433,6 +436,9 @@ a.btn:focus {
         table {
 
         }
+    }
+    .form-btn {
+        transform: translateY(-80%);
     }
 }
 

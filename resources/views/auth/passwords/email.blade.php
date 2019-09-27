@@ -4,7 +4,7 @@
     <div class="container-fluid h-100 py-4">
         <div class="menu-buttons row justify-content-between">
             <div class="col-auto back-btn">
-                <a href="{{ url()->previous() }}" class="btn p-0"><i class="fas fa-angle-left"></i></a>
+                <a href="{{ route('home') }}" class="btn p-0"><i class="fas fa-angle-left"></i></a>
             </div>
             <div class="col-auto logo text-center">
                 <a href="{{ route('home') }}">
@@ -17,11 +17,17 @@
                 <div class="row justify-content-center">
                     <div class="col-md-9">
                         @if (session('status'))
-                            <div class="alert alert-success" role="alert">
+                            <div class="alert alert-success text-center" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <form method="POST" action="{{ route('password.email') }}">
+                        @forelse($errors->all() as $error)
+                            <div class="alert alert-danger text-center" role="alert">
+                                {{ $error }}
+                            </div>
+                            @empty
+                        @endforelse
+                        <form method="POST" action="{{ route('password.email') }}" autocomplete="off">
                             @csrf
 
                             <div class="register">

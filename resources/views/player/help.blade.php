@@ -19,7 +19,7 @@
                             <h1 class="text-center">COMING SOON</h1>
                         </div>
                         <div class="row justify-content-center form-btn mt-5">
-                            <p>{{ __('SETTINGS') }}</p>
+                            <p>{{ __('HELP') }}</p>
                         </div>
                     </div>
                 </div>

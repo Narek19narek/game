@@ -9,6 +9,13 @@
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
 
+    <style type="text/css">
+        @font-face {
+            font-family: FuturaPress;
+            src: url('{{ asset('fonts/futurapr.tff') }}');
+        }
+    </style>
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 

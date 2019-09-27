@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCoinsTable extends Migration
+class AddGoogleIdColumn extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCoinsTable extends Migration
      */
     public function up()
     {
-        Schema::create('coins', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('coin')->unsigned();
-            $table->string('price');
-            $table->timestamps();
+        Schema::table('users', function ($table) {
+            $table->string('google_id')->nullable();
         });
     }
 
@@ -28,6 +25,6 @@ class CreateCoinsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coins');
+        //
     }
 }

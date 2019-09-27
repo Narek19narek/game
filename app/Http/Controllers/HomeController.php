@@ -47,4 +47,8 @@ class HomeController extends Controller
     public function settings () {
         return view('player.settings');
     }
+
+    public function help () {
+        return view('player.help');
+    }
 }

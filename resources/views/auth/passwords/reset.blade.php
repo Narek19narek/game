@@ -16,7 +16,7 @@
             <div class="col">
                 <div class="row justify-content-center">
                     <div class="col-md-9">
-                        <form method="POST" action="{{ route('password.update') }}">
+                        <form method="POST" action="{{ route('password.update') }}" autocomplete="off">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
                             <div class="register">

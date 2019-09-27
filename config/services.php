@@ -44,4 +44,15 @@ return [
         ],
     ],
 
+    'facebook' => [
+        'client_id' => '2276421049337042',
+        'client_secret' => '8528686020428c1a937d2434694838d3',
+        'redirect' => 'switr.io',
+    ],
+
+    'google' => [
+        'client_id' => 'AIzaSyB-IRV-QZNCBBGYd219T9h7pToYXyJUlfo',
+        'client_secret' => 'AIzaSyDuKf4KuGcPeuGhJixtpmswzW84LyUDC5o',
+        'redirect' => 'http://game.loc/auth/google/callback',
+    ],
 ];

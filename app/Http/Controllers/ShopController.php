@@ -29,4 +29,13 @@ class ShopController extends Controller
         $skins = Skin::all();
         return view('player.shop.index', compact('coins', 'boosts', 'skins'));
     }
+    public function skin() {
+        $skins = Skin::all();
+        return view('player.shop.skin.index', compact('skins'));
+    }
+
+    public function boosts() {
+        $boosts = Boost::all();
+        return view('player.shop.boosts.index', compact('boosts'));
+    }
 }

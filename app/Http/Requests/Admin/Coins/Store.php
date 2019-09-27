@@ -25,7 +25,7 @@ class Store extends FormRequest
     {
         return [
             'coins' => 'required|numeric|min:1|max:999999',
-            'price' => 'required|float|min:0.99|max:999'
+            'price' => 'required|string|min:0.99|max:999'
         ];
     }
 }

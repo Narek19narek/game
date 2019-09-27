@@ -15,12 +15,12 @@
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('get-coin') }}">
                             <img src="{{ asset("images/menu/coin1.svg") }}" alt="coin image">
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('get-skin') }}">
                             <img src="{{ asset("images/menu/skin1.svg") }}" alt="skin image">
                         </a>
                     </div>
@@ -39,18 +39,18 @@
                         </a>
                     </div>
                     <div class="item">
-                        <a href="{{ route('home') }}">
+                        <a href="{{ route('get-skin') }}">
                             <img src="{{ asset("images/menu/skin2.svg") }}" alt="skin image">
                         </a>
                     </div>
                 @endguest
                 <div class="item">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('get-boosts') }}">
                         <img src="{{ asset("images/menu/boost1.svg") }}" alt="boost image">
                     </a>
                 </div>
                 <div class="item">
-                    <a href="{{ route('home') }}">
+                    <a href="{{ route('help') }}">
                         <img src="{{ asset("images/menu/help.svg") }}" alt="help image">
                     </a>
                 </div>
@@ -101,7 +101,7 @@
         <div class="row">
             <div class="col-8 mx-auto">
                 <div class="text-center play-btn">
-                    <form method="POST" action="{{ route('play') }}">
+                    <form method="POST" action="{{ route('play') }}" autocomplete="off">
                         @csrf
                         <input type="image" src="{{ asset('images/play-btn.png') }}" alt="PLAY" id="playBtn">
                         <input id="nickname" type="text" class="form-control-plaintext text-center" name="nickname"
@@ -155,14 +155,14 @@
 {{--                                    <p class="card-text">Switch - {{ Auth::user()->switch }}</p>--}}
 {{--                                    <p class="card-text">Teleport - {{ Auth::user()->teleport }}</p>--}}
 {{--                                    <p class="card-text">Push - {{ Auth::user()->push }}</p>--}}
-                                    <a class="btn btn-primary" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
+{{--                                    <a class="btn btn-primary" href="{{ route('logout') }}"--}}
+{{--                                       onclick="event.preventDefault();--}}
+{{--                                                     document.getElementById('logout-form').submit();">--}}
+{{--                                        {{ __('Logout') }}--}}
+{{--                                    </a>--}}
+{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
+{{--                                        @csrf--}}
+{{--                                    </form>--}}
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}

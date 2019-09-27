@@ -14,7 +14,7 @@
         </div>
         <div class="row justify-content-center pt-4" id="loginPage">
             <div class="col">
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}" >
                     @csrf
 
                     <div class="row">
@@ -70,9 +70,10 @@
                         <div class="col-md-8">
                             <div class="row register">
                                 <div class="google-register mt-4  mb-2">
-                                    <a href="">
+                                    <a href="{{ url('auth/google') }}">
                                         <i class="fab fa-google-plus-g"></i>
                                     </a>
+
                                 </div>
                                 <div class="default-register mt-4  mb-2">
                                     <a href="{{ route('register') }}">
@@ -82,10 +83,9 @@
                                     </a>
                                 </div>
                                 <div class="facebook-register mt-4 mb-2">
-                                    <a href="">
+                                    <a href="{{ url('/auth/redirect/facebook') }}">
                                         <i class="fab fa-facebook-f"></i>
-                                    </a>
-                                </div>
+                                    </a>                             </div>
                                 <div class="col-12 d-flex justify-content-center ">
                                     <p>REGISTER</p>
                                 </div>

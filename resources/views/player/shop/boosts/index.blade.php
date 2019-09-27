@@ -15,11 +15,11 @@
             <div class="col">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 col-md-12">
-                        <div class="formContent row align-items-center">
-                            <h1 class="text-center">COMING SOON</h1>
+                        <div class="formContent row">
+
                         </div>
                         <div class="row justify-content-center form-btn mt-5">
-                            <p>{{ __('SETTINGS') }}</p>
+                            <p>{{ __('BOOSTS') }}</p>
                         </div>
                     </div>
                 </div>

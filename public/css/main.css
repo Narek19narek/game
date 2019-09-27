@@ -11,7 +11,7 @@ body {
 
 body {
   background-color: #E1E1E1;
-  font-family: "FuturaPress Press", sans-serif;
+  font-family: "FuturaPress", sans-serif;
   color: #A63333;
 }
 
@@ -104,7 +104,7 @@ body {
 }
 
 .switrio img {
-  width: 70%;
+  width: 80%;
 }
 
 .play-btn #playBtn {
@@ -117,6 +117,8 @@ body {
   font-size: 23px;
   color: #A63333;
   letter-spacing: 4px;
+  width: 200px;
+  margin: auto;
 }
 
 .play-btn .form-control-plaintext::-webkit-input-placeholder {
@@ -358,6 +360,7 @@ a.btn:focus {
 /*-----PROFILE-----*/
 
 .formContent {
+  height: 350px;
   position: relative;
   margin-top: 100px;
   justify-content: space-evenly;
@@ -483,6 +486,10 @@ a.btn:focus {
   color: #A63333;
   font-size: 6em;
   opacity: 1;
+}
+
+#profile .form-btn {
+  transform: translateY(-80%);
 }
 
 /*-----COINS-----*/
