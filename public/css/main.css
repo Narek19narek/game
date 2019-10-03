@@ -2,6 +2,11 @@
   padding: 0;
   margin: 0;
   outline: none;
+  font-family: "FuturaPress", sans-serif;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 html,
@@ -11,7 +16,6 @@ body {
 
 body {
   background-color: #E1E1E1;
-  font-family: "FuturaPress", sans-serif;
   color: #A63333;
 }
 
@@ -22,15 +26,15 @@ body {
 }
 
 .menu-buttons.float-right .logo {
-  margin-bottom: 100px;
+  margin-bottom: 70px;
 }
 
 .menu-buttons.float-right .menu {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 
 .menu-buttons.float-right .menu .item {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .menu-buttons.float-right .menu .item .account {
@@ -98,22 +102,36 @@ body {
 
 .switrio {
   padding-top: 5%;
+  padding-bottom: 5%;
   display: flex;
   justify-content: center;
   align-items: center;
+  -webkit-filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
+          filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
 }
 
-.switrio img {
-  width: 80%;
+.switrio div.img {
+  border: 50px solid #eee;
+  border-radius: 300px;
+  position: relative;
+  height: 365px;
+}
+
+.switrio div.img img {
+  top: -15%;
+  left: -3%;
+  z-index: -1;
+  width: 106%;
+  position: relative;
 }
 
 .play-btn #playBtn {
   margin: auto;
   max-width: 60%;
+  font-family: "FuturaPress", sans-serif;
 }
 
 .play-btn .form-control-plaintext {
-  font-family: "FuturaPress Press", sans-serif;
   font-size: 23px;
   color: #A63333;
   letter-spacing: 4px;
@@ -157,6 +175,7 @@ body {
   border: 3px solid #A63333;
   border-radius: 20px;
   outline: none;
+  color: #A63333;
 }
 
 #loginPage form a {
@@ -166,14 +185,8 @@ body {
 }
 
 #loginPage .register {
-  position: relative;
-  margin-top: 100px;
   justify-content: space-evenly;
-  border-radius: 999px;
-  -webkit-filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
-          filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
-  background: transparent;
-  border: 50px solid #eee;
+  align-items: center;
 }
 
 #loginPage .register .google-register,
@@ -206,6 +219,11 @@ body {
 #loginPage .register .google-register:hover,
 #loginPage .register .facebook-register:hover {
   transform: scale(1.25);
+}
+
+#loginPage .register .text {
+  position: absolute;
+  bottom: 0;
 }
 
 #loginPage .register p {
@@ -243,7 +261,7 @@ a.btn:focus {
   padding: 0 0.5em;
   color: #A63333;
   font-size: calc( 30px + ( 89 - 30 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
-  letter-spacing: 4.5px;
+  letter-spacing: 14px;
   border: none;
   outline: none;
   background: transparent;
@@ -320,6 +338,7 @@ a.btn:focus {
   border: 3px solid #A63333;
   border-radius: 20px;
   outline: none;
+  color: #A63333;
 }
 
 #registerPage form .conditions {
@@ -360,9 +379,11 @@ a.btn:focus {
 /*-----PROFILE-----*/
 
 .formContent {
-  height: 350px;
+  height: calc( 290px + ( 365 - 290 ) * ( 100vw - 900px ) / ( 1920 - 900 ) );
   position: relative;
-  margin-top: 100px;
+  max-width: 1065px;
+  margin: auto;
+  margin-top: 70px;
   justify-content: space-evenly;
   border-radius: 999px;
   -webkit-filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
@@ -404,8 +425,10 @@ a.btn:focus {
 }
 
 #profile .account-lvl > div .lvl-count {
-  height: 80%;
+  height: 60%;
   font-size: calc(30px + ( 94 - 30 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+  display: flex;
+  align-items: center;
 }
 
 #profile .account-info {
@@ -432,10 +455,30 @@ a.btn:focus {
 }
 
 #profile .notifications form label {
-  font-size: calc(10px + ( 14 - 10 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
+  font-size: calc(13px + ( 16 - 13 ) * ( 100vw - 320px ) / ( 1920 - 320 ));
   letter-spacing: 0.5px;
   margin: 0;
   padding-right: 1em;
+}
+
+#profile #carousel .carousel-indicators {
+  position: static;
+}
+
+#profile #carousel .carousel-indicators li {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: auto;
+  height: auto;
+  margin-right: 0;
+  margin-left: 0;
+  text-indent: 0;
+  cursor: pointer;
+  background-color: transparent;
+  background-clip: padding-box;
+  border-top: none;
+  border-bottom: none;
+  opacity: 1;
 }
 
 #profile #carousel ol {
@@ -448,11 +491,14 @@ a.btn:focus {
 #profile #carousel ol li {
   list-style-type: none;
   text-align: center;
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.4s ease-in-out;
   position: relative;
 }
 
 #profile #carousel ol li p {
+  position: absolute;
+  left: 0;
+  right: 0;
   display: none;
   opacity: 0;
 }
@@ -467,6 +513,8 @@ a.btn:focus {
 }
 
 #profile #carousel ol li.dot {
+  cursor: default;
+  pointer-events: none;
   flex-basis: 22px;
   height: 22px;
   background: #A63333;
@@ -488,11 +536,78 @@ a.btn:focus {
   opacity: 1;
 }
 
+#profile .transactions table {
+  color: #A63333;
+}
+
+#profile .transactions table thead th {
+  font-size: calc( 14px + ( 26 - 14 ) * (100vw - 320px) / 1600);
+}
+
+#profile .transactions table tbody tr td {
+  font-size: calc( 12px + ( 19 - 12 ) * (100vw - 320px) / 1600);
+}
+
+#profile .transactions table tbody tr td:nth-of-type(1) {
+  color: #000000;
+  font-weight: bold;
+}
+
+#profile .transactions table tbody tr td:nth-of-type(2) {
+  color: #A63333;
+  font-weight: bold;
+}
+
+#profile .transactions table tbody tr td:nth-of-type(3) {
+  color: #FFB200;
+  font-weight: bold;
+}
+
+#profile .transactions table tbody tr td.stripe {
+  color: #6772E5;
+  font-size: 20px;
+}
+
+#profile .transactions table tbody tr td.bitcoin {
+  color: #F7A70A;
+  font-size: 20px;
+}
+
+#profile .transactions table tbody tr td.paypal {
+  font-size: 20px;
+}
+
+#profile .transactions table tbody tr td.approved {
+  color: #20B716;
+  font-weight: bold;
+}
+
+#profile .transactions table tbody tr td.rejected {
+  color: #FF0000;
+  font-weight: bold;
+}
+
+#profile .transactions table tbody tr td.returned {
+  color: #333EA6;
+  font-weight: bold;
+}
+
 #profile .form-btn {
-  transform: translateY(-80%);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
 }
 
 /*-----COINS-----*/
+
+#coin .formContent {
+  margin-top: 0;
+}
+
+#coin .formContent div[data-id] {
+  cursor: pointer;
+}
 
 #coin .coin-count {
   margin: 0;
@@ -523,5 +638,209 @@ a.btn:focus {
 
 #coin .best > div {
   background-color: #009223;
+}
+
+#coin .your-coins div.position-relative p {
+  font-size: 45px;
+  letter-spacing: 0.5px;
+}
+
+#coin .your-coins p {
+  font-size: 23px;
+  letter-spacing: 4.5px;
+}
+
+#coin #payment_page {
+  display: none;
+}
+
+#coin #payment_page .formContent p {
+  font-size: calc( 18px + ( 27 - 18 ) * (100vw - 320px) / 1600 );
+  letter-spacing: 0.5px;
+}
+
+#coin #payment_page .payment {
+  font-size: 60px;
+}
+
+#coin #payment_page .stripeBtn {
+  color: #6772E5;
+  outline: none;
+}
+
+#coin #payment_page button:focus {
+  box-shadow: none;
+}
+
+#coin #payment_page .bitcoinBtn {
+  color: #F7A70A;
+}
+
+#coin #coin_success .formContent img {
+  width: 90%;
+}
+
+#coin #coin_success .formContent h1 {
+  font-size: calc( 23px + ( 43 - 23 ) * (100vw - 320px) / 1600 );
+  letter-spacing: 1px;
+}
+
+#coin #coin_success .formContent p {
+  font-size: calc( 16px + ( 23 - 16 ) * (100vw - 320px) / 1600 );
+  letter-spacing: 1px;
+}
+
+#coin #coin_success .formContent p.coin-count {
+  font-size: calc( 25px + ( 39 - 25 ) * (100vw - 320px) / 1600 );
+  letter-spacing: 1px;
+}
+
+/*-----BOOSTS-----*/
+
+#boosts #carousel .carousel-indicators {
+  position: static;
+}
+
+#boosts #carousel .carousel-indicators li {
+  box-sizing: content-box;
+  flex: 0 1 auto;
+  width: auto;
+  height: auto;
+  margin-right: 0;
+  margin-left: 0;
+  text-indent: 0;
+  cursor: pointer;
+  background-color: transparent;
+  background-clip: padding-box;
+  border-top: none;
+  border-bottom: none;
+  opacity: 1;
+}
+
+#boosts #carousel ol {
+  justify-content: space-evenly;
+  align-items: baseline;
+  width: 60%;
+  margin: auto;
+}
+
+#boosts #carousel ol li {
+  list-style-type: none;
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  position: relative;
+}
+
+#boosts #carousel ol li p {
+  display: none;
+  opacity: 0;
+}
+
+#boosts #carousel ol li.active {
+  transform: scale(1.5);
+}
+
+#boosts #carousel ol li.active p {
+  display: block;
+  opacity: 1;
+}
+
+#boosts #carousel ol li.dot {
+  cursor: default;
+  pointer-events: none;
+  flex-basis: 22px;
+  height: 22px;
+  background: #A63333;
+  border-radius: 22px;
+}
+
+#boosts #carousel .carousel-inner .carousel-item {
+  padding: 3% 13% 13%;
+}
+
+#boosts .carousel-control-prev,
+#boosts .carousel-control-next {
+  color: #A63333;
+  font-size: 6em;
+  opacity: 1;
+}
+
+#boosts .form-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#boosts .formContent {
+  margin-top: 0;
+}
+
+#boosts .formContent .switches-content:nth-of-type(2) {
+  color: #333BA6;
+}
+
+#boosts .formContent .switches-content:nth-of-type(3) {
+  color: #FFB800;
+}
+
+#boosts .formContent .switches-content:nth-of-type(3) .bg-danger {
+  color: #eee;
+  border-radius: 20px;
+  padding: 1px 5px;
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+
+.boosts-count-slider {
+  display: flex;
+}
+
+.boosts-count-slider .boosts-count div {
+  justify-content: center;
+  height: 33.33%;
+  display: flex;
+  align-items: center;
+  font-size: 42px;
+}
+
+.boosts-count-slider .slideBtn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.boosts-count-slider .slideBtn .nextBtn,
+.boosts-count-slider .slideBtn .prevBtn {
+  position: absolute;
+  font-size: 60px;
+  display: flex;
+}
+
+.boosts-count-slider .slideBtn .nextBtn i,
+.boosts-count-slider .slideBtn .prevBtn i {
+  height: 42px;
+}
+
+.boosts-count-slider .slideBtn .nextBtn {
+  bottom: 0;
+  align-items: flex-start;
+}
+
+.boosts-count-slider .slideBtn .prevBtn {
+  bottom: 90%;
+  align-items: flex-end;
+}
+
+@media (max-width: 1200px) {
+  .switrio div.img {
+    height: calc( 290px + ( 365 - 290 ) * ( 100vw - 900px ) / ( 1200 - 900 ) );
+  }
 }
 

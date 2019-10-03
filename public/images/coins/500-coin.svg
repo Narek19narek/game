@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="60.52" height="272.535" viewBox="0 0 60.52 82.615">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.233" y1="0.096" x2="0.709" y2="0.879" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd100"/>
+      <stop offset="0.807" stop-color="#ffa400"/>
+      <stop offset="1" stop-color="#ffa200"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_471" data-name="Group 471" transform="translate(-627 -512.511)">
+    <g id="Group_470" data-name="Group 470">
+      <text id="_1.99" data-name="$1.99" transform="translate(652.197 592.126)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-19.785" y="0">$1.99</tspan></text>
+      <g id="Group_373" data-name="Group 373" transform="translate(627 512.511)">
+        <ellipse id="Coin" cx="30.258" cy="30.248" rx="30.258" ry="30.248" fill="url(#linear-gradient)"/>
+        <path id="Coin_Shading" data-name="Coin Shading" d="M29.734,25.482c5.047.086,12.406-.315,16.7-4.96C55.241,11,58.581-6.19,58.771,5.211c.276,16.547-12.655,29.737-28.883,29.461S.28,20.758,0,4.211,13.506,25.206,29.734,25.482Z" transform="translate(8.831 52.277) rotate(-60)" fill="#ffa200"/>
+        <text id="_" data-name="$" transform="translate(28.046 46.094)" fill="#ffec00" font-size="49" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em" opacity="0.99"><tspan x="-14.381" y="0">$</tspan></text>
+        <text id="_500" data-name="500" transform="translate(30.263 37.051)" fill="#dedede" font-size="25" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-23.512" y="0">500</tspan></text>
+      </g>
+    </g>
+  </g>
+</svg>

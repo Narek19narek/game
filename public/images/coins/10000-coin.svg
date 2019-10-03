@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="95.028" height="272.535" viewBox="0 0 95.028 272.535">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.233" y1="0.096" x2="0.709" y2="0.879" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd100"/>
+      <stop offset="0.807" stop-color="#ffa400"/>
+      <stop offset="1" stop-color="#ffa200"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_470" data-name="Group 470" transform="translate(-807.605 -408.014)">
+    <rect id="Rectangle_1513" data-name="Rectangle 1513" width="95.028" height="272.535" transform="translate(807.605 408.014)" fill="#a63333"/>
+    <text id="_9.99" data-name="$9.99" transform="translate(855.436 606.732)" fill="#fff" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-21.458" y="0">$9.99</tspan></text>
+    <text id="MOST_POPULAR" data-name="MOST
+POPULAR" transform="translate(854.648 462.859)" fill="#fff" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-23.408" y="0">MOST </tspan><tspan x="-36.322" y="14">POPULAR</tspan></text>
+    <g id="Group_340" data-name="Group 340" transform="translate(808 490.428)">
+      <circle id="Coin" cx="46.878" cy="46.878" r="46.878" fill="url(#linear-gradient)"/>
+      <path id="Coin_Shading" data-name="Coin Shading" d="M46.878,39.121c8.052,0,19.806-.823,26.784-8.208C87.969,15.778,93.756-11.217,93.756,6.621A46.878,46.878,0,1,1,0,6.621C0-19.269,20.988,39.121,46.878,39.121Z" transform="translate(17.706 84.164) rotate(-60)" fill="#ffa200"/>
+      <text id="_" data-name="$" transform="translate(45.439 71.674)" fill="#ffec00" font-size="76" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em" opacity="0.99"><tspan x="-22.306" y="0">$</tspan></text>
+      <text id="_10000" data-name="10000" transform="translate(46.664 54.802)" fill="#dedede" font-size="24" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-35.544" y="0">10000</tspan></text>
+    </g>
+    <path id="Polygon_7" data-name="Polygon 7" d="M12.676,0,25.352,22.535H0Z" transform="translate(867.943 508.084) rotate(180)" fill="#a63333"/>
+  </g>
+</svg>

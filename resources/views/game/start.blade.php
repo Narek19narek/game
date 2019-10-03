@@ -19,7 +19,11 @@
         <table>
             <tbody>
             <tr>
-                <th colspan="2"><img src="{{asset("images/menu/logo.svg")}}" alt=""></th>
+                <th colspan="2">
+                    <a href="{{route('home')}}" id="homeBtn">
+                        <img src="{{asset("images/menu/logo.svg")}}" alt="">
+                    </a>
+                </th>
             </tr>
             <tr>
                 <td></td>
@@ -66,9 +70,9 @@
         <div id="score"><h2></h2><span>Points</span></div>
     </div>
     <div id="game-info" class="hidden">
-        <div><p>P</p><span></span></div>
-        <div><p>S</p><span></span></div>
-        <div><p>T</p><span></span></div>
+        <div id="push-btn"><p>P</p><span></span></div>
+        <div id="switch-btn"><p>S</p><span></span></div>
+        <div id="teleport-btn"><p>T</p><span></span></div>
     </div>
     <div id="kill" class="hidden"></div>
     <div id="game-over" class="hidden">
@@ -86,6 +90,7 @@
 
 @push('js')
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
     <script>
         window.onload = () => {
             document.getElementById('play-button').click();

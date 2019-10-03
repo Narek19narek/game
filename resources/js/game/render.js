@@ -1,7 +1,7 @@
 // import { debounce } from 'throttle-debounce';
 // import { getAsset } from './assets';
 import { getCurrentState } from './state';
-import {getAsset} from "./assets";
+// import {mePos} from "./leaderboard";
 
 // import { getScore } from './networking';
 
@@ -29,8 +29,7 @@ function render() {
   if (!me) {
     return;
   }
-
-  // console.log(others);
+    // console.log(others);
 
   // Draw background
   renderBackground(me.x, me.y);
@@ -121,35 +120,35 @@ function renderPlayer(me, player) {
   // contextSquare.clearRect(0, 0, 100, 100);
   // contextSquare.beginPath();
   context.beginPath();
-  if (player.status === 2) {
-    context.moveTo(-25, -25);
-    context.lineTo(-25, 25);
-    context.lineTo(25, 25);
-    context.lineTo(25, -25);
-    context.lineTo(-25, -25);
-  } else if (player.status === 0) {
-    context.moveTo(0, -29);
-    context.lineTo(25, 14);
-    context.lineTo(-25, 14);
-    context.lineTo(0, -29);
-  } else {
-    context.arc(0, 0, 25, 0, 2 * Math.PI);
-  }
+    if (player.status === 2) {
+        context.moveTo(-25, -25);
+        context.lineTo(-25, 25);
+        context.lineTo(25, 25);
+        context.lineTo(25, -25);
+        context.lineTo(-25, -25);
+    } else if (player.status === 0) {
+        context.moveTo(-1, -30);
+        context.lineTo(25, 14);
+        context.lineTo(-25, 14);
+        context.lineTo(0, -29);
+    } else {
+        context.arc(0, 0, 25, 0, 2 * Math.PI);
+    }
   context.strokeStyle = 'blue';
-    context.lineWidth = 4;
+  context.lineWidth = 4;
   context.stroke();
   context.restore();
 
   // Draw health bar
   context.fillStyle = 'blue';
-  context.font = '12px Verdana';
+  context.font = '12px FuturaPress';
   // context.fillRect(
   //   canvasX - PLAYER_RADIUS,
   //   canvasY + PLAYER_RADIUS + 20,
   //   PLAYER_RADIUS * 2,
   //   2,
   // );
-  const textX = canvasX - PLAYER_RADIUS + 15;
+    const textX = canvasX - PLAYER_RADIUS + 15;
   let textKill;
   if (player.kill.toString().length === 1) {
     textKill = textX - 1;
@@ -162,8 +161,9 @@ function renderPlayer(me, player) {
   } else {
     textKill = textX - 15;
   }
+  const mePos = document.querySelector('.me').textContent;
   const textY = (player.status === 0) ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
-  context.fillText(Math.floor(player.kill), textKill, canvasY - PLAYER_RADIUS - 15);
+  context.fillText(mePos.slice(0, mePos.indexOf('.')), textKill, canvasY - PLAYER_RADIUS - 15);
   if (player.username) {
     let x1;
     if (player.username.length < 4) {

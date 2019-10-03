@@ -28,6 +28,19 @@ function onkeyup(e) {
   }
 }
 
+const switchBtn = document.getElementById('switch-btn');
+switchBtn.addEventListener('click', function () {
+    updateStatus(1);
+});
+const pushBtn = document.getElementById('push-btn');
+pushBtn.addEventListener('click', function () {
+    pushPlayers();
+});
+const teleportBtn = document.getElementById('teleport-btn');
+teleportBtn.addEventListener('click', function () {
+    teleport();
+});
+
 function onTouchInput(e) {
   const touch = e.touches[0];
   handleInput(touch.clientX, touch.clientY);

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="110.82" height="272.535" viewBox="0 0 110.82 137.736">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.233" y1="0.096" x2="0.709" y2="0.879" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd100"/>
+      <stop offset="0.807" stop-color="#ffa400"/>
+      <stop offset="1" stop-color="#ffa200"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_471" data-name="Group 471" transform="translate(-931 -480.151)">
+    <text id="_24.99" data-name="$24.99" transform="translate(985.592 614.887)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-26.235" y="0">$24.99</tspan></text>
+    <g id="Group_375" data-name="Group 375" transform="translate(931 480.151)">
+      <circle id="Coin" cx="55.409" cy="55.409" r="55.409" fill="url(#linear-gradient)"/>
+      <path id="Coin_Shading" data-name="Coin Shading" d="M55.409,46.24c9.517,0,23.41-.973,31.657-9.7,16.911-17.889,23.751-49.8,23.751-28.713A55.409,55.409,0,1,1,0,7.826C0-22.775,24.807,46.24,55.409,46.24Z" transform="translate(20.928 99.48) rotate(-60)" fill="#ffa200"/>
+      <text id="_" data-name="$" transform="translate(52.704 81.979)" fill="#ffec00" font-size="86" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em" opacity="0.99"><tspan x="-25.241" y="0">$</tspan></text>
+      <text id="_35000" data-name="35000" transform="translate(53.877 64.599)" fill="#dedede" font-size="29" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-45.893" y="0">35000</tspan></text>
+    </g>
+  </g>
+</svg>

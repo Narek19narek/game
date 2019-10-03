@@ -96,8 +96,10 @@
 "use strict";
 
 
-$('#shareBtn').parent().on('click', function () {
-  $('#share-buttons').toggleClass('active');
+$(document).ready(function () {
+  $('#shareBtn').parent().on('click', function () {
+    $('#share-buttons').toggleClass('active');
+  });
 });
 
 /***/ }),

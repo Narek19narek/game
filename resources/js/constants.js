@@ -7,7 +7,7 @@ module.exports = Object.freeze({
   PLAYER_PUSH_PLAYERS: 3,
 
   SCORE: 10,
-  SCORE_PER_SECOND: 1 / 10,
+  SCORE_PER_SECOND: 1 / 60,
 
   MAP_SIZE: 3000,
   MSG_TYPES: {

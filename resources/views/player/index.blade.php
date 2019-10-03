@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid h-100 py-5">
+    <div class="container-fluid h-100 pt-4">
         <div class="menu-buttons float-right">
             <div class="logo text-center">
-                <a href="{{ route('home') }}">
+                <a href="{{ route('home') }}" class="c-pointer">
                     <img src="{{ asset("images/menu/logo.svg") }}" alt="logo image">
                 </a>
             </div>
@@ -65,7 +65,6 @@
                     <img src="{{ asset("images/menu/share.svg") }}" alt="share logo">
                 </div>
                 <div id="share-buttons" class="py-2">
-{{--                    <img src="{{ asset("images/menu/sharebg.png") }}" class="position-absolute">--}}
                     <div>
                         <a href="https://plus.google.com/share?url={{env('APP_URL')}}" target="_blank">
                             <img src="{{ asset("images/menu/google.svg") }}" alt="google plus image">
@@ -88,7 +87,7 @@
                         </a>
                     </div>
                     <div>
-                        <a href="{{ route('home') }}" target="_blank">
+                        <a href="mailto:" target="_blank">
                             <img src="{{ asset("images/menu/mail.svg") }}" alt="gmail image">
                         </a>
                     </div>
@@ -96,7 +95,9 @@
             </div>
         </div>
         <div class="switrio">
-            <img src="{{asset('images/switrio.png')}}" alt="">
+            <div class="img">
+                <img src="{{asset('images/switrio.png')}}" alt="">
+            </div>
         </div>
         <div class="row">
             <div class="col-8 mx-auto">
@@ -155,14 +156,7 @@
 {{--                                    <p class="card-text">Switch - {{ Auth::user()->switch }}</p>--}}
 {{--                                    <p class="card-text">Teleport - {{ Auth::user()->teleport }}</p>--}}
 {{--                                    <p class="card-text">Push - {{ Auth::user()->push }}</p>--}}
-{{--                                    <a class="btn btn-primary" href="{{ route('logout') }}"--}}
-{{--                                       onclick="event.preventDefault();--}}
-{{--                                                     document.getElementById('logout-form').submit();">--}}
-{{--                                        {{ __('Logout') }}--}}
-{{--                                    </a>--}}
-{{--                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">--}}
-{{--                                        @csrf--}}
-{{--                                    </form>--}}
+{{--                                    --}}
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        </div>--}}

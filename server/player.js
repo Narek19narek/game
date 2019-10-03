@@ -22,7 +22,7 @@ class Player extends ObjectClass {
       this.speed = 400;
       setTimeout(() => {
         this.speed = 200;
-      }, 1000);
+      }, 3000);
     }
   }
 

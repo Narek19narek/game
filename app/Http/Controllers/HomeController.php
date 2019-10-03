@@ -26,9 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        if(Session::has('is_playing') && Session::get('is_playing')) {
-//            Session::put('is_playing', false);
-//        }
+        if (url()->previous() === route('play') && Session::has('is_playing')) {
+            Session::put('is_playing', false);
+        }
         $user = Auth::user();
         if(Session::has('savePoints'))
             Session::forget('savePoints');

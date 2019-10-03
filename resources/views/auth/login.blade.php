@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid h-100 py-4">
+    <div class="container-fluid h-100 pt-4">
         <div class="menu-buttons row justify-content-between">
             <div class="col-auto back-btn">
                 <a href="{{ route('home') }}" class="btn p-0"><i class="fas fa-angle-left"></i></a>
@@ -12,7 +12,7 @@
                 </a>
             </div>
         </div>
-        <div class="row justify-content-center pt-4" id="loginPage">
+        <div class="row justify-content-center" id="loginPage">
             <div class="col">
                 <form method="POST" action="{{ route('login') }}" >
                     @csrf
@@ -59,7 +59,7 @@
                         <div class="col-md-5 offset-md-5">
 
                             @if (Route::has('password.request'))
-                                <a class="btn" href="{{ route('password.request') }}">
+                                <a class="btn p-0" href="{{ route('password.request') }}">
                                     {{ __('Reset pass') }}
                                 </a>
                             @endif
@@ -68,25 +68,25 @@
 
                     <div class="row justify-content-center">
                         <div class="col-md-8">
-                            <div class="row register">
-                                <div class="google-register mt-4  mb-2">
+                            <div class="row register formContent">
+                                <div class="google-register mb-4">
                                     <a href="{{ url('auth/google') }}">
                                         <i class="fab fa-google-plus-g"></i>
                                     </a>
 
                                 </div>
-                                <div class="default-register mt-4  mb-2">
-                                    <a href="{{ route('register') }}">
+                                <div class="default-register mb-4">
+                                    <a href="{{ route('register') }}" class="d-flex">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="40.375" height="58.003" viewBox="0 0 40.375 58.003">
                                             <path id="Path_1" data-name="Path 1" d="M0,37.677.011,56H37.294V41.372L12.853,28.1,37.029,14.985S33.685-1.213,17.269.073-.023,18.286.012,18.286H6.15s1.5-11.16,10.838-12.3,12.35,6.163,12.35,6.163L.011,28.1l31.14,16.937v4.754H6.162V37.677Z" transform="translate(2.082 1.003)" fill="#E0E0E0" stroke="#E0E0E0" stroke-width="2"/>
                                         </svg>
                                     </a>
                                 </div>
-                                <div class="facebook-register mt-4 mb-2">
+                                <div class="facebook-register mb-4">
                                     <a href="{{ url('/auth/redirect/facebook') }}">
                                         <i class="fab fa-facebook-f"></i>
                                     </a>                             </div>
-                                <div class="col-12 d-flex justify-content-center ">
+                                <div class="col-12 d-flex justify-content-center text">
                                     <p>REGISTER</p>
                                 </div>
                             </div>

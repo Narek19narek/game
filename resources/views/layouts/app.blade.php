@@ -20,6 +20,8 @@
     <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
+    <script src="{{ asset("js/main.js") }}"></script>
+
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -29,7 +31,19 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
-
+    <style type="text/css">
+        @font-face {
+            font-family: 'FuturaPress';
+            src: url('{{ asset('font/FuturaPressPress.eot') }}');
+            src: url('{{ asset('font/FuturaPressPress.eot?#iefix') }}') format('embedded-opentype'),
+            url('{{ asset('font/FuturaPressPress.woff2') }}') format('woff2'),
+            url('{{ asset('font/FuturaPressPress.woff') }}') format('woff'),
+            url('{{ asset('font/FuturaPressPress.ttf') }}') format('truetype'),
+            url('{{ asset('font/FuturaPressPress.svg#FuturaPressPress') }}') format('svg');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
@@ -87,6 +101,6 @@
             @yield('content')
         </main>
     </div>
-    <script type="text/javascript" src="{{ asset("js/main.js") }}"></script>
+@stack('js')
 </body>
 </html>

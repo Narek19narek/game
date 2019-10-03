@@ -16,17 +16,22 @@
                 </div>
                 <div class="form-group @error('amount') has-error @enderror">
                     <label for="amount">Amount</label>
-                    <input class="form-control" id="amount" type="number" placeholder="Please enter boost count" name="amount" value="{{ old('amount') }}">
-                    @error('amount')
-                        <p class="text-danger">{{$message}}</p>
-                    @enderror
+                    <select class="custom-select" name="amount" id="amount">
+                        <option></option>
+                        <option value="3">3</option>
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="100">100</option>
+                    </select>
                 </div>
                 <div class="form-group @error('duration') has-error @enderror">
                     <label for="duration">Duration</label>
-                    <input class="form-control" id="duration" type="number" placeholder="Please enter boosts duration" name="duration" value="{{ old('duration') }}">
-                    @error('duration')
-                        <p class="text-danger">{{$message}}</p>
-                    @enderror
+                    <select class="custom-select" name="duration" id="duration">
+                        <option></option>
+                        <option value="1">1</option>
+                        <option value="3">3</option>
+                        <option value="24">24</option>
+                    </select>
                 </div>
                 <div class="form-group @error('coin') has-error @enderror">
                     <label for="coin">Coin</label>

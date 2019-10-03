@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row justify-content-center form-btn">
+                            <div class="row justify-content-center form-btn pt-5">
                                 <button type="submit" class="btn">
                                     {{ __('REGISTER') }}
                                 </button>

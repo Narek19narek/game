@@ -16,8 +16,8 @@ class CreateBoostsTable extends Migration
         Schema::create('boosts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('name', ['switch', 'teleport', 'push']);
-            $table->integer('amount')->default(0);
-            $table->integer('duration')->default(0);
+            $table->enum('amount', ['3', '10', '25', '100']);
+            $table->enum('duration', ['1', '3', '24']);
             $table->integer('coin')->default(0);
             $table->timestamps();
         });

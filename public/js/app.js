@@ -11271,7 +11271,7 @@ module.exports = Object.freeze({
   PLAYER_TELEPORTS: 3,
   PLAYER_PUSH_PLAYERS: 3,
   SCORE: 10,
-  SCORE_PER_SECOND: 1 / 10,
+  SCORE_PER_SECOND: 1 / 60,
   MAP_SIZE: 3000,
   MSG_TYPES: {
     JOIN_GAME: 'join_game',
@@ -11362,24 +11362,20 @@ Object.defineProperty(exports, "__esModule", {
 exports.updateGameinfo = updateGameinfo;
 exports.setGameinfoHidden = setGameinfoHidden;
 var gameinfo = document.getElementById('game-info');
-var rows = document.querySelectorAll('#game-info span');
-var kill = document.getElementById('kill');
+var rows = document.querySelectorAll('#game-info span'); // const kill = document.getElementById('kill');
 
 function updateGameinfo(me) {
-  rows[0].innerHTML = Math.floor(me.switches);
-  rows[1].innerHTML = Math.floor(me.teleport);
-  rows[2].innerHTML = Math.floor(me.pushPlayer); // Time
-
-  kill.innerHTML = me.kill;
+  rows[0].innerHTML = Math.floor(me.pushPlayer);
+  rows[1].innerHTML = Math.floor(me.switches);
+  rows[2].innerHTML = Math.floor(me.teleport); // Time
+  // kill.innerHTML = me.kill;
 }
 
 function setGameinfoHidden(hidden) {
   if (hidden) {
-    gameinfo.classList.add('hidden');
-    kill.classList.add('hidden');
+    gameinfo.classList.add('hidden'); // kill.classList.add('hidden');
   } else {
-    gameinfo.classList.remove('hidden');
-    kill.classList.remove('hidden');
+    gameinfo.classList.remove('hidden'); // kill.classList.remove('hidden');
   }
 }
 
@@ -11530,6 +11526,19 @@ function onkeyup(e) {
     (0, _networking.pushPlayers)();
   }
 }
+
+var switchBtn = document.getElementById('switch-btn');
+switchBtn.addEventListener('click', function () {
+  (0, _networking.updateStatus)(1);
+});
+var pushBtn = document.getElementById('push-btn');
+pushBtn.addEventListener('click', function () {
+  (0, _networking.pushPlayers)();
+});
+var teleportBtn = document.getElementById('teleport-btn');
+teleportBtn.addEventListener('click', function () {
+  (0, _networking.teleport)();
+});
 
 function onTouchInput(e) {
   var touch = e.touches[0];
@@ -11730,10 +11739,9 @@ exports.getInfo = getInfo;
 
 var _state = __webpack_require__(/*! ./state */ "./resources/js/game/state.js");
 
-var _assets = __webpack_require__(/*! ./assets */ "./resources/js/game/assets.js");
-
 // import { debounce } from 'throttle-debounce';
 // import { getAsset } from './assets';
+// import {mePos} from "./leaderboard";
 // import { getScore } from './networking';
 var _Constants = Constants,
     PLAYER_RADIUS = _Constants.PLAYER_RADIUS,
@@ -11843,7 +11851,7 @@ function renderPlayer(me, player) {
     context.lineTo(25, -25);
     context.lineTo(-25, -25);
   } else if (player.status === 0) {
-    context.moveTo(0, -29);
+    context.moveTo(-1, -30);
     context.lineTo(25, 14);
     context.lineTo(-25, 14);
     context.lineTo(0, -29);
@@ -11857,7 +11865,7 @@ function renderPlayer(me, player) {
   context.restore(); // Draw health bar
 
   context.fillStyle = 'blue';
-  context.font = '12px Verdana'; // context.fillRect(
+  context.font = '12px FuturaPress'; // context.fillRect(
   //   canvasX - PLAYER_RADIUS,
   //   canvasY + PLAYER_RADIUS + 20,
   //   PLAYER_RADIUS * 2,
@@ -11879,8 +11887,9 @@ function renderPlayer(me, player) {
     textKill = textX - 15;
   }
 
+  var mePos = document.querySelector('.me').textContent;
   var textY = player.status === 0 ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
-  context.fillText(Math.floor(player.kill), textKill, canvasY - PLAYER_RADIUS - 15);
+  context.fillText(mePos.slice(0, mePos.indexOf('.')), textKill, canvasY - PLAYER_RADIUS - 15);
 
   if (player.username) {
     var x1;
@@ -12087,7 +12096,7 @@ function interpolateDirection(d1, d2, ratio) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-// removed by extract-text-webpack-plugin
+throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):\nError: ENOENT: no such file or directory, open 'D:\\xampp\\htdocs\\game\\node_modules\\swiper\\css\\swiper.min.css'\n    at runLoaders (D:\\xampp\\htdocs\\game\\node_modules\\webpack\\lib\\NormalModule.js:313:20)\n    at D:\\xampp\\htdocs\\game\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at D:\\xampp\\htdocs\\game\\node_modules\\loader-runner\\lib\\LoaderRunner.js:203:19\n    at process.nextTick (D:\\xampp\\htdocs\\game\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:73:15)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
 
 /***/ }),
 

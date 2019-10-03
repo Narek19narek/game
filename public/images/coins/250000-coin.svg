@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="145.845" height="272.535" viewBox="0 0 145.845 272.535">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.233" y1="0.096" x2="0.709" y2="0.879" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd100"/>
+      <stop offset="0.807" stop-color="#ffa400"/>
+      <stop offset="1" stop-color="#ffa200"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_470" data-name="Group 470" transform="translate(-1221 -403)">
+    <rect id="Rectangle_1512" data-name="Rectangle 1512" width="145.845" height="272.535" transform="translate(1221.211 403)" fill="#009223"/>
+    <text id="_99.99" data-name="$99.99" transform="translate(1291.195 632.859)" fill="#fff" font-size="22" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-38.588" y="0">$99.99</tspan></text>
+    <text id="BEST_DEAL" data-name="BEST DEAL" transform="translate(1293.787 445.592)" fill="#fff" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-39.322" y="0">BEST DEAL</tspan></text>
+    <g id="Group_376" data-name="Group 376" transform="translate(1221 459.586)">
+      <circle id="Coin" cx="72.976" cy="72.976" r="72.976" fill="url(#linear-gradient)"/>
+      <path id="Coin_Shading" data-name="Coin Shading" d="M72.976,60.9c12.534,0,30.832-1.282,41.695-12.778,22.273-23.561,31.282-65.586,31.282-37.816A72.976,72.976,0,1,1,0,10.307C0-30,32.673,60.9,72.976,60.9Z" transform="translate(27.564 131.021) rotate(-60)" fill="#ffa200"/>
+      <text id="_" data-name="$" transform="translate(69.488 108.606)" fill="#ffec00" font-size="114" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em" opacity="0.99"><tspan x="-33.459" y="0">$</tspan></text>
+      <text id="_250000" data-name="250000" transform="translate(68.819 84.732)" fill="#dedede" font-size="32" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-60.832" y="0">250000</tspan></text>
+    </g>
+    <path id="Polygon_8" data-name="Polygon 8" d="M12.676,0,25.352,22.535H0Z" transform="translate(1304.309 481.732) rotate(180)" fill="#007e1e"/>
+  </g>
+</svg>

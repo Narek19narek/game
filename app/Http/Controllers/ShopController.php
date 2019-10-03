@@ -35,7 +35,7 @@ class ShopController extends Controller
     }
 
     public function boosts() {
-        $boosts = Boost::all();
+        $boosts = Boost::all()->groupBy('name');
         return view('player.shop.boosts.index', compact('boosts'));
     }
 }

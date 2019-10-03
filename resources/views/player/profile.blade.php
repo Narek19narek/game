@@ -1,9 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid h-100 py-4" id="profile">
+    <div class="container-fluid h-100 pt-4" id="profile">
         <div class="menu-buttons row justify-content-between">
             <div class="col-auto back-btn">
-                <a href="{{ route('home') }}" class="btn p-0"><i class="fas fa-angle-left"></i></a>
+                <a href="{{ route('home') }}" class="btn p-0 c-pointer"><i class="fas fa-angle-left"></i></a>
             </div>
             <div class="col-auto logo text-center">
                 <a href="{{ route('home') }}">
@@ -11,31 +11,31 @@
                 </a>
             </div>
         </div>
-        <div class="row justify-content-center pt-4">
+        <div class="row justify-content-center">
             <div class="col">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 col-md-12">
                         <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
-                            <ol class="row">
-                                <li data-target="#carousel" data-slide-to="0" class="active col-3">
+                            <ol class="row carousel-indicators mb-5">
+                                <li data-target="#carousel" data-slide-to="0" class="active col-3 order-1">
                                     <img src="{{ asset('images/menu/profile-account.png') }}" alt="Account">
                                     <p>ACCOUNT</p>
                                 </li>
-                                <li class="col-1 p-0 dot"></li>
-                                <li data-target="#carousel" data-slide-to="1" class="col-3">
+                                <li data-target="#carousel" data-slide-to="1" class="col-3 order-3">
                                     <img src="{{ asset('images/menu/profile-transaction.png') }}" alt="Account">
                                     <p>TRANSACTIONS</p>
                                 </li>
-                                <li class="col-1 p-0 dot"></li>
-                                <li data-target="#carousel" data-slide-to="2" class="col-3">
+                                <li data-target="#carousel" data-slide-to="2" class="col-3 order-5">
                                     <img src="{{ asset('images/menu/profile-refer.png') }}" alt="Account">
                                     <p>REFER A FRIEND</p>
                                 </li>
+                                <li class="col-1 p-0 dot order-2"></li>
+                                <li class="col-1 p-0 dot order-4"></li>
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <div class="formContent row justify-content-center">
-                                        <div class="col-md-2 account-lvl position-relative">
+                                    <div class="formContent row">
+                                        <div class="col-md-auto account-lvl position-relative p-0">
                                             <div class="my-4">
                                                 <span class="lvl-count">{{ Auth::user()->level }}</span>
                                                 <span class="lvl">LVL</span>
@@ -43,8 +43,7 @@
                                         </div>
                                         <div class="col-md-5 account-info my-4">
                                             <div class="d-flex">
-                                                <p class="my-0">XP:</p>
-                                                <p class="my-0">{{ $user->levelXp() }} / {{ $user->nextLevelXp() }}</p>
+                                                <p class="my-0">XP: {{ $user->levelXp() }} / {{ $user->nextLevelXp() }}</p>
                                             </div>
                                             <div class="d-flex">
                                                 <p class="my-0" title="{{  $user->email }}">{{ $user->email }}</p>
@@ -57,7 +56,7 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="col-md-4 notifications my-4">
+                                        <div class="col-md-4 notifications my-4 pr-4">
                                             <div class="row justify-content-end">
                                                 <p>Notifications:</p>
                                             </div>
@@ -92,20 +91,37 @@
                                                     <th scope="col" class="px-0 pr-3">Status</th>
                                                 </tr>
                                             </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="px-0 pl-3">14.05.2019</td>
+                                                    <td class="px-1">$1.99</td>
+                                                    <td class="px-0">500</td>
+                                                    <td class="px-1 stripe"><i class="fab fa-cc-stripe"></i></td>
+                                                    <td class="px-0 pr-3 approved">Approved</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-0 pl-3">14.05.2019</td>
+                                                    <td class="px-1">$99.99</td>
+                                                    <td class="px-0">150000</td>
+                                                    <td class="px-1 bitcoin"><i class="fab fa-btc"></i></td>
+                                                    <td class="px-0 pr-3 rejected">Rejected</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-0 pl-3 ">14.05.2019</td>
+                                                    <td class="px-1">$4.99</td>
+                                                    <td class="px-0">2500</td>
+                                                    <td class="px-1 paypal"><img src="{{asset('images/paypal.svg')}}" alt=""></td>
+                                                    <td class="px-0 pr-3 returned">Returned</td>
+                                                </tr>
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
                                     <div class="formContent row justify-content-center">
-{{--                                        <div class="col-md-2 account-lvl position-relative">--}}
-
-{{--                                        </div>--}}
                                         <div class="col-12 account-info my-4 d-flex justify-content-center align-items-center">
                                             <h1 class="text-center">COMING SOON</h1>
                                         </div>
-{{--                                        <div class="col-md-4 notifications my-4">--}}
-
-{{--                                        </div>--}}
                                     </div>
                                 </div>
                             </div>
@@ -118,30 +134,11 @@
                         </div>
 
                         <div class="row justify-content-center form-btn">
-                            <p>{{ __('PROFILE') }}</p>
+                            <p class="m-0">{{ __('PROFILE') }}</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script type="text/javascript">
-        $('#carousel').on('click', 'ol>li', function () {
-            $('ol>li.active').removeClass('active');
-            $(this).addClass('active');
-        });
-        $('a.carousel-icon').on('click', function () {
-            const active = $('ol>li.active');
-            let slide = active.data('slide-to');
-            console.log(slide);
-            active.removeClass('active');
-            if ($(this).data('slide') === 'next') {
-                slide = slide === 2 ? 0 : slide + 1;
-                $('[data-slide-to="' + slide + '"]').addClass('active');
-            } else {
-                slide = slide === 0 ? 2 : slide - 1;
-                $('[data-slide-to="' + slide + '"]').addClass('active');
-            }
-        });
-    </script>
 @endsection
