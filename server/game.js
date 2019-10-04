@@ -242,7 +242,6 @@ class Game {
       t: Date.now(),
       me: player.serializeForUpdate(),
       others: nearbyPlayers.map(p => p.serializeForUpdate()),
-      // bullets: nearbyBullets.map(b => b.serializeForUpdate()),
       leaderboard,
     };
   }

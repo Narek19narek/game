@@ -1,4 +1,5 @@
 import { updateLeaderboard } from './leaderboard';
+import { getPlayerData } from './render';
 import { updateGameinfo } from './gameinfo';
 
 // The "current" state will always be RENDER_DELAY ms behind server time.
@@ -24,6 +25,7 @@ export function processGameUpdate(update) {
   const { me } = getCurrentState();
 
   updateLeaderboard(update.leaderboard, me);
+  getPlayerData(update.leaderboard);
   updateGameinfo(me);
 
   // Keep only one game update before the current server time

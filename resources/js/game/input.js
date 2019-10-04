@@ -4,7 +4,7 @@ function onMouseInput(e) {
   handleInput(e.clientX, e.clientY);
 }
 
-function onkeyup(e) {
+function onKeyPress(e) {
   if (e.key === ' ') {
     updateSpeed();
   }
@@ -56,7 +56,7 @@ export function startCapturingInput() {
   window.addEventListener('click', onMouseInput);
   window.addEventListener('touchstart', onTouchInput);
   window.addEventListener('touchmove', onTouchInput);
-  window.addEventListener('keyup', onkeyup);
+  window.addEventListener('keypress', onKeyPress);
 }
 
 export function stopCapturingInput() {
@@ -64,5 +64,5 @@ export function stopCapturingInput() {
   window.removeEventListener('click', onMouseInput);
   window.removeEventListener('touchstart', onTouchInput);
   window.removeEventListener('touchmove', onTouchInput);
-  window.removeEventListener('keyup', onkeyup);
+  window.removeEventListener('keypress', onKeyPress);
 }

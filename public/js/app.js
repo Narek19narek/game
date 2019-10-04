@@ -11499,7 +11499,7 @@ function onMouseInput(e) {
   handleInput(e.clientX, e.clientY);
 }
 
-function onkeyup(e) {
+function onKeyPress(e) {
   if (e.key === ' ') {
     (0, _networking.updateSpeed)();
   } // if (e.key === 'Q' || e.key === 'q') {
@@ -11555,7 +11555,7 @@ function startCapturingInput() {
   window.addEventListener('click', onMouseInput);
   window.addEventListener('touchstart', onTouchInput);
   window.addEventListener('touchmove', onTouchInput);
-  window.addEventListener('keyup', onkeyup);
+  window.addEventListener('keypress', onKeyPress);
 }
 
 function stopCapturingInput() {
@@ -11563,7 +11563,7 @@ function stopCapturingInput() {
   window.removeEventListener('click', onMouseInput);
   window.removeEventListener('touchstart', onTouchInput);
   window.removeEventListener('touchmove', onTouchInput);
-  window.removeEventListener('keyup', onkeyup);
+  window.removeEventListener('keypress', onKeyPress);
 }
 
 /***/ }),
@@ -11611,6 +11611,7 @@ function updateLeaderboard(data, me) {
       rows[i + 1].classList.add('me'); // console.log(document.querySelector('.me'));
     }
 
+    console.log((0, _escape2["default"])(data[i].username.slice(0, 10)) || 'player');
     rows[i + 1].innerHTML = "<td>".concat(i + 1, ".<td>").concat((0, _escape2["default"])(data[i].username.slice(0, 10)) || 'player', "</td>");
     document.querySelector('#score h2').innerText = data[i].score;
   }
@@ -11733,6 +11734,7 @@ var updateSpeed = exports.updateSpeed = (0, _throttleDebounce.throttle)(20, func
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.getPlayerData = getPlayerData;
 exports.startRendering = startRendering;
 exports.stopRendering = stopRendering;
 exports.getInfo = getInfo;
@@ -11743,6 +11745,12 @@ var _state = __webpack_require__(/*! ./state */ "./resources/js/game/state.js");
 // import { getAsset } from './assets';
 // import {mePos} from "./leaderboard";
 // import { getScore } from './networking';
+var player_data = null;
+
+function getPlayerData(data) {
+  player_data = data;
+}
+
 var _Constants = Constants,
     PLAYER_RADIUS = _Constants.PLAYER_RADIUS,
     MAP_SIZE = _Constants.MAP_SIZE; // Get the canvas graphics context
@@ -11828,11 +11836,10 @@ function renderPlayer(me, player) {
   var canvasY = canvas.height / 2 + y - me.y; // Draw ship
 
   context.save();
-  context.translate(canvasX, canvasY);
-
-  if (player.rotate) {
-    context.rotate(player.rotate / 57 * 3);
-  } // let img;
+  context.translate(canvasX, canvasY); // if (player.rotate) {
+  //   context.rotate(player.rotate / 57 * 3);
+  // }
+  // let img;
   // if (player.status === 2) {
   //   img = 'square.svg';
   // } else if (player.status === 0) {
@@ -11840,7 +11847,6 @@ function renderPlayer(me, player) {
   // } else img = 'circle.svg';
   // contextSquare.clearRect(0, 0, 100, 100);
   // contextSquare.beginPath();
-
 
   context.beginPath();
 
@@ -11863,33 +11869,35 @@ function renderPlayer(me, player) {
   context.lineWidth = 4;
   context.stroke();
   context.restore(); // Draw health bar
-
-  context.fillStyle = 'blue';
-  context.font = '12px FuturaPress'; // context.fillRect(
+  // context.fillRect(
   //   canvasX - PLAYER_RADIUS,
   //   canvasY + PLAYER_RADIUS + 20,
   //   PLAYER_RADIUS * 2,
   //   2,
   // );
 
-  var textX = canvasX - PLAYER_RADIUS + 15;
-  var textKill;
+  var textX = canvasX - PLAYER_RADIUS + 13;
+  var textPos = textX;
+  var playerPosition = player_data.find(function (obj) {
+    return obj.id === player.id;
+  }).positionId;
 
-  if (player.kill.toString().length === 1) {
-    textKill = textX - 1;
-  } else if (player.kill.toString().length === 2) {
-    textKill = textX - 4;
-  } else if (player.kill.toString().length === 3) {
-    textKill = textX - 8;
-  } else if (player.kill.toString().length === 4) {
-    textKill = textX - 12;
+  if (playerPosition === 1) {
+    context.fillStyle = '#FFA200';
+    context.font = '25px FuturaPress';
   } else {
-    textKill = textX - 15;
+    context.fillStyle = 'blue';
+    context.font = '16px FuturaPress';
+
+    if (playerPosition.toString().length === 2) {
+      textPos = textX - 4;
+    } else if (playerPosition.toString().length === 3) {
+      textPos = textX - 8;
+    }
   }
 
-  var mePos = document.querySelector('.me').textContent;
   var textY = player.status === 0 ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
-  context.fillText(mePos.slice(0, mePos.indexOf('.')), textKill, canvasY - PLAYER_RADIUS - 15);
+  context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 15);
 
   if (player.username) {
     var x1;
@@ -11964,6 +11972,8 @@ exports.getCurrentState = getCurrentState;
 
 var _leaderboard = __webpack_require__(/*! ./leaderboard */ "./resources/js/game/leaderboard.js");
 
+var _render = __webpack_require__(/*! ./render */ "./resources/js/game/render.js");
+
 var _gameinfo = __webpack_require__(/*! ./gameinfo */ "./resources/js/game/gameinfo.js");
 
 // The "current" state will always be RENDER_DELAY ms behind server time.
@@ -11990,6 +12000,7 @@ function processGameUpdate(update) {
       me = _getCurrentState.me;
 
   (0, _leaderboard.updateLeaderboard)(update.leaderboard, me);
+  (0, _render.getPlayerData)(update.leaderboard);
   (0, _gameinfo.updateGameinfo)(me); // Keep only one game update before the current server time
 
   var base = getBaseUpdate();
@@ -12096,7 +12107,7 @@ function interpolateDirection(d1, d2, ratio) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/postcss-loader/src/index.js):\nError: ENOENT: no such file or directory, open 'D:\\xampp\\htdocs\\game\\node_modules\\swiper\\css\\swiper.min.css'\n    at runLoaders (D:\\xampp\\htdocs\\game\\node_modules\\webpack\\lib\\NormalModule.js:313:20)\n    at D:\\xampp\\htdocs\\game\\node_modules\\loader-runner\\lib\\LoaderRunner.js:367:11\n    at D:\\xampp\\htdocs\\game\\node_modules\\loader-runner\\lib\\LoaderRunner.js:203:19\n    at process.nextTick (D:\\xampp\\htdocs\\game\\node_modules\\enhanced-resolve\\lib\\CachedInputFileSystem.js:73:15)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 

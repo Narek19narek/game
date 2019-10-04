@@ -5,11 +5,17 @@ import { getCurrentState } from './state';
 
 // import { getScore } from './networking';
 
+let player_data = null;
+export function getPlayerData(data) {
+    player_data = data;
+}
+
 const { PLAYER_RADIUS, MAP_SIZE } = Constants;
 
 // Get the canvas graphics context
 const canvas = document.getElementById('game-canvas');
 const context = canvas.getContext('2d');
+
 // const canvasSquare = document.getElementById('game-object');
 // const contextSquare = canvasSquare.getContext('2d');
 setCanvasDimensions();
@@ -107,9 +113,9 @@ function renderPlayer(me, player) {
   // Draw ship
   context.save();
   context.translate(canvasX, canvasY);
-  if (player.rotate) {
-    context.rotate(player.rotate / 57 * 3);
-  }
+  // if (player.rotate) {
+  //   context.rotate(player.rotate / 57 * 3);
+  // }
 
   // let img;
   // if (player.status === 2) {
@@ -140,30 +146,30 @@ function renderPlayer(me, player) {
   context.restore();
 
   // Draw health bar
-  context.fillStyle = 'blue';
-  context.font = '12px FuturaPress';
   // context.fillRect(
   //   canvasX - PLAYER_RADIUS,
   //   canvasY + PLAYER_RADIUS + 20,
   //   PLAYER_RADIUS * 2,
   //   2,
   // );
-    const textX = canvasX - PLAYER_RADIUS + 15;
-  let textKill;
-  if (player.kill.toString().length === 1) {
-    textKill = textX - 1;
-  } else if (player.kill.toString().length === 2) {
-    textKill = textX - 4;
-  } else if (player.kill.toString().length === 3) {
-    textKill = textX - 8;
-  } else if (player.kill.toString().length === 4) {
-    textKill = textX - 12;
+  const textX = canvasX - PLAYER_RADIUS + 13;
+  let textPos = textX;
+
+  const playerPosition = player_data.find(obj => obj.id === player.id).positionId;
+  if (playerPosition === 1 ) {
+      context.fillStyle = '#FFA200';
+      context.font = '25px FuturaPress';
   } else {
-    textKill = textX - 15;
+      context.fillStyle = 'blue';
+      context.font = '16px FuturaPress';
+      if (playerPosition.toString().length === 2) {
+          textPos = textX - 4;
+      } else if (playerPosition.toString().length === 3) {
+          textPos = textX - 8;
+      }
   }
-  const mePos = document.querySelector('.me').textContent;
   const textY = (player.status === 0) ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
-  context.fillText(mePos.slice(0, mePos.indexOf('.')), textKill, canvasY - PLAYER_RADIUS - 15);
+  context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 15);
   if (player.username) {
     let x1;
     if (player.username.length < 4) {
@@ -207,3 +213,4 @@ export function getInfo() {
     const { me } = getCurrentState();
     return me;
 }
+
