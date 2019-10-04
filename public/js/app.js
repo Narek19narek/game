@@ -11855,11 +11855,12 @@ function renderPlayer(me, player) {
     context.lineTo(-25, 25);
     context.lineTo(25, 25);
     context.lineTo(25, -25);
-    context.lineTo(-25, -25);
+    context.closePath();
   } else if (player.status === 0) {
     context.moveTo(-1, -30);
     context.lineTo(25, 14);
     context.lineTo(-25, 14);
+    context.closePath();
     context.lineTo(0, -29);
   } else {
     context.arc(0, 0, 25, 0, 2 * Math.PI);
@@ -11876,7 +11877,7 @@ function renderPlayer(me, player) {
   //   2,
   // );
 
-  var textX = canvasX - PLAYER_RADIUS + 13;
+  var textX = canvasX - PLAYER_RADIUS + 12;
   var textPos = textX;
   var playerPosition = player_data.find(function (obj) {
     return obj.id === player.id;
@@ -11897,7 +11898,9 @@ function renderPlayer(me, player) {
   }
 
   var textY = player.status === 0 ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
-  context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 15);
+  context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 18);
+  context.fillStyle = 'blue';
+  context.font = '16px FuturaPress';
 
   if (player.username) {
     var x1;

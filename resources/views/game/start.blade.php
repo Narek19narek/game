@@ -74,7 +74,6 @@
         <div id="switch-btn"><p>S</p><span></span></div>
         <div id="teleport-btn"><p>T</p><span></span></div>
     </div>
-    <div id="kill" class="hidden"></div>
     <div id="game-over" class="hidden">
         <h1>Game Over</h1>
     </div>

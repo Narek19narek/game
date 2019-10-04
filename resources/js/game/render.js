@@ -131,11 +131,12 @@ function renderPlayer(me, player) {
         context.lineTo(-25, 25);
         context.lineTo(25, 25);
         context.lineTo(25, -25);
-        context.lineTo(-25, -25);
+        context.closePath();
     } else if (player.status === 0) {
         context.moveTo(-1, -30);
         context.lineTo(25, 14);
         context.lineTo(-25, 14);
+        context.closePath();
         context.lineTo(0, -29);
     } else {
         context.arc(0, 0, 25, 0, 2 * Math.PI);
@@ -152,7 +153,7 @@ function renderPlayer(me, player) {
   //   PLAYER_RADIUS * 2,
   //   2,
   // );
-  const textX = canvasX - PLAYER_RADIUS + 13;
+  const textX = canvasX - PLAYER_RADIUS + 12;
   let textPos = textX;
 
   const playerPosition = player_data.find(obj => obj.id === player.id).positionId;
@@ -169,7 +170,9 @@ function renderPlayer(me, player) {
       }
   }
   const textY = (player.status === 0) ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
-  context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 15);
+  context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 18);
+  context.fillStyle = 'blue';
+  context.font = '16px FuturaPress';
   if (player.username) {
     let x1;
     if (player.username.length < 4) {
