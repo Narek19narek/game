@@ -35,20 +35,15 @@ function render() {
   if (!me) {
     return;
   }
-    // console.log(others);
 
   // Draw background
   renderBackground(me.x, me.y);
 
   // Draw boundaries
-    context.beginPath();
+  context.beginPath();
   context.strokeStyle = 'black';
   context.lineWidth = 5;
   context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE);
-
-  // Draw all bullets
-  // console.log(me);
-  // bullets.forEach(renderBullet.bind(null, me));
 
   // Draw all players
   renderPlayer(me, me);
@@ -89,8 +84,6 @@ function renderBackground(x, y) {
         // context.moveTo(2 * (MAP_SIZE + canvas.width) - x - (i + 120) * 40, -y);
         // context.lineTo(canvas.width / 2 - x - (i + 120) * 40,2 * (MAP_SIZE + canvas.height) - y);
     }
-
-    // console.log(canvas.width, canvas.height, MAP_SIZE, x, y);
 
     var grad= context.createRadialGradient(backgroundX,
         backgroundY,
@@ -141,7 +134,7 @@ function renderPlayer(me, player) {
     } else {
         context.arc(0, 0, 25, 0, 2 * Math.PI);
     }
-  context.strokeStyle = 'blue';
+  context.strokeStyle = Constants.SKINS[player.skin];
   context.lineWidth = 4;
   context.stroke();
   context.restore();
@@ -156,11 +149,14 @@ function renderPlayer(me, player) {
   const textX = canvasX - PLAYER_RADIUS + 12;
   let textPos = textX;
 
-  const playerPosition = player_data.find(obj => obj.id === player.id).positionId;
+  const getPlayer = player_data.find((obj) => {
+      return  obj.id === player.id;
+  });
+  const playerPosition = getPlayer ? getPlayer.positionId : null;
   if (playerPosition === 1 ) {
       context.fillStyle = '#FFA200';
       context.font = '25px FuturaPress';
-  } else {
+  } else if (playerPosition > 1) {
       context.fillStyle = 'blue';
       context.font = '16px FuturaPress';
       if (playerPosition.toString().length === 2) {
@@ -171,7 +167,7 @@ function renderPlayer(me, player) {
   }
   const textY = (player.status === 0) ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
   context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 18);
-  context.fillStyle = 'blue';
+  context.fillStyle = Constants.SKINS[player.skin];
   context.font = '16px FuturaPress';
   if (player.username) {
     let x1;

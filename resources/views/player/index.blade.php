@@ -40,7 +40,7 @@
                     </div>
                     <div class="item">
                         <a href="{{ route('get-skin') }}">
-                            <img src="{{ asset("images/menu/skin2.svg") }}" alt="skin image">
+                            <img src="{{ asset("images/skins/color-".(Auth::user()->skeen_id).".svg") }}" alt="skin image" width="56px">
                         </a>
                     </div>
                 @endguest

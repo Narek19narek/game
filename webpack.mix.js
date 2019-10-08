@@ -17,3 +17,5 @@ mix.js('resources/js/bootstrap.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
 mix.js('resources/js/main.js', 'public/js')
     .sass('resources/sass/main.scss', 'public/css');
+
+mix.copyDirectory('resources/js/Slider.js', 'public/js');

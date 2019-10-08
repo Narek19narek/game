@@ -17,9 +17,12 @@ if (userInfo) {
     userAbility.userSwitches = userInfo.dataset.switches;
     userAbility.userTeleport = userInfo.dataset.teleport;
     userAbility.userPush = userInfo.dataset.push;
+    userAbility.userSkin = userInfo.dataset.skin;
 } else {
     userAbility.isUser = false;
 }
+
+
 
 Promise.all([
   connect(onGameOver),

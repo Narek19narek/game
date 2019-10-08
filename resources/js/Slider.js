@@ -1,19 +1,24 @@
-import Swiper from 'swiper'
-
+import Swiper from 'swiper';
 export default class Slider {
-    constructor() {
-    }
+    constructor() {}
 
-    initBoostsAmountSlider(selector) {
-        this.boosts_amount_slider = new Swiper (`${selector} .swiper-container`, {
-            direction: 'vertical',
-            mousewheelControl: false,
-            slidesPerView: 1,
+    initSkinSlider(selector) {
+        this.skin_slider = new Swiper(selector, {
+            direction: 'horizontal',
+            loop: false,
+            keyboard:
+                {
+                    enabled: true,
+                    onlyInViewport: false,
+                },
+            mousewheel:
+                {
+                    invert: true,
+                },
+            mousewheelControl: true,
+            slidesPerView: 3,
             freeMode: false,
             freeModeSticky: false,
-            nextButton: '.swiper-button-prev',
-            prevButton: '.swiper-button-next',
-        })
+        });
     }
-
 }

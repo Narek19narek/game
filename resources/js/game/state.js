@@ -80,7 +80,6 @@ function interpolateObject(object1, object2, ratio) {
   if (!object2) {
     return object1;
   }
-  // console.log(object1);
   const interpolated = {};
   Object.keys(object1).forEach(key => {
     if (key === 'x' || key === 'y') {

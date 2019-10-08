@@ -4,5 +4,6 @@
     "/css/app.css": "/css/app.css",
     "/css/main.css": "/css/main.css",
     "/js/bootstrap.js": "/js/bootstrap.js",
-    "/js/main.js": "/js/main.js"
+    "/js/main.js": "/js/main.js",
+    "/js/Slider.js": "/js/Slider.js"
 }

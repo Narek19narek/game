@@ -11270,6 +11270,8 @@ module.exports = Object.freeze({
   PLAYER_SWITCHES: 3,
   PLAYER_TELEPORTS: 3,
   PLAYER_PUSH_PLAYERS: 3,
+  PLAYER_SKIN: 1,
+  SKINS: ['', '#1b00ff', '#FF002A', '#A4C400', '#6A00FF', '#00ABA9'],
   SCORE: 10,
   SCORE_PER_SECOND: 1 / 60,
   MAP_SIZE: 3000,
@@ -11298,7 +11300,7 @@ module.exports = Object.freeze({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-var ASSET_NAMES = ['bg.jpg', 'triangle.svg', 'square.svg', 'circle.svg'];
+var ASSET_NAMES = ['color-1.svg'];
 var assets = {};
 var downloadPromise = Promise.all(ASSET_NAMES.map(downloadAsset));
 
@@ -11312,7 +11314,7 @@ function downloadAsset(assetName) {
       resolve();
     };
 
-    asset.src = "/images/".concat(assetName);
+    asset.src = "/images/skins/".concat(assetName);
   });
 }
 
@@ -11422,6 +11424,7 @@ if (userInfo) {
   userAbility.userSwitches = userInfo.dataset.switches;
   userAbility.userTeleport = userInfo.dataset.teleport;
   userAbility.userPush = userInfo.dataset.push;
+  userAbility.userSkin = userInfo.dataset.skin;
 } else {
   userAbility.isUser = false;
 }
@@ -11608,10 +11611,9 @@ function updateLeaderboard(data, me) {
 
   for (var i = 0; i < maxLeaders; i++) {
     if (data[i].id === me.id) {
-      rows[i + 1].classList.add('me'); // console.log(document.querySelector('.me'));
+      rows[i + 1].classList.add('me');
     }
 
-    console.log((0, _escape2["default"])(data[i].username.slice(0, 10)) || 'player');
     rows[i + 1].innerHTML = "<td>".concat(i + 1, ".<td>").concat((0, _escape2["default"])(data[i].username.slice(0, 10)) || 'player', "</td>");
     document.querySelector('#score h2').innerText = data[i].score;
   }
@@ -11686,7 +11688,7 @@ var connect = exports.connect = function connect(onGameOver) {
     socket.on(Constants.MSG_TYPES.GAME_UPDATE, _state.processGameUpdate);
     socket.on(Constants.MSG_TYPES.GAME_OVER, onGameOver);
     socket.on('disconnect', function () {
-      console.log('Disconnected from server.');
+      // console.log('Disconnected from server.');
       document.getElementById('disconnect-modal').classList.remove('hidden');
 
       document.getElementById('reconnect-button').onclick = function () {
@@ -11777,8 +11779,7 @@ function render() {
 
   if (!me) {
     return;
-  } // console.log(others);
-  // Draw background
+  } // Draw background
 
 
   renderBackground(me.x, me.y); // Draw boundaries
@@ -11786,10 +11787,7 @@ function render() {
   context.beginPath();
   context.strokeStyle = 'black';
   context.lineWidth = 5;
-  context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE); // Draw all bullets
-  // console.log(me);
-  // bullets.forEach(renderBullet.bind(null, me));
-  // Draw all players
+  context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE); // Draw all players
 
   renderPlayer(me, me);
   others.forEach(renderPlayer.bind(null, me));
@@ -11817,8 +11815,7 @@ function renderBackground(x, y) {
     // context.lineTo(2 * (MAP_SIZE + canvas.width) - x - (i + 1) * 40, 2 * (MAP_SIZE + canvas.height)- y);
     // context.moveTo(2 * (MAP_SIZE + canvas.width) - x - (i + 120) * 40, -y);
     // context.lineTo(canvas.width / 2 - x - (i + 120) * 40,2 * (MAP_SIZE + canvas.height) - y);
-  } // console.log(canvas.width, canvas.height, MAP_SIZE, x, y);
-
+  }
 
   var grad = context.createRadialGradient(backgroundX, backgroundY, MAP_SIZE / 10, backgroundX, backgroundY, MAP_SIZE / 2);
   grad.addColorStop(0, "#707070");
@@ -11866,7 +11863,7 @@ function renderPlayer(me, player) {
     context.arc(0, 0, 25, 0, 2 * Math.PI);
   }
 
-  context.strokeStyle = 'blue';
+  context.strokeStyle = Constants.SKINS[player.skin];
   context.lineWidth = 4;
   context.stroke();
   context.restore(); // Draw health bar
@@ -11879,14 +11876,15 @@ function renderPlayer(me, player) {
 
   var textX = canvasX - PLAYER_RADIUS + 12;
   var textPos = textX;
-  var playerPosition = player_data.find(function (obj) {
+  var getPlayer = player_data.find(function (obj) {
     return obj.id === player.id;
-  }).positionId;
+  });
+  var playerPosition = getPlayer ? getPlayer.positionId : null;
 
   if (playerPosition === 1) {
     context.fillStyle = '#FFA200';
     context.font = '25px FuturaPress';
-  } else {
+  } else if (playerPosition > 1) {
     context.fillStyle = 'blue';
     context.font = '16px FuturaPress';
 
@@ -11899,7 +11897,7 @@ function renderPlayer(me, player) {
 
   var textY = player.status === 0 ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
   context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 18);
-  context.fillStyle = 'blue';
+  context.fillStyle = Constants.SKINS[player.skin];
   context.font = '16px FuturaPress';
 
   if (player.username) {
@@ -12058,8 +12056,7 @@ function getCurrentState() {
 function interpolateObject(object1, object2, ratio) {
   if (!object2) {
     return object1;
-  } // console.log(object1);
-
+  }
 
   var interpolated = {};
   Object.keys(object1).forEach(function (key) {

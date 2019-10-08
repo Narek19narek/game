@@ -16,9 +16,7 @@ export function updateLeaderboard(data, me) {
   for (let i = 0; i < maxLeaders; i++) {
     if (data[i].id === me.id) {
       rows[i + 1].classList.add('me');
-      // console.log(document.querySelector('.me'));
     }
-    console.log(escape(data[i].username.slice(0, 10)) || 'player');
     rows[i + 1].innerHTML = `<td>${(i + 1)}.<td>${escape(data[i].username.slice(0, 10)) || 'player'}</td>`;
     document.querySelector('#score h2').innerText = data[i].score;
   }

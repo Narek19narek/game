@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('provider')->nullable();
             $table->string('provider_id')->nullable();
-            $table->bigInteger('skeen_id')->unsigned()->nullable();
+            $table->bigInteger('skeen_id')->unsigned()->default(0);
             $table->integer('level')->unsigned()->default(1);
             $table->integer('switch')->unsigned()->default(3);
             $table->integer('teleport')->unsigned()->default(3);

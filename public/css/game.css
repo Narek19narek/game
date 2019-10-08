@@ -221,7 +221,7 @@ button:focus {
   font-weight: bold;
   color: #eee;
   -webkit-text-fill-color: #eee;
-  -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-width: 1.5px;
   -webkit-text-stroke-color: #A63333;
 }
 

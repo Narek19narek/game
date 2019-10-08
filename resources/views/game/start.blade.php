@@ -8,7 +8,8 @@
                    value=" @if (auth()->check()){{auth()->user()->name}} @else {{request('nickname')}} @endif"/>
             @if(auth()->check())
                 <input type="hidden" id="user_info" data-switches="{{auth()->user()->switch}}"
-                       data-push="{{auth()->user()->push}}" data-teleport="{{auth()->user()->teleport}}" />
+                       data-push="{{auth()->user()->push}}" data-teleport="{{auth()->user()->teleport}}"
+                        data-skin="{{auth()->user()->skeen_id}}"/>
             @endif
 {{--            {{dd(auth()->user()->id)}}--}}
 
@@ -67,7 +68,7 @@
             </tr>
             </tbody>
         </table>
-        <div id="score"><h2></h2><span>Points</span></div>
+        <div id="score"><h2></h2><span>Kills</span></div>
     </div>
     <div id="game-info" class="hidden">
         <div id="push-btn"><p>P</p><span></span></div>

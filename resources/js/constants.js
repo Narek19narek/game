@@ -5,6 +5,9 @@ module.exports = Object.freeze({
   PLAYER_SWITCHES: 3,
   PLAYER_TELEPORTS: 3,
   PLAYER_PUSH_PLAYERS: 3,
+  PLAYER_SKIN: 1,
+
+  SKINS: ['','#1b00ff', '#FF002A', '#A4C400', '#6A00FF', '#00ABA9'],
 
   SCORE: 10,
   SCORE_PER_SECOND: 1 / 60,

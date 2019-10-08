@@ -66,13 +66,14 @@ class Game {
     const switches = userAbility.isUser ? userAbility.userSwitches : Constants.PLAYER_SWITCHES;
     const push = userAbility.isUser ? userAbility.userPush : Constants.PLAYER_PUSH_PLAYERS;
     const teleport = userAbility.isUser ? userAbility.userTeleport : Constants.PLAYER_TELEPORTS;
+    const skin = userAbility.isUser ? userAbility.userSkin : Constants.PLAYER_SKIN;
     this.sockets[socket.id] = socket;
     const { x, y } = this.getCordinates();
     // Generate a position to start this player at.
     const status = this.getStatus();
     // const time = this.updateTime();
     // const score = 0;
-    this.players[socket.id] = new Player(socket.id, username, x, y, status, switches, teleport, push);
+    this.players[socket.id] = new Player(socket.id, username, x, y, status, +switches, +teleport, +push, +skin);
   }
 
   removePlayer(socket) {
@@ -213,7 +214,7 @@ class Game {
     let i = 1;
     const players = Object.values(this.players)
       .sort((p1, p2) => p2.score - p1.score)
-      .map(p => ({ username: p.username, score: Math.floor(p.score), id: p.id, positionId: i++ }));
+      .map(p => ({ username: p.username, score: Math.floor(p.kill), id: p.id, positionId: i++ }));
 
     Object.values(players).forEach(obj => {
       const player = Object.values(this.leaderboard).find(o => o.id === obj.id);
@@ -233,10 +234,6 @@ class Game {
     const nearbyPlayers = Object.values(this.players).filter(
       p => p !== player && p.distanceTo(player) <= Constants.MAP_SIZE / 2,
     );
-    // console.log(this.bullets);
-    // const nearbyBullets = this.bullets.filter(
-    //   b => b.distanceTo(player) <= Constants.MAP_SIZE / 2,
-    // );
 
     return {
       t: Date.now(),

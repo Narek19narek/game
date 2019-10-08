@@ -25,6 +25,8 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
-        "jquery": "^3.4.1"
+        "anypicker": "^2.0.9",
+        "jquery": "^3.4.1",
+        "swiper": "^5.0.4"
     }
 }

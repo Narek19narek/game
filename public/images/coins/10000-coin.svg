@@ -15,7 +15,7 @@ POPULAR" transform="translate(854.648 462.859)" fill="#fff" font-size="15" font-
       <circle id="Coin" cx="46.878" cy="46.878" r="46.878" fill="url(#linear-gradient)"/>
       <path id="Coin_Shading" data-name="Coin Shading" d="M46.878,39.121c8.052,0,19.806-.823,26.784-8.208C87.969,15.778,93.756-11.217,93.756,6.621A46.878,46.878,0,1,1,0,6.621C0-19.269,20.988,39.121,46.878,39.121Z" transform="translate(17.706 84.164) rotate(-60)" fill="#ffa200"/>
       <text id="_" data-name="$" transform="translate(45.439 71.674)" fill="#ffec00" font-size="76" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em" opacity="0.99"><tspan x="-22.306" y="0">$</tspan></text>
-      <text id="_10000" data-name="10000" transform="translate(46.664 54.802)" fill="#dedede" font-size="24" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-35.544" y="0">10000</tspan></text>
+      <text id="_10000" data-name="10000" transform="translate(46.664 54.802)" fill="#fff" stroke="#a63333" stroke-width="1" font-size="24" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-35.544" y="0">10000</tspan></text>
     </g>
     <path id="Polygon_7" data-name="Polygon 7" d="M12.676,0,25.352,22.535H0Z" transform="translate(867.943 508.084) rotate(180)" fill="#a63333"/>
   </g>

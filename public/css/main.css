@@ -619,7 +619,11 @@ a.btn:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #DEDEDE;
+  color: #fff;
+  -webkit-text-fill-color: #fff;
+  /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #A63333;
 }
 
 #coin .popular > div,
@@ -697,11 +701,11 @@ a.btn:focus {
 
 /*-----BOOSTS-----*/
 
-#boosts #carousel .carousel-indicators {
+#carousel .carousel-indicators {
   position: static;
 }
 
-#boosts #carousel .carousel-indicators li {
+#carousel .carousel-indicators li {
   box-sizing: content-box;
   flex: 0 1 auto;
   width: auto;
@@ -717,35 +721,35 @@ a.btn:focus {
   opacity: 1;
 }
 
-#boosts #carousel ol {
+#carousel ol {
   justify-content: space-evenly;
   align-items: baseline;
   width: 60%;
   margin: auto;
 }
 
-#boosts #carousel ol li {
+#carousel ol li {
   list-style-type: none;
   text-align: center;
   transition: all 0.5s ease-in-out;
   position: relative;
 }
 
-#boosts #carousel ol li p {
+#carousel ol li p {
   display: none;
   opacity: 0;
 }
 
-#boosts #carousel ol li.active {
+#carousel ol li.active {
   transform: scale(1.5);
 }
 
-#boosts #carousel ol li.active p {
+#carousel ol li.active p {
   display: block;
   opacity: 1;
 }
 
-#boosts #carousel ol li.dot {
+#carousel ol li.dot {
   cursor: default;
   pointer-events: none;
   flex-basis: 22px;
@@ -754,12 +758,17 @@ a.btn:focus {
   border-radius: 22px;
 }
 
-#boosts #carousel .carousel-inner .carousel-item {
+#carousel .carousel-inner .carousel-item {
   padding: 3% 13% 13%;
 }
 
-#boosts .carousel-control-prev,
-#boosts .carousel-control-next {
+.carousel-control-prev,
+.carousel-control-next,
+.carousel-control-prev:hover,
+.carousel-control-next:hover,
+.carousel-control-prev:focus,
+.carousel-control-next:focus {
+  outline: none;
   color: #A63333;
   font-size: 6em;
   opacity: 1;
@@ -790,15 +799,11 @@ a.btn:focus {
   padding: 1px 5px;
 }
 
-.c-pointer {
-  cursor: pointer;
-}
-
-.boosts-count-slider {
+#boosts .boosts-count-slider {
   display: flex;
 }
 
-.boosts-count-slider .boosts-count div {
+#boosts .boosts-count-slider .boosts-count div {
   justify-content: center;
   height: 33.33%;
   display: flex;
@@ -806,7 +811,7 @@ a.btn:focus {
   font-size: 42px;
 }
 
-.boosts-count-slider .slideBtn {
+#boosts .boosts-count-slider .slideBtn {
   position: absolute;
   top: 0;
   left: 0;
@@ -816,26 +821,91 @@ a.btn:focus {
   justify-content: center;
 }
 
-.boosts-count-slider .slideBtn .nextBtn,
-.boosts-count-slider .slideBtn .prevBtn {
+#boosts .boosts-count-slider .slideBtn .nextBtn,
+#boosts .boosts-count-slider .slideBtn .prevBtn {
   position: absolute;
   font-size: 60px;
   display: flex;
 }
 
-.boosts-count-slider .slideBtn .nextBtn i,
-.boosts-count-slider .slideBtn .prevBtn i {
+#boosts .boosts-count-slider .slideBtn .nextBtn i,
+#boosts .boosts-count-slider .slideBtn .prevBtn i {
   height: 42px;
 }
 
-.boosts-count-slider .slideBtn .nextBtn {
+#boosts .boosts-count-slider .slideBtn .nextBtn {
   bottom: 0;
   align-items: flex-start;
 }
 
-.boosts-count-slider .slideBtn .prevBtn {
+#boosts .boosts-count-slider .slideBtn .prevBtn {
   bottom: 90%;
   align-items: flex-end;
+}
+
+/*-----SKINS-----*/
+
+#skin #carousel ol li > .color {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 11px solid #1B00FF;
+}
+
+#skin #select_skin > div {
+  position: relative;
+}
+
+#skin #select_skin > div i.fas {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #008000;
+}
+
+#skin #select_skin > div i.fa-lock {
+  color: #76767a;
+}
+
+#skin #select_skin > div .getSkin {
+  display: flex;
+  position: relative;
+}
+
+#skin #select_skin > div .getSkin .img {
+  background: #dedede;
+  -webkit-filter: drop-shadow(0px 3px 20px rgba(0, 0, 0, 0.51));
+          filter: drop-shadow(0px 3px 20px rgba(0, 0, 0, 0.51));
+  border-radius: 1000px;
+  padding: 2px 20px;
+  transform: translate(-20px);
+  z-index: -1;
+}
+
+#skin .formContent {
+  margin-top: 0;
+}
+
+#skin .formContent #carousel ol li p {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+#skin .form-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.c-pointer {
+  cursor: pointer;
 }
 
 @media (max-width: 1200px) {

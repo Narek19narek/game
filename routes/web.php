@@ -36,6 +36,7 @@ Route::get('/payment/{id}', 'CoinsController@payment')->name('payment');
 //Route::get('/payment/success/', 'CoinsController@success2');
 
 Route::get('/get-skin', 'ShopController@skin')->name('get-skin')->middleware('auth');
+Route::post('/get-skin/{id}', 'ShopController@selectSkin');
 
 Route::get('/get-boosts', 'ShopController@boosts')->name('get-boosts')->middleware('auth');
 

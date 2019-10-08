@@ -12,7 +12,7 @@
       <circle id="Coin" cx="23.026" cy="23.026" r="23.026" fill="url(#linear-gradient)"/>
       <path id="Coin_Shading" data-name="Coin Shading" d="M22.669,18.809c3.943-.072,9.705-.571,13.187-4.173C43,7.253,46.07-5.739,45.911,2.812c-.23,12.411-10.693,22.659-23.37,22.889S-.226,16.056,0,3.645,9.992,19.039,22.669,18.809Z" transform="translate(8.817 41.232) rotate(-60)" fill="#ffa200"/>
       <text id="_" data-name="$" transform="translate(22.917 36.822)" fill="#ffec00" font-size="39" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em" opacity="0.99"><tspan x="-11.447" y="0">$</tspan></text>
-      <text id="_100" data-name="100" transform="translate(21.756 30.338)" fill="#dedede" font-size="19" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-15.846" y="0">100</tspan></text>
+      <text id="_100" data-name="100" transform="translate(21.756 30.338)" fill="#fff" stroke="#a63333" stroke-width="1" font-size="19" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-15.846" y="0">100</tspan></text>
     </g>
   </g>
 </svg>

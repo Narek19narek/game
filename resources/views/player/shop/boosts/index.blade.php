@@ -232,6 +232,8 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 position-relative d-flex align-items-center h-100 overflow-hidden switches-content">
+{{--                                            <input type="text" id="demo">--}}
+
                                             <div>
                                                 <p class="m-0">Coins</p>
                                             </div>
@@ -276,9 +278,14 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(document).ready(function () {
-            const slider = new Slider();
-            slider.initBoostsAmountSlider(".boosts-amount-slider")
+        // $(document).ready(function () {
+        //     $("#demo").AnyPicker({
+        //         mode:"select",
+        //         layout:"fixed",
+        // });
+
+            // const slider = new Slider();
+            // slider.initBoostsAmountSlider(".boosts-amount-slider")
         });
 
     </script>

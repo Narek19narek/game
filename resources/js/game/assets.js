@@ -1,8 +1,5 @@
 const ASSET_NAMES = [
-  'bg.jpg',
-  'triangle.svg',
-  'square.svg',
-  'circle.svg',
+  'color-1.svg',
 ];
 
 const assets = {};
@@ -17,7 +14,7 @@ function downloadAsset(assetName) {
       assets[assetName] = asset;
       resolve();
     };
-    asset.src = `/images/${assetName}`;
+    asset.src = `/images/skins/${assetName}`;
   });
 }
 

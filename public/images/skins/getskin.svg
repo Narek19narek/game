@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100" height="100" viewBox="0 0 132 140">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.233" y1="0.096" x2="0.709" y2="0.879" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffd100"/>
+      <stop offset="0.807" stop-color="#ffa400"/>
+      <stop offset="1" stop-color="#ffa200"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_470" data-name="Group 470" transform="translate(-1116 -475.682)">
+    <g id="Group_390" data-name="Group 390" transform="translate(1116 475.682)">
+      <circle id="Coin" cx="66.355" cy="66.355" r="66.355" fill="url(#linear-gradient)"/>
+      <path id="Coin_Shading" data-name="Coin Shading" d="M66.355,55.375c11.4,0,28.035-1.166,37.912-11.618,20.252-21.423,28.444-59.635,28.444-34.385A66.355,66.355,0,1,1,0,9.372C0-27.275,29.708,55.375,66.355,55.375Z" transform="translate(25.063 119.133) rotate(-60)" fill="#ffa200"/>
+      <text id="_" data-name="$" transform="translate(66.178 101.37)" fill="#ffec00" font-size="99" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em" opacity="0.99"><tspan x="-29.056" y="0">$</tspan></text>
+    </g>
+    <g id="Group_324" data-name="Group 324" transform="translate(1139 575.71)">
+      <g id="Rectangle_1501" data-name="Rectangle 1501" transform="translate(0 0.288)" fill="#a63333" stroke="#a63333" stroke-width="3">
+        <rect width="89" height="41" rx="20.5" stroke="none"/>
+        <rect x="1.5" y="1.5" width="86" height="38" rx="19" fill="none"/>
+      </g>
+      <text id="BUY" transform="translate(44.153 33)" fill="#dedede" font-size="36" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-36.036" y="0">BUY</tspan></text>
+    </g>
+  </g>
+</svg>
