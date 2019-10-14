@@ -1,7 +1,8 @@
-<svg id="Group_322" data-name="Group 322" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
-  <g id="Circle" fill="#a63333" stroke="#a63333" stroke-width="11">
-    <circle cx="28" cy="28" r="28" stroke="none"/>
-    <circle cx="28" cy="28" r="22.5" fill="none"/>
-  </g>
-  <path id="Path_84" data-name="Path 84" d="M8919.4-8286.375h10.939l-7.924,12.625h15.1l-24.129,24.842,9.033-18.423H8908.23Z" transform="translate(-8894 8298)" fill="#dedede"/>
+<svg id="Group_472" data-name="Group 472" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+    <g id="Circle" fill="#a63333" stroke="#a63333" stroke-width="11">
+        <circle cx="28" cy="28" r="28" stroke="none"/>
+        <circle cx="28" cy="28" r="22.5" fill="none"/>
+    </g>
+    <path id="Path_84" data-name="Path 84" d="M8919.4-8286.375h10.939l-7.924,12.625h15.1l-24.129,24.842,9.033-18.423H8908.23Z" transform="translate(-8894 8298)" fill="#dedede"/>
 </svg>
+

@@ -12,4 +12,9 @@ class Skin extends Model
         'skin',
         'coin',
     ];
+
+    public function user_skins()
+    {
+        return $this->belongsToMany(User::class, 'user_skins', 'skin_id', 'user_id');
+    }
 }

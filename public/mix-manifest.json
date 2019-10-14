@@ -2,8 +2,8 @@
     "/js/app.js": "/js/app.js",
     "/css/game.css": "/css/game.css",
     "/css/app.css": "/css/app.css",
-    "/css/main.css": "/css/main.css",
     "/js/bootstrap.js": "/js/bootstrap.js",
     "/js/main.js": "/js/main.js",
-    "/js/Slider.js": "/js/Slider.js"
+    "/js/Slider.js": "/js/Slider.js",
+    "/css/main.css": "/css/main.css"
 }

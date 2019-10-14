@@ -62,7 +62,7 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapAdminRoutes()
     {
-        Route::middleware(['web'])
+        Route::middleware('web')
             ->namespace($this->namespaceAdmin)
             ->prefix('game-dash')
             ->group(base_path('routes/admin.php'));

@@ -9026,9 +9026,58 @@ function () {
           invert: true
         },
         mousewheelControl: true,
+        slidesPerView: 4,
+        freeMode: false,
+        freeModeSticky: false,
+        centeredSlides: true
+      });
+    }
+  }, {
+    key: "initBoostAmountSlider",
+    value: function initBoostAmountSlider(selector, x, changeCoins) {
+      this.boost_slider = new _swiper2["default"](selector, {
+        direction: 'vertical',
+        initialSlide: x,
+        loop: false,
+        spaceBetween: 0,
+        // keyboard: {
+        //     enabled: true,
+        //     onlyInViewport: true,
+        // },
+        mousewheel: {
+          invert: true
+        },
+        mousewheelControl: true,
         slidesPerView: 3,
         freeMode: false,
-        freeModeSticky: false
+        freeModeSticky: false,
+        centeredSlides: true,
+        on: {
+          'slideChangeTransitionEnd': changeCoins
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        }
+      });
+    }
+  }, {
+    key: "initBoostCoinSlider",
+    value: function initBoostCoinSlider(selector, x) {
+      this.coins_slider = new _swiper2["default"](selector, {
+        init: true,
+        direction: 'vertical',
+        initialSlide: x,
+        loop: false,
+        spaceBetween: 20,
+        mousewheelControl: false,
+        touchRatio: false,
+        touchAngle: false,
+        allowTouchMove: false,
+        slidesPerView: 3,
+        freeMode: false,
+        freeModeSticky: false,
+        centeredSlides: true
       });
     }
   }]);

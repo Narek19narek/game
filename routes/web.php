@@ -39,9 +39,12 @@ Route::get('/get-skin', 'ShopController@skin')->name('get-skin')->middleware('au
 Route::post('/get-skin/{id}', 'ShopController@selectSkin');
 
 Route::get('/get-boosts', 'ShopController@boosts')->name('get-boosts')->middleware('auth');
+Route::post('/get-boosts/switches', 'ShopController@getSwitches');
 
 Route::get('/settings', 'HomeController@settings')->name('settings');
 Route::get('/help', 'HomeController@help')->name('help');
+
+Route::get('/term-and-condition', 'HomeController@terms')->name('term-and-condition');
 
 
 //Route::get('stripe', 'StripePaymentController@stripe')->name('stripe');

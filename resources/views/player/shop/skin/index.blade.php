@@ -42,56 +42,101 @@
                                     <div class="formContent row justify-content-around">
                                         <div class="row skin-slider swiper-container" id="select_skin">
                                             <div class="swiper-wrapper d-flex">
+
                                                 @foreach($skins as $skin)
+
                                                     <div class="swiper-slide d-flex align-items-center bg-transparent">
-                                                        <label for="color_{{$skin->id}}">
-                                                            <img src="{{ asset('images/skins/color-'.$skin->id.'.svg') }}" alt="Colors">
-{{--                                                            @foreach($user_skins as $userSkin)--}}
-{{--                                                                @if($userSkin->id !== $skin->id)--}}
-{{--                                                                    <div class="getSkin">--}}
-{{--                                                                        <div class="position-relative">--}}
-{{--                                                                            <i class="fas fa-lock"></i>--}}
-{{--                                                                            <img src="{{ asset('images/skins/color-'.$skin->id.'.svg') }}" alt="Colors">--}}
-{{--                                                                        </div>--}}
-{{--                                                                        <div class="img">--}}
-{{--                                                                            <img src="{{ asset('images/skins/get-skin-bg.svg') }}" alt="Get SKin" width="165">--}}
-{{--                                                                        </div>--}}
-{{--                                                                    </div>--}}
-{{--                                                                @else <img src="{{ asset('images/skins/color-'.$skin->id.'.svg') }}" alt="Colors">--}}
-{{--                                                                @endif--}}
-{{--                                                            @endforeach--}}
+                                                        <label for="color_{{$skin->id}}" class="c-pointer m-0">
+
+                                                            @if(in_array($skin->id, $arrSkins, true))
+                                                                <img
+                                                                    src="{{ asset('images/skins/color-'.$skin->id.'.svg') }}"
+                                                                    alt="Colors">
+                                                            @else
+
+                                                                <div class="getSkin">
+                                                                    <div class="position-relative">
+                                                                        <i class="fas fa-lock"></i>
+                                                                        <img
+                                                                            src="{{ asset('images/skins/color-'.$skin->id.'.svg') }}"
+                                                                            alt="Colors">
+                                                                    </div>
+                                                                    <div class="img">
+                                                                        <img
+                                                                            src="{{ asset('images/skins/get-skin-bg.svg') }}"
+                                                                            alt="Get SKin" height="135">
+                                                                        <div class="coin-count">
+                                                                            <img
+                                                                                src="{{ asset('images/coins/coin.svg') }}"
+                                                                                alt="Coin" width="70">
+                                                                            <h1>BUY</h1>
+                                                                            <span>{{ $skin->coin }}</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            @endif
+
                                                         </label>
-                                                        <input type="radio" hidden value="{{$skin->id}}" name="color" id="color_{{$skin->id}}" @if(\Auth::user() && Auth::user()->skeen_id === $skin->id) checked @endif>
+                                                        <input type="radio" hidden value="{{$skin->id}}" name="color"
+                                                               id="color_{{$skin->id}}"
+                                                               @if(\Auth::user() && Auth::user()->skeen_id === $skin->id) checked @endif>
+
                                                         @if(\Auth::user() && Auth::user()->skeen_id === $skin->id)
                                                             <i class="fas fa-check" id="check"></i>
+
                                                         @endif
+
                                                     </div>
+
                                                 @endforeach
+
                                             </div>
 
+                                        </div>
+                                        <div class="col-12 d-flex align-items-center" id="get_success">
+                                            <div class="position-relative w-25 pl-4">
+                                                <img src="" alt="Skin" class="img-fluid" width="150">
+                                            </div>
+                                            <div class="col">
+                                                <h1 class="text-center">Congratulations!</h1>
+                                                <p class="text-center">you have purchased a skin</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 d-flex align-items-center" id="get_error">
+                                            <div class="position-relative w-25 pl-4">
+                                                <img src="" alt="Skin" class="img-fluid" width="150">
+                                            </div>
+                                            <div class="col">
+                                                <h1 class="text-center">Oops</h1>
+                                                <p class="text-center">You don't have enough coins for this, visit the
+                                                    <a href="{{ route('get-coin') }}">store</a></p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <div class="formContent row justify-content-center transactions">
-
+                                    <div class="formContent row justify-content-center align-items-center">
+                                        <h1 class="text-center">COMING SOON</h1>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <div class="formContent row justify-content-center">
-
+                                    <div class="formContent row justify-content-center align-items-center">
+                                        <h1 class="text-center">COMING SOON</h1>
                                     </div>
                                 </div>
                                 <div class="carousel-item">
-                                    <div class="formContent row justify-content-center">
-
+                                    <div class="formContent row justify-content-center align-items-center">
+                                        <h1 class="text-center">COMING SOON</h1>
                                     </div>
                                 </div>
                             </div>
-                            <a class="carousel-control-prev carousel-icon" href="#carousel" role="button" data-slide="prev">
+                            <a class="carousel-control-prev carousel-icon" href="#carousel" role="button"
+                               data-slide="prev">
                                 <i class="fas fa-caret-left"></i>
                             </a>
-                            <a class="carousel-control-next carousel-icon" href="#carousel" role="button" data-slide="next">
+                            <a class="carousel-control-next carousel-icon" href="#carousel" role="button"
+                               data-slide="next">
                                 <i class="fas fa-caret-right"></i>
                             </a>
                         </div>
@@ -108,20 +153,42 @@
 @push('js')
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#select_skin input').on('change', function () {
+            // $('.swiper-slide-next').removeClass('swiper-slide-next');
+            // $('#select_skin input[checked]').parent().addClass('swiper-slide-next');
+            // console.log($('.swiper-slide-next input'));
+            $(document).on('click', '.swiper-slide:not(.swiper-slide-active)', function (e) {
+                e.preventDefault();
+            });
+            $('#select_skin input').on('change', function (e) {
                 const id = $(this).val();
-                $('.fas.fa-check').remove();
-                $.ajax({
-                    method: 'post',
-                    url: `/get-skin/${id}`,
-                    data: {"_token": "{{csrf_token()}}"},
-                    success: (data) => {
-                        $('#select_skin input[value="' + data.id + '"]').parent().append('<i class="fas fa-check" id="check"></i>');
-                    },
-                    error: (err) => {
-                        console.log(err);
-                    }
-                });
+                if ($(this).parent().hasClass('swiper-slide-active')) {
+                    $('.fas.fa-check').remove();
+                    $.ajax({
+                        method: 'post',
+                        url: `/get-skin/${id}`,
+                        data: {"_token": "{{csrf_token()}}"},
+                        success: (data) => {
+                            if (data.status === 1) {
+                                $('#select_skin input[value="' + data.id + '"]').parent().append('<i class="fas fa-check" id="check"></i>');
+                            } else {
+                                const url = "images/skins/color-" + data.id + ".svg";
+                                $('#select_skin').fadeOut(200);
+                                if (data.status === 2) {
+                                    $('#get_error').remove();
+                                    $('#get_success').fadeIn(300).find('img').attr('src', '{{ asset('/')  }}' + url);
+                                } else {
+                                    $('#get_success').remove();
+                                    $('#get_error').fadeIn(300).find('img').attr('src', '{{ asset('/')  }}' + url);
+                                }
+                            }
+                        },
+                        error: (err) => {
+                            console.log(err);
+                        }
+                    });
+                } else {
+                    e.stopPropagation();
+                }
             });
         });
         const slider = new Slider();

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid h-100 pt-4">
+    <div class="container-fluid h-100 pt-4 text-center">
         <div class="menu-buttons float-right">
             <div class="logo text-center">
                 <a href="{{ route('home') }}" class="c-pointer">
@@ -17,6 +17,7 @@
                     <div class="item">
                         <a href="{{ route('get-coin') }}">
                             <img src="{{ asset("images/menu/coin1.svg") }}" alt="coin image">
+
                         </a>
                     </div>
                     <div class="item">
@@ -40,7 +41,7 @@
                     </div>
                     <div class="item">
                         <a href="{{ route('get-skin') }}">
-                            <img src="{{ asset("images/skins/color-".(Auth::user()->skeen_id).".svg") }}" alt="skin image" width="56px">
+                            <img src="{{ asset("images/skins/skin-".(Auth::user()->skeen_id).".svg") }}" alt="skin image" width="56px">
                         </a>
                     </div>
                 @endguest
@@ -94,6 +95,17 @@
                 </div>
             </div>
         </div>
+        <div class="google-reklam">
+            <script data-ad-client="ca-pub-5688279952546872" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:300px;height:230px"
+                 data-ad-client="ca-pub-xxxxxxxxxxxxxx"
+                 data-ad-slot="yyyyyyyyyyy">
+            </ins>
+            <script>
+                (adsbygoogle=window.adsbygoogle || []).push({});
+            </script>
+        </div>
         <div class="switrio">
             <div class="img">
                 <img src="{{asset('images/switrio.png')}}" alt="">
@@ -105,7 +117,7 @@
                     <form method="POST" action="{{ route('play') }}" autocomplete="off">
                         @csrf
                         <input type="image" src="{{ asset('images/play-btn.png') }}" alt="PLAY" id="playBtn">
-                        <input id="nickname" type="text" class="form-control-plaintext text-center" name="nickname"
+                        <input id="nickname" type="text" class="form-control-plaintext text-center p-0" name="nickname"
                                @guest autofocus placeholder="NICKNAME" @else disabled value="{{ Auth::user()->name }}" @endguest >
                     </form>
                 </div>
