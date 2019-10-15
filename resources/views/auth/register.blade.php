@@ -12,14 +12,14 @@
                 </a>
             </div>
         </div>
-        <div class="row justify-content-center pt-4" id="registerPage">
+        <div class="row justify-content-center" id="registerPage">
             <div class="col">
                 <div class="row justify-content-center">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         <form method="POST" action="{{ route('register') }}" autocomplete="off">
                             @csrf
 
-                            <div class="register">
+                            <div class="register formContent">
                                 <div class="row justify-content-center pt-4">
                                     <label for="email" class="col-md-4 text-md-right">{{ __('EMAIL:') }}</label>
                                     <div class="col-md-6 px-0">
@@ -73,7 +73,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row justify-content-center form-btn pt-5">
+                            <div class="row justify-content-center form-btn">
                                 <button type="submit" class="btn">
                                     {{ __('REGISTER') }}
                                 </button>
@@ -84,4 +84,12 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        const err = $('.invalid-feedback');
+        if(err) {
+            $.each(err, function (index, value) {
+                window.alert($(value).find('strong').text());
+            });
+        }
+    </script>
 @endsection

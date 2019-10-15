@@ -18,15 +18,15 @@
                         <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="false">
                             <ol class="row carousel-indicators mb-5">
                                 <li data-target="#carousel" data-slide-to="0" class="active col-3 order-1">
-                                    <img src="{{ asset('images/menu/profile-account.png') }}" alt="Account">
+                                    <img src="{{ asset('images/menu/profile-account.svg') }}" alt="Account">
                                     <p>ACCOUNT</p>
                                 </li>
                                 <li data-target="#carousel" data-slide-to="1" class="col-3 order-3">
-                                    <img src="{{ asset('images/menu/profile-transaction.png') }}" alt="Account">
+                                    <img src="{{ asset('images/menu/profile-transaction.svg') }}" alt="Account">
                                     <p>TRANSACTIONS</p>
                                 </li>
                                 <li data-target="#carousel" data-slide-to="2" class="col-3 order-5">
-                                    <img src="{{ asset('images/menu/profile-refer.png') }}" alt="Account">
+                                    <img src="{{ asset('images/menu/profile-refer.svg') }}" alt="Account">
                                     <p>REFER A FRIEND</p>
                                 </li>
                                 <li class="col-1 p-0 dot order-2"></li>
@@ -141,4 +141,7 @@
             </div>
         </div>
     </div>
+    <script>
+        $.()
+    </script>
 @endsection

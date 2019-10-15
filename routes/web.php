@@ -50,8 +50,8 @@ Route::get('/term-and-condition', 'HomeController@terms')->name('term-and-condit
 //Route::get('stripe', 'StripePaymentController@stripe')->name('stripe');
 //Route::post('stripe', 'StripePaymentController@stripePost')->name('stripe.post');
 
-Route::get('/auth/redirect/{provider}', 'SocialController@redirect');
-Route::get('/callback/{provider}', 'SocialController@callback');
+Route::get('/auth/login/{provider}', 'SocialController@authenticate');
+Route::get('/callback/{provider}', 'SocialController@login');
 
 Route::get('google', function () {
     return view('googleAuth');

@@ -121,11 +121,11 @@ body {
   overflow: hidden;
   border-radius: 300px;
   position: relative;
-  height: 365px;
+  height: calc( 290px + ( 365 - 290 ) * ( 100vw - 900px ) / 1020 );
 }
 
 .switrio div.img img {
-  top: -15%;
+  top: -16%;
   left: -3%;
   z-index: -1;
   width: 106%;
@@ -134,15 +134,17 @@ body {
 
 .play-btn #playBtn {
   margin: auto;
+  margin-top: 50px;
   max-width: 60%;
   font-family: "FuturaPress", sans-serif;
+  height: calc( 60px + ( 100 - 60 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
 }
 
 .play-btn .form-control-plaintext {
   font-size: 23px;
   color: #A63333;
   letter-spacing: 4px;
-  width: 200px;
+  width: 500px;
   margin: auto;
 }
 
@@ -167,6 +169,10 @@ body {
 }
 
 /*-----LOGIN-----*/
+
+#loginPage form .form-div {
+  height: calc( 150px + ( 200 - 150 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
+}
 
 #loginPage form label {
   font-size: 23px;
@@ -261,20 +267,26 @@ a.btn:focus {
   font-size: 58px;
 }
 
+.form-btn {
+  margin-top: 50px;
+  height: calc( 60px + ( 100 - 60 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
+}
+
 .form-btn button,
 .form-btn p,
 .form-btn input[type=submit] {
   display: flex;
   align-items: center;
-  padding: 0 0.5em;
+  padding: 0 0.8em;
   color: #A63333;
-  font-size: calc( 30px + ( 89 - 30 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+  font-size: calc( 60px + ( 89 - 60 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
   letter-spacing: 14px;
   border: none;
   outline: none;
   background: transparent;
   -webkit-appearance: none;
   position: relative;
+  line-height: 1;
 }
 
 .form-btn button:after,
@@ -284,7 +296,7 @@ a.btn:focus {
 .form-btn input[type=submit]:after,
 .form-btn input[type=submit]:before {
   content: "";
-  width: 0.2em;
+  width: 0.22em;
   height: 0.22em;
   background: #A63333;
   border-radius: 0.2em;
@@ -313,14 +325,7 @@ a.btn:focus {
 /*-----REGISTER-----*/
 
 #registerPage .register {
-  position: relative;
-  margin-top: 100px;
-  justify-content: space-evenly;
-  border-radius: 999px;
-  -webkit-filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
-          filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
-  background: transparent;
-  border: 50px solid #eee;
+  margin-top: calc( 150px + ( 200 - 150 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
 }
 
 #registerPage .register:after {
@@ -394,17 +399,16 @@ a.btn:focus {
 /*-----PROFILE-----*/
 
 .formContent {
-  height: calc( 290px + ( 365 - 290 ) * ( 100vw - 900px ) / ( 1920 - 900 ) );
+  height: calc( 290px + ( 365 - 290 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
   position: relative;
   max-width: 1065px;
   margin: auto;
-  margin-top: 70px;
   justify-content: space-evenly;
   border-radius: 999px;
   -webkit-filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
           filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
   background: transparent;
-  border: calc( 40px + ( 50 - 40 ) * ( 100vw - 900px ) / ( 1920 - 900 ) ) solid #eee;
+  border: calc( 40px + ( 50 - 40 ) * ( 100vw - 991px ) / ( 1920 - 991 ) ) solid #eee;
   overflow: hidden;
 }
 

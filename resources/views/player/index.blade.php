@@ -106,12 +106,12 @@
                 (adsbygoogle=window.adsbygoogle || []).push({});
             </script>
         </div>
-        <div class="switrio">
+        <div class="switrio ml-5">
             <div class="img">
                 <img src="{{asset('images/switrio.png')}}" alt="">
             </div>
         </div>
-        <div class="row">
+        <div class="row ml-5">
             <div class="col-8 mx-auto">
                 <div class="text-center play-btn">
                     <form method="POST" action="{{ route('play') }}" autocomplete="off">

@@ -1,86 +1,53 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
-use Validator,Redirect,Response,File;
-use Socialite;
+use App\Models\SocialAuth;
+use App\Models\UserSkin;
+use App\Skin;
 use App\User;
-use Auth;
 use Exception;
+use Laravel\Socialite\Facades\Socialite;
 
-class SocialController extends Controller
+class SocialController
 {
-    use AuthenticatesUsers;
-
-    protected $redirectTo = '/home';
-
-    public function __construct()
-    {
-        $this->middleware('guest')->except('logout');
-    }
-
-    public function redirectToGoogle()
-    {
-        return Socialite::driver('google')->redirect();
-    }
-
-    public function redirect($provider)
+    /**
+     * @param $provider
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function authenticate($provider)
     {
         return Socialite::driver($provider)->redirect();
     }
-    public function callback($provider)
-    {
-        $getInfo = Socialite::driver($provider)->user();
-        $user = $this->createUser($getInfo,$provider);
-        auth()->login($user);
-        return redirect()->to('/home');
-    }
-    function createUser($getInfo,$provider){
-        $user = User::where('provider_id', $getInfo->id)->first();
-        if (!$user) {
-            $user = User::create([
-                'name'     => $getInfo->name,
-                'email'    => $getInfo->email,
-                'provider' => $provider,
-                'provider_id' => $getInfo->id
-            ]);
-        }
-        return $user;
-    }
 
-
-
-
-    public function handleGoogleCallback()
+    /**
+     * @param $provider
+     * @throws Exception
+     */
+    public function login($provider)
     {
         try {
+            $socialUserInfo = Socialite::driver($provider)->user();
 
-            $user = Socialite::driver('google')->user();
+            $user = User::query()
+                ->firstOrCreate(
+                    ['email' => $socialUserInfo->getEmail()],
+                    ['name' => $socialUserInfo->getName(), 'skeen_id' => Skin::defaultSkin()]
+                );
 
-            $finduser = User::where('google_id', $user->id)->first();
+            UserSkin::query()->firstOrCreate(['user_id' => $user->id, 'skin_id' => Skin::defaultSkin()]);
 
-            if ($finduser) {
+            SocialAuth::query()->firstOrCreate([
+                'user_id'     => $user->id,
+                'provider_id' => $socialUserInfo->getId(),
+                'provider'    => $provider
+            ]);
 
-                Auth::login($finduser);
+            auth()->login($user);
 
-                return redirect('/home');
-
-            } else {
-                $newUser = User::create([
-                    'name' => $user->name,
-                    'email' => $user->email,
-                    'google_id' => $user->id
-                ]);
-
-                Auth::login($newUser);
-
-                return redirect()->back();
-            }
-
+            return redirect()->route('home');
         } catch (Exception $e) {
-            return redirect('home');
+            dd($e->getMessage());
+            throw new Exception("failed to authenticate with $provider");
         }
     }
 }

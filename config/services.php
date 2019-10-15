@@ -44,15 +44,16 @@ return [
         ],
     ],
 
+
     'facebook' => [
-        'client_id' => '2472113556367749',
-        'client_secret' => '8528686020428c1a937d2434694838d3',
-        'redirect' => 'switr.io',
+        'client_id' => env('FACEBOOK_CLIENT_ID'),
+        'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
+        'redirect' => env('FACEBOOK_CALLBACK_URL'),
     ],
 
     'google' => [
-        'client_id' => '978159205299-ehgm7bcfmqhatqj157mgfc3qjggqmq2h.apps.googleusercontent.com',
-        'client_secret' => 'fI77_av-QyxSnQK43YanfEqV',
-        'redirect' => 'switr.io',
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'redirect' => env('GOOGLE_REDIRECT_URL'),
     ],
 ];

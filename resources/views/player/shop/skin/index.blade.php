@@ -47,7 +47,6 @@
 
                                                     <div class="swiper-slide d-flex align-items-center bg-transparent">
                                                         <label for="color_{{$skin->id}}" class="c-pointer m-0">
-
                                                             @if(in_array($skin->id, $arrSkins, true))
                                                                 <img
                                                                     src="{{ asset('images/skins/color-'.$skin->id.'.svg') }}"

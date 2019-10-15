@@ -29,7 +29,7 @@ class HomeController extends Controller
 //        if (url()->previous() === route('play') && Session::has('is_playing')) {
 //            Session::put('is_playing', false);
 //        }
-//        $user = Auth::user();
+        $user = Auth::user();
 //        if(Session::has('savePoints'))
 //            Session::forget('savePoints');
         return view('player.index', compact('user'));

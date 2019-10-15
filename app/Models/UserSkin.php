@@ -1,0 +1,11 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class UserSkin extends Model
+{
+    protected $fillable = ['user_id', 'skin_id'];
+
+}

@@ -48,9 +48,7 @@ class Player extends ObjectClass {
     this.score += Constants.SCORE;
     this.kill += 1;
     this.point += 1;
-    this.switches += 1;
-    this.teleport += 0.1;
-    this.pushPlayer += 0.2;
+    this.switches += 3;
   }
 
   addSwitches(n) {

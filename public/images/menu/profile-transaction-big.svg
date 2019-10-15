@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="175" height="175" viewBox="0 0 175 175">
+  <g id="Group_450" data-name="Group 450" transform="translate(-951 -97)">
+    <g id="Ellipse_174" data-name="Ellipse 174" transform="translate(951 97)" fill="none" stroke="#a63333" stroke-width="5">
+      <circle cx="87.5" cy="87.5" r="87.5" stroke="none"/>
+      <circle cx="87.5" cy="87.5" r="85" fill="none"/>
+    </g>
+    <g id="Path_113" data-name="Path 113" transform="translate(1000 133)" fill="none">
+      <path d="M-17.383,0H63A18,18,0,0,1,81,18V85c0,9.941,13.52,18,13.52,18H18A18,18,0,0,1,0,85V18C0,8.059-17.383,0-17.383,0Z" stroke="none"/>
+      <path d="M -1.341270446777344 5 C 2.871238708496094 9.194900512695313 5 13.55179595947266 5 18 L 5 85 C 5 88.47241973876953 6.352241516113281 91.73699951171875 8.8076171875 94.1923828125 C 11.26300048828125 96.64775848388672 14.52758026123047 98 18 98 L 81.21308898925781 98 C 77.75041198730469 93.74195861816406 76 89.38347625732422 76 85 L 76 18 C 76 14.52758026123047 74.64775848388672 11.26300048828125 72.1923828125 8.8076171875 C 69.73699951171875 6.352241516113281 66.47241973876953 5 63 5 L -1.341270446777344 5 M -17.38282012939453 0 L 63 0 C 72.94111633300781 0 81 8.058883666992188 81 18 L 81 85 C 81 94.94111633300781 94.51951599121094 103 94.51951599121094 103 L 18 103 C 8.058876037597656 103 0 94.94111633300781 0 85 L 0 18 C 0 8.058883666992188 -17.38282012939453 0 -17.38282012939453 0 Z" stroke="none" fill="#a63333"/>
+    </g>
+    <line id="Line_1" data-name="Line 1" x2="39" transform="translate(1021.5 163.5)" fill="none" stroke="#a63333" stroke-linecap="round" stroke-width="5"/>
+    <line id="Line_2" data-name="Line 2" x2="39" transform="translate(1021.5 183.5)" fill="none" stroke="#a63333" stroke-linecap="round" stroke-width="5"/>
+    <line id="Line_3" data-name="Line 3" x2="39" transform="translate(1021.5 203.5)" fill="none" stroke="#a63333" stroke-linecap="round" stroke-width="5"/>
+  </g>
+</svg>
