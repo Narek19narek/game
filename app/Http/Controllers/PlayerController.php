@@ -55,8 +55,8 @@ class PlayerController extends Controller
     }
 
     public function CalculateCoins($oldLevel, $thisLevel) {
+        $coins = 0;
         if ($thisLevel - $oldLevel > 0) {
-            $coins = 0;
             for ($i = 0; $i < ($thisLevel - $oldLevel); $i++) {
                 $coins += ($oldLevel + $i) * 16;
             }

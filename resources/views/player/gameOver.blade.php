@@ -11,7 +11,7 @@
                 </a>
             </div>
         </div>
-        <div class="row justify-content-center pt-4">
+        <div class="row justify-content-center">
             <div class="col">
                 <div class="row justify-content-center">
                     <div class="col-lg-10 col-md-12">
@@ -27,12 +27,12 @@
                                     </div>
                                     <div class="col-4 p-0 d-flex justify-content-center position-relative coins">
                                         <img src="{{ asset("images/coins/coin.svg") }}" alt="Coins" width="94">
-                                        <p class="position-absolute d-flex justify-content-center align-items-center m-0">@if($user) $user->coins @endif</p>
+                                        <p class="position-absolute d-flex justify-content-center align-items-center m-0">@if($user) {{$user->coins}} @endif</p>
                                     </div>
                                 </div>
                                 <div class="row pt-2">
                                     <div class="col-4 p-0">
-                                        <h4 class="text-center">Switches:@if($user) $user->switch @else 3 @endif</h4>
+                                        <h4 class="text-center">Switches:@if($user) {{$user->switch}} @else 3 @endif</h4>
                                     </div>
                                     <div class="col-4 p-0">
                                         <h4 class="text-center">Kills: <span>{{ $params['kill'] }}</span></h4>
@@ -47,7 +47,7 @@
                         <div class="row justify-content-center form-btn mt-5">
                             <form action="{{ route('play') }}" method="post">
                                 @csrf
-                                <p><input type="submit" id="playBtn" value="{{ __('PLAY AGAIN') }}"></p>
+                                <button type="submit" id="playBtn"> {{ __('PLAY AGAIN') }} </button>
                                 <input id="nickname" type="text" class="form-control-plaintext text-center" name="nickname"
                                      value="{{ session()->get('nickname') }}" hidden>
                             </form>

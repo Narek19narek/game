@@ -1,9 +1,5 @@
-// import { debounce } from 'throttle-debounce';
 // import { getAsset } from './assets';
 import { getCurrentState } from './state';
-// import {mePos} from "./leaderboard";
-
-// import { getScore } from './networking';
 
 let player_data = null;
 export function getPlayerData(data) {
@@ -16,8 +12,6 @@ const { PLAYER_RADIUS, MAP_SIZE } = Constants;
 const canvas = document.getElementById('game-canvas');
 const context = canvas.getContext('2d');
 
-// const canvasSquare = document.getElementById('game-object');
-// const contextSquare = canvasSquare.getContext('2d');
 setCanvasDimensions();
 
 function setCanvasDimensions() {
@@ -27,8 +21,6 @@ function setCanvasDimensions() {
   canvas.width = scaleRatio * window.innerWidth;
   canvas.height = scaleRatio * window.innerHeight;
 }
-
-// window.addEventListener('resize', debounce(40, setCanvasDimensions));
 
 function render() {
   const { me, others } = getCurrentState();
@@ -41,7 +33,7 @@ function render() {
 
   // Draw boundaries
   context.beginPath();
-  context.strokeStyle = 'black';
+  context.strokeStyle = '#fff';
   context.lineWidth = 5;
   context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE);
 
@@ -63,11 +55,11 @@ function renderBackground(x, y) {
     backgroundY,
     MAP_SIZE / 2,
   );
-  backgroundGradient.addColorStop(1, 'rgba(255,255,255,0)');
-  backgroundGradient.addColorStop(0, '#ffffff');
+  backgroundGradient.addColorStop(1, '#000000');
+  backgroundGradient.addColorStop(0, '#000000');
   context.fillStyle = backgroundGradient;
   context.fillRect(0, 0, canvas.width, canvas.height);
-  context.clearRect(0, 0, MAP_SIZE, MAP_SIZE)
+  // context.clearRect(0, 0, MAP_SIZE, MAP_SIZE);
     context.beginPath();
     for (let i = 0; i < 250; i++) {
         context.moveTo(canvas.width / 2 - x + (i - 125) * 40, -y);
@@ -85,7 +77,7 @@ function renderBackground(x, y) {
         // context.lineTo(canvas.width / 2 - x - (i + 120) * 40,2 * (MAP_SIZE + canvas.height) - y);
     }
 
-    var grad= context.createRadialGradient(backgroundX,
+    var grad = context.createRadialGradient(backgroundX,
         backgroundY,
         MAP_SIZE / 10,
         backgroundX,
