@@ -26,6 +26,8 @@
     },
     "dependencies": {
         "anypicker": "^2.0.9",
+        "fs": "0.0.1-security",
+        "https": "^1.0.0",
         "jquery": "^3.4.1",
         "swiper": "^5.0.4"
     }

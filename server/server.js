@@ -1,14 +1,25 @@
 // const http = require('http');
+const https     = require('https');
+const fs        = require('fs');
 const Constants = require('../resources/js/constants');
-const express = require('express');
-const socketio = require('socket.io');
+const express   = require('express');
+const socketio  = require('socket.io');
+// Setup an Express server
+const app = express();
 
 const Game = require('./game');
 // const routes = require('../auth/routes/index');
 
+const server = https.createServer({
+    key : fs.readFileSync("D:\\xampp\\apache\\crt\\local.game.com\\server.key"),
+    cert: fs.readFileSync("D:\\xampp\\apache\\crt\\local.game.com\\server.crt"),
+    requestCert: false,
+    rejectUnauthorized: false
+},app);
 
-// Setup an Express server
-const app = express();
+const port = process.env.PORT || 3000;
+
+server.listen(port);
 
 // app.use('/admin', routes);
 // app.get('/admin', (req, res) => {
@@ -20,14 +31,13 @@ const app = express();
 // });
 
 // Listen on port
-const port = process.env.PORT || 3000;
 // http.createServer(app).listen(8000);
-const server = app.listen(port);
+// const server = app.listen(port);
 // const server = http.createServer(app).listen(8000);
-// console.log(`Server listening on port ${port}`);
+console.log(`Server listening on port ${port}`);
 
 // Setup socket.io
-const io = socketio(server);
+const io = socketio.listen(server);
 
 // Listen for socket.io connections
 io.on('connection', socket => {

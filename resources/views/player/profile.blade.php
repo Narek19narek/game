@@ -88,22 +88,22 @@
                                     <div class="formContent row justify-content-center transactions">
                                         <div class="table table-borderless text-center d-block">
                                             <div class="thead">
-                                                <div class="px-0">Date</div>
-                                                <div class="px-1">Price</div>
-                                                <div class="px-0">Coins</div>
-                                                <div class="px-1">Method</div>
-                                                <div class="px-0">Status</div>
+                                                <div class="px-0 t-data">Date</div>
+                                                <div class="px-1 t-price">Price</div>
+                                                <div class="px-0 t-coin">Coins</div>
+                                                <div class="px-1 t-method">Method</div>
+                                                <div class="px-0 t-status">Status</div>
                                             </div>
                                             <div class="tbody">
                                                 @foreach($transactions as $transaction)
                                                     <div class="tr">
-                                                        <div class="px-0 ">{{ $transaction->created_at }}</div>
-                                                        <div class="px-1">${{ $transaction->coin->price }}</div>
-                                                        <div class="px-0">{{ $transaction->coin->coin }}</div>
-                                                        <div class="px-1 {{ strtolower($transaction->type_label) }}">
+                                                        <div class="px-0 t-data">{{ $transaction->created_at }}</div>
+                                                        <div class="px-1 t-price">${{ $transaction->coin->price }}</div>
+                                                        <div class="px-0 t-coin">{{ $transaction->coin->coin }}</div>
+                                                        <div class="px-1 t-method {{ strtolower($transaction->type_label) }}">
                                                             <i class="fab fa-lg fa-{{ strtolower($transaction->type_label) }}"></i>
                                                         </div>
-                                                        <div class="px-0 {{ strtolower($transaction->status_label) }}">{{ $transaction->status_label }}</div>
+                                                        <div class="px-0 t-status {{ strtolower($transaction->status_label) }}">{{ $transaction->status_label }}</div>
                                                     </div>
                                                 @endforeach
                                             </div>
