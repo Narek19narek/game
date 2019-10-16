@@ -3,6 +3,7 @@ const https     = require('https');
 const fs        = require('fs');
 const Constants = require('../resources/js/constants');
 const express   = require('express');
+const config    = require('../resources/js/game/configs');
 const socketio  = require('socket.io');
 // Setup an Express server
 const app = express();
@@ -11,8 +12,8 @@ const Game = require('./game');
 // const routes = require('../auth/routes/index');
 
 const server = https.createServer({
-    key : fs.readFileSync("D:\\xampp\\apache\\crt\\local.game.com\\server.key"),
-    cert: fs.readFileSync("D:\\xampp\\apache\\crt\\local.game.com\\server.crt"),
+    key : fs.readFileSync(config.SERVER_KEY),
+    cert: fs.readFileSync(config.SERVER_CRT),
     requestCert: false,
     rejectUnauthorized: false
 },app);
