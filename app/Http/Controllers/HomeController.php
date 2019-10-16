@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -35,13 +36,19 @@ class HomeController extends Controller
         return view('player.index', compact('user'));
     }
 
-    public function profile(Request $request) {
-        $user = Auth::user();
-        if ($request->segment(2) == $user->id) {
-            return view('player.profile', compact('user'));
-        } else {
-            return redirect()->route('home');
+    public function profile(Request $request)
+    {
+        if ($request->route('id') == Auth::id()) {
+            $transactions = Transaction::query()
+                ->where('receiver_id', '=', Auth::id())
+                ->with('coin')
+                ->orderBy('created_at', 'DESC')
+                ->get();
+
+            return view('player.profile', ['user' => Auth::user(), 'transactions' => $transactions]);
         }
+
+        return redirect()->to('404');
     }
 
     public function settings () {

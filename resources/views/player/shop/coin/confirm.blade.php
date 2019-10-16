@@ -21,8 +21,8 @@
                                 <img src="{{ asset("images/coins/coin.svg") }}" alt="Coin" class="img-fluid">
                             </div>
                             <div class="w-50">
-                                <h1 class="text-center">Congratulations!</h1>
-                                <p class="text-center">You have purchased {{ $coin->coin }} coins!</p>
+                                <h1 class="text-center {{ !$success ? 'text-danger' : 'text-success' }}">{{ $headline }}!</h1>
+                                <p class="text-center">{{ $message }}</p>
                             </div>
 
                         </div>

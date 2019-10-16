@@ -49,11 +49,16 @@
                                                 <p class="my-0" title="{{  $user->email }}">{{ $user->email }}</p>
                                             </div>
                                             <div class="d-flex">
-                                                @if (Route::has('password.request'))
-                                                    <a class="btn p-0" href="{{ route('password.request') }}">
-                                                        {{ __('Reset pass') }}
+{{--                                                @if (Route::has('password.request'))--}}
+                                                    <a class="btn p-0" href="{{ route('logout') }}"
+                                                       onclick="event.preventDefault();
+                                                                     document.getElementById('logout-form').submit();">
+                                                        {{ __('Logout') }}
                                                     </a>
-                                                @endif
+                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                        @csrf
+                                                    </form>
+{{--                                                @endif--}}
                                             </div>
                                         </div>
                                         <div class="col-md-4 notifications my-4 pr-4">
@@ -81,40 +86,28 @@
                                 </div>
                                 <div class="carousel-item">
                                     <div class="formContent row justify-content-center transactions">
-                                        <table class="table table-borderless text-center">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col" class="px-0 pl-3">Date</th>
-                                                    <th scope="col" class="px-1">Price</th>
-                                                    <th scope="col" class="px-0">Coins</th>
-                                                    <th scope="col" class="px-1">Method</th>
-                                                    <th scope="col" class="px-0 pr-3">Status</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="px-0 pl-3">14.05.2019</td>
-                                                    <td class="px-1">$1.99</td>
-                                                    <td class="px-0">500</td>
-                                                    <td class="px-1 stripe"><i class="fab fa-cc-stripe"></i></td>
-                                                    <td class="px-0 pr-3 approved">Approved</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="px-0 pl-3">14.05.2019</td>
-                                                    <td class="px-1">$99.99</td>
-                                                    <td class="px-0">150000</td>
-                                                    <td class="px-1 bitcoin"><i class="fab fa-btc"></i></td>
-                                                    <td class="px-0 pr-3 rejected">Rejected</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="px-0 pl-3 ">14.05.2019</td>
-                                                    <td class="px-1">$4.99</td>
-                                                    <td class="px-0">2500</td>
-                                                    <td class="px-1 paypal"><img src="{{asset('images/paypal.svg')}}" alt=""></td>
-                                                    <td class="px-0 pr-3 returned">Returned</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <div class="table table-borderless text-center d-block">
+                                            <div class="thead">
+                                                <div class="px-0">Date</div>
+                                                <div class="px-1">Price</div>
+                                                <div class="px-0">Coins</div>
+                                                <div class="px-1">Method</div>
+                                                <div class="px-0">Status</div>
+                                            </div>
+                                            <div class="tbody">
+                                                @foreach($transactions as $transaction)
+                                                    <div class="tr">
+                                                        <div class="px-0 ">{{ $transaction->created_at }}</div>
+                                                        <div class="px-1">${{ $transaction->coin->price }}</div>
+                                                        <div class="px-0">{{ $transaction->coin->coin }}</div>
+                                                        <div class="px-1 {{ strtolower($transaction->type_label) }}">
+                                                            <i class="fab fa-lg fa-{{ strtolower($transaction->type_label) }}"></i>
+                                                        </div>
+                                                        <div class="px-0 {{ strtolower($transaction->status_label) }}">{{ $transaction->status_label }}</div>
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="carousel-item">

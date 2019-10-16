@@ -16,7 +16,7 @@ class StripePaymentController extends Controller
      */
     public function stripe()
     {
-        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        Stripe\Stripe::setApiKey(config('services.stripe.key'));
         $session = \Stripe\Checkout\Session::create([
             'payment_method_types' => ['card'],
             'line_items' => [[

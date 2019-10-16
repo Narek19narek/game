@@ -29,6 +29,11 @@ body {
   height: calc( 200px + ( 250 - 200 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
 }
 
+.menu-buttons:not(.float-right) .logo {
+  padding: 0;
+  margin-right: 38px;
+}
+
 .menu-buttons.float-right {
   margin-right: 15px;
 }
@@ -117,11 +122,11 @@ body {
 }
 
 .switrio div.img {
-  border: calc( 40px + ( 50 - 40 ) * ( 100vw - 900px ) / ( 1920 - 900 ) ) solid #eee;
+  border: calc( 40px + ( 50 - 40 ) * ( 100vw - 991px ) / ( 1920 - 991 ) ) solid #eee;
   overflow: hidden;
   border-radius: 300px;
   position: relative;
-  height: calc( 290px + ( 365 - 290 ) * ( 100vw - 900px ) / 1020 );
+  height: calc( 290px + ( 365 - 290 ) * ( 100vw - 991px ) / (1920 - 991) );
 }
 
 .switrio div.img img {
@@ -557,66 +562,106 @@ a.btn:focus {
   opacity: 1;
 }
 
-#profile .transactions table {
+#profile .transactions .table {
   color: #A63333;
 }
 
-#profile .transactions table thead th {
+#profile .transactions .table .thead {
+  display: flex;
+  margin-right: 65px;
+  margin-left: 50px;
+}
+
+#profile .transactions .table .thead div {
+  flex: 1 1 auto;
   font-size: calc( 14px + ( 26 - 14 ) * (100vw - 320px) / 1600);
 }
 
-#profile .transactions table tbody tr td {
+#profile .transactions .table .tbody {
+  /* width */
+  /* Track */
+  /* Handle */
+  margin-right: 50px;
+  margin-left: 15px;
+  display: block;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: calc( 150px + ( 200 - 150 ) * ( 100vw - 991px ) / (1920 - 991) );
+}
+
+#profile .transactions .table .tbody::-webkit-scrollbar {
+  width: 15px;
+}
+
+#profile .transactions .table .tbody::-webkit-scrollbar-track {
+  border-radius: 5.29px;
+  background: linear-gradient(#dadada 0%, #c4c4c4 100%);
+}
+
+#profile .transactions .table .tbody::-webkit-scrollbar-thumb {
+  background: #A63333;
+  border-radius: 8px;
+}
+
+#profile .transactions .table .tbody .tr {
+  padding-left: 15px;
+  display: flex;
+}
+
+#profile .transactions .table .tbody .tr div {
   font-size: calc( 12px + ( 19 - 12 ) * (100vw - 320px) / 1600);
 }
 
-#profile .transactions table tbody tr td:nth-of-type(1) {
+#profile .transactions .table .tbody .tr div:nth-of-type(1) {
   color: #000000;
   font-weight: bold;
+  width: calc( 100px + ( 200 - 100 ) * ( 100vw - 991px ) / (1920 - 991) );
 }
 
-#profile .transactions table tbody tr td:nth-of-type(2) {
+#profile .transactions .table .tbody .tr div:nth-of-type(2) {
   color: #A63333;
   font-weight: bold;
+  width: calc( 85px + ( 175 - 85 ) * ( 100vw - 991px ) / (1920 - 991) );
 }
 
-#profile .transactions table tbody tr td:nth-of-type(3) {
+#profile .transactions .table .tbody .tr div:nth-of-type(3) {
   color: #FFB200;
   font-weight: bold;
+  width: calc( 80px + ( 170 - 80 ) * ( 100vw - 991px ) / (1920 - 991) );
 }
 
-#profile .transactions table tbody tr td.stripe {
+#profile .transactions .table .tbody .tr div.stripe,
+#profile .transactions .table .tbody .tr div.bitcoin,
+#profile .transactions .table .tbody .tr div.paypal {
   color: #6772E5;
   font-size: 20px;
+  width: calc( 56px + ( 135 - 56 ) * ( 100vw - 991px ) / (1920 - 991) );
 }
 
-#profile .transactions table tbody tr td.bitcoin {
+#profile .transactions .table .tbody .tr div.bitcoin {
   color: #F7A70A;
-  font-size: 20px;
 }
 
-#profile .transactions table tbody tr td.paypal {
-  font-size: 20px;
-}
-
-#profile .transactions table tbody tr td.approved {
+#profile .transactions .table .tbody .tr div.approved,
+#profile .transactions .table .tbody .tr div.rejected,
+#profile .transactions .table .tbody .tr div.returned {
   color: #20B716;
   font-weight: bold;
+  width: calc( 96px + ( 200 - 96 ) * ( 100vw - 991px ) / (1920 - 991) );
 }
 
-#profile .transactions table tbody tr td.rejected {
+#profile .transactions .table .tbody .tr div.rejected {
   color: #FF0000;
-  font-weight: bold;
 }
 
-#profile .transactions table tbody tr td.returned {
+#profile .transactions .table .tbody .tr div.returned {
   color: #333EA6;
-  font-weight: bold;
 }
 
 #profile .form-btn {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 27px;
   left: 0;
 }
 
@@ -662,6 +707,10 @@ a.btn:focus {
 
 #coin .best > div {
   background-color: #009223;
+}
+
+#coin .your-coins {
+  height: calc( 150px + ( 200 - 150 ) * (100vw - 991px) / (1920 - 991));
 }
 
 #coin .your-coins div.position-relative {
@@ -806,7 +855,7 @@ a.btn:focus {
 #boosts .form-btn {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 27px;
   left: 0;
 }
 
@@ -1052,7 +1101,7 @@ a.btn:focus {
 #skin .form-btn {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 27px;
   left: 0;
 }
 

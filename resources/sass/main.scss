@@ -25,6 +25,13 @@ body {
     height: calc( 200px + ( 250 - 200 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
 }
 
+.menu-buttons:not(.float-right) {
+    .logo {
+        padding: 0;
+        margin-right: 38px;
+    }
+}
+
 .menu-buttons.float-right {
     margin-right: 15px;
     .logo {
@@ -106,12 +113,12 @@ body {
     filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.3));
     div.img {
         //width: 80%;
-        border: calc( 40px + ( 50 - 40 ) * ( 100vw - 900px ) / ( 1920 - 900 ) ) solid #eee;
+        border: calc( 40px + ( 50 - 40 ) * ( 100vw - 991px ) / ( 1920 - 991 ) ) solid #eee;
         overflow: hidden;
         border-radius: 300px;
         position: relative;
         //height: 365px;
-        height: calc( 290px + ( 365 - 290 ) * ( 100vw - 900px ) / 1020 );
+        height: calc( 290px + ( 365 - 290 ) * ( 100vw - 991px ) / (1920 - 991) );
         img {
             top: -16%;
             left: -3%;
@@ -521,54 +528,85 @@ a.btn:focus {
         opacity: 1;
     }
     .transactions {
-        table {
+        .table {
             color: #A63333;
-            thead {
-                th {
+            .thead {
+                display: flex;
+                margin-right: 65px;
+                margin-left: 50px;
+                div {
+                    flex: 1 1 auto;
                     font-size: calc( 14px + ( 26 - 14 ) * (100vw - 320px) / 1600);
                 }
             }
-            tbody {
-                tr {
-                    td {
+            .tbody {
+                /* width */
+                &::-webkit-scrollbar {
+                    width: 15px;
+                }
+
+                /* Track */
+                &::-webkit-scrollbar-track {
+                    border-radius: 5.29px;
+                    background: linear-gradient(#dadada 0%, #c4c4c4 100%);
+                }
+
+                /* Handle */
+                &::-webkit-scrollbar-thumb {
+                    background: #A63333;
+                    border-radius: 8px;
+                }
+
+                margin-right: 50px;
+                margin-left: 15px;
+                display: block;
+                overflow-x: hidden;
+                overflow-y: auto;
+                height: calc( 150px + ( 200 - 150 ) * ( 100vw - 991px ) / (1920 - 991) );
+                .tr {
+                    padding-left: 15px;
+                    display: flex;
+                    div {
                         font-size: calc( 12px + ( 19 - 12 ) * (100vw - 320px) / 1600);
                     }
-                    td:nth-of-type(1) {
+                    div:nth-of-type(1) {
                         color: #000000;
                         font-weight: bold;
+                        width: calc( 100px + ( 200 - 100 ) * ( 100vw - 991px ) / (1920 - 991) );
                     }
-                    td:nth-of-type(2) {
+                    div:nth-of-type(2) {
                         color: #A63333;
                         font-weight: bold;
+                        width: calc( 85px + ( 175 - 85 ) * ( 100vw - 991px ) / (1920 - 991) );
                     }
-                    td:nth-of-type(3) {
+                    div:nth-of-type(3) {
                         color: #FFB200;
                         font-weight: bold;
+                        width: calc( 80px + ( 170 - 80 ) * ( 100vw - 991px ) / (1920 - 991) );
                     }
-                    td.stripe {
+                    div.stripe,
+                    div.bitcoin,
+                    div.paypal {
                         color: #6772E5;
                         font-size: 20px;
+                        width: calc( 56px + ( 135 - 56 ) * ( 100vw - 991px ) / (1920 - 991) );
                     }
-                    td.bitcoin {
+                    div.bitcoin {
                         color: #F7A70A;
-                        font-size: 20px;
                     }
-                    td.paypal {
-                        font-size: 20px;
-                    }
-                    td.approved {
+                    div.approved,
+                    div.rejected,
+                    div.returned {
                         color: #20B716;
                         font-weight: bold;
+                        width: calc( 96px + ( 200 - 96 ) * ( 100vw - 991px ) / (1920 - 991) );
                     }
-                    td.rejected {
+                    div.rejected {
                         color: #FF0000;
-                        font-weight: bold;
                     }
-                    td.returned {
+                    div.returned {
                         color: #333EA6;
-                        font-weight: bold;
                     }
-
                 }
             }
         }
@@ -576,7 +614,7 @@ a.btn:focus {
     .form-btn {
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: 27px;
         left: 0;
     }
 }
@@ -623,6 +661,7 @@ a.btn:focus {
         background-color: #009223;
     }
     .your-coins {
+        height: calc( 150px + ( 200 - 150 ) * (100vw - 991px) / (1920 - 991));
         div.position-relative {
             text-align: center;
             p {
@@ -641,6 +680,7 @@ a.btn:focus {
     }
     #payment_page {
         display: none;
+
         .formContent {
             p {
                 font-size: calc( 18px + ( 27 - 18 ) * (100vw - 320px) / 1600 );
@@ -761,7 +801,7 @@ a.btn:focus {
     .form-btn {
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: 27px;
         left: 0;
     }
     .formContent {
@@ -968,7 +1008,7 @@ a.btn:focus {
     .form-btn {
         position: absolute;
         right: 0;
-        bottom: 0;
+        bottom: 27px;
         left: 0;
     }
     .swiper-slide {

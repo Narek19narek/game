@@ -44,6 +44,10 @@ return [
         ],
     ],
 
+    'paypal' => [
+        'client_id' => env('PAYPAL_CLIENT_ID')
+    ],
+
 
     'facebook' => [
         'client_id' => env('FACEBOOK_CLIENT_ID'),

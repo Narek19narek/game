@@ -12,6 +12,7 @@
 */
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::post('game-over', 'PlayerController@index');
 
@@ -31,8 +32,10 @@ Route::get('/profile/{id}', 'HomeController@profile')->name('profile')->middlewa
 Route::get('/shop', 'ShopController@index')->name('shop');
 
 Route::get('/get-coin', 'CoinsController@index')->name('get-coin')->middleware('auth');
-Route::get('/get-coin/success', 'CoinsController@success')->name('get-success');
+Route::get('/payment-info', 'CoinsController@paymentInfo')->name('payment-info');
+Route::get('/purchase-info', 'CoinsController@purchaseInfo')->name('purchase-info');
 Route::get('/payment/{id}', 'CoinsController@payment')->name('payment');
+Route::get('/payment/{id}/{status}/paypal', 'CoinsController@paypalPayment')->name('payment-paypal');
 //Route::get('/payment/success/', 'CoinsController@success2');
 
 Route::get('/get-skin', 'ShopController@skin')->name('get-skin')->middleware('auth');
@@ -56,6 +59,3 @@ Route::get('/callback/{provider}', 'SocialController@login');
 Route::get('google', function () {
     return view('googleAuth');
 });
-
-Route::get('auth/google', 'SocialController@redirectToGoogle');
-Route::get('auth/google/callback', 'SocialController@handleGoogleCallback');

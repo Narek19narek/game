@@ -26,8 +26,8 @@
                         </div>
                         <div class="formContent row overflow-hidden">
                             @foreach( $coins as $index => $coin )
-                                <div class="align-self-center h-100 d-flex" data-id="{{ $coin->id }}" data-coin="{{ $coin->coin }}" data-price="{{ $coin->price }}">
-                                    <img src="{{ asset("images/coins/".$coin->coin."-coin.svg") }}" alt="Coin" class="w-100">
+                                <div class="align-self-center h-100 d-flex" data-coin-id="{{ $coin->id }}" data-coin="{{ $coin->coin }}" data-price="{{ $coin->price }}">
+                                    <img src="{{ asset("images/coins/{$coin->coin}-coin.svg") }}" alt="Coin" class="w-100">
                                 </div>
                             @endforeach
                         </div>
@@ -40,7 +40,7 @@
                             <div class="col-12 d-flex justify-content-center p-0">
                                 <div class="position-relative">
                                     <p class="coin-count"></p>
-                                    <img src="{{ asset("images/coins/coin.svg") }}" alt="Coin" class="img-fluid w-100" width="150">
+                                    <img src="{{ asset("images/coins/coin.svg") }}" alt="Coin" class="img-fluid" width="150">
                                 </div>
                             </div>
                             <p class="text-center"></p>
@@ -72,12 +72,13 @@
         </div>
     </div>
     @push('js')
-
         <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+        <script src="https://js.stripe.com/v3/"></script>
+
         <script>
-            $('div[data-id]').on('click', function () {
-                const coin = $(this).data('coin');
-                const price = $(this).data('price');
+            $('div[data-coin-id]').on('click', function () {
+                const coin  = $(this).attr('data-coin');
+                const price = $(this).attr('data-price');
 
                 $('#payment_page .your-coins>p').text('$' + price);
                 const paymentCoins =  $('#payment_page p.coin-count');
@@ -87,8 +88,9 @@
                 }
                 $('#coin_page').hide();
                 $('#payment_page').show();
-                $('#back_btn').on('click', function () {
-                    event.preventDefault();
+
+                $('#back_btn').on('click', function (e) {
+                    e.preventDefault();
                     $('#payment_page').hide();
                     $('#coin_page').show();
                     $('#back_btn').unbind('click');
@@ -96,19 +98,29 @@
             })
         </script>
         <script>
+            let coin;
+            let coin_id;
+            let price;
+            $('div[data-coin-id]').on('click', function () {
+                coin = $(this).data('coin');
+                coin_id =  $(this).data('coin-id');
+                price = $(this).data('price');
+            });
             paypal.Button.render({
                 // Configure environment
                 env: 'sandbox',
                 client: {
-                    sandbox: 'demo_sandbox_client_id',
-                    production: 'demo_production_client_id'
+                    sandbox: '{{config('services.paypal.client_id')}}',
+                    {{--production: '{{env('SANDBOX_PRODUCTION_CLIENT_ID')}}'--}}
                 },
                 // Customize button (optional)
                 locale: 'en_US',
                 style: {
-                    size: 'small',
-                    color: 'gold',
-                    shape: 'pill',
+                    size: 'responsive',
+                    color: 'silver',
+                    shape: 'rect',
+                    label: 'paypal',
+                    tagline: 'false'
                 },
 
                 // Enable Pay Now checkout flow (optional)
@@ -119,7 +131,7 @@
                     return actions.payment.create({
                         transactions: [{
                             amount: {
-                                total: '0.01',
+                                total: price,
                                 currency: 'USD'
                             }
                         }]
@@ -129,38 +141,61 @@
                 onAuthorize: function (data, actions) {
                     return actions.payment.execute().then(function () {
                         // Show a confirmation message to the buyer
-                        window.alert('Thank you for your purchase!');
+                        $.ajax({
+                            method: 'get',
+                            url: `/payment/${coin_id}/1/paypal`,
+                            success: (data) => {
+                                if(data.url) {
+                                    window.location.href = data.url;
+                                    return;
+                                }
+
+                                alert('Payment Failed.')
+                            },
+                            error: (err) => {
+                                console.log(err)
+                            }
+                        })
                     });
+                },
+                onError: function (err) {
+                    $.ajax({
+                        method: 'get',
+                        url: `/payment/${coin_id}/0/paypal`,
+                        success: (data) => {
+                            if(data.url) {
+                                window.location.href = data.url;
+                                return;
+                            }
+
+                            alert('Payment Failed.')
+                        },
+                        error: (err) => {
+                            console.log(err)
+                        }
+                    })
                 }
             }, '#paypal-button');
 
         </script>
-        <script src="https://js.stripe.com/v3/"></script>
+
         <script type="text/javascript">
             let COIN_ID;
-            $('div[data-id]').on('click', function () {
-                COIN_ID = $(this).data('id');
+            $('div[data-coin-id]').on('click', function () {
+                COIN_ID = $(this).attr('data-coin-id');
             });
             function stripePayment() {
-                console.log(COIN_ID);
                 if (!COIN_ID) return false;
                 $.ajax({
                     method: 'get',
                     url: `/payment/${COIN_ID}`,
                     success: (data) => {
-                        if (data) {
-                            const stripe = Stripe('pk_test_imFlmPN9PjHUlOz4pI35Pdq300ywJX7Les');
-                            stripe.redirectToCheckout({
-                                // Make the id field from the Checkout Session creation API response
-                                // available to this file, so you can provide it as parameter here
-                                // instead of the placeholder.
-                                sessionId: data
-                            }).then(function (result) {
-                                // If `redirectToCheckout` fails due to a browser or network
-                                // error, display the localized error message to your customer
-                                // using `result.error.message`.
-                            });
-                        }
+                        const stripe = Stripe('{{ config('services.stripe.key') }}');
+                        stripe.redirectToCheckout({
+                            sessionId: data.session_id
+                        }).then(function (result) {
+                            console.log(result);
+                        });
                     },
                     error: (err) => {
                         console.log(err)
