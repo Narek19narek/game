@@ -10,6 +10,7 @@ import configs from "./configs";
 const playMenu = document.getElementById('play-menu');
 const playButton = document.getElementById('play-button');
 const usernameInput = document.getElementById('username-input');
+const username = usernameInput.value ? usernameInput.value : 'player';
 const userInfo = document.getElementById('user_info');
 const userAbility = {};
 if (userInfo) {
@@ -18,8 +19,11 @@ if (userInfo) {
     userAbility.userTeleport = userInfo.dataset.teleport;
     userAbility.userPush = userInfo.dataset.push;
     userAbility.userSkin = userInfo.dataset.skin;
+    userAbility.hideName = userInfo.dataset.hideName;
+    userAbility.hidePosition = userInfo.dataset.hidePosition;
 } else {
     userAbility.isUser = false;
+
 }
 
 
@@ -32,7 +36,7 @@ Promise.all([
   usernameInput.focus();
   playButton.onclick = () => {
     // Play!
-    play(usernameInput.value, userAbility);
+    play(username, userAbility);
     playMenu.classList.add('hidden');
     initState();
     startCapturingInput();

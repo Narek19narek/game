@@ -12,6 +12,16 @@ const { PLAYER_RADIUS, MAP_SIZE } = Constants;
 const canvas = document.getElementById('game-canvas');
 const context = canvas.getContext('2d');
 
+let gameMode;
+if (document.getElementById('user_info')) {
+    gameMode = document.getElementById('user_info').dataset.gameMode;
+} else {
+    gameMode = document.cookie.match('(^|;) ?game_mode=([^;]*)(;|$)') ? document.cookie.match('(^|;) ?game_mode=([^;]*)(;|$)')[2] : 0;
+}
+// if (document.cookie.match('(^|;) ?game_mode=([^;]*)(;|$)')[2] === '1') {
+//
+// }
+
 setCanvasDimensions();
 
 function setCanvasDimensions() {
@@ -33,7 +43,7 @@ function render() {
 
   // Draw boundaries
   context.beginPath();
-  context.strokeStyle = '#fff';
+  context.strokeStyle = Constants.GAME_MODE.BORDER_COLOR[gameMode];
   context.lineWidth = 5;
   context.strokeRect(canvas.width / 2 - me.x, canvas.height / 2 - me.y, MAP_SIZE, MAP_SIZE);
 
@@ -55,8 +65,8 @@ function renderBackground(x, y) {
     backgroundY,
     MAP_SIZE / 2,
   );
-  backgroundGradient.addColorStop(1, '#000000');
-  backgroundGradient.addColorStop(0, '#000000');
+  backgroundGradient.addColorStop(1, Constants.GAME_MODE.BG_COLOR[gameMode]);
+  backgroundGradient.addColorStop(0, Constants.GAME_MODE.BG_COLOR[gameMode]);
   context.fillStyle = backgroundGradient;
   context.fillRect(0, 0, canvas.width, canvas.height);
   // context.clearRect(0, 0, MAP_SIZE, MAP_SIZE);
@@ -144,8 +154,19 @@ function renderPlayer(me, player) {
   const getPlayer = player_data.find((obj) => {
       return  obj.id === player.id;
   });
-  const playerPosition = getPlayer ? getPlayer.positionId : null;
-  if (playerPosition === 1 ) {
+  let playerPosition = getPlayer ? getPlayer.positionId : '';
+  let playerName = player.username;
+
+  if (player !== me) {
+      if (player.hidePosition === '1') {
+          playerPosition = '';
+      }
+      if (player.hideName === '1') {
+          playerName = '';
+      }
+  }
+
+    if (playerPosition === 1 ) {
       context.fillStyle = '#FFA200';
       context.font = '25px FuturaPress';
   } else if (playerPosition > 1) {
@@ -161,22 +182,22 @@ function renderPlayer(me, player) {
   context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 18);
   context.fillStyle = Constants.SKINS[player.skin];
   context.font = '16px FuturaPress';
-  if (player.username) {
-    let x1;
-    if (player.username.length < 4) {
-      x1 = player.username.length * player.username.length;
-    } else {
-      switch (player.username.length) {
-        case 4: x1 = 10;
-          break;
-        case 5: x1 = 14;
-          break;
-        default: x1 = 18;
+
+
+  let x1;
+  if (playerName.length < 4) {
+      x1 = playerName.length * playerName.length;
+  } else {
+      switch (playerName.length) {
+          case 4: x1 = 10;
+            break;
+          case 5: x1 = 14;
+            break;
+          default: x1 = 18;
       }
-    }
-    const text = player.username.length > 6 ? player.username.slice(0, 6) : player.username;
-    context.fillText(text, textX - x1, textY + 22);
   }
+  const text = playerName.length > 6 ? playerName.slice(0, 6) : playerName;
+  context.fillText(text, textX - x1, textY + 22);
 }
 
 function renderMainMenu() {

@@ -366,6 +366,11 @@ a.btn:focus {
             }
         }
     }
+    .centered {
+        position: absolute;
+        right: 0;
+        left: 0;
+    }
 }
 
 /*-----PROFILE-----*/
@@ -1119,6 +1124,24 @@ a.btn:focus {
 #settings {
     .formContent {
         margin-top: calc(150px + (200 - 150) * (100vw - 991px) / (1920 - 991));
+    }
+    .game-mode {
+        label {
+            position: relative;
+            transition: background-color .5s ease-in-out;
+            span {
+                width: 15px;
+                height: 15px;
+                border-radius: 50%;
+                border: 3px solid #A63333;
+                position: absolute;
+                right: -20px;
+                margin-top: 3px;
+                &.active {
+                    background-color: #A63333;
+                }
+            }
+        }
     }
 }
 

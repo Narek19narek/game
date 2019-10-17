@@ -2,7 +2,7 @@ const ObjectClass = require('./object');
 const Constants = require('../resources/js/constants');
 
 class Player extends ObjectClass {
-  constructor(id, username, x, y, status, switches, teleport, push, skin) {
+  constructor(id, username, x, y, status, switches, teleport, push, skin, hideName, hidePosition) {
     super(id, x, y, Math.random() * 2 * Math.PI, Constants.PLAYER_SPEED, status);
     this.username = username;
     this.hp = Constants.PLAYER_MAX_HP;
@@ -14,6 +14,8 @@ class Player extends ObjectClass {
     this.pushPlayer = push;
     this.time = 0;
     this.skin = skin;
+    this.hideName = hideName;
+    this.hidePosition = hidePosition;
   }
 
   // Returns a newly created bullet, or null.
@@ -67,22 +69,24 @@ class Player extends ObjectClass {
     this.pushPlayer -= 1;
   }
 
-  serializeForUpdate() {
-    return {
-      ...(super.serializeForUpdate()),
-      username: this.username,
-      direction: this.direction,
-      hp: this.hp,
-      switches: this.switches,
-      teleport: this.teleport,
-      pushPlayer: this.pushPlayer,
-      skin: this.skin,
-      time: this.time,
-      score: this.score,
-      kill: this.kill,
-      point: this.point,
-    };
-  }
+    serializeForUpdate() {
+        return {
+            ...(super.serializeForUpdate()),
+            username: this.username,
+            direction: this.direction,
+            hp: this.hp,
+            switches: this.switches,
+            teleport: this.teleport,
+            pushPlayer: this.pushPlayer,
+            skin: this.skin,
+            time: this.time,
+            score: this.score,
+            kill: this.kill,
+            point: this.point,
+            hideName: this.hideName,
+            hidePosition: this.hidePosition
+        };
+    }
 }
 
 module.exports = Player;

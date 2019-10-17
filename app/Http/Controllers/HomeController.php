@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Transaction;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -53,6 +55,33 @@ class HomeController extends Controller
 
     public function settings () {
         return view('player.settings');
+    }
+
+    public function gameMode (Request $request) {
+        $checked = $request->checked;
+
+        if (Auth::user()) {
+            User::query()
+                ->where('id', '=', Auth::id())
+                ->update(['game_mode' => $checked]);
+            return response()->json(['message' => 1]);
+        } else {
+
+            return response()->json(['message' => 0]);
+        }
+    }
+    public function hideProperty (Request $request) {
+
+        $checked = $request->checked;
+        $name = $request->name;
+
+        if (Auth::user()) {
+            User::query()
+                ->where('id', '=', Auth::id())
+                ->update([$name => $checked]);
+            return response()->json(['message' => 1]);
+        }
+        return response()->json(['message' => 0]);
     }
 
     public function help () {

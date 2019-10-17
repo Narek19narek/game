@@ -9,6 +9,11 @@ module.exports = Object.freeze({
 
   SKINS: ['','#1b00ff', '#FF002A', '#A4C400', '#6A00FF', '#00ABA9'],
 
+  GAME_MODE: {
+      BG_COLOR: ['#fff', '#000'],
+      BORDER_COLOR: ['#262626', '#9c9c9c'],
+  },
+
   SCORE: 10,
   SCORE_PER_SECOND: 1 / 60,
 

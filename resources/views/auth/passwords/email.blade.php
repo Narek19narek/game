@@ -12,17 +12,17 @@
                 </a>
             </div>
         </div>
-        <div class="row justify-content-center pt-4" id="registerPage">
+        <div class="row justify-content-center" id="registerPage">
             <div class="col">
                 <div class="row justify-content-center">
-                    <div class="col-md-9">
+                    <div class="col-md-8">
                         @if (session('status'))
-                            <div class="alert alert-success text-center" role="alert">
+                            <div class="alert alert-success text-center centered" role="alert">
                                 {{ session('status') }}
                             </div>
                         @endif
                         @forelse($errors->all() as $error)
-                            <div class="alert alert-danger text-center" role="alert">
+                            <div class="alert alert-danger text-center centered" role="alert">
                                 {{ $error }}
                             </div>
                             @empty
@@ -30,7 +30,7 @@
                         <form method="POST" action="{{ route('password.email') }}" autocomplete="off">
                             @csrf
 
-                            <div class="register">
+                            <div class="register formContent">
                                 <div class="row justify-content-center my-5 py-2">
                                     <label for="email" class="col-md-8 text-center">{{ __('EMAIL OR USERNAME:') }}</label>
                                     <div class="col-md-8 px-0">
@@ -44,7 +44,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row justify-content-center form-btn pt-5">
+                            <div class="row justify-content-center form-btn">
                                 <button type="submit" class="btn">
                                     {{ __('RESET') }}
                                 </button>

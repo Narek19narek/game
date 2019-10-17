@@ -67,13 +67,15 @@ class Game {
     const push = userAbility.isUser ? userAbility.userPush : Constants.PLAYER_PUSH_PLAYERS;
     const teleport = userAbility.isUser ? userAbility.userTeleport : Constants.PLAYER_TELEPORTS;
     const skin = userAbility.isUser ? userAbility.userSkin : Constants.PLAYER_SKIN;
+    const hideName = userAbility.isUser ? userAbility.hideName : 0;
+    const hidePosition = userAbility.isUser ? userAbility.hidePosition : 0;
     this.sockets[socket.id] = socket;
     const { x, y } = this.getCordinates();
     // Generate a position to start this player at.
     const status = this.getStatus();
     // const time = this.updateTime();
     // const score = 0;
-    this.players[socket.id] = new Player(socket.id, username, x, y, status, +switches, +teleport, +push, +skin);
+    this.players[socket.id] = new Player(socket.id, username, x, y, status, +switches, +teleport, +push, +skin, hideName, hidePosition);
   }
 
   removePlayer(socket) {

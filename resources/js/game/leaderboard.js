@@ -16,15 +16,16 @@ export function updateLeaderboard(data, me) {
   for (let i = 0; i < maxLeaders; i++) {
     if (data[i].id === me.id) {
       rows[i + 1].classList.add('me');
+      document.querySelector('#score h2').innerText = data[i].score;
     }
     rows[i + 1].innerHTML = `<td>${(i + 1)}.<td>${escape(data[i].username.slice(0, 10)) || 'player'}</td>`;
-    document.querySelector('#score h2').innerText = data[i].score;
   }
   for (let i = data.length; i < 10; i++) {
     rows[i + 1].innerHTML = `<td>${i + 1}.</td><td>-</td>`;
   }
   if (!document.querySelector('.me')) {
     const mePos = data.find(obj => obj.id === me.id);
+    document.querySelector('#score h2').innerText = mePos.score;
     const tr = document.createElement('tr');
     tr.classList.add('me');
     tr.innerHTML = `<td>${(data.indexOf(mePos) + 1)}<td>${escape(mePos.username.slice(0, 10)) || 'player'}</td>`;

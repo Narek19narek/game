@@ -45,6 +45,9 @@ Route::get('/get-boosts', 'ShopController@boosts')->name('get-boosts')->middlewa
 Route::post('/get-boosts/switches', 'ShopController@getSwitches');
 
 Route::get('/settings', 'HomeController@settings')->name('settings');
+Route::get('/settings/game-mode', 'HomeController@gameMode');
+Route::get('/settings/hide-property', 'HomeController@hideProperty');
+
 Route::get('/help', 'HomeController@help')->name('help');
 
 Route::get('/term-and-condition', 'HomeController@terms')->name('term-and-condition');

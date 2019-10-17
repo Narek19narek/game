@@ -5,11 +5,18 @@
     <div id="play-menu" class="hidden">
         <label for="username-input">
             <input type="text" id="username-input" placeholder="Username"
-                   value=" @if (auth()->check()){{auth()->user()->name}} @else {{request('nickname')}} @endif"/>
+                   value="@if (auth()->check()){{auth()->user()->name}}@else{{request('nickname')}}@endif"/>
             @if(auth()->check())
-                <input type="hidden" id="user_info" data-switches="{{auth()->user()->switch}}"
-                       data-push="{{auth()->user()->push}}" data-teleport="{{auth()->user()->teleport}}"
-                        data-skin="{{auth()->user()->skeen_id}}"/>
+                <input type="hidden" id="user_info"
+                       data-switches="{{auth()->user()->switch}}"
+                       data-push="{{auth()->user()->push}}"
+                       data-teleport="{{auth()->user()->teleport}}"
+                       data-skin="{{auth()->user()->skeen_id}}"
+                       data-game-mode="{{ auth()->user()->game_mode }}"
+                       data-hide-name="{{ auth()->user()->hide_name }}"
+                       data-hide-position="{{ auth()->user()->hide_position }}"
+                       data-user-id="{{ auth()->id() }}"
+                />
             @endif
 {{--            {{dd(auth()->user()->id)}}--}}
 
