@@ -19,7 +19,7 @@
                             <div class="col-12">
                                 <div class="row">
                                     <div class="col-4 xp p-0">
-                                        <h1>{{ $totalPoints }}</h1>
+                                        <h1>{{ $playerPoints }}</h1>
                                         <h2>XP</h2>
                                     </div>
                                     <div class="col-4 kill p-0 d-flex align-items-center">

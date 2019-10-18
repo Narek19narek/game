@@ -23,22 +23,23 @@ class PlayerController extends Controller
             $user->total_time = $totalTime;
             $user->game_count = $gameCount;
             $totalPoints = $this->CalculateTotalPoints($level, $params['kill'], $totalPoints, $params['time']);
+            $playerPoints = $totalPoints - $user->total_points;
             $user->total_points = $totalPoints;
             $newLevel = $this->CalculateLevel($totalPoints);
             $user->level = $newLevel;
-            $user->coins = $this->CalculateCoins($level, $newLevel);
+            $user->coins += $this->CalculateCoins($level, $newLevel);
             $user->save();
             Session::put('savePoints', 1);
         } else {
-            $totalPoints = $this->CalculateTotalPoints(1, $params['kill'], 0, $params['time']);
+            $playerPoints = $this->CalculateTotalPoints(1, $params['kill'], 0, $params['time']);
             $user = false;
         }
 
-//        if(Session::has('is_playing') && Session::get('is_playing')) {
-//            Session::put('is_playing', false);
-//        }
+        if(Session::has('is_playing') && Session::get('is_playing')) {
+            Session::put('is_playing', false);
+        }
 
-        return view('player.gameOver', compact('params', 'totalPoints', 'user'));
+        return view('player.gameOver', compact('params', 'playerPoints', 'user'));
     }
 
     public function CalculateTotalPoints($level, $kill, $totalXP, $time) {
@@ -66,12 +67,13 @@ class PlayerController extends Controller
 
     public function start(Request $request)
     {
-//        if(Auth::user()) {
-//            if(Session::has('is_playing') && Session::get('is_playing')) {
-//                return redirect()->back();
-//            }
-//            Session::put('is_playing', true);
-//        }
+        Session::forget('savePoints');
+        if(Auth::user()) {
+            if(Session::has('is_playing') && Session::get('is_playing')) {
+                return redirect()->back();
+            }
+            Session::put('is_playing', true);
+        }
         Session::put('nickname', $request->nickname);
         return view('game.start');
     }

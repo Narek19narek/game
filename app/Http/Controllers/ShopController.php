@@ -7,9 +7,6 @@ use App\Coin;
 use App\Jobs\UpdateGetBoosts;
 use App\Skin;
 use App\User;
-use Illuminate\Support\Facades\DB;
-use Session;
-use Stripe;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,25 +14,16 @@ class ShopController extends Controller
 {
     public function index()
     {
-//        Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-//        $events = \Stripe\Event::all([
-//            'type' => 'checkout.session.completed',
-//            'created' => [
-//                // Check for events created in the last 24 hours.
-//                'gte' => time() - 24 * 60 * 60,
-//            ],
-//        ]);
-//        dd($events);
-        $coins = Coin::all();
+        $coins  = Coin::all();
         $boosts = Boost::all();
-        $skins = Skin::all();
+        $skins  = Skin::all();
         return view('player.shop.index', compact('coins', 'boosts', 'skins'));
     }
 
     public function skin()
     {
-        $arrSkins = [];
-        $skins = Skin::all();
+        $arrSkins   = [];
+        $skins      = Skin::all();
         $user_skins = User::query()->findOrFail(Auth::id())->skins()->get(['skin_id']);
         foreach ($skins as $skin) {
             foreach ($user_skins as $user_skin) {
@@ -49,11 +37,10 @@ class ShopController extends Controller
 
     public function selectSkin(Request $request, $id)
     {
-        $err = [];
-//        $skins = Skin::all();
-        $selected_skin = Skin::query()->findOrFail($id);
-        $user = User::query()->findOrFail(Auth::id());
-        $user_skins = User::find(Auth::id())->skins;
+        $err            = [];
+        $selected_skin  = Skin::query()->findOrFail($id);
+        $user           = User::query()->findOrFail(Auth::id());
+        $user_skins     = User::find(Auth::id())->skins;
         foreach ($user_skins as $skin) {
             if ((int)$id === (int)$skin->id) {
                 $err[] = $skin->id;
@@ -84,19 +71,18 @@ class ShopController extends Controller
 
     public function getSwitches(Request $request) {
 
-        $name = $request->name;
-        $amount = $request->amount;
-        $coin   = $request->coin;
-        $duration = $request->duration;
-
-        $boosts = Boost::query()
+        $name       = $request->name;
+        $amount     = $request->amount;
+        $coin       = $request->coin;
+        $duration   = $request->duration;
+        $boosts     = Boost::query()
             ->where('name', $name)
             ->where('amount', $amount)
             ->where('duration', $duration)
             ->where('coin', $coin)
             ->firstOrFail();
 
-        $user = User::query()->findOrFail(Auth::id());
+        $user       = User::query()->findOrFail(Auth::id());
         $user_boost = $boosts->amount;
         if ($user->coins >= $coin) {
             if ($name === "switch") {

@@ -6,6 +6,7 @@
         <label for="username-input">
             <input type="text" id="username-input" placeholder="Username"
                    value="@if (auth()->check()){{auth()->user()->name}}@else{{request('nickname')}}@endif"/>
+
             @if(auth()->check())
                 <input type="hidden" id="user_info"
                        data-switches="{{auth()->user()->switch}}"
@@ -18,7 +19,6 @@
                        data-user-id="{{ auth()->id() }}"
                 />
             @endif
-{{--            {{dd(auth()->user()->id)}}--}}
 
         </label>
         <button id="play-button" type="submit">PLAY</button>
@@ -29,7 +29,7 @@
             <tr>
                 <th colspan="2">
                     <a href="{{route('home')}}" id="homeBtn">
-                        <img src="{{asset("images/menu/logo.svg")}}" alt="">
+                        <img src="{{asset("images/menu/logo.svg")}}" alt="Logo">
                     </a>
                 </th>
             </tr>

@@ -26,6 +26,16 @@ if (userInfo) {
 
 }
 
+function initGameStart() {
+    play(username, userAbility);
+    playMenu.classList.add('hidden');
+    initState();
+    startCapturingInput();
+    startRendering();
+    setLeaderboardHidden(false);
+    setGameinfoHidden(false);
+}
+
 
 
 Promise.all([
@@ -36,14 +46,14 @@ Promise.all([
   usernameInput.focus();
   playButton.onclick = () => {
     // Play!
-    play(username, userAbility);
-    playMenu.classList.add('hidden');
-    initState();
-    startCapturingInput();
-    startRendering();
-    setLeaderboardHidden(false);
-    setGameinfoHidden(false);
+      initGameStart()
   };
+   usernameInput.addEventListener('keydown', (evt) => {
+       if(evt.key === 'Enter') {
+           initGameStart()
+       }
+   })
+
 }).catch(console.error);
 
 function createdForm(params) {

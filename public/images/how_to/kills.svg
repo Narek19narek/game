@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="411.103" height="420.875" viewBox="0 0 411.103 420.875">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.057" y1="0.098" x2="0.781" y2="1.012" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#dedede"/>
+      <stop offset="1" stop-color="#dedede" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_397" data-name="Group 397" transform="translate(-183.801 -276.125)">
+    <path id="Path_143" data-name="Path 143" d="M51.5,0,78.484,48.58l24.507,44.112H0Z" transform="translate(309.279 287.125)" fill="#dedede"/>
+    <rect id="Rectangle_1551" data-name="Rectangle 1551" width="92.692" height="92.692" transform="translate(224.416 496.094)" fill="#dedede"/>
+    <rect id="Rectangle_1552" data-name="Rectangle 1552" width="92.692" height="92.692" rx="23" transform="translate(432.376 495.188)" fill="#dedede"/>
+    <g id="Group_392" data-name="Group 392" transform="matrix(0.978, 0.208, -0.208, 0.978, 204.135, 310.966)">
+      <path id="Path_355" data-name="Path 355" d="M13.659,0l7.159,12.886,6.5,11.7H0Z" transform="translate(83.395 0) rotate(51)" fill="#dedede"/>
+      <path id="Path_356" data-name="Path 356" d="M.337,0S5.1,27.976,20.437,50.078s50.2,29.353,50.2,29.353L46.405,103.666S22.859,85.089,10.032,60.482.337,0,.337,0Z" transform="translate(73.303 24.498) rotate(45)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="Group_393" data-name="Group 393" transform="translate(569.065 412.332) rotate(139)">
+      <path id="Path_355-2" data-name="Path 355" d="M13.659,0l7.159,12.886,6.5,11.7H0Z" transform="translate(83.395 0) rotate(51)" fill="#dedede"/>
+      <path id="Path_356-2" data-name="Path 356" d="M.337,0S5.1,27.976,20.437,50.078s50.2,29.353,50.2,29.353L46.406,103.666S22.859,85.089,10.032,60.482.337,0,.337,0Z" transform="translate(73.303 24.498) rotate(45)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="Group_394" data-name="Group 394" transform="matrix(-0.259, -0.966, 0.966, -0.259, 331.185, 696.875)">
+      <path id="Path_355-3" data-name="Path 355" d="M13.659,0l7.159,12.886,6.5,11.7H0Z" transform="translate(83.395 0) rotate(51)" fill="#dedede"/>
+      <path id="Path_356-3" data-name="Path 356" d="M.337,0S5.1,27.976,20.437,50.078s50.2,29.353,50.2,29.353L46.405,103.666S22.859,85.089,10.032,60.482.337,0,.337,0Z" transform="translate(73.303 24.498) rotate(45)" fill="url(#linear-gradient)"/>
+    </g>
+    <g id="Path_379" data-name="Path 379" transform="translate(340.792 276.125)" fill="none">
+      <path d="M51.5,0,78.484,48.58l24.507,44.112H0Z" stroke="none"/>
+      <path d="M 51.49544525146484 24.70951843261719 L 20.39417266845703 80.69180297851563 L 82.59672546386719 80.69180297851563 L 67.99445343017578 54.40775299072266 L 51.49544525146484 24.70951843261719 M 51.49545288085938 0 L 78.48435211181641 48.58005142211914 L 102.9909057617188 92.69180297851563 L 0 92.69180297851563 L 51.49545288085938 0 Z" stroke="none" fill="#a63333"/>
+    </g>
+    <g id="Rectangle_1560" data-name="Rectangle 1560" transform="translate(202.929 505.094)" fill="none" stroke="#a63333" stroke-width="12">
+      <rect width="92.692" height="92.692" stroke="none"/>
+      <rect x="6" y="6" width="80.692" height="80.692" fill="none"/>
+    </g>
+    <g id="Rectangle_1561" data-name="Rectangle 1561" transform="translate(465.889 505.188)" fill="none" stroke="#a63333" stroke-width="12">
+      <rect width="92.692" height="92.692" rx="46" stroke="none"/>
+      <rect x="6" y="6" width="80.692" height="80.692" rx="40" fill="none"/>
+    </g>
+    <path id="Path_355-4" data-name="Path 355" d="M13.659,0l7.159,12.886,6.5,11.7H0Z" transform="matrix(0.454, 0.891, -0.891, 0.454, 305.223, 338.305)" fill="#a63333"/>
+    <path id="Path_356-4" data-name="Path 356" d="M.337,0S5.1,27.976,20.437,50.078s50.2,29.353,50.2,29.353L46.405,103.666S22.859,85.089,10.032,60.482.337,0,.337,0Z" transform="translate(290.254 360.169) rotate(57)" fill="#a63333"/>
+    <g id="Group_395" data-name="Group 395" transform="translate(-67 -39)">
+      <path id="Path_389" data-name="Path 389" d="M13.659,0l7.159,12.886,6.5,11.7H0Z" transform="translate(611.582 514.754) rotate(-170)" fill="#a63333"/>
+      <path id="Path_390" data-name="Path 390" d="M.337,0S5.1,27.976,20.437,50.078s50.2,29.353,50.2,29.353L46.406,103.666S22.859,85.089,10.032,60.482.337,0,.337,0Z" transform="matrix(-0.998, -0.07, 0.07, -0.998, 603.123, 489.635)" fill="#a63333"/>
+    </g>
+    <g id="Group_396" data-name="Group 396" transform="translate(-90 -49)">
+      <path id="Path_391" data-name="Path 391" d="M13.659,0l7.159,12.886,6.5,11.7H0Z" transform="translate(407.553 682.754) rotate(-57)" fill="#a63333"/>
+      <path id="Path_392" data-name="Path 392" d="M.337,0S5.1,27.976,20.437,50.078s50.2,29.353,50.2,29.353L46.405,103.666S22.859,85.089,10.032,60.482.337,0,.337,0Z" transform="translate(433.97 684.785) rotate(-63)" fill="#a63333"/>
+    </g>
+    <text id="kills" transform="matrix(0.53, -0.848, 0.848, 0.53, 232.056, 396.534)" fill="#a63333" font-size="27" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-50.382" y="0">kills</tspan></text>
+    <text id="kills-2" data-name="kills" transform="matrix(0.407, 0.914, -0.914, 0.407, 551.322, 401.364)" fill="#a63333" font-size="27" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-50.382" y="0">kills</tspan></text>
+    <text id="kills-3" data-name="kills" transform="translate(410 691)" fill="#a63333" font-size="27" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-50.382" y="0">kills</tspan></text>
+  </g>
+</svg>

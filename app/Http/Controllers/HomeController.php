@@ -29,12 +29,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-//        if (url()->previous() === route('play') && Session::has('is_playing')) {
-//            Session::put('is_playing', false);
-//        }
         $user = Auth::user();
-//        if(Session::has('savePoints'))
-//            Session::forget('savePoints');
+        if ($user) {
+            if (url()->previous() === route('play') && Session::has('is_playing')) {
+                Session::put('is_playing', false);
+            }
+        }
+
+        if(Session::has('savePoints'))
+            Session::forget('savePoints');
         return view('player.index', compact('user'));
     }
 
@@ -90,5 +93,8 @@ class HomeController extends Controller
 
     public function terms () {
         return view('player.termAndConditions');
+    }
+    public function privacyPolicy () {
+        return view('player.privacy');
     }
 }

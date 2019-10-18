@@ -39,6 +39,10 @@ class User extends Authenticatable
 
     protected const K = 1.618003398875 ** 2;
 
+    public static function find(?int $id)
+    {
+    }
+
     public function role()
     {
         return $this->belongsTo(Role::class);

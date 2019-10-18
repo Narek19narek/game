@@ -4,7 +4,7 @@
     <div class="container-fluid h-100 py-4">
         <div class="menu-buttons row justify-content-between">
             <div class="col-auto back-btn">
-                <a href="{{ url()->previous() }}" class="btn p-0"><i class="fas fa-angle-left"></i></a>
+                <a href="{{ route('login') }}" class="btn p-0"><i class="fas fa-angle-left"></i></a>
             </div>
             <div class="col-auto logo text-center">
                 <a href="{{ route('home') }}">

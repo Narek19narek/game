@@ -8,12 +8,6 @@ function onKeyPress(e) {
   if (e.key === ' ') {
     updateSpeed();
   }
-  // if (e.key === 'Q' || e.key === 'q') {
-  //   updateAngle(1);
-  // }
-  // if (e.key === 'E' || e.key === 'e') {
-  //   updateAngle(-1);
-  // }
   if (e.key === 'A' || e.key === 'a') {
     updateStatus(-1);
   }
@@ -23,7 +17,7 @@ function onKeyPress(e) {
   if (e.key === 'W' || e.key === 'w') {
     teleport();
   }
-  if (e.key === 'H' || e.key === 'h') {
+  if (e.key === 'S' || e.key === 's') {
     pushPlayers();
   }
 }

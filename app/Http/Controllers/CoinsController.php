@@ -156,15 +156,9 @@ class CoinsController extends Controller
         return response()->json(['message' => 'Payment Error'], 400);
     }
 
-    public function shop()
-    {
-        return view();
-    }
+//    public function shop()
+//    {
+//        return view();
+//    }
 
-    public function addCoinStripe(object $events)
-    {
-        $amountStripe = $events->autoPagingIterator()->current()->data->object->display_items[0]->amount / 100;
-        $getCoin = Coin::query()->where('price', $amountStripe)->first()->coin;
-        User::query()->where('id', Auth::id())->update(['coins' => DB::raw("coins + $getCoin")]);
-    }
 }

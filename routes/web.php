@@ -51,6 +51,7 @@ Route::get('/settings/hide-property', 'HomeController@hideProperty');
 Route::get('/help', 'HomeController@help')->name('help');
 
 Route::get('/term-and-condition', 'HomeController@terms')->name('term-and-condition');
+Route::get('/privacy-policy', 'HomeController@privacyPolicy')->name('privacy-policy');
 
 
 //Route::get('stripe', 'StripePaymentController@stripe')->name('stripe');

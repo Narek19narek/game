@@ -1,0 +1,213 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="904.255" height="174.732" viewBox="0 0 904.255 174.732">
+  <defs>
+    <filter id="Ellipse_1" x="293.584" y="28.833" width="117.226" height="117.226" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feFlood flood-opacity="0.361"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_2" x="363.05" y="0" width="174.731" height="174.732" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-2"/>
+      <feFlood flood-opacity="0.78"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_3" x="489.782" y="28.833" width="120.889" height="117.284" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-3"/>
+      <feFlood flood-opacity="0.361"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_2" x="587.168" y="28.833" width="117.226" height="117.226" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-4"/>
+      <feFlood flood-opacity="0.361"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_4" x="656.634" y="0" width="174.731" height="174.732" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-5"/>
+      <feFlood flood-opacity="0.78"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_5" x="783.366" y="28.833" width="120.889" height="117.284" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-6"/>
+      <feFlood flood-opacity="0.361"/>
+      <feComposite operator="in" in2="blur-6"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_6" x="196.198" y="28.833" width="120.889" height="117.284" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-7"/>
+      <feFlood flood-opacity="0.361"/>
+      <feComposite operator="in" in2="blur-7"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Ellipse_3" x="0" y="28.833" width="117.226" height="117.226" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-8"/>
+      <feFlood flood-opacity="0.361"/>
+      <feComposite operator="in" in2="blur-8"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Path_7" x="69.466" y="0" width="174.731" height="174.732" filterUnits="userSpaceOnUse">
+      <feOffset dx="5" dy="5" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="10" result="blur-9"/>
+      <feFlood flood-opacity="0.78"/>
+      <feComposite operator="in" in2="blur-9"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_10" data-name="Group 10" transform="translate(-6351 -1289.78)">
+    <g transform="matrix(1, 0, 0, 1, 6351, 1289.78)" filter="url(#Ellipse_1)">
+      <g id="Ellipse_1-2" data-name="Ellipse 1" transform="translate(318.58 53.83)" fill="none" stroke="#a63333" stroke-width="7" opacity="0.6">
+        <circle cx="28.613" cy="28.613" r="28.613" stroke="none"/>
+        <circle cx="28.613" cy="28.613" r="25.113" fill="none"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 6351, 1289.78)" filter="url(#Path_2)">
+      <g id="Path_2-2" data-name="Path 2" transform="translate(445.42 25) rotate(45)" fill="none" opacity="0.8">
+        <path d="M40.564,0,81.128,40.564,40.564,81.128,0,40.564Z" stroke="none"/>
+        <path d="M 40.56381607055664 9.899490356445313 L 9.899490356445313 40.56381988525391 L 40.5638313293457 71.2281494140625 L 71.22814178466797 40.56381988525391 L 40.56381607055664 9.899490356445313 M 40.56381607055664 0 L 81.12763214111328 40.56381988525391 L 40.56383514404297 81.12763977050781 L 0 40.56381988525391 L 40.56381607055664 0 Z" stroke="none" fill="#a63333"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 6351, 1289.78)" filter="url(#Path_3)">
+      <g id="Path_3-2" data-name="Path 3" transform="translate(476.25 16.02)" fill="none">
+        <path d="M69.081,37.817,99.419,95.1H38.529Z" stroke="none"/>
+        <path d="M 69.05939483642578 52.73226165771484 L 50.19599914550781 88.10086059570313 L 87.79035949707031 88.10086059570313 L 69.05939483642578 52.73226165771484 M 69.08116912841797 37.8165283203125 L 99.41854858398438 95.10086059570313 L 38.52928924560547 95.10086059570313 L 69.08116912841797 37.8165283203125 Z" stroke="none" fill="#a63333"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 6351, 1289.78)" filter="url(#Ellipse_2)">
+      <g id="Ellipse_2-2" data-name="Ellipse 2" transform="translate(612.17 53.83)" fill="none" stroke="#a63333" stroke-width="7" opacity="0.8">
+        <circle cx="28.613" cy="28.613" r="28.613" stroke="none"/>
+        <circle cx="28.613" cy="28.613" r="25.113" fill="none"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 6351, 1289.78)" filter="url(#Path_4)">
+      <g id="Path_4-2" data-name="Path 4" transform="translate(739 25) rotate(45)" fill="none" opacity="0.6">
+        <path d="M40.564,0,81.128,40.564,40.564,81.128,0,40.564Z" stroke="none"/>
+        <path d="M 40.56381607055664 9.899490356445313 L 9.899490356445313 40.56381988525391 L 40.5638313293457 71.2281494140625 L 71.22814178466797 40.56381988525391 L 40.56381607055664 9.899490356445313 M 40.56381607055664 0 L 81.12763214111328 40.56381988525391 L 40.56383514404297 81.12763977050781 L 0 40.56381988525391 L 40.56381607055664 0 Z" stroke="none" fill="#a63333"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 6351, 1289.78)" filter="url(#Path_5)">
+      <g id="Path_5-2" data-name="Path 5" transform="translate(769.84 16.02)" fill="none" opacity="0.4">
+        <path d="M69.081,37.817,99.419,95.1H38.529Z" stroke="none"/>
+        <path d="M 69.05939483642578 52.73226165771484 L 50.19599914550781 88.10086059570313 L 87.79035949707031 88.10086059570313 L 69.05939483642578 52.73226165771484 M 69.08116912841797 37.8165283203125 L 99.41854858398438 95.10086059570313 L 38.52928924560547 95.10086059570313 L 69.08116912841797 37.8165283203125 Z" stroke="none" fill="#a63333"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 6351, 1289.78)" filter="url(#Path_6)">
+      <g id="Path_6-2" data-name="Path 6" transform="translate(182.67 16.02)" fill="none" opacity="0.4">
+        <path d="M69.081,37.817,99.419,95.1H38.529Z" stroke="none"/>
+        <path d="M 69.05939483642578 52.73226165771484 L 50.19599914550781 88.10086059570313 L 87.79035949707031 88.10086059570313 L 69.05939483642578 52.73226165771484 M 69.08116912841797 37.8165283203125 L 99.41854858398438 95.10086059570313 L 38.52928924560547 95.10086059570313 L 69.08116912841797 37.8165283203125 Z" stroke="none" fill="#a63333"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 6351, 1289.78)" filter="url(#Ellipse_3)">
+      <g id="Ellipse_3-2" data-name="Ellipse 3" transform="translate(25 53.83)" fill="none" stroke="#a63333" stroke-width="7" opacity="0.07">
+        <circle cx="28.613" cy="28.613" r="28.613" stroke="none"/>
+        <circle cx="28.613" cy="28.613" r="25.113" fill="none"/>
+      </g>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 6351, 1289.78)" filter="url(#Path_7)">
+      <g id="Path_7-2" data-name="Path 7" transform="translate(151.83 25) rotate(45)" fill="none" opacity="0.2">
+        <path d="M40.564,0,81.128,40.564,40.564,81.128,0,40.564Z" stroke="none"/>
+        <path d="M 40.56381607055664 9.899490356445313 L 9.899490356445313 40.56381988525391 L 40.5638313293457 71.2281494140625 L 71.22814178466797 40.56381988525391 L 40.56381607055664 9.899490356445313 M 40.56381607055664 0 L 81.12763214111328 40.56381988525391 L 40.56383514404297 81.12763977050781 L 0 40.56381988525391 L 40.56381607055664 0 Z" stroke="none" fill="#a63333"/>
+      </g>
+    </g>
+    <path id="Path_8" data-name="Path 8" d="M44.491,37.817l5.92,23.072H38.529Z" transform="translate(6852.072 1382.15)" fill="#a63333"/>
+    <path id="Path_9" data-name="Path 9" d="M5.961,0l5.92,23.072H0Z" transform="translate(6902.482 1324.612) rotate(-180)" fill="#a63333"/>
+    <g id="Group_2" data-name="Group 2" transform="translate(6929.129 1361.434)">
+      <g id="Rectangle_1425" data-name="Rectangle 1425" transform="translate(-0.129 2.566)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="19" stroke="none"/>
+        <rect x="1" y="1" width="18" height="17" fill="none"/>
+      </g>
+      <g id="Rectangle_1424" data-name="Rectangle 1424" transform="translate(1.871 -0.434)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="20" stroke="none"/>
+        <rect x="1" y="1" width="18" height="18" fill="none"/>
+      </g>
+      <text id="D" transform="translate(11.871 14.566)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.16" y="0">D</tspan></text>
+    </g>
+    <g id="Group_3" data-name="Group 3" transform="translate(7029.118 1361.434)" opacity="0.73">
+      <g id="Rectangle_1425-2" data-name="Rectangle 1425" transform="translate(-0.118 2.566)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="19" stroke="none"/>
+        <rect x="1" y="1" width="18" height="17" fill="none"/>
+      </g>
+      <g id="Rectangle_1424-2" data-name="Rectangle 1424" transform="translate(1.882 -0.434)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="20" stroke="none"/>
+        <rect x="1" y="1" width="18" height="18" fill="none"/>
+      </g>
+      <text id="D-2" data-name="D" transform="translate(10.882 14.566)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.16" y="0">D</tspan></text>
+    </g>
+    <g id="Group_4" data-name="Group 4" transform="translate(7134.78 1361.434)" opacity="0.35">
+      <g id="Rectangle_1425-3" data-name="Rectangle 1425" transform="translate(0.22 2.566)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="19" stroke="none"/>
+        <rect x="1" y="1" width="18" height="17" fill="none"/>
+      </g>
+      <g id="Rectangle_1424-3" data-name="Rectangle 1424" transform="translate(2.22 -0.434)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="20" stroke="none"/>
+        <rect x="1" y="1" width="18" height="18" fill="none"/>
+      </g>
+      <text id="D-3" data-name="D" transform="translate(11.22 14.566)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.16" y="0">D</tspan></text>
+    </g>
+    <g id="Group_5" data-name="Group 5" transform="translate(6736.243 1361.434)" opacity="0.73">
+      <g id="Rectangle_1425-4" data-name="Rectangle 1425" transform="translate(-0.243 2.566)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="19" stroke="none"/>
+        <rect x="1" y="1" width="18" height="17" fill="none"/>
+      </g>
+      <g id="Rectangle_1424-4" data-name="Rectangle 1424" transform="translate(1.757 -0.434)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="20" stroke="none"/>
+        <rect x="1" y="1" width="18" height="18" fill="none"/>
+      </g>
+      <text id="A" transform="translate(11.757 14.566)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.235" y="0">A</tspan></text>
+    </g>
+    <g id="Group_6" data-name="Group 6" transform="translate(6633.418 1361.434)" opacity="0.35">
+      <g id="Rectangle_1425-5" data-name="Rectangle 1425" transform="translate(-0.418 2.566)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="19" stroke="none"/>
+        <rect x="1" y="1" width="18" height="17" fill="none"/>
+      </g>
+      <g id="Rectangle_1424-5" data-name="Rectangle 1424" transform="translate(2.582 -0.434)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="19" height="20" stroke="none"/>
+        <rect x="1" y="1" width="17" height="18" fill="none"/>
+      </g>
+      <text id="A-2" data-name="A" transform="translate(11.582 14.566)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.235" y="0">A</tspan></text>
+    </g>
+    <g id="Group_7" data-name="Group 7" transform="translate(6546.903 1361.434)" opacity="0.09">
+      <g id="Rectangle_1425-6" data-name="Rectangle 1425" transform="translate(0.097 2.566)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="19" stroke="none"/>
+        <rect x="1" y="1" width="18" height="17" fill="none"/>
+      </g>
+      <g id="Rectangle_1424-6" data-name="Rectangle 1424" transform="translate(2.097 -0.434)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="20" stroke="none"/>
+        <rect x="1" y="1" width="18" height="18" fill="none"/>
+      </g>
+      <text id="A-3" data-name="A" transform="translate(11.097 14.566)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.235" y="0">A</tspan></text>
+    </g>
+    <g id="Group_8" data-name="Group 8" transform="translate(6441.95 1361.434)" opacity="0.02">
+      <g id="Rectangle_1425-7" data-name="Rectangle 1425" transform="translate(0.05 2.566)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="19" stroke="none"/>
+        <rect x="1" y="1" width="18" height="17" fill="none"/>
+      </g>
+      <g id="Rectangle_1424-7" data-name="Rectangle 1424" transform="translate(2.05 -0.434)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="20" stroke="none"/>
+        <rect x="1" y="1" width="18" height="18" fill="none"/>
+      </g>
+      <text id="A-4" data-name="A" transform="translate(11.05 14.566)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.235" y="0">A</tspan></text>
+    </g>
+    <g id="Group_9" data-name="Group 9" transform="translate(6841.196 1361.434)">
+      <g id="Rectangle_1425-8" data-name="Rectangle 1425" transform="translate(-0.196 2.566)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="19" stroke="none"/>
+        <rect x="1" y="1" width="18" height="17" fill="none"/>
+      </g>
+      <g id="Rectangle_1424-8" data-name="Rectangle 1424" transform="translate(1.804 -0.434)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="20" height="20" stroke="none"/>
+        <rect x="1" y="1" width="18" height="18" fill="none"/>
+      </g>
+      <text id="A-5" data-name="A" transform="translate(11.804 14.566)" fill="#a63333" font-size="15" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.235" y="0">A</tspan></text>
+    </g>
+  </g>
+</svg>

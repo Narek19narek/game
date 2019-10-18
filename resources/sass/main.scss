@@ -149,6 +149,18 @@ body {
     }
 }
 
+.terms-and-privacy {
+    position: absolute;
+    left: 10px;
+    bottom: 5px;
+    a {
+        color: rgba(166, 51, 51, 0.79);
+        &:hover {
+            color: #A63333;
+        }
+    }
+}
+
 /*-----LOGIN-----*/
 #loginPage {
     form {
@@ -644,7 +656,7 @@ a.btn:focus {
 #coin {
     .formContent {
         margin-top: 0;
-        div[data-id] {
+        div[data-coin-id] {
             cursor: pointer;
         }
         //div[data-id]:last-child {
@@ -1142,6 +1154,57 @@ a.btn:focus {
                 }
             }
         }
+    }
+}
+
+/*-----HELP-----*/
+
+#help {
+    table {
+        tr {
+            color: #A63333;
+            th {
+                text-align: center;
+            }
+            td {
+                font-size: calc( 25px + ( 37 - 25 ) * ( 100vw - 991px ) / (1920 - 991) );
+            }
+        }
+    }
+}
+
+
+/*-----ERRORS-----*/
+
+#errors {
+    .formContent {
+        margin-top: calc( 150px + ( 200 - 150 ) * ( 100vw - 991px ) / (1920 - 991) );
+    }
+}
+
+/*-----Terms and Conditions-----*/
+
+#terms_and_conditions {
+    #scrolled {
+        &::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        /* Track */
+        &::-webkit-scrollbar-track {
+            border-radius: 5.29px;
+            background: linear-gradient(#dadada 0%, #c4c4c4 100%);
+        }
+
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+            background: #A63333;
+            border-radius: 8px;
+        }
+
+        overflow-x: hidden;
+        overflow-y: auto;
+        height: calc( 400px + ( 570 - 400 ) * ( 100vw - 991px ) / (1920 - 991) );
     }
 }
 

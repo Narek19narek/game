@@ -170,7 +170,7 @@ function renderPlayer(me, player) {
       context.fillStyle = '#FFA200';
       context.font = '25px FuturaPress';
   } else if (playerPosition > 1) {
-      context.fillStyle = 'blue';
+      context.fillStyle = Constants.SKINS[player.skin];
       context.font = '16px FuturaPress';
       if (playerPosition.toString().length === 2) {
           textPos = textX - 4;
