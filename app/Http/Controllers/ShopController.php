@@ -40,7 +40,7 @@ class ShopController extends Controller
         $err            = [];
         $selected_skin  = Skin::query()->findOrFail($id);
         $user           = User::query()->findOrFail(Auth::id());
-        $user_skins     = User::find(Auth::id())->skins;
+        $user_skins     = $user->skins;
         foreach ($user_skins as $skin) {
             if ((int)$id === (int)$skin->id) {
                 $err[] = $skin->id;
