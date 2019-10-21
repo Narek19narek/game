@@ -116,6 +116,9 @@
                                                     <h1 class="text-center"></h1>
                                                     <p class="text-center"></p>
                                                 </div>
+                                                <button type="button" class="btn close-btn" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -183,7 +186,6 @@
                         amount
                     },
                     success: (data) => {
-                        console.log(data);
                         $('.active .show_boost').fadeOut(200);
                         let str = '';
                         let link = '';
@@ -196,13 +198,9 @@
                             str = data.message;
                         }
                         $('.active .get_success').find('h1').text(data.title).siblings().text(str + ' ').append(link);
-                        // $('.active .get_success').find('p').text(str + ' ').append(link);
-                        // $('.active .get_success').fadeIn(300);
-                        $('.back-btn').on('click', function (e) {
-                            e.preventDefault();
+                        $('.close-btn').on('click', function (e) {
                             $('.active .get_success').fadeOut(200);
                             $('.active .show_boost').fadeIn(300);
-                            $('.back-btn').unbind('click');
                         })
                     },
                     error: (err) => {

@@ -80,11 +80,6 @@ function renderBackground(x, y) {
 
         context.moveTo(2 * (MAP_SIZE + canvas.width) + x ,-y + i * ((canvas.height + MAP_SIZE) * 43.8 / (MAP_SIZE + canvas.width)));
         context.lineTo(- x,-y  + i * ((canvas.height + MAP_SIZE) * 43.8 / (MAP_SIZE + canvas.width)));
-
-        // context.moveTo(canvas.width / 2 - x - (i + 1) * 40, -y);
-        // context.lineTo(2 * (MAP_SIZE + canvas.width) - x - (i + 1) * 40, 2 * (MAP_SIZE + canvas.height)- y);
-        // context.moveTo(2 * (MAP_SIZE + canvas.width) - x - (i + 120) * 40, -y);
-        // context.lineTo(canvas.width / 2 - x - (i + 120) * 40,2 * (MAP_SIZE + canvas.height) - y);
     }
 
     var grad = context.createRadialGradient(backgroundX,

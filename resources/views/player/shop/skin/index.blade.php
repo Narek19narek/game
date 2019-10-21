@@ -93,25 +93,19 @@
                                             </div>
 
                                         </div>
-                                        <div class="col-12 d-flex align-items-center" id="get_success">
+                                        <div class="col-12 d-flex align-items-center " id="get_success">
                                             <div class="position-relative w-25 pl-4">
                                                 <img src="" alt="Skin" class="img-fluid" width="150">
                                             </div>
                                             <div class="col">
-                                                <h1 class="text-center">Congratulations!</h1>
-                                                <p class="text-center">you have purchased a skin</p>
+                                                <h1 class="text-center"></h1>
+                                                <p class="text-center"></p>
                                             </div>
+                                            <button type="button" class="btn close-btn" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
                                         </div>
-                                        <div class="col-12 d-flex align-items-center" id="get_error">
-                                            <div class="position-relative w-25 pl-4">
-                                                <img src="" alt="Skin" class="img-fluid" width="150">
-                                            </div>
-                                            <div class="col">
-                                                <h1 class="text-center">Oops</h1>
-                                                <p class="text-center">You don't have enough coins for this, visit the
-                                                    <a href="{{ route('get-coin') }}">store</a></p>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                                 <div class="carousel-item">
@@ -152,12 +146,11 @@
 @push('js')
     <script type="text/javascript">
         $(document).ready(function () {
-            // $('.swiper-slide-next').removeClass('swiper-slide-next');
-            // $('#select_skin input[checked]').parent().addClass('swiper-slide-next');
-            // console.log($('.swiper-slide-next input'));
             $(document).on('click', '.swiper-slide:not(.swiper-slide-active)', function (e) {
                 e.preventDefault();
             });
+            const checkedInputs = [];
+            checkedInputs[0] = $('input:checked').val();
             $('#select_skin input').on('change', function (e) {
                 const id = $(this).val();
                 if ($(this).parent().hasClass('swiper-slide-active')) {
@@ -168,17 +161,37 @@
                         data: {"_token": "{{csrf_token()}}"},
                         success: (data) => {
                             if (data.status === 1) {
-                                $('#select_skin input[value="' + data.id + '"]').parent().append('<i class="fas fa-check" id="check"></i>');
+                                $('#select_skin input[value="' + id + '"]').parent().append('<i class="fas fa-check" id="check"></i>');
                             } else {
-                                const url = "images/skins/color-" + data.id + ".svg";
                                 $('#select_skin').fadeOut(200);
-                                if (data.status === 2) {
-                                    $('#get_error').remove();
-                                    $('#get_success').fadeIn(300).find('img').attr('src', '{{ asset('/')  }}' + url);
+                                const url = "images/skins/color-" + data.id + ".svg";
+                                let str = '';
+                                let link = '';
+                                if (data.title === 'Oops') {
+                                    str = data.message.split(' ');
+                                    str.pop();
+                                    str = str.join(' ');
+                                    link = `<a href="{{ route('get-coin') }}">store</a>`;
                                 } else {
-                                    $('#get_success').remove();
-                                    $('#get_error').fadeIn(300).find('img').attr('src', '{{ asset('/')  }}' + url);
+                                    str = data.message;
                                 }
+                                $('#get_success').find('img').attr('src', '{{ asset('/')  }}' + url).parent().parent().find('h1').text(data.title).siblings().text(str + ' ').append(link);
+                                if (data.status === 2) {
+                                    checkedInputs[0] = id;
+                                    $('#select_skin input[value="' + checkedInputs[0] + '"]').siblings().find('.fas.fa-lock').remove().end().find('.img').remove();
+                                    $('.close-btn').on('click', function (e) {
+                                        $('#select_skin input[value="' + checkedInputs[0] + '"]').prop('checked', true).parent().append('<i class="fas fa-check" id="check"></i>');
+                                        $('#get_success').fadeOut(200);
+                                        $('#select_skin').fadeIn(300);
+                                    });
+                                } else {
+                                    $('.close-btn').on('click', function (e) {
+                                        $('#select_skin input[value="' + checkedInputs[0] + '"]').prop('checked', true).parent().append('<i class="fas fa-check" id="check"></i>');
+                                        $('#get_success').fadeOut(200);
+                                        $('#select_skin').fadeIn(300);
+                                    });
+                                }
+
                             }
                         },
                         error: (err) => {

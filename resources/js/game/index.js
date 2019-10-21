@@ -1,7 +1,7 @@
 import { connect, play } from './networking';
 import { startRendering, stopRendering, getInfo } from './render';
 import { startCapturingInput, stopCapturingInput } from './input';
-import { downloadAssets } from './assets';
+// import { downloadAssets } from './assets';
 import { initState } from './state';
 import { setLeaderboardHidden } from './leaderboard';
 import { setGameinfoHidden } from './gameinfo';
@@ -40,7 +40,7 @@ function initGameStart() {
 
 Promise.all([
   connect(onGameOver),
-  downloadAssets(),
+  // downloadAssets(),
 ]).then(() => {
   playMenu.classList.remove('hidden');
   usernameInput.focus();

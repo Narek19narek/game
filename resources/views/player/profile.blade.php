@@ -34,8 +34,8 @@
                             </ol>
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
-                                    <div class="formContent row">
-                                        <div class="col-md-auto account-lvl position-relative p-0">
+                                    <div class="formContent row justify-content-start align-items-center">
+                                        <div class="offset-1 col-md-auto account-lvl position-relative p-0">
                                             <div class="my-4">
                                                 <span class="lvl-count">{{ Auth::user()->level }}</span>
                                                 <span class="lvl">LVL</span>
@@ -49,36 +49,13 @@
                                                 <p class="my-0" title="{{  $user->email }}">{{ $user->email }}</p>
                                             </div>
                                             <div class="d-flex">
-{{--                                                @if (Route::has('password.request'))--}}
-                                                    <a class="btn p-0" href="{{ route('logout') }}"
-                                                       onclick="event.preventDefault();
-                                                                     document.getElementById('logout-form').submit();">
-                                                        {{ __('Logout') }}
-                                                    </a>
-                                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                        @csrf
-                                                    </form>
-{{--                                                @endif--}}
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4 notifications my-4 pr-4">
-                                            <div class="row justify-content-end">
-                                                <p>Notifications:</p>
-                                            </div>
-                                            <div>
-                                                <form>
-                                                    <div class="row justify-content-end">
-                                                        <label for="email">Email</label>
-                                                        <input type="checkbox" id="email" name="email">
-                                                    </div>
-                                                    <div class="row justify-content-end">
-                                                        <label for="newsletter">Newsletter</label>
-                                                        <input type="checkbox" id="newsletter" name="newsletter">
-                                                    </div>
-                                                    <div class="row justify-content-end">
-                                                        <label for="br_notification">Browser Notifications</label>
-                                                        <input type="checkbox" id="br_notification" name="br_notification">
-                                                    </div>
+                                                <a class="btn p-0" href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                                 document.getElementById('logout-form').submit();">
+                                                    {{ __('Logout') }}
+                                                </a>
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
                                                 </form>
                                             </div>
                                         </div>

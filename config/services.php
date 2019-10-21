@@ -45,7 +45,8 @@ return [
     ],
 
     'paypal' => [
-        'client_id' => env('PAYPAL_CLIENT_ID')
+        'PRODUCTION_PAYPAL_CLIENT_ID' => env('PRODUCTION_PAYPAL_CLIENT_ID'),
+        'SANDBOX_PAYPAL_CLIENT_ID' => env('SANDBOX_PAYPAL_CLIENT_ID')
     ],
 
 

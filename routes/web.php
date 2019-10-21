@@ -36,7 +36,7 @@ Route::get('/payment-info', 'CoinsController@paymentInfo')->name('payment-info')
 Route::get('/purchase-info', 'CoinsController@purchaseInfo')->name('purchase-info');
 Route::get('/payment/{id}', 'CoinsController@payment')->name('payment');
 Route::get('/payment/{id}/{status}/paypal', 'CoinsController@paypalPayment')->name('payment-paypal');
-//Route::get('/payment/success/', 'CoinsController@success2');
+
 
 Route::get('/get-skin', 'ShopController@skin')->name('get-skin')->middleware('auth');
 Route::post('/get-skin/{id}', 'ShopController@selectSkin');

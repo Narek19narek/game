@@ -57,11 +57,9 @@
                             <div class="col-auto">
                                 <button class="btn btn-icon payment paypalBtn" id="paypal-button"></button>
                             </div>
-{{--                            <div class="col-auto">--}}
-{{--                                <button class="btn btn-icon payment bitcoinBtn">--}}
-{{--                                    <i class="fab fa-btc"></i>--}}
-{{--                                </button>--}}
-{{--                            </div>--}}
+                            <button type="button" class="btn close-btn" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="row justify-content-center form-btn">
                             <p class="m-0">{{ __('COINS') }}</p>
@@ -89,11 +87,9 @@
                 $('#coin_page').hide();
                 $('#payment_page').show();
 
-                $('#back_btn').on('click', function (e) {
-                    e.preventDefault();
+                $('.close-btn').on('click', function (e) {
                     $('#payment_page').hide();
                     $('#coin_page').show();
-                    $('#back_btn').unbind('click');
                 })
             })
         </script>
@@ -110,8 +106,8 @@
                 // Configure environment
                 env: 'sandbox',
                 client: {
-                    sandbox: '{{config('services.paypal.client_id')}}',
-                    {{--production: '{{env('SANDBOX_PRODUCTION_CLIENT_ID')}}'--}}
+                    sandbox: '{{config('services.paypal.SANDBOX_PAYPAL_CLIENT_ID')}}',
+                    production: '{{config('services.paypal.PRODUCTION_PAYPAL_CLIENT_ID')}}'
                 },
                 // Customize button (optional)
                 locale: 'en_US',

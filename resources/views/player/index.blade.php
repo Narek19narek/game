@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container-fluid h-100 pt-4 text-center position-relative">
+    <div class="container-fluid h-100 pt-4 text-center">
         <div class="menu-buttons float-right">
             <div class="logo text-center">
                 <a href="{{ route('home') }}" class="c-pointer">

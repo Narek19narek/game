@@ -47,20 +47,19 @@ class ShopController extends Controller
             }
         }
 
-        $status = 1;
         if (count($err)) {
             $user->update(['skeen_id' => $id]);
+            return response()->json(['status' => 1], 200);
         } else {
             if ($selected_skin->coin <= $user->coins) {
                 $coin = $user->coins - $selected_skin->coin;
                 $user->update(['coins' => $coin, 'skeen_id' => $selected_skin->id]);
                 $selected_skin->user_skins()->attach(Auth::id());
-                $status = 2;
+                return response()->json(["status" => 2, "title" => 'Congratulations!', 'message' => 'you have purchased a skin', 'id' => $id], 200);
             } else {
-                $status = 3;
+                return response()->json(["status" => 3, "title" => 'Oops', 'message' => 'You don\'t have enough coins for this, visit the store', 'id' => $id], 200);
             }
         }
-        return response()->json(["status" => $status, "id" => $id], 200);
     }
 
     public function boosts()
