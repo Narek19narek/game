@@ -71,7 +71,17 @@ function renderBackground(x, y) {
     context.clearRect(0, 0, MAP_SIZE, MAP_SIZE);
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.beginPath();
-    // const length = canvas.width / 2 >
+
+    context.moveTo(-x + (MAP_SIZE + canvas.width) / 2, -y + canvas.height / 2);
+    context.lineTo(-x + (MAP_SIZE + canvas.width) / 2, MAP_SIZE - y + canvas.height / 2);
+
+    context.moveTo(-x + canvas.width / 2,-y + (MAP_SIZE + canvas.height) / 2);
+    context.lineTo(MAP_SIZE - x + canvas.width / 2,-y  + (MAP_SIZE + canvas.height) / 2);
+
+    context.strokeStyle = '#707070';
+    context.lineWidth = 2;
+    context.stroke();
+    context.beginPath();
     for (let i = 0; i < 250; i++) {
         context.moveTo(-x + (i - 125) * 40, -y);
         context.lineTo(MAP_SIZE - x + canvas.width + (i - 125) * 40,MAP_SIZE - y + canvas.width);
