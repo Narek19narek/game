@@ -1,4 +1,19 @@
 <svg id="Group_470" data-name="Group 470" xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+    <defs xmlns="http://www.w3.org/2000/svg">
+        <style type="text/css">
+            @font-face {
+            font-family: 'FuturaPressPress';
+            src: url('../../font/FuturaPressPress.eot');
+            src: url('../../font/FuturaPressPress.eot?#iefix') format('embedded-opentype'),
+            url('../../font/FuturaPressPress.woff2') format('woff2'),
+            url('../../font/FuturaPressPress.woff') format('woff'),
+            url('../../font/FuturaPressPress.ttf') format('truetype'),
+            url('../../font/FuturaPressPress.svg#FuturaPressPress') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            }
+        </style>
+    </defs>
   <g id="Ellipse_95" data-name="Ellipse 95" fill="#a63333" stroke="#a63333" stroke-width="11">
     <circle cx="28" cy="28" r="28" stroke="none"/>
     <circle cx="28" cy="28" r="22.5" fill="none"/>

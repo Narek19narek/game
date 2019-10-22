@@ -1,5 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="904.255" height="174.732" viewBox="0 0 904.255 174.732">
-  <defs>
+  <defs xmlns="http://www.w3.org/2000/svg">
+    <style type="text/css">
+      @font-face {
+      font-family: 'FuturaPressPress';
+      src: url('../../font/FuturaPressPress.eot');
+      src: url('../../font/FuturaPressPress.eot?#iefix') format('embedded-opentype'),
+      url('../../font/FuturaPressPress.woff2') format('woff2'),
+      url('../../font/FuturaPressPress.woff') format('woff'),
+      url('../../font/FuturaPressPress.ttf') format('truetype'),
+      url('../../font/FuturaPressPress.svg#FuturaPressPress') format('svg');
+      font-weight: normal;
+      font-style: normal;
+      }
+    </style>
     <filter id="Ellipse_1" x="293.584" y="28.833" width="117.226" height="117.226" filterUnits="userSpaceOnUse">
       <feOffset dx="5" dy="5" input="SourceAlpha"/>
       <feGaussianBlur stdDeviation="10" result="blur"/>

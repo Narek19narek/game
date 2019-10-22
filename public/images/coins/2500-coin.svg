@@ -1,5 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="76.96" height="272.535" viewBox="0 0 76.96 99.6">
-  <defs>
+    <defs xmlns="http://www.w3.org/2000/svg">
+        <style type="text/css">
+            @font-face {
+            font-family: 'FuturaPressPress';
+            src: url('../../font/FuturaPressPress.eot');
+            src: url('../../font/FuturaPressPress.eot?#iefix') format('embedded-opentype'),
+            url('../../font/FuturaPressPress.woff2') format('woff2'),
+            url('../../font/FuturaPressPress.woff') format('woff'),
+            url('../../font/FuturaPressPress.ttf') format('truetype'),
+            url('../../font/FuturaPressPress.svg#FuturaPressPress') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            }
+        </style>
     <linearGradient id="linear-gradient" x1="0.233" y1="0.096" x2="0.709" y2="0.879" gradientUnits="objectBoundingBox">
       <stop offset="0" stop-color="#ffd100"/>
       <stop offset="0.807" stop-color="#ffa400"/>

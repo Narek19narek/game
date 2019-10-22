@@ -1,4 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="157" height="46" viewBox="0 0 157 46">
+    <defs xmlns="http://www.w3.org/2000/svg">
+        <style type="text/css">
+            @font-face {
+            font-family: 'FuturaPressPress';
+            src: url('../../font/FuturaPressPress.eot');
+            src: url('../../font/FuturaPressPress.eot?#iefix') format('embedded-opentype'),
+            url('../../font/FuturaPressPress.woff2') format('woff2'),
+            url('../../font/FuturaPressPress.woff') format('woff'),
+            url('../../font/FuturaPressPress.ttf') format('truetype'),
+            url('../../font/FuturaPressPress.svg#FuturaPressPress') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            }
+        </style>
+    </defs>
   <g id="Group_402" data-name="Group 402" transform="translate(0.495 0.434)">
     <g id="Rectangle_1425" data-name="Rectangle 1425" transform="translate(-0.495 5.566)" fill="#a63333" stroke="#a63333" stroke-width="2">
       <rect width="140" height="40" stroke="none"/>
