@@ -1,6 +1,7 @@
 const Constants = require('../resources/js/constants');
 const Player = require('./player');
 const applyCollisions = require('./collisions');
+const request = require('request');
 
 class Game {
   constructor() {
@@ -69,13 +70,14 @@ class Game {
     const skin = userAbility.isUser ? userAbility.userSkin : Constants.PLAYER_SKIN;
     const hideName = userAbility.isUser ? userAbility.hideName : 0;
     const hidePosition = userAbility.isUser ? userAbility.hidePosition : 0;
+    const userId = userAbility.isUser ? userAbility.userId : 0;
     this.sockets[socket.id] = socket;
     const { x, y } = this.getCordinates();
     // Generate a position to start this player at.
     const status = this.getStatus();
     // const time = this.updateTime();
     // const score = 0;
-    this.players[socket.id] = new Player(socket.id, username, x, y, status, +switches, +teleport, +push, +skin, hideName, hidePosition);
+    this.players[socket.id] = new Player(socket.id, username, x, y, status, +switches, +teleport, +push, +skin, hideName, hidePosition, userId);
   }
 
   removePlayer(socket) {
@@ -243,6 +245,9 @@ class Game {
       others: nearbyPlayers.map(p => p.serializeForUpdate()),
       leaderboard,
     };
+  }
+  getPlayer(id) {
+      return this.players[id];
   }
 }
 

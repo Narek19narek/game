@@ -1,5 +1,6 @@
 const ASSET_NAMES = [
-  'bg.svg',
+  'bg-logo-0.svg',
+  'bg-logo-1.svg',
 ];
 
 const assets = {};

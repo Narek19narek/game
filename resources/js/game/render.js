@@ -1,4 +1,4 @@
-// import { getAsset } from './assets';
+import { getAsset } from './assets';
 import { getCurrentState } from './state';
 
 let player_data = null;
@@ -37,7 +37,6 @@ function render() {
     if (!me) {
         return;
     }
-
     // Draw background
     renderBackground(me.x, me.y);
 
@@ -56,7 +55,7 @@ function renderBackground(x, y) {
 
     const backgroundX = MAP_SIZE / 2 - x + canvas.width / 2;
     const backgroundY = MAP_SIZE / 2 - y + canvas.height / 2;
-    // context.drawImage(getAsset('bg.png'), backgroundX, backgroundY);
+
     const backgroundGradient = context.createRadialGradient(
         backgroundX,
         backgroundY,
@@ -79,7 +78,7 @@ function renderBackground(x, y) {
     context.lineTo(MAP_SIZE - x + canvas.width / 2,-y  + (MAP_SIZE + canvas.height) / 2);
 
     context.strokeStyle = '#707070';
-    context.lineWidth = 2;
+    context.lineWidth = 1;
     context.stroke();
     context.beginPath();
     for (let i = 0; i < 250; i++) {
@@ -93,7 +92,7 @@ function renderBackground(x, y) {
         context.lineTo(MAP_SIZE + canvas.width,-y  + i * 40 );
     }
 
-    var grad = context.createRadialGradient(backgroundX,
+    const grad = context.createRadialGradient(backgroundX,
         backgroundY,
         MAP_SIZE / 10,
         backgroundX,
@@ -104,6 +103,11 @@ function renderBackground(x, y) {
     context.strokeStyle = grad;
     context.lineWidth = 1;
     context.stroke();
+
+    const bgImage = getAsset('bg-logo-' + gameMode + '.svg');
+    if (bgImage) {
+        const bg = context.drawImage(bgImage, -x + (MAP_SIZE + canvas.width) / 2 - bgImage.width / 2, -y + (MAP_SIZE + canvas.height) / 2 - bgImage.height / 2);
+    }
 }
 
 // Renders a ship at the given coordinates

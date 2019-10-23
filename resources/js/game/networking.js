@@ -15,7 +15,7 @@ export const connect = onGameOver => (
   connectedPromise.then(() => {
     // Register callbacks
     socket.on(Constants.MSG_TYPES.GAME_UPDATE, processGameUpdate);
-    socket.on(Constants.MSG_TYPES.GAME_OVER, onGameOver);
+      socket.on(Constants.MSG_TYPES.GAME_OVER, onGameOver);
     socket.on('disconnect', () => {
       // console.log('Disconnected from server.');
       document.getElementById('disconnect-modal').classList.remove('hidden');

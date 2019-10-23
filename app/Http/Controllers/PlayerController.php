@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Payment\PaymentInfoRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Session;
 
 class PlayerController extends Controller
@@ -15,47 +17,65 @@ class PlayerController extends Controller
         $params = $request->all();
         if (Auth::check() && !Session::has('savePoints')) {
             $id = Auth::id();
-            $user = User::findOrFail($id);
-            $level = $user->level;
-            $totalTime = (int)$user->total_time + (int)$params['time'];
-            $totalPoints = $user->total_points;
-            $gameCount = (int)$user->game_count + 1;
-            $user->total_time = $totalTime;
-            $user->game_count = $gameCount;
-            $totalPoints = $this->CalculateTotalPoints($level, $params['kill'], $totalPoints, $params['time']);
-            $playerPoints = $totalPoints - $user->total_points;
-            $user->total_points = $totalPoints;
-            $newLevel = $this->CalculateLevel($totalPoints);
-            $user->level = $newLevel;
-            $user->coins += $this->CalculateCoins($level, $newLevel);
-            $user->save();
-            Session::put('savePoints', 1);
+            $user = User::query()->findOrFail($id);
+            $user_updated_data = $this->UpdateUser($user, $params);
+            if($user_updated_data['updated']) {
+                $playerPoints = $user_updated_data['points'];
+            } else {
+                //todo need to show some error
+                return response('Something went wrong', 500);
+            }
         } else {
             $playerPoints = $this->CalculateTotalPoints(1, $params['kill'], 0, $params['time']);
             $user = false;
         }
 
-        if(Session::has('is_playing') && Session::get('is_playing')) {
-            Session::put('is_playing', false);
+        if(Auth::user()) {
+            $user = User::query()->findOrFail(Auth::id());
+            $user->update(['is_playing' => 0]);
         }
 
         return view('player.gameOver', compact('params', 'playerPoints', 'user'));
     }
 
-    public function CalculateTotalPoints($level, $kill, $totalXP, $time) {
+    protected function UpdateUser (User $user, $params) {
+        $level = $user->level;
+
+        $totalTime = (int)$user->total_time + (int)$params['time'];
+        $totalPoints = $user->total_points;
+        $gameCount = (int)$user->game_count + 1;
+        $totalPoints = $this->CalculateTotalPoints($level, $params['kill'], $totalPoints, $params['time']);
+        $playerPoints = $totalPoints - $user->total_points;
+        $newLevel = $this->CalculateLevel($totalPoints);
+
+        $updated = $user->update([
+            'total_points' => $totalPoints,
+            'total_time' => $totalTime,
+            'game_count' => $gameCount,
+            'level' => $newLevel,
+            'coins' => $user->coins + $this->CalculateCoins($level, $newLevel)
+        ]);
+
+        if($updated) {
+            Session::put('savePoints', 1);
+        }
+        $data = ['updated'=>$updated, 'points' => $playerPoints];
+        return $data;
+    }
+
+    protected function CalculateTotalPoints($level, $kill, $totalXP, $time) {
         $killXP = round(($level - 1) * (self::K - 1) / self::K ** 2);
         $killXP = $killXP >= 1 ? $killXP : 1;
-//        dd($killXP, $totalXP);
         $totalXP += $killXP * $kill + round($time / 60);
         return $totalXP;
     }
 
-    public function CalculateLevel($totalPoints) {
+    protected function CalculateLevel($totalPoints) {
         $level = floor(10 ** (log10($totalPoints) / self::K ** 2));
         return $level;
     }
 
-    public function CalculateCoins($oldLevel, $thisLevel) {
+    protected function CalculateCoins($oldLevel, $thisLevel) {
         $coins = 0;
         if ($thisLevel - $oldLevel > 0) {
             for ($i = 0; $i < ($thisLevel - $oldLevel); $i++) {
@@ -69,12 +89,24 @@ class PlayerController extends Controller
     {
         Session::forget('savePoints');
         if(Auth::user()) {
-            if(Session::has('is_playing') && Session::get('is_playing')) {
+            $user = User::query()->findOrFail(Auth::id());
+            if($user->is_playing) {
                 return redirect()->back();
             }
-            Session::put('is_playing', true);
+            $user->update(['is_playing' => 1]);
+
         }
         Session::put('nickname', $request->nickname);
         return view('game.start');
+    }
+
+    public function gameClose(Request $request) {
+        $params = $request->player;
+
+        $id     = $request->player['userId'];
+        $user   = User::query()->findOrFail($id);
+
+        $this->UpdateUser($user, $params);
+        $user->update(['is_playing' => 0]);
     }
 }

@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::post('game-over', 'PlayerController@index');
+Route::post('/game-close', 'PlayerController@gameClose');
 
 Route::post('/play', 'PlayerController@start')->name('play');
 

@@ -16,6 +16,17 @@
             <div class="col">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
+                        <div class="centered">
+                            @error('email')
+                                <div class="alert alert-danger text-center">{{ $message }}</div>
+                            @enderror
+                            @error('password')
+                                <div class="alert alert-danger text-center">{{ $message }}</div>
+                            @enderror
+                            @error('password-confirm')
+                                <div class="alert alert-danger text-center">{{ $message }}</div>
+                            @enderror
+                        </div>
                         <form method="POST" action="{{ route('register') }}" autocomplete="off">
                             @csrf
 
@@ -23,26 +34,14 @@
                                 <div class="row justify-content-center pt-4">
                                     <label for="email" class="col-md-4 text-md-right">{{ __('EMAIL:') }}</label>
                                     <div class="col-md-6 px-0">
-                                        <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                        @error('email')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
+                                        <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <label for="name" class="col-md-4 text-md-right">{{ __('USERNAME:') }}</label>
                                     <div class="col-md-6 px-0">
-                                        <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                        @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                        @enderror
+                                        <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
                                     </div>
                                 </div>
 
@@ -50,12 +49,6 @@
                                     <label for="password" class="col-md-4 text-md-right">{{ __('PASSWORD:') }}</label>
                                     <div class="col-md-6 px-0">
                                         <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required>
-
-                                        @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
                                     </div>
                                 </div>
 
@@ -88,7 +81,7 @@
         const err = $('.invalid-feedback');
         if(err) {
             $.each(err, function (index, value) {
-                window.alert($(value).find('strong').text());
+                console.log(value)
             });
         }
     </script>

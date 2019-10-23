@@ -1,4 +1,5 @@
 const https     = require('https');
+const request   = require('request');
 const fs        = require('fs');
 const Constants = require('../resources/js/constants');
 const express   = require('express');
@@ -6,6 +7,20 @@ const config    = require('../resources/js/game/configs');
 const socketio  = require('socket.io');
 // Setup an Express server
 const app = express();
+
+let rootCas = require('ssl-root-cas/latest').create();
+https.globalAgent.options.ca = rootCas;
+require('tls').createSecureContext({
+    ca: rootCas
+});
+
+agentOptions = {
+    host: config.BACKEND_HOST,
+    path: '/game-close',
+    rejectUnauthorized: false
+};
+
+const agent = new https.Agent(agentOptions);
 
 const Game = require('./game');
 // const routes = require('../auth/routes/index');
@@ -85,5 +100,13 @@ function updateSpeed() {
 }
 
 function onDisconnect() {
-  game.removePlayer(this);
+    const player = game.getPlayer(this.id);
+    console.log("Disconnect");
+    request.post({
+        url: config.BACKEND_URL + '/game-close',
+        form: {player},
+        agent: agent
+    }, (err, res, body) => {
+        game.removePlayer(this);
+    });
 }

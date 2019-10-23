@@ -72,7 +72,7 @@
 
                     </div>
                     <div class="row justify-content-center">
-                        <div class="col-md-8">
+                        <div class="col-lg-10">
                             <div class="row register formContent">
                                 <div class="google-register mb-4">
                                     <a href="{{ url('auth/login/google') }}">

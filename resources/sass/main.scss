@@ -336,7 +336,7 @@ a.btn:focus {
         input {
             width: 100%;
             height: 93%;
-            padding: 8px;
+            padding: calc(4px + ( 8 - 4 ) * ( 100vw - 991px ) / ( 1920 - 991 ));
             padding-left: 10px;
             background-color: #E1E1E1 !important;
             border: 3px solid #A63333;
@@ -1149,7 +1149,7 @@ a.btn:focus {
             -webkit-text-fill-color: #fff;
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: #A63333;
-            font-size: 22px;
+            font-size: 30px;
         }
     }
 }

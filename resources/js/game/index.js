@@ -21,9 +21,9 @@ if (userInfo) {
     userAbility.userSkin = userInfo.dataset.skin;
     userAbility.hideName = userInfo.dataset.hideName;
     userAbility.hidePosition = userInfo.dataset.hidePosition;
+    userAbility.userId = userInfo.dataset.userId;
 } else {
     userAbility.isUser = false;
-
 }
 
 function initGameStart() {

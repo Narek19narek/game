@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container-fluid h-100 py-4">
+    <div class="container-fluid h-100 pt-4">
         <div class="menu-buttons row justify-content-between">
             <div class="col-auto back-btn">
                 <a href="{{ route('home') }}" class="btn p-0"><i class="fas fa-angle-left"></i></a>
@@ -12,14 +12,14 @@
                 </a>
             </div>
         </div>
-        <div class="row justify-content-center pt-4" id="registerPage">
+        <div class="row justify-content-center" id="registerPage">
             <div class="col">
                 <div class="row justify-content-center">
-                    <div class="col-md-9">
+                    <div class="col-lg-10">
                         <form method="POST" action="{{ route('password.update') }}" autocomplete="off">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
-                            <div class="register">
+                            <div class="register formContent">
                                 <input type="hidden"
                                        name="email" value="{{ $email ?? old('email') }}" required autocomplete="email">
 
@@ -51,7 +51,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row justify-content-center form-btn pt-5">
+                            <div class="row justify-content-center form-btn">
                                 <button type="submit" class="btn">
                                     {{ __('RESET') }}
                                 </button>
