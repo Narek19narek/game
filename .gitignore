@@ -5,7 +5,7 @@
 /public/css/game.css
 /public/css/main.css
 /public/storage
-/resources/js/game/configs
+/resources/js/game/configs.js
 /storage/*.key
 /vendor
 .env

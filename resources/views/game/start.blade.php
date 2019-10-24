@@ -21,7 +21,7 @@
             @endif
 
         </label>
-        <button id="play-button" type="submit">PLAY</button>
+{{--        <button id="play-button" type="submit">PLAY</button>--}}
     </div>
     <div id="leaderboard" class="hidden">
         <table>
@@ -98,9 +98,12 @@
 @push('js')
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
-    <script>
-        window.onload = () => {
-            document.getElementById('play-button').click();
-        }
-    </script>
+{{--    <script>--}}
+{{--        let stateCheck = setInterval(() => {--}}
+{{--            if (document.readyState === 'complete') {--}}
+{{--                clearInterval(stateCheck);--}}
+{{--                document.getElementById('play-button').click();--}}
+{{--            }--}}
+{{--        }, 2000);--}}
+{{--    </script>--}}
 @endpush

@@ -1,14 +1,11 @@
 import { connect, play } from './networking';
 import { startRendering, stopRendering, getInfo } from './render';
 import { startCapturingInput, stopCapturingInput } from './input';
-// import { downloadAssets } from './assets';
 import { initState } from './state';
 import { setLeaderboardHidden } from './leaderboard';
 import { setGameinfoHidden } from './gameinfo';
 import configs from "./configs";
 
-const playMenu = document.getElementById('play-menu');
-const playButton = document.getElementById('play-button');
 const usernameInput = document.getElementById('username-input');
 const username = usernameInput.value ? usernameInput.value : 'player';
 const userInfo = document.getElementById('user_info');
@@ -26,33 +23,15 @@ if (userInfo) {
     userAbility.isUser = false;
 }
 
-function initGameStart() {
+Promise.all([
+  connect(onGameOver)
+]).then(() => {
     play(username, userAbility);
-    playMenu.classList.add('hidden');
     initState();
     startCapturingInput();
     startRendering();
     setLeaderboardHidden(false);
     setGameinfoHidden(false);
-}
-
-
-
-Promise.all([
-  connect(onGameOver),
-  // downloadAssets(),
-]).then(() => {
-  playMenu.classList.remove('hidden');
-  usernameInput.focus();
-  playButton.onclick = () => {
-    // Play!
-      initGameStart()
-  };
-   usernameInput.addEventListener('keydown', (evt) => {
-       if(evt.key === 'Enter') {
-           initGameStart()
-       }
-   })
 
 }).catch(console.error);
 
