@@ -138,9 +138,9 @@ function renderPlayer(me, player) {
         context.lineTo(25, -25);
         context.closePath();
     } else if (player.status === 0) {
-        context.moveTo(-1, -30);
-        context.lineTo(25, 14);
-        context.lineTo(-25, 14);
+        context.moveTo(0, -28);
+        context.lineTo(25, 17);
+        context.lineTo(-25, 17);
         context.closePath();
         context.lineTo(0, -29);
     } else {

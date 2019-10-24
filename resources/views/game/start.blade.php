@@ -88,7 +88,6 @@
     <div id="disconnect-modal" class="hidden">
         <div>
             <h2>Disconnected from Server </h2>
-            <hr/>
             <button id="reconnect-button">RECONNECT</button>
         </div>
     </div>

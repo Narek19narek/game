@@ -1236,14 +1236,6 @@ a.btn:focus {
     cursor: pointer;
 }
 
-@media (max-width: 1200px) {
-    .switrio {
-        div.img {
-            height: calc( 290px + ( 365 - 290 ) * ( 100vw - 900px ) / ( 1200 - 900 ) )
-        }
-    }
-}
-
 .mb-version {
     display: none;
     position: absolute;

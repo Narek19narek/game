@@ -23,7 +23,6 @@ agentOptions = {
 const agent = new https.Agent(agentOptions);
 
 const Game = require('./game');
-// const routes = require('../auth/routes/index');
 
 const server = https.createServer({
     key : fs.readFileSync(config.SERVER_KEY),
@@ -36,19 +35,6 @@ const port = process.env.PORT || 3000;
 
 server.listen(port);
 
-// app.use('/admin', routes);
-// app.get('/admin', (req, res) => {
-//   // req.path('../auth/html/index.html');
-//   // res.render('../auth/html/index.html', (_err, html) => {
-//   //   res.send(html);
-//   // });
-//   res.send('heloo');
-// });
-
-// Listen on port
-// http.createServer(app).listen(8000);
-// const server = app.listen(port);
-// const server = http.createServer(app).listen(8000);
 console.log(`Server listening on port ${port}`);
 
 // Setup socket.io
@@ -101,7 +87,6 @@ function updateSpeed() {
 
 function onDisconnect() {
     const player = game.getPlayer(this.id);
-    console.log("Disconnect");
     request.post({
         url: config.BACKEND_URL + '/game-close',
         form: {player},

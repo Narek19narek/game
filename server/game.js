@@ -1,7 +1,7 @@
 const Constants = require('../resources/js/constants');
 const Player = require('./player');
 const applyCollisions = require('./collisions');
-const request = require('request');
+// const request = require('request');
 
 class Game {
   constructor() {
@@ -11,6 +11,10 @@ class Game {
     this.lastUpdateTime = Date.now();
     this.shouldSendUpdate = false;
     setInterval(this.update.bind(this), 1000 / 60);
+  }
+
+  static getSockets() {
+      return this.sockets;
   }
 
   getStatus() {
@@ -175,22 +179,22 @@ class Game {
       player.update(dt);
     });
 
-    const destroyedPlayers = applyCollisions(Object.values(this.players), this.players);
+    const {destroyedPlayers, killPlayers} = applyCollisions(Object.values(this.players));
+
     destroyedPlayers.forEach(obj => {
       if (this.players[obj.id]) {
         this.players[obj.id].onDealtDamage();
       }
     });
-    // this.players = this.players.filter(player => !destroyedPlayers.includes(player));
 
     // Check if any players are dead
-    Object.keys(this.sockets).forEach(playerID => {
-      const socket = this.sockets[playerID];
-      const player = this.players[playerID];
-      if (player.hp <= 0) {
-        socket.emit(Constants.MSG_TYPES.GAME_OVER);
+    killPlayers.forEach(player => {
+      const socket = this.sockets[player.id];
+        setTimeout(() => {
+            socket.emit(Constants.MSG_TYPES.GAME_OVER);
+        }, 100);
+        // socket.emit(Constants.MSG_TYPES.GAME_OVER);
         this.removePlayer(socket);
-      }
     });
 
     // Send a game update to each player every other time
@@ -223,7 +227,7 @@ class Game {
     Object.values(players).forEach(obj => {
       const player = Object.values(this.leaderboard).find(o => o.id === obj.id);
       if (player) {
-        if (obj.score - player.score > 9) {
+          if (obj.score - player.score > 0) {
           if (player.positionId > obj.positionId && obj.positionId < 11) {
             this.players[obj.id].addSwitches(obj.positionId);
           }

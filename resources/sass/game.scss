@@ -106,6 +106,17 @@ button:focus {
     right: 0;
     bottom: 0;
     background-color: rgba(0, 0, 0, 0.75);
+    color: #a63333;
+    letter-spacing: 3px;
+    #reconnect-button {
+        margin-top: 8px;
+        background-color: #A63333;
+        color: #eee;
+        -webkit-text-fill-color: #eee;
+        -webkit-text-stroke-width: 1.5px;
+        -webkit-text-stroke-color: #A63333;
+        letter-spacing: 4.5px;
+    }
 }
 
 #disconnect-modal > div {
@@ -192,11 +203,6 @@ button:focus {
             font-size: 30px;
             font-weight: bold;
             color: #eee;
-            //text-shadow:
-            //    -1px -1px 0 #A63333,
-            //    1px -1px 0 #A63333,
-            //    -1px 1px 0 #A63333,
-            //    1px 1px 0 #A63333;
             -webkit-text-fill-color: #eee;
             -webkit-text-stroke-width: 1.5px;
             -webkit-text-stroke-color: #A63333;
