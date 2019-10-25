@@ -15,7 +15,7 @@
         <div class="row justify-content-center" id="registerPage">
             <div class="col">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-lg-10">
                         <div class="centered">
                             @error('email')
                                 <div class="alert alert-danger text-center">{{ $message }}</div>

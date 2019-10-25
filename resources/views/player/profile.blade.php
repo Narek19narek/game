@@ -35,13 +35,13 @@
                             <div class="carousel-inner">
                                 <div class="carousel-item active">
                                     <div class="formContent row justify-content-start align-items-center">
-                                        <div class="offset-1 col-md-auto account-lvl position-relative p-0">
+                                        <div class="offset-1 col-md-2 account-lvl position-relative p-0">
                                             <div class="my-4">
                                                 <span class="lvl-count">{{ Auth::user()->level }}</span>
                                                 <span class="lvl">LVL</span>
                                             </div>
                                         </div>
-                                        <div class="col-md-5 account-info my-4">
+                                        <div class="col-md-9 account-info my-4">
                                             <div class="d-flex">
                                                 <p class="my-0">XP: {{ $user->levelXp() }} / {{ $user->nextLevelXp() }}</p>
                                             </div>
@@ -111,7 +111,4 @@
             </div>
         </div>
     </div>
-    <script>
-        $.()
-    </script>
 @endsection

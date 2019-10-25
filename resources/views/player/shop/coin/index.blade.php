@@ -45,7 +45,7 @@
                             </div>
                             <p class="text-center"></p>
                         </div>
-                        <div class="formContent row justify-content-center">
+                        <div class="formContent row justify-content-center align-items-baseline">
                             <div class="col-12">
                                 <p class="text-center pt-4">Please choose a payment method</p>
                             </div>

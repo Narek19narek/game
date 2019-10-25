@@ -1,3 +1,5 @@
+const constants = require('../resources/js/constants');
+
 class Object {
   constructor(id, x, y, dir, speed, status) {
     this.id = id;
@@ -14,8 +16,8 @@ class Object {
   }
 
   updatePush(dist, obj) {
-    this.x = ((this.x - obj.x) * 300 / dist > 3000) ? 3000 : obj.x + (this.x - obj.x) * 300 / dist;
-    this.y = ((this.y - obj.y) * 300 / dist > 3000) ? 3000 : obj.y + (this.y - obj.y) * 300 / dist;
+    this.x = ((this.x - obj.x) * 300 / dist > constants.MAP_SIZE) ? constants.MAP_SIZE : obj.x + (this.x - obj.x) * 300 / dist;
+    this.y = ((this.y - obj.y) * 300 / dist > constants.MAP_SIZE) ? constants.MAP_SIZE : obj.y + (this.y - obj.y) * 300 / dist;
   }
 
   distanceTo(object) {

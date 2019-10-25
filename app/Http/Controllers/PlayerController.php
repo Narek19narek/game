@@ -12,13 +12,16 @@ use Illuminate\Support\Facades\Session;
 class PlayerController extends Controller
 {
     protected const K = 1.618003398875;
+
     public function index(Request $request)
     {
         $params = $request->all();
         if (Auth::check() && !Session::has('savePoints')) {
             $id = Auth::id();
             $user = User::query()->findOrFail($id);
+            $thisCoins = $user->coins;
             $user_updated_data = $this->UpdateUser($user, $params);
+            $thisCoins = $user->coins - $thisCoins;
             if($user_updated_data['updated']) {
                 $playerPoints = $user_updated_data['points'];
             } else {
@@ -28,14 +31,15 @@ class PlayerController extends Controller
         } else {
             $playerPoints = $this->CalculateTotalPoints(1, $params['kill'], 0, $params['time']);
             $user = false;
+            $thisCoins = false;
         }
 
-        if(Auth::user()) {
-            $user = User::query()->findOrFail(Auth::id());
+        $user = Auth::user();
+        if($user) {
             $user->update(['is_playing' => 0]);
         }
 
-        return view('player.gameOver', compact('params', 'playerPoints', 'user'));
+        return view('player.gameOver', compact('params', 'playerPoints', 'user', 'thisCoins'));
     }
 
     protected function UpdateUser (User $user, $params) {
@@ -70,12 +74,12 @@ class PlayerController extends Controller
         return $totalXP;
     }
 
-    protected function CalculateLevel($totalPoints) {
+    public function CalculateLevel($totalPoints) {
         $level = floor(10 ** (log10($totalPoints) / self::K ** 2));
-        return $level;
+        return $level ? $level : 1;
     }
 
-    protected function CalculateCoins($oldLevel, $thisLevel) {
+    public function CalculateCoins($oldLevel, $thisLevel) {
         $coins = 0;
         if ($thisLevel - $oldLevel > 0) {
             for ($i = 0; $i < ($thisLevel - $oldLevel); $i++) {
@@ -88,8 +92,9 @@ class PlayerController extends Controller
     public function start(Request $request)
     {
         Session::forget('savePoints');
-        if(Auth::user()) {
-            $user = User::query()->findOrFail(Auth::id());
+
+        $user = Auth::user();
+        if($user) {
             if($user->is_playing) {
                 return redirect()->back();
             }

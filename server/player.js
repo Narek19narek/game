@@ -5,7 +5,7 @@ class Player extends ObjectClass {
   constructor(id, username, x, y, status, switches, teleport, push, skin, hideName, hidePosition, userId) {
     super(id, x, y, Math.random() * 2 * Math.PI, Constants.PLAYER_SPEED, status);
     this.username = username;
-    this.hp = Constants.PLAYER_MAX_HP;
+    // this.hp = Constants.PLAYER_MAX_HP;
     this.score = 0;
     this.point = 0;
     this.kill = 0;
@@ -24,7 +24,8 @@ class Player extends ObjectClass {
     if (this.point) {
       this.point--;
       this.speed = 400;
-      setTimeout(() => {
+      const changeSpeed = setInterval(() => {
+        clearInterval(changeSpeed);
         this.speed = 200;
       }, 3000);
     }
@@ -43,9 +44,9 @@ class Player extends ObjectClass {
     return null;
   }
 
-  killPlayer() {
-    this.hp = 0;
-  }
+  // killPlayer() {
+  //   this.hp = 0;
+  // }
 
   onDealtDamage() {
     this.score += Constants.SCORE;
@@ -75,7 +76,7 @@ class Player extends ObjectClass {
             ...(super.serializeForUpdate()),
             username: this.username,
             direction: this.direction,
-            hp: this.hp,
+            // hp: this.hp,
             switches: this.switches,
             teleport: this.teleport,
             pushPlayer: this.pushPlayer,

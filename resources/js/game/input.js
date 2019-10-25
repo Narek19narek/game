@@ -5,9 +5,6 @@ function onMouseInput(e) {
 }
 
 function onKeyPress(e) {
-  if (e.key === ' ') {
-    updateSpeed();
-  }
   if (e.key === 'A' || e.key === 'a') {
     updateStatus(-1);
   }
@@ -20,6 +17,12 @@ function onKeyPress(e) {
   if (e.key === 'S' || e.key === 's') {
     pushPlayers();
   }
+}
+
+function onKeyUp(e) {
+    if (e.key === ' ') {
+        updateSpeed();
+    }
 }
 
 const switchBtn = document.getElementById('switch-btn');
@@ -51,6 +54,7 @@ export function startCapturingInput() {
   window.addEventListener('touchstart', onTouchInput);
   window.addEventListener('touchmove', onTouchInput);
   window.addEventListener('keypress', onKeyPress);
+  window.addEventListener('keyup', onKeyUp);
 }
 
 export function stopCapturingInput() {
@@ -59,4 +63,5 @@ export function stopCapturingInput() {
   window.removeEventListener('touchstart', onTouchInput);
   window.removeEventListener('touchmove', onTouchInput);
   window.removeEventListener('keypress', onKeyPress);
+  window.removeEventListener('keyup', onKeyUp);
 }

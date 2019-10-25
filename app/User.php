@@ -60,20 +60,12 @@ class User extends Authenticatable
     }
 
     public function levelXp() {
-        if ($this->level > 1) {
-            $xp = $this->total_points - round($this->level ** self::K);
+            $xp = $this->total_points;
             return $xp;
-        } else {
-            return $this->total_points;
-        }
     }
     public function nextLevelXp() {
         $level = $this->level;
-        if ($level > 1) {
-            $xp = round((($level + 1) ** self::K) - ($level ** self::K));
+            $xp = round((($level + 1) ** self::K));
             return $xp;
-        } else {
-            return round(($level + 1) ** self::K);
-        }
     }
 }

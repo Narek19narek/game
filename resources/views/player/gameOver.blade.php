@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="col-4 p-0 d-flex justify-content-center position-relative coins">
                                         <img src="{{ asset("images/coins/coin.svg") }}" alt="Coins" width="94">
-                                        <p class="position-absolute d-flex justify-content-center align-items-center m-0">@if($user) {{$user->coins}} @endif</p>
+                                        <p class="position-absolute d-flex justify-content-center align-items-center m-0">@if($user) {{$thisCoins}} @endif</p>
                                     </div>
                                 </div>
                                 <div class="row pt-2">

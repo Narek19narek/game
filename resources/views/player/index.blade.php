@@ -30,7 +30,7 @@
                         <a href="{{ route('profile', ['id' => auth()->id()]) }}">
                             <div class="account position-relative">
                                 <span class="lvl">LVL</span>
-                                <span class="lvl-count">{{ Auth::user()->level }}</span>
+                                <span class="lvl-count">{{$user->level}}</span>
                             </div>
                         </a>
                     </div>
@@ -41,7 +41,7 @@
                     </div>
                     <div class="item">
                         <a href="{{ route('get-skin') }}">
-                            <img src="{{ asset("images/skins/skin-".(Auth::user()->skeen_id).".svg") }}" alt="skin image" width="56px">
+                            <img src="{{ asset("images/skins/skin-".($user->skeen_id).".svg") }}" alt="skin image" width="56px">
                         </a>
                     </div>
                 @endguest
@@ -120,10 +120,9 @@
             <div class="col-8 mx-auto">
                 <div class="text-center play-btn">
                     <form method="POST" action="{{ route('play') }}" autocomplete="off">
-                        @csrf
                         <input type="image" src="{{ asset('images/play-btn.png') }}" alt="PLAY" id="playBtn">
                         <input id="nickname" type="text" class="form-control-plaintext text-center p-0" name="nickname"
-                               @guest autofocus placeholder="NICKNAME" @else disabled value="{{ Auth::user()->name }}" @endguest >
+                               @guest placeholder="NICKNAME" @else value="{{ substr(Auth::user()->name, 0, 5) }}" @endguest maxlength="5">
                     </form>
                 </div>
             </div>

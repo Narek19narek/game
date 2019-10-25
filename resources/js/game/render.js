@@ -88,8 +88,8 @@ function renderBackground(x, y) {
         context.moveTo(MAP_SIZE - x + canvas.width + (i - 125) * 40, -y);
         context.lineTo(-x + (i - 125) * 40,MAP_SIZE - y + canvas.width);
 
-        context.moveTo(-x ,-y + i * 40);
-        context.lineTo(MAP_SIZE + canvas.width,-y  + i * 40 );
+        context.moveTo(-x ,-y + i * 20);
+        context.lineTo(MAP_SIZE + canvas.width,-y  + i * 20 );
     }
 
     const grad = context.createRadialGradient(backgroundX,
@@ -99,7 +99,7 @@ function renderBackground(x, y) {
         backgroundY,
         MAP_SIZE / 2,);
     grad.addColorStop(0, "#707070");
-    grad.addColorStop(1, "rgba(112,112,112,0.1)");
+    grad.addColorStop(1, "rgba(112,112,112,1)");
     context.strokeStyle = grad;
     context.lineWidth = 1;
     context.stroke();
@@ -118,18 +118,7 @@ function renderPlayer(me, player) {
     // Draw ship
     context.save();
     context.translate(canvasX, canvasY);
-    // if (player.rotate) {
-    //   context.rotate(player.rotate / 57 * 3);
-    // }
 
-    // let img;
-    // if (player.status === 2) {
-    //   img = 'square.svg';
-    // } else if (player.status === 0) {
-    //   img = 'triangle.svg';
-    // } else img = 'circle.svg';
-    // contextSquare.clearRect(0, 0, 100, 100);
-    // contextSquare.beginPath();
     context.beginPath();
     if (player.status === 2) {
         context.moveTo(-25, -25);
@@ -198,15 +187,15 @@ function renderPlayer(me, player) {
     if (playerName.length < 4) {
         x1 = playerName.length * playerName.length;
     } else {
+
+        x1 = 20;
         switch (playerName.length) {
             case 4: x1 = 10;
                 break;
-            case 5: x1 = 14;
-                break;
-            default: x1 = 18;
+            default: x1 = 16;
         }
     }
-    const text = playerName.length > 6 ? playerName.slice(0, 6) : playerName;
+    const text = playerName.charAt(0).toUpperCase() + playerName.substring(1).toLowerCase();
     context.fillText(text, textX - x1, textY + 22);
 }
 

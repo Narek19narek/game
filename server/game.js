@@ -120,7 +120,7 @@ class Game {
   }
 
   teleport(socket) {
-    if (this.players[socket.id] && this.players[socket.id].teleport >= 1) {
+    if (this.players[socket.id] && this.players[socket.id].teleport > 0) {
       this.players[socket.id].x = Constants.MAP_SIZE * Math.random();
       this.players[socket.id].y = Constants.MAP_SIZE * Math.random();
       const obj = this.players[socket.id];
@@ -138,25 +138,14 @@ class Game {
 
   pushPlayers(socket) {
     const obj = this.players[socket.id];
-    if (obj && obj.pushPlayer >= 1) {
+    if (obj && obj.pushPlayer > 0) {
       obj.updatePushPlayer();
       Object.values(this.players).forEach(player => {
-        if (obj.status !== player.status) {
-          // let condition;
-          // switch (obj.status) {
-          //   case 0: condition = player.status !== 1;
-          //     break;
-          //   case 1: condition = player.status !== 2;
-          //     break;
-          //   default: condition = player.status !== 0;
-          //     break;
-          // }
-          // if (condition) {
+        if (obj.id !== player.id) {
           const dist = player.distanceTo(obj);
           if (dist <= 300) {
             player.updatePush(dist, obj);
           }
-          // }
         }
       });
     }

@@ -19,13 +19,8 @@ Route::post('/game-close', 'PlayerController@gameClose');
 
 Route::post('/play', 'PlayerController@start')->name('play');
 
-
-//Route::post('game/login', 'HomeController@login')->name('game.login');
-
-
 Auth::routes();
 
-//Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('/profile/{id}', 'HomeController@profile')->name('profile')->middleware('auth');

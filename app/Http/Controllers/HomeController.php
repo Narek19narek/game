@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Session;
 
 class HomeController extends Controller
 {
+    private $player;
     /**
      * Create a new controller instance.
      *
@@ -19,6 +20,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        $this->player = new PlayerController();
 //        $this->middleware('auth');
     }
 
@@ -29,10 +31,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = Auth::user();
-
         if(Session::has('savePoints'))
             Session::forget('savePoints');
+        $user = Auth::user();
+        if ($user && url()->previous() === route('play')) {
+            $oldLevel = $user->level;
+            $level  = $this->player->CalculateLevel($user->total_points);
+            $level  = $level > 1 ? $level : 1;
+
+
+            $user->update([
+                'level' => $level,
+                'coins' => $user->coins + $this->player->CalculateCoins($oldLevel, $level)
+            ]);
+        }
         return view('player.index', compact('user'));
     }
 

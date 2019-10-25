@@ -5,7 +5,7 @@
     <div id="play-menu" class="hidden">
         <label for="username-input">
             <input type="text" id="username-input" placeholder="Username"
-                   value="@if (auth()->check()){{auth()->user()->name}}@else{{request('nickname')}}@endif"/>
+                   value="{{ ucfirst(request('nickname'))}}"/>
 
             @if(auth()->check())
                 <input type="hidden" id="user_info"
@@ -21,7 +21,6 @@
             @endif
 
         </label>
-{{--        <button id="play-button" type="submit">PLAY</button>--}}
     </div>
     <div id="leaderboard" class="hidden">
         <table>

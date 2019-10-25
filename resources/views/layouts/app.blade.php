@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Switr.io is a free online multiplayer io game. Switch your shape to stay alive!">
     <meta property="og:url"           content="{{env('APP_URL')}}" />
     <meta property="og:type"          content="website" />
     <meta property="og:title"         content="SWITRIO" />
