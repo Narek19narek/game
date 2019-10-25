@@ -99,7 +99,7 @@ function renderBackground(x, y) {
         backgroundY,
         MAP_SIZE / 2,);
     grad.addColorStop(0, "#707070");
-    grad.addColorStop(1, "rgba(112,112,112,1)");
+    grad.addColorStop(1, "rgba(112,112,112,0.1)");
     context.strokeStyle = grad;
     context.lineWidth = 1;
     context.stroke();
