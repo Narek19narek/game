@@ -10,7 +10,7 @@
 </head>
 <body>
 @yield('content')
-
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=es6"></script>
 @stack('js')
 </body>
 </html>

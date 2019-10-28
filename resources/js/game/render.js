@@ -105,7 +105,7 @@ function renderBackground(x, y) {
 
     const bgImage = getAsset('bg-logo-' + gameMode + '.svg');
     if (bgImage) {
-        const bg = context.drawImage(bgImage, -x + (MAP_SIZE + canvas.width) / 2 - bgImage.width / 2, -y + (MAP_SIZE + canvas.height) / 2 - bgImage.height / 2);
+        const bg = context.drawImage(bgImage, -x + (MAP_SIZE + canvas.width) / 2 - 50, -y + (MAP_SIZE + canvas.height) / 2 - 50);
     }
 }
 

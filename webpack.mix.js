@@ -12,26 +12,40 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/game.scss', 'public/css', [
-        require('autoprefixer')({
-            browsers: ['last 40 versions'],
-            grid: true
-        })
-    ]);
+    .sass('resources/sass/game.scss', 'public/css')
+    .options({
+        autoprefixer: {
+            options: {
+                Browserslist: [
+                    'last 6 versions',
+                ]
+            }
+        }
+    });
+
 mix.js('resources/js/bootstrap.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css', [
-        require('autoprefixer')({
-            browsers: ['last 40 versions'],
-            grid: true
-        })
-    ]);
+    .sass('resources/sass/app.scss', 'public/css')
+    .options({
+        autoprefixer: {
+            options: {
+                Browserslist: [
+                    'last 6 versions',
+                ]
+            }
+        }
+    });
+
 mix.js('resources/js/main.js', 'public/js')
-    .sass('resources/sass/main.scss', 'public/css', [
-        require('autoprefixer')({
-            browsers: ['last 40 versions'],
-            grid: true
-        })
-    ]);
+    .sass('resources/sass/main.scss', 'public/css')
+    .options({
+        autoprefixer: {
+            options: {
+                Browserslist: [
+                    'last 6 versions',
+                ]
+            }
+        }
+    });
 
 mix.copyDirectory('resources/js/Slider.js', 'public/js');
 

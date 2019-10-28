@@ -34,11 +34,10 @@ class HomeController extends Controller
         if(Session::has('savePoints'))
             Session::forget('savePoints');
         $user = Auth::user();
-        if ($user && url()->previous() === route('play')) {
+        if ($user) {
             $oldLevel = $user->level;
             $level  = $this->player->CalculateLevel($user->total_points);
             $level  = $level > 1 ? $level : 1;
-
 
             $user->update([
                 'level' => $level,
