@@ -73,8 +73,8 @@ function renderBackground(x, y) {
 
     // context.moveTo(-x + canvas.width / 2,-y + (MAP_SIZE + canvas.height) / 2);
     // context.lineTo(MAP_SIZE - x + canvas.width / 2,-y  + (MAP_SIZE + canvas.height) / 2);
-    context.moveTo(-x + canvas.width / 2,-y + Math.round((MAP_SIZE + canvas.height) / 40) * 20);
-    context.lineTo(MAP_SIZE - x + canvas.width / 2,-y  + Math.round((MAP_SIZE + canvas.height) / 40) * 20 );
+    context.moveTo(-x + canvas.width / 2,-y + Math.round((MAP_SIZE + canvas.height) / 60) * 30);
+    context.lineTo(MAP_SIZE - x + canvas.width / 2,-y  + Math.round((MAP_SIZE + canvas.height) / 60) * 30 );
 
     context.strokeStyle = '#707070';
     context.lineWidth = 1;
@@ -82,13 +82,13 @@ function renderBackground(x, y) {
     context.beginPath();
     for (let i = 0; i < 250; i++) {
         context.moveTo(-x + (i - 125) * 40, -y);
-        context.lineTo(MAP_SIZE - x + canvas.width + (i - 125) * 40,MAP_SIZE - y + canvas.width);
+        context.lineTo(MAP_SIZE - x + 1000 + (i - 125) * 40,MAP_SIZE - y + 3000);
 
-        context.moveTo(MAP_SIZE - x + canvas.width + (i - 125) * 40, -y);
-        context.lineTo(-x + (i - 125) * 40,MAP_SIZE - y + canvas.width);
+        context.moveTo(MAP_SIZE - x + 1000 + (i - 125) * 40, -y);
+        context.lineTo(-x + (i - 125) * 40,MAP_SIZE - y + 3000);
 
-        context.moveTo(-x ,-y + i * 20);
-        context.lineTo(MAP_SIZE + canvas.width,-y  + i * 20 );
+        context.moveTo(-x ,-y + i * 30);
+        context.lineTo(MAP_SIZE + canvas.width,-y  + i * 30 );
     }
 
     const grad = context.createRadialGradient(backgroundX,
@@ -105,7 +105,7 @@ function renderBackground(x, y) {
 
     const bgImage = getAsset('bg-logo-' + gameMode + '.svg');
     if (bgImage) {
-        const bg = context.drawImage(bgImage, -x + (MAP_SIZE + canvas.width) / 2 - 50, -y + (MAP_SIZE + canvas.height) / 2 - 50);
+        const bg = context.drawImage(bgImage, -x + (MAP_SIZE + canvas.width) / 2 - 50, -y + (MAP_SIZE + canvas.height) / 2 - 50 - ((MAP_SIZE + canvas.height) / 60 - Math.round((MAP_SIZE + canvas.height) / 60)) * 30);
     }
 }
 

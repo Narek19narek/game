@@ -41,7 +41,7 @@ class CoinsController extends Controller
 
         if(empty($token)) {
             OneTimeToken::query()->where('user_id', '=', Auth::id())->delete();
-            $responseData = ['headline' => 'Payment Failed.', 'message' => 'Token Expired!', 'success' => false];
+            $responseData = ['headline' => 'Payment Failed', 'message' => 'Token Expired!', 'success' => false];
         } else {
             $tokenID = $token->token;
             $token->delete();
@@ -60,9 +60,9 @@ class CoinsController extends Controller
                             ->update(['coins' => DB::raw("coins + {$coin->coin}" )]);
                     }
 
-                    $responseData = ['headline' => 'Payment Success.', 'message' => 'Congratulations!', 'success' => true];
+                    $responseData = ['headline' => 'Payment Success', 'message' => 'Congratulations!', 'success' => true];
                 } else {
-                    $responseData = ['headline' => 'Payment Failed.', 'message' => 'Token Invalid!', 'success' => false];
+                    $responseData = ['headline' => 'Payment Failed', 'message' => 'Token Invalid!', 'success' => false];
                 }
             } else {
                 $responseData = ['headline' => 'Payment Failed.', 'message' => 'Token Not provided!', 'success' => false];
