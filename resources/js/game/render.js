@@ -18,9 +18,6 @@ if (document.getElementById('user_info')) {
 } else {
     gameMode = document.cookie.match('(^|;) ?game_mode=([^;]*)(;|$)') ? document.cookie.match('(^|;) ?game_mode=([^;]*)(;|$)')[2] : 0;
 }
-// if (document.cookie.match('(^|;) ?game_mode=([^;]*)(;|$)')[2] === '1') {
-//
-// }
 
 setCanvasDimensions();
 
@@ -74,8 +71,10 @@ function renderBackground(x, y) {
     context.moveTo(-x + (MAP_SIZE + canvas.width) / 2, -y + canvas.height / 2);
     context.lineTo(-x + (MAP_SIZE + canvas.width) / 2, MAP_SIZE - y + canvas.height / 2);
 
-    context.moveTo(-x + canvas.width / 2,-y + (MAP_SIZE + canvas.height) / 2);
-    context.lineTo(MAP_SIZE - x + canvas.width / 2,-y  + (MAP_SIZE + canvas.height) / 2);
+    // context.moveTo(-x + canvas.width / 2,-y + (MAP_SIZE + canvas.height) / 2);
+    // context.lineTo(MAP_SIZE - x + canvas.width / 2,-y  + (MAP_SIZE + canvas.height) / 2);
+    context.moveTo(-x + canvas.width / 2,-y + Math.round((MAP_SIZE + canvas.height) / 40) * 20);
+    context.lineTo(MAP_SIZE - x + canvas.width / 2,-y  + Math.round((MAP_SIZE + canvas.height) / 40) * 20 );
 
     context.strokeStyle = '#707070';
     context.lineWidth = 1;

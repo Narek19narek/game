@@ -132,4 +132,9 @@
             <a href="{{ route('privacy-policy') }}">Privacy Policy</a>
         </div>
     </div>
+    <script>
+        if (document.cookie.match('(^|;) ?nickname=([^;]*)(;|$)')) {
+            document.querySelector('#nickname').value = document.cookie.match('(^|;) ?nickname=([^;]*)(;|$)')[2];
+        }
+    </script>
 @endsection

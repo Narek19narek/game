@@ -27,7 +27,7 @@ class Player extends ObjectClass {
       const changeSpeed = setInterval(() => {
         clearInterval(changeSpeed);
         this.speed = 200;
-      }, 3000);
+      }, 2000);
     }
   }
 

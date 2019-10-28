@@ -4,8 +4,7 @@
     <canvas id="game-canvas"></canvas>
     <div id="play-menu" class="hidden">
         <label for="username-input">
-            <input type="text" id="username-input" placeholder="Username"
-                   value="{{ ucfirst(request('nickname'))}}"/>
+            <input type="text" id="username-input" value="{{ ucfirst(request('nickname'))}}"/>
 
             @if(auth()->check())
                 <input type="hidden" id="user_info"
@@ -96,12 +95,9 @@
 @push('js')
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('assets/js/core/jquery.min.js') }}"></script>
-{{--    <script>--}}
-{{--        let stateCheck = setInterval(() => {--}}
-{{--            if (document.readyState === 'complete') {--}}
-{{--                clearInterval(stateCheck);--}}
-{{--                document.getElementById('play-button').click();--}}
-{{--            }--}}
-{{--        }, 2000);--}}
-{{--    </script>--}}
+    <script>
+        if (document.querySelector('#username-input').value) {
+            document.cookie = 'nickname=' + document.querySelector('#username-input').value;
+        }
+    </script>
 @endpush

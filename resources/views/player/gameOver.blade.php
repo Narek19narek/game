@@ -46,7 +46,6 @@
                         </div>
                         <div class="row justify-content-center form-btn mt-5">
                             <form action="{{ route('play') }}" method="post">
-                                @csrf
                                 <button type="submit" id="playBtn"> {{ __('PLAY AGAIN') }} </button>
                                 <input id="nickname" type="text" class="form-control-plaintext text-center" name="nickname"
                                      value="{{ session()->get('nickname') }}" hidden>
