@@ -85,7 +85,7 @@ class Game {
   }
 
   removePlayer(socket) {
-      if (socket.id) {
+      if (socket) {
           delete this.sockets[socket.id];
           delete this.players[socket.id];
       }
@@ -96,16 +96,6 @@ class Game {
       this.players[socket.id].setDirection(dir);
     }
   }
-
-  // rotatePlayer(socket, angle) {
-  //   if (this.players[socket.id]) {
-  //     if (this.players[socket.id].rotate) {
-  //       this.players[socket.id].rotate += angle;
-  //     } else {
-  //       this.players[socket.id].setRotate(angle);
-  //     }
-  //   }
-  // }
 
   changePlayerStatus(socket, status) {
     if (this.players[socket.id] && this.players[socket.id].switches !== 0) {
@@ -181,10 +171,9 @@ class Game {
     // Check if any players are dead
     killPlayers.forEach(player => {
       const socket = this.sockets[player.id];
-        setTimeout(() => {
+        if (socket) {
             socket.emit(Constants.MSG_TYPES.GAME_OVER);
-        }, 100);
-        // socket.emit(Constants.MSG_TYPES.GAME_OVER);
+        }
         this.removePlayer(socket);
     });
 

@@ -92,7 +92,7 @@ function onDisconnect() {
         form: {player},
         agent: agent
     }, (err, res, body) => {
-        console.log(this)
+        console.log('socket ID => ' + this.id);
         game.removePlayer(this);
     });
 }

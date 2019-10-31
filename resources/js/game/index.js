@@ -56,9 +56,11 @@ function onGameOver() {
     const me = getInfo();
     const params = {time: Math.floor(me.time), kill: me.kill};
     const form = createdForm(params);
-    if(form) form.submit();
-    stopCapturingInput();
-    stopRendering();
-    setLeaderboardHidden(true);
-    setGameinfoHidden(true);
+    setTimeout( function () {
+        if(form) form.submit();
+        setLeaderboardHidden(true);
+        setGameinfoHidden(true);
+        stopRendering();
+        stopCapturingInput();
+    }, 100);
 }
