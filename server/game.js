@@ -85,8 +85,10 @@ class Game {
   }
 
   removePlayer(socket) {
-    delete this.sockets[socket.id];
-    delete this.players[socket.id];
+      if (socket.id) {
+          delete this.sockets[socket.id];
+          delete this.players[socket.id];
+      }
   }
 
   handleInput(socket, dir) {
@@ -95,15 +97,15 @@ class Game {
     }
   }
 
-  rotatePlayer(socket, angle) {
-    if (this.players[socket.id]) {
-      if (this.players[socket.id].rotate) {
-        this.players[socket.id].rotate += angle;
-      } else {
-        this.players[socket.id].setRotate(angle);
-      }
-    }
-  }
+  // rotatePlayer(socket, angle) {
+  //   if (this.players[socket.id]) {
+  //     if (this.players[socket.id].rotate) {
+  //       this.players[socket.id].rotate += angle;
+  //     } else {
+  //       this.players[socket.id].setRotate(angle);
+  //     }
+  //   }
+  // }
 
   changePlayerStatus(socket, status) {
     if (this.players[socket.id] && this.players[socket.id].switches !== 0) {

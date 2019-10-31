@@ -65,9 +65,9 @@ function handleInput(dir) {
   game.handleInput(this, dir);
 }
 
-function rotatePlayer(angle) {
-  game.rotatePlayer(this, angle);
-}
+// function rotatePlayer(angle) {
+//   game.rotatePlayer(this, angle);
+// }
 
 function changePlayerStatus(status) {
   game.changePlayerStatus(this, status);
@@ -92,6 +92,7 @@ function onDisconnect() {
         form: {player},
         agent: agent
     }, (err, res, body) => {
+        console.log(this)
         game.removePlayer(this);
     });
 }

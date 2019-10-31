@@ -10,7 +10,7 @@
             <div class="menu text-center">
                 @guest
                     <div class="item position-relative">
-                        <a href="{{ route('login') }}" title="Login">
+                        <a href="{{ route('login') }}">
                             <img src="{{ asset("images/menu/account.svg") }}" alt="account image">
                         </a>
                     </div>
