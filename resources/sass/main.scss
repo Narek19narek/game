@@ -35,12 +35,12 @@ body {
 .menu-buttons.float-right {
     margin-right: 15px;
     .logo {
-        margin-bottom: calc( 25px + ( 70 - 25 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
+        margin-bottom: calc( 16px + ( 50 - 16 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
     }
     .menu {
-        margin-bottom: calc( 16px + ( 40 - 16 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
+        margin-bottom: calc( 14px + ( 30 - 14 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
         .item {
-            margin-bottom: calc( 16px + ( 40 - 16 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
+            margin-bottom: calc( 14px + ( 30 - 14 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
             .account {
                 background-color: #A63333;
                 border-radius: 50%;
@@ -67,12 +67,15 @@ body {
     }
 }
 
-#shareBtn {
+#shareBtn,
+#supportBtn {
     cursor: pointer;
     z-index: 2;
+    margin-bottom: calc( 14px + ( 30 - 14 ) * ( 100vw - 991px ) / ( 1920 - 991 ) );
 }
 
-#share-buttons {
+#share-buttons,
+#support-buttons {
     display: none;
     z-index: 1;
     div {
@@ -80,28 +83,29 @@ body {
     }
 }
 
-#share-buttons:after {
-    content: '';
-    background: url("../images/menu/sharebg.png") no-repeat;
-    background-position: -114px -10px;
-    top: -15px;
-    position: absolute;
-    padding: 60px;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: -1;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
+//#share-buttons:after {
+//    content: '';
+//    background: url("../images/menu/sharebg.png") no-repeat;
+//    background-position: -114px -10px;
+//    top: -15px;
+//    position: absolute;
+//    padding: 60px;
+//    left: 0;
+//    bottom: 0;
+//    right: 0;
+//    z-index: -1;
+//    border-top-left-radius: 5px;
+//    border-bottom-left-radius: 5px;
+//}
 
-#share-buttons.active {
+#share-buttons.activeMenu,
+#support-buttons.activeMenu {
     display: flex;
     flex-direction: row-reverse;
     position: absolute;
-    right: 0;
+    right: 80px;
     top: 0;
-    padding-right: 80px;
+    filter: drop-shadow(30px 50px 50px rgba(0, 0, 0, 0.5));
 }
 
 .switrio {
@@ -206,7 +210,7 @@ body {
             align-items: center;
             background-color: #A63333;
             border-radius: 999px;
-            transition: all .4s ease-in-out;
+            transition: transform .4s ease-in-out;
             width: calc( 50px + ( 136 - 50 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
             height: calc( 50px + ( 136 - 50 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
 
@@ -680,6 +684,7 @@ a.btn:focus {
         -webkit-text-fill-color: #fff;
         -webkit-text-stroke-width: 1px;
         -webkit-text-stroke-color: #A63333;
+        font-size: 35px;
     }
     .popular>div, .best {
         background-color: #A63333;
@@ -786,7 +791,7 @@ a.btn:focus {
         li {
             list-style-type: none;
             text-align: center;
-            transition: all .5s ease-in-out;
+            transition: transform .5s ease-in-out, opacity .5s ease-in-out;
             position: relative;
             p {
                 display: none;

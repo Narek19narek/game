@@ -46,7 +46,6 @@ class SocialController
 
             return redirect()->route('home');
         } catch (Exception $e) {
-            dd($e->getMessage());
             throw new Exception("failed to authenticate with $provider");
         }
     }

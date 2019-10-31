@@ -15,7 +15,7 @@
         <div class="row justify-content-center" id="registerPage">
             <div class="col">
                 <div class="row justify-content-center">
-                    <div class="col-md-8">
+                    <div class="col-lg-10">
                         @if (session('status'))
                             <div class="alert alert-success text-center centered" role="alert">
                                 {{ session('status') }}

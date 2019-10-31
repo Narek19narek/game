@@ -9,6 +9,7 @@
     <meta property="og:title"         content="SWITRIO" />
     <meta property="og:description"   content="Good game" />
     <meta property="og:image"         content="{{asset('images/switrio.svg')}}" />
+    <meta name="propeller" content="d73fd873337f6e382b2c70179b5a9c46">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -21,7 +22,7 @@
     <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.js') }}" defer></script>
-    <script src="{{ asset("js/main.js") }}"></script>
+    <script type="text/javascript" src="{{ asset("js/main.js") }}"></script>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -32,7 +33,16 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/menu/logo.ico') }}" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+
     @stack('css')
+    <link rel="stylesheet" type="text/css" href=""  id="ie_styles"/>
+
+    <script type="text/javascript">
+        const isIE = /*@cc_on!@*/false || !!document.documentMode;
+        if(isIE) {
+            document.getElementById('ie_styles').setAttribute('href', '{{ asset('css/ie.css') }}')
+        }
+    </script>
 </head>
 <body>
     <div id="app">

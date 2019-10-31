@@ -157,9 +157,9 @@
                     $('.fas.fa-check').remove();
                     $.ajax({
                         method: 'post',
-                        url: `/get-skin/${id}`,
+                        url: '/get-skin/'+ id,
                         data: {"_token": "{{csrf_token()}}"},
-                        success: (data) => {
+                        success: function(data) {
                             if (data.status === 1) {
                                 $('#select_skin input[value="' + id + '"]').parent().append('<i class="fas fa-check" id="check"></i>');
                             } else {
@@ -171,7 +171,7 @@
                                     str = data.message.split(' ');
                                     str.pop();
                                     str = str.join(' ');
-                                    link = `<a href="{{ route('get-coin') }}">store</a>`;
+                                    link = '<a href="{{ route('get-coin') }}">store</a>';
                                 } else {
                                     str = data.message;
                                 }
@@ -194,7 +194,7 @@
 
                             }
                         },
-                        error: (err) => {
+                        error: function(err) {
                             console.log(err);
                         }
                     });

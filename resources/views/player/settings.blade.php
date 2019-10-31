@@ -66,14 +66,14 @@
                 method: 'get',
                 url: '/settings/game-mode',
                 data: {
-                    checked
+                    checked: checked
                 },
-                success: (data) => {
+                success: function(data) {
                    if (!data.message) {
                        document.cookie = 'game_mode=' + checked;
                    }
                 },
-                error: (err) => {
+                error: function(err) {
                     console.log(err)
                 }
             })
@@ -87,8 +87,8 @@
 
         function hideProperty(input) {
             input.on('change', function () {
-                const name =  $(this).attr('name');
-                const checked = $(this).is(':checked') ? 1 : 0;
+                let name =  $(this).attr('name');
+                let checked = $(this).is(':checked') ? 1 : 0;
                 if (checked) {
                     $(this).siblings('label').children().addClass('active');
                 } else {
@@ -98,13 +98,13 @@
                     method: 'get',
                     url: '/settings/hide-property',
                     data: {
-                        checked,
-                        name
+                        checked: checked,
+                        name: name
                     },
-                    success: (data) => {
+                    success: function(data) {
                         console.log(data);
                     },
-                    error: (err) => {
+                    error: function(err) {
                         console.log(err)
                     }
                 })

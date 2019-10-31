@@ -16,6 +16,14 @@
             <div class="col">
                 <div class="row justify-content-center">
                     <div class="col-lg-10">
+                        <div class="centered">
+                            @error('password')
+                                <div class="alert alert-danger text-center">{{ $message }}</div>
+                            @enderror
+                            @error('password-confirm')
+                                <div class="alert alert-danger text-center">{{ $message }}</div>
+                            @enderror
+                        </div>
                         <form method="POST" action="{{ route('password.update') }}" autocomplete="off">
                             @csrf
                             <input type="hidden" name="token" value="{{ $token }}">
@@ -33,12 +41,6 @@
                                         <input id="password" type="password"
                                                class=" @error('password') is-invalid @enderror"
                                                name="password" required autocomplete="new-password">
-
-                                        @error('password')
-                                        <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
                                     </div>
                                 </div>
 
@@ -47,6 +49,7 @@
                                            class="col-md-4 text-md-right">{{ __('RE-ENTER:') }}</label>
                                     <div class="col-md-6 px-0">
                                         <input id="password-confirm" type="password"
+                                               class=" @error('password-confirm') is-invalid @enderror"
                                                name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                 </div>

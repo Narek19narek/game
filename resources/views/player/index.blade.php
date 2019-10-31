@@ -10,7 +10,7 @@
             <div class="menu text-center">
                 @guest
                     <div class="item position-relative">
-                        <a href="{{ route('login') }}">
+                        <a href="{{ route('login') }}" title="Login">
                             <img src="{{ asset("images/menu/account.svg") }}" alt="account image">
                         </a>
                     </div>
@@ -61,25 +61,31 @@
                     </a>
                 </div>
             </div>
-            <div class="share text-center position-relative mb-5">
-                <div id="shareBtn" class="position-relative py-2">
-                    <img src="{{ asset("images/menu/share.svg") }}" alt="share logo">
+            <div class="support text-center position-relative">
+                <div id="supportBtn" class="position-relative">
+                    <img src="{{ asset("images/menu/support.svg") }}" alt="Support">
                 </div>
-                <div id="share-buttons" class="py-2">
+                <div id="support-buttons">
                     <div>
-                        <a href="https://plus.google.com/share?url={{env('APP_URL')}}" target="_blank">
-                            <img src="{{ asset("images/menu/google.svg") }}" alt="google plus image">
+                        <a href="mailto:help@raevantgames.com" target="_blank">
+                            <img src="{{ asset("images/menu/mail.svg") }}" alt="Send mail">
                         </a>
                     </div>
                     <div>
-                        <div id="fb-root"></div>
+                        <a href="https://discord.gg/ZyDw3pQ" target="_blank">
+                            <img src="{{ asset("images/menu/discord.svg") }}" alt="Discord">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="share text-center position-relative mb-5">
+                <div id="shareBtn" class="position-relative">
+                    <img src="{{ asset("images/menu/share.svg") }}" alt="Share">
+                </div>
+                <div id="share-buttons">
+                    <div>
                         <a href="http://facebook.com/sharer/sharer.php?u={{env('APP_URL')}}" target="_blank">
                             <img src="{{ asset("images/menu/facebook.svg") }}" alt="facebook image">
-                        </a>
-                    </div>
-                    <div>
-                        <a href="https://www.instagram.com/?url={{env('APP_URL')}}" target="_blank">
-                            <img src="{{ asset("images/menu/instagram.svg") }}" alt="instagram image">
                         </a>
                     </div>
                     <div>
@@ -130,6 +136,7 @@
         <div class="terms-and-privacy">
             <a href="{{ route('term-and-condition') }}" class="mr-3">Terms and Conditions</a>
             <a href="{{ route('privacy-policy') }}">Privacy Policy</a>
+
         </div>
     </div>
     <script>

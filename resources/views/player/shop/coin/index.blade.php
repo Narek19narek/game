@@ -18,7 +18,7 @@
                         <div class="row justify-content-center your-coins">
                             <div class="col-12 d-flex justify-content-center p-0">
                                 <div class="position-relative">
-                                    <p class="coin-count">{{ Auth::user()->coins }}</p>
+                                    <div class="coin-count" id="my-element"><span>{{ Auth::user()->coins }}</span></div>
                                     <img src="{{ asset("images/coins/coin.svg") }}" alt="Coin" class="img-fluid">
                                 </div>
                             </div>
@@ -27,7 +27,7 @@
                         <div class="formContent row overflow-hidden">
                             @foreach( $coins as $index => $coin )
                                 <div class="align-self-center h-100 d-flex" data-coin-id="{{ $coin->id }}" data-coin="{{ $coin->coin }}" data-price="{{ $coin->price }}">
-                                    <img src="{{ asset("images/coins/{$coin->coin}-coin.svg") }}" alt="Coin" class="w-100">
+                                    <img src="{{ asset("images/coins/{$coin->coin}-coin.svg") }}" alt="Coin">
                                 </div>
                             @endforeach
                         </div>
@@ -139,8 +139,8 @@
                         // Show a confirmation message to the buyer
                         $.ajax({
                             method: 'get',
-                            url: `/payment/${coin_id}/1/paypal`,
-                            success: (data) => {
+                            url: '/payment/' + coin_id + '/1/paypal',
+                            success: function(data) {
                                 if(data.url) {
                                     window.location.href = data.url;
                                     return;
@@ -148,7 +148,7 @@
 
                                 alert('Payment Failed.')
                             },
-                            error: (err) => {
+                            error: function(err) {
                                 console.log(err)
                             }
                         })
@@ -157,8 +157,8 @@
                 onError: function (err) {
                     $.ajax({
                         method: 'get',
-                        url: `/payment/${coin_id}/0/paypal`,
-                        success: (data) => {
+                        url: '/payment/' + coin_id + '/0/paypal',
+                        success: function(data) {
                             if(data.url) {
                                 window.location.href = data.url;
                                 return;
@@ -166,7 +166,7 @@
 
                             alert('Payment Failed.')
                         },
-                        error: (err) => {
+                        error: function(err) {
                             console.log(err)
                         }
                     })
@@ -184,8 +184,8 @@
                 if (!COIN_ID) return false;
                 $.ajax({
                     method: 'get',
-                    url: `/payment/${COIN_ID}`,
-                    success: (data) => {
+                    url: '/payment/' + COIN_ID,
+                    success: function(data) {
                         const stripe = Stripe('{{ config('services.stripe.key') }}');
                         stripe.redirectToCheckout({
                             sessionId: data.session_id
@@ -193,7 +193,7 @@
                             console.log(result);
                         });
                     },
-                    error: (err) => {
+                    error: function(err) {
                         console.log(err)
                     }
                 })

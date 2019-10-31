@@ -177,15 +177,15 @@
                 const amount = $('.active .boosts-amount-slider .swiper-slide-active').data('boost');
                 $.ajax({
                     method: 'post',
-                    url: `/get-boosts/switches`,
+                    url: '/get-boosts/switches',
                     data: {
                         "_token": "{{csrf_token()}}",
-                        name,
-                        coin,
-                        duration,
-                        amount
+                        name: name,
+                        coin: coin,
+                        duration: duration,
+                        amount: amount
                     },
-                    success: (data) => {
+                    success: function(data) {
                         $('.active .show_boost').fadeOut(200);
                         let str = '';
                         let link = '';
@@ -193,7 +193,7 @@
                             str = data.message.split(' ');
                             str.pop();
                             str = str.join(' ');
-                            link = `<a href="{{ route('get-coin') }}">store</a>`;
+                            link = '<a href="{{ route('get-coin') }}">store</a>';
                         } else {
                             str = data.message;
                         }
@@ -203,11 +203,10 @@
                             $('.active .show_boost').fadeIn(300);
                         })
                     },
-                    error: (err) => {
+                    error: function(err) {
                         console.log(err);
                     }
                 });
-                // console.log(coin, duration, amount)
             });
         })
     </script>

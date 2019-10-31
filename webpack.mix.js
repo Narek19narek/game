@@ -36,7 +36,19 @@ mix.js('resources/js/bootstrap.js', 'public/js')
     });
 
 mix.js('resources/js/main.js', 'public/js')
+    // .babel('public/js/main.js', 'public/js/main.js')
     .sass('resources/sass/main.scss', 'public/css')
+    .options({
+        autoprefixer: {
+            options: {
+                Browserslist: [
+                    'last 6 versions',
+                ]
+            }
+        }
+    });
+
+mix.sass('resources/sass/ie.scss', 'public/css')
     .options({
         autoprefixer: {
             options: {

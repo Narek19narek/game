@@ -1,0 +1,67 @@
+.play-btn {
+    #playBtn {
+        margin-top: 47px !important;
+    }
+}
+
+#carousel {
+    ol {
+        justify-content: space-around;
+    }
+}
+
+#profile {
+    .tbody {
+        scrollbar-face-color: #A63333;
+        scrollbar-arrow-color: #A63333;
+        scrollbar-track-color: #CBD5D7;
+    }
+}
+
+.formContent {
+    box-shadow: 30px 50px 50px rgba(0, 0, 0, 0.3);
+    &:after {
+        background-image: linear-gradient(transparent, #ffffff);
+    }
+}
+
+#loginPage .register .text {
+    position: static;
+}
+
+#loginPage .register .google-register,
+#loginPage .register .default-register,
+#loginPage .register .facebook-register {
+    margin-top: 15px;
+    margin-bottom: 5px !important;
+}
+
+#coin .coin-count {
+    text-shadow:
+        -1px -1px 0 #A63333,
+        1px -1px 0 #A63333,
+        -1px 1px 0 #A63333,
+        1px 1px 0 #A63333;
+}
+
+#boosts .boosts-amount-slider .swiper-button-next, #boosts .boosts-time-slider .swiper-button-next, #boosts .boosts-coins-slider .swiper-button-next {
+    top: 83%;
+}
+#boosts .boosts-amount-slider .swiper-button-prev, #boosts .boosts-time-slider .swiper-button-prev, #boosts .boosts-coins-slider .swiper-button-prev {
+    top: -14px;
+}
+
+#boosts .boosts-coins-slider .swiper-slide-active {
+    padding: 0 8px;
+    img {
+        box-shadow: 1px 1px 10px 4px rgba(0,0,0,0.30196);
+    }
+}
+
+#boosts .boosts-coins .boosts-coins-slider p {
+    text-shadow:
+        -1px -1px 0 #A63333,
+        1px -1px 0 #A63333,
+        -1px 1px 0 #A63333,
+        1px 1px 0 #A63333;
+}
