@@ -75,7 +75,7 @@ class PlayerController extends Controller
     }
 
     public function CalculateLevel($totalPoints) {
-        if ($totalPoints === 6) {
+        if ((int)$totalPoints === 6) {
             return 2;
         } else {
             $level = floor(10 ** (log10($totalPoints) / self::K ** 2));

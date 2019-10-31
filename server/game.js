@@ -147,7 +147,6 @@ class Game {
     this.players[socket.id].updateSpeed();
   }
 
-
   update() {
     // Calculate time elapsed
     const now = Date.now();

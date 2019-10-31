@@ -94,7 +94,7 @@
                         </a>
                     </div>
                     <div>
-                        <a href="mailto:" target="_blank">
+                        <a href="mailto:?subject={{route('home')}}" target="_blank">
                             <img src="{{ asset("images/menu/mail.svg") }}" alt="gmail image">
                         </a>
                     </div>

@@ -50,7 +50,13 @@
             @yield('content')
         </main>
         <div class="mb-version">
-            <h1>COMING SOON</h1>
+            <div class="text-center play-btn">
+                <form method="POST" action="{{ route('play') }}" autocomplete="off">
+                    <input type="image" src="{{ asset('images/play-btn.png') }}" alt="PLAY" id="playBtn">
+                    <input id="nickname" type="text" class="form-control-plaintext text-center p-0" name="nickname"
+                           @guest placeholder="NICKNAME" @else value="{{ substr(Auth::user()->name, 0, 5) }}" @endguest maxlength="5">
+                </form>
+            </div>
         </div>
     </div>
 @stack('js')

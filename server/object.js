@@ -30,10 +30,6 @@ class Object {
     this.direction = dir;
   }
 
-  setRotate(angle) {
-    this.rotate = angle;
-  }
-
   serializeForUpdate() {
     return {
       id: this.id,
