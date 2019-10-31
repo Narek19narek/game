@@ -139,13 +139,6 @@ function renderPlayer(me, player) {
     context.stroke();
     context.restore();
 
-    // Draw health bar
-    // context.fillRect(
-    //   canvasX - PLAYER_RADIUS,
-    //   canvasY + PLAYER_RADIUS + 20,
-    //   PLAYER_RADIUS * 2,
-    //   2,
-    // );
     const textX = canvasX - PLAYER_RADIUS + 12;
     let textPos = textX;
 

@@ -4,25 +4,31 @@ function onMouseInput(e) {
   handleInput(e.clientX, e.clientY);
 }
 
+let keyStatus = true;
+
 function onKeyPress(e) {
-  if (e.key === 'A' || e.key === 'a') {
-    updateStatus(-1);
-  }
-  if (e.key === 'D' || e.key === 'd') {
-    updateStatus(1);
-  }
-  if (e.key === 'W' || e.key === 'w') {
-    teleport();
-  }
-  if (e.key === 'S' || e.key === 's') {
-    pushPlayers();
-  }
+    if (keyStatus) {
+        if (e.key === 'A' || e.key === 'a') {
+            updateStatus(-1);
+        }
+        if (e.key === 'D' || e.key === 'd') {
+            updateStatus(1);
+        }
+        if (e.key === 'W' || e.key === 'w') {
+            teleport();
+        }
+        if (e.key === 'S' || e.key === 's') {
+            pushPlayers();
+        }
+        if (e.key === ' ') {
+            updateSpeed();
+        }
+        keyStatus = false;
+    }
 }
 
-function onKeyUp(e) {
-    if (e.key === ' ') {
-        updateSpeed();
-    }
+function onKeyUp() {
+    keyStatus = true;
 }
 
 const switchBtn = document.getElementById('switch-btn');
