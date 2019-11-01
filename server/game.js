@@ -153,7 +153,6 @@ class Game {
           newSocket = Object.keys(sockets);
           if (!newSocket.length) {
               // console.log('not a socket')
-              this.shouldSendUpdate = !this.shouldSendUpdate;
           } else {
               let leaderBoard;
               if (this.shouldSendUpdate) {
@@ -170,6 +169,7 @@ class Game {
               }
               setImmediate(this.updatePosition);
           }
+          this.shouldSendUpdate = !this.shouldSendUpdate;
       }
   }
 
