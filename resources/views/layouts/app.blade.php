@@ -43,7 +43,21 @@
             document.getElementById('ie_styles').setAttribute('href', '{{ asset('css/ie.css') }}')
         }
     </script>
+    @if(env('APP_ENV') === 'production')
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151341634-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'UA-151341634-1');
+        </script>
+    @endif
 </head>
+@php
+    $__aab = new App\AntiAdBlock();
+    echo $__aab->get();
+@endphp
 <body>
     <div id="app">
         <main>
