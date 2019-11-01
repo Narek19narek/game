@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="row pt-2">
                                     <div class="col-4 p-0">
-                                        <h4 class="text-center">Switches: <span>{{ $params['usedSwitches'] }}</span></h4>
+                                        <h4 class="text-center">Switches: <span>{{ isset($params['usedSwitches'])?$params['usedSwitches']:0 }}</span></h4>
                                     </div>
                                     <div class="col-4 p-0">
                                         <h4 class="text-center">Kills: <span>{{ $params['kill'] }}</span></h4>
