@@ -147,6 +147,33 @@ class Game {
     this.players[socket.id].updateSpeed();
   }
 
+  updatePosition(sockets, dt) {
+      let newSocket;
+      if (sockets) {
+          newSocket = Object.keys(sockets);
+          if (!newSocket.length) {
+              console.log('not a socket')
+          } else {
+              let leaderBoard;
+              if (this.shouldSendUpdate) {
+                  leaderBoard = this.getLeaderboard();
+              }
+              const subSockets = newSocket.splice(0, 10);
+              for (const playerID of subSockets) {
+                  const socket = this.sockets[playerID];
+                  const player = this.players[playerID];
+                  player.update(dt);
+                  if(leaderBoard) {
+                      socket.emit(Constants.MSG_TYPES.GAME_UPDATE, this.createUpdate(player, leaderBoard));
+                  }
+              }
+              this.shouldSendUpdate = !this.shouldSendUpdate;
+              setImmediate(this.updatePosition);
+          }
+      }
+  }
+
+
   update() {
     // Calculate time elapsed
     const now = Date.now();
@@ -154,40 +181,42 @@ class Game {
     this.lastUpdateTime = now;
 
     // Update each player
-    Object.keys(this.sockets).forEach(playerID => {
-      const player = this.players[playerID];
-      player.update(dt);
-    });
+      this.updatePosition(this.sockets, dt);
 
-    const {destroyedPlayers, killPlayers} = applyCollisions(Object.values(this.players));
+    // Object.keys(this.sockets).forEach(playerID => {
+    //   const player = this.players[playerID];
+    //   player.update(dt);
+    // });
 
-    destroyedPlayers.forEach(obj => {
-      if (this.players[obj.id]) {
-        this.players[obj.id].onDealtDamage();
-      }
-    });
+      const {destroyedPlayers, killPlayers} = applyCollisions(Object.values(this.players));
 
-    // Check if any players are dead
-    killPlayers.forEach(player => {
-      const socket = this.sockets[player.id];
-        if (socket) {
-            socket.emit(Constants.MSG_TYPES.GAME_OVER);
-        }
-        this.removePlayer(socket);
-    });
+      destroyedPlayers.forEach(obj => {
+          if (this.players[obj.id]) {
+              this.players[obj.id].onDealtDamage();
+          }
+      });
+
+      // Check if any players are dead
+      killPlayers.forEach(player => {
+          const socket = this.sockets[player.id];
+          if (socket) {
+              socket.emit(Constants.MSG_TYPES.GAME_OVER);
+          }
+          this.removePlayer(socket);
+      });
 
     // Send a game update to each player every other time
-    if (this.shouldSendUpdate) {
-      const leaderBoard = this.getLeaderboard();
-      Object.keys(this.sockets).forEach(playerID => {
-        const socket = this.sockets[playerID];
-        const player = this.players[playerID];
-        socket.emit(Constants.MSG_TYPES.GAME_UPDATE, this.createUpdate(player, leaderBoard));
-      });
-      this.shouldSendUpdate = false;
-    } else {
-      this.shouldSendUpdate = true;
-    }
+    // if (this.shouldSendUpdate) {
+    //   const leaderBoard = this.getLeaderboard();
+    //   Object.keys(this.sockets).forEach(playerID => {
+    //     const socket = this.sockets[playerID];
+    //     const player = this.players[playerID];
+    //     socket.emit(Constants.MSG_TYPES.GAME_UPDATE, this.createUpdate(player, leaderBoard));
+    //   });
+    //   this.shouldSendUpdate = false;
+    // } else {
+    //   this.shouldSendUpdate = true;
+    // }
   }
 
   // updateTime() {
