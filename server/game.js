@@ -152,7 +152,7 @@ class Game {
       if (sockets) {
           newSocket = Object.keys(sockets);
           if (!newSocket.length) {
-              console.log('not a socket')
+              // console.log('not a socket')
           } else {
               let leaderBoard;
               if (this.shouldSendUpdate) {
