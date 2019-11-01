@@ -10,6 +10,7 @@ const { PLAYER_RADIUS, MAP_SIZE } = Constants;
 
 // Get the canvas graphics context
 const canvas = document.getElementById('game-canvas');
+canvas.addEventListener('contextmenu', function(evt) {evt.preventDefault()});
 const context = canvas.getContext('2d');
 
 let gameMode;

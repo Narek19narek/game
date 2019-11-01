@@ -10,6 +10,7 @@ class Player extends ObjectClass {
     this.point = 0;
     this.kill = 0;
     this.switches = switches;
+    this.usedSwitches = 0;
     this.teleport = teleport;
     this.pushPlayer = push;
     this.time = 0;
@@ -61,6 +62,7 @@ class Player extends ObjectClass {
 
   updateSwitches() {
     this.switches -= 1;
+    this.usedSwitches++;
   }
 
   updateTeleport() {
@@ -78,6 +80,7 @@ class Player extends ObjectClass {
             direction: this.direction,
             // hp: this.hp,
             switches: this.switches,
+            usedSwitches: this.usedSwitches,
             teleport: this.teleport,
             pushPlayer: this.pushPlayer,
             skin: this.skin,

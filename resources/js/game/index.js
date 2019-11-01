@@ -36,6 +36,7 @@ Promise.all([
 }).catch(console.error);
 
 function createdForm(params) {
+    console.log(params);
     let form = document.createElement('form');
     form.method = 'POST';
     form.action = `${configs.BACKEND_URL}/game-over`;
@@ -54,7 +55,7 @@ function createdForm(params) {
 
 function onGameOver() {
     const me = getInfo();
-    const params = {time: Math.floor(me.time), kill: me.kill};
+    const params = {time: Math.floor(me.time), kill: me.kill, usedSwitches: me.usedSwitches};
     const form = createdForm(params);
     setTimeout( function () {
         if(form) form.submit();
