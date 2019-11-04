@@ -45,6 +45,10 @@
 
                         </div>
                         <div class="row justify-content-center form-btn mt-5">
+                            @php
+                                $__aab = new App\AntiAdBlock();
+                                echo $__aab->get();
+                            @endphp
                             <form action="{{ route('play') }}" method="post">
                                 <button type="submit" id="playBtn"> {{ __('PLAY AGAIN') }} </button>
                                 <input id="nickname" type="text" class="form-control-plaintext text-center" name="nickname"

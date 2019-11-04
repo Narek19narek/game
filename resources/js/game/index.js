@@ -8,6 +8,20 @@ import configs from "./configs";
 
 const usernameInput = document.getElementById('username-input');
 const username = usernameInput.value ? usernameInput.value : 'player';
+
+const howToPlay = document.querySelector('#how_to_play h2');
+howToPlay.addEventListener('click', function (e) {
+    document.querySelector('#how_to_play .img').classList.add('show');
+    document.querySelector('#how_to_play button').classList.add('active');
+    document.getElementById('close_how_to_play').classList.add('active');
+}, false);
+
+document.getElementById('close_how_to_play').addEventListener('click', function () {
+    document.querySelector('#how_to_play .show').classList.remove('show');
+    document.querySelector('#how_to_play button').classList.remove('active');
+    document.getElementById('close_how_to_play').classList.remove('active');
+}, false);
+
 const userInfo = document.getElementById('user_info');
 const userAbility = {};
 if (userInfo) {

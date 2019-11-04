@@ -54,10 +54,6 @@
         </script>
     @endif
 </head>
-@php
-    $__aab = new App\AntiAdBlock();
-    echo $__aab->get();
-@endphp
 <body>
     <div id="app">
         <main>

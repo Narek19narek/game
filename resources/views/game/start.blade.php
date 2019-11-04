@@ -89,6 +89,16 @@
             <button id="reconnect-button">RECONNECT</button>
         </div>
     </div>
+    <div id="how_to_play">
+        <div class="header">
+            <h2>How to play</h2>
+            <button>x</button>
+        </div>
+        <div class="img">
+            <img src="{{ asset('images/how_to/ho-to-play.svg')  }}" alt="How To Play">
+        </div>
+        <div id="close_how_to_play"></div>
+    </div>
 @endsection
 
 

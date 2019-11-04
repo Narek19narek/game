@@ -1176,7 +1176,9 @@ a.btn:focus {
                 border: 3px solid #A63333;
                 position: absolute;
                 right: -20px;
+                top: 0;
                 margin-top: 3px;
+
                 &.active {
                     background-color: #A63333;
                 }
