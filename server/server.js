@@ -51,6 +51,7 @@ io.on('connection', socket => {
   socket.on('teleport', teleport);
   socket.on('push_players', pushPlayers);
   socket.on('speed', updateSpeed);
+  socket.on('point', addPoints);
   socket.on('disconnect', onDisconnect);
 });
 
@@ -83,6 +84,10 @@ function pushPlayers() {
 
 function updateSpeed() {
   game.updateSpeed(this);
+}
+
+function addPoints() {
+  game.addPoints(this);
 }
 
 function onDisconnect() {

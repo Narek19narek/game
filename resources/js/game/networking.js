@@ -53,3 +53,7 @@ export const pushPlayers = throttle(20, () => {
 export const updateSpeed = throttle(20, () => {
   socket.emit('speed');
 });
+
+export const addPoints = throttle(20, () => {
+  socket.emit('point');
+});

@@ -73,6 +73,10 @@ class Player extends ObjectClass {
     this.pushPlayer -= 1;
   }
 
+  addPoints() {
+    this.point += 100;
+  }
+
     serializeForUpdate() {
         return {
             ...(super.serializeForUpdate()),

@@ -149,6 +149,12 @@ class Game {
         }
     }
 
+    addPoints(socket) {
+        if (this.players[socket.id]) {
+            this.players[socket.id].addPoints();
+        }
+    }
+
     updatePosition(sockets, dt) {
         let newSocket;
         if (sockets) {

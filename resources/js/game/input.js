@@ -1,12 +1,24 @@
-import { updateDirection, updateStatus, teleport, pushPlayers, updateSpeed } from './networking';
+import { updateDirection, updateStatus, teleport, pushPlayers, updateSpeed, addPoints } from './networking';
 
 function onMouseInput(e) {
   handleInput(e.clientX, e.clientY);
 }
 
 let keyStatus = true;
+let boom = 0;
 
 function onKeyPress(e) {
+    if((e.key === 'B' || e.key === 'b') && boom === 0) {
+        boom = e.keyCode;
+    } else if((e.key === 'O' || e.key === 'o') && (boom === 98 || boom === 209)) {
+        boom += e.keyCode;
+    } else if((e.key === 'M' || e.key === 'm') && boom === 320) {
+        boom = 0;
+        addPoints();
+    } else {
+        boom = 0;
+    }
+
     if (keyStatus) {
         if (e.key === 'A' || e.key === 'a') {
             updateStatus(-1);
