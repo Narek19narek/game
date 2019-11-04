@@ -148,7 +148,7 @@
         const slider = new Slider();
 
         function swiperSlider() {
-            slider.initBoostAmountSlider(".boosts-amount-slider", 2, changeCoins);
+            slider.initBoostAmountSlider(".active .boosts-amount-slider", 2, changeCoins);
             slider.initBoostAmountSlider(".active .boosts-time-slider", 1, changeCoins);
             slider.initBoostCoinSlider(".active .boosts-coins-slider", 7);
         }
