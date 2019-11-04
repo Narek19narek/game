@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="338.43" height="387.29" viewBox="0 0 338.43 387.29">
+<svg xmlns="http://www.w3.org/2000/svg" width="282.43" height="380.163" viewBox="0 0 282.43 360.163">
     <defs xmlns="http://www.w3.org/2000/svg">
         <style type="text/css">
             @font-face {
@@ -14,99 +14,94 @@
             }
         </style>
     </defs>
-  <g id="Group_446" data-name="Group 446" transform="translate(-61.57 -67.125)">
-    <g id="Group_420" data-name="Group 420" transform="translate(44 41)">
-      <g id="Path_379" data-name="Path 379" transform="translate(154.247 26.125)" fill="none">
-        <path d="M37.773,0l19.8,35.634L75.546,67.991H0Z" stroke="none"/>
-        <path d="M 37.77288055419922 16.47299194335938 L 13.59610748291016 59.99117279052734 L 61.94965362548828 59.99117279052734 L 50.57649993896484 39.51951599121094 L 37.77288055419922 16.47299194335938 M 37.77288436889648 -7.62939453125e-06 L 57.56975555419922 35.63437271118164 L 75.5457763671875 67.99117279052734 L -7.62939453125e-06 67.99117279052734 L 37.77288436889648 -7.62939453125e-06 Z" stroke="none" fill="#a63333"/>
+  <g id="Group_449" data-name="Group 449" transform="translate(-90.57 -62.125)">
+    <g id="Group_446" data-name="Group 446" transform="translate(20 3)">
+      <g id="Path_379" data-name="Path 379" transform="translate(187.868 59.125)" fill="none">
+        <path d="M29.144,0,44.418,27.494,58.288,52.459H0Z" stroke="none"/>
+        <path d="M 29.14384651184082 14.41388320922852 L 11.89660263061523 45.45891571044922 L 46.39109039306641 45.45891571044922 L 38.29911804199219 30.89337348937988 L 29.14384651184082 14.41388320922852 M 29.14384651184082 3.814697265625e-06 L 44.41821670532227 27.49387359619141 L 58.28768920898438 52.45891571044922 L 3.814697265625e-06 52.45891571044922 L 29.14384651184082 3.814697265625e-06 Z" stroke="none" fill="#a63333"/>
       </g>
-      <g id="Rectangle_1560" data-name="Rectangle 1560" transform="translate(58.694 190.364)" fill="none" stroke="#a63333" stroke-width="8">
-        <rect width="67.991" height="67.991" stroke="none"/>
-        <rect x="4" y="4" width="59.991" height="59.991" fill="none"/>
+      <g id="Rectangle_1560" data-name="Rectangle 1560" transform="translate(114.143 185.844)" fill="none" stroke="#a63333" stroke-width="7">
+        <rect width="52.459" height="52.459" stroke="none"/>
+        <rect x="3.5" y="3.5" width="45.459" height="45.459" fill="none"/>
       </g>
-      <g id="Path_393" data-name="Path 393" transform="translate(246.009 194.148)" fill="none">
-        <path d="M34,0A34,34,0,1,1,0,34,34,34,0,0,1,34,0Z" stroke="none"/>
-        <path d="M 33.99559020996094 8.000007629394531 C 19.66157531738281 8.000007629394531 8.000007629394531 19.66157531738281 8.000007629394531 33.99559020996094 C 8.000007629394531 48.32960510253906 19.66157531738281 59.99117279052734 33.99559020996094 59.99117279052734 C 48.32960510253906 59.99117279052734 59.99117279052734 48.32960510253906 59.99117279052734 33.99559020996094 C 59.99117279052734 19.66157531738281 48.32960510253906 8.000007629394531 33.99559020996094 8.000007629394531 M 33.99559020996094 7.62939453125e-06 C 52.77083969116211 7.62939453125e-06 67.99117279052734 15.22034072875977 67.99117279052734 33.99559020996094 C 67.99117279052734 52.77083969116211 52.77083969116211 67.99117279052734 33.99559020996094 67.99117279052734 C 15.22034072875977 67.99117279052734 7.62939453125e-06 52.77083969116211 7.62939453125e-06 33.99559020996094 C 7.62939453125e-06 15.22034072875977 15.22034072875977 7.62939453125e-06 33.99559020996094 7.62939453125e-06 Z" stroke="none" fill="#a63333"/>
+      <g id="Path_393" data-name="Path 393" transform="translate(258.667 188.764)" fill="none">
+        <path d="M26.229,0A26.229,26.229,0,1,1,0,26.229,26.229,26.229,0,0,1,26.229,0Z" stroke="none"/>
+        <path d="M 26.22945785522461 7 C 15.62630081176758 7 7 15.62630081176758 7 26.22945785522461 C 7 36.83261489868164 15.62630081176758 45.45891571044922 26.22945785522461 45.45891571044922 C 36.83261489868164 45.45891571044922 45.45891571044922 36.83261489868164 45.45891571044922 26.22945785522461 C 45.45891571044922 15.62630081176758 36.83261489868164 7 26.22945785522461 7 M 26.22945785522461 0 C 40.7155876159668 0 52.45891571044922 11.74332809448242 52.45891571044922 26.22945785522461 C 52.45891571044922 40.7155876159668 40.7155876159668 52.45891571044922 26.22945785522461 52.45891571044922 C 11.74332809448242 52.45891571044922 0 40.7155876159668 0 26.22945785522461 C 0 11.74332809448242 11.74332809448242 0 26.22945785522461 0 Z" stroke="none" fill="#a63333"/>
       </g>
-      <path id="Path_355" data-name="Path 355" d="M10.019,0,15.27,9.452l4.768,8.582H0Z" transform="matrix(0.454, 0.891, -0.891, 0.454, 135.585, 84.735)" fill="#a63333"/>
-      <path id="Path_356" data-name="Path 356" d="M.247,0s3.5,20.521,14.743,36.733S51.817,58.264,51.817,58.264L34.039,76.041S16.767,62.414,7.358,44.365.247,0,.247,0Z" transform="translate(124.605 100.773) rotate(57)" fill="#a63333"/>
-      <path id="Path_389" data-name="Path 389" d="M10.019,0,15.27,9.452l4.768,8.583H0Z" transform="translate(290.732 183.7) rotate(-170)" fill="#a63333"/>
-      <path id="Path_390" data-name="Path 390" d="M.248,0s3.5,20.521,14.743,36.733S51.816,58.264,51.816,58.264L34.039,76.041S16.767,62.414,7.358,44.365.248,0,.248,0Z" transform="matrix(-0.998, -0.07, 0.07, -0.998, 284.527, 165.274)" fill="#a63333"/>
-      <path id="Path_391" data-name="Path 391" d="M10.019,0,15.27,9.452l4.768,8.582H0Z" transform="translate(131.63 264.311) rotate(-57)" fill="#a63333"/>
-      <path id="Path_392" data-name="Path 392" d="M.248,0s3.5,20.521,14.743,36.733S51.816,58.264,51.816,58.264L34.039,76.041S16.767,62.414,7.358,44.365.248,0,.248,0Z" transform="translate(151.007 265.8) rotate(-63)" fill="#a63333"/>
-      <text id="kills" transform="matrix(0.438, -0.899, 0.899, 0.438, 83.997, 132.755)" fill="#a63333" font-size="17" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-18.122" y="0">kills</tspan></text>
-      <text id="kills-2" data-name="kills" transform="translate(288.871 125.676) rotate(74)" fill="#a63333" font-size="17" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-18.122" y="0">kills</tspan></text>
-      <text id="kills-3" data-name="kills" transform="translate(194 298)" fill="#a63333" font-size="17" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-18.122" y="0">kills</tspan></text>
-      <g id="Path_412" data-name="Path 412" transform="translate(145.723 127.126)" fill="none">
-        <path d="M46.168,0A46.168,46.168,0,1,1,0,46.168,46.168,46.168,0,0,1,46.168,0Z" stroke="none"/>
-        <path d="M 46.16817474365234 3 C 40.33918762207031 3 34.6861457824707 4.140945434570313 29.3660888671875 6.391143798828125 C 24.22602081298828 8.565200805664063 19.60911560058594 11.67819976806641 15.64366149902344 15.64366149902344 C 11.67819976806641 19.60911560058594 8.565200805664063 24.22602081298828 6.391143798828125 29.3660888671875 C 4.140945434570313 34.6861457824707 3 40.33918762207031 3 46.16817474365234 C 3 51.99716186523438 4.140945434570313 57.65020370483398 6.391143798828125 62.97024536132813 C 8.565200805664063 68.11033630371094 11.67819976806641 72.72721862792969 15.64366149902344 76.69267272949219 C 19.60911560058594 80.65813446044922 24.22602081298828 83.77113342285156 29.3660888671875 85.94520568847656 C 34.6861457824707 88.19540405273438 40.33918762207031 89.33634948730469 46.16817474365234 89.33634948730469 C 51.99716186523438 89.33634948730469 57.65020370483398 88.19540405273438 62.97024536132813 85.94520568847656 C 68.11033630371094 83.77113342285156 72.72721862792969 80.65813446044922 76.69267272949219 76.69267272949219 C 80.65813446044922 72.72721862792969 83.77113342285156 68.11033630371094 85.94520568847656 62.97024536132813 C 88.19540405273438 57.65020370483398 89.33634948730469 51.99716186523438 89.33634948730469 46.16817474365234 C 89.33634948730469 40.33918762207031 88.19540405273438 34.6861457824707 85.94520568847656 29.3660888671875 C 83.77113342285156 24.22602081298828 80.65813446044922 19.60911560058594 76.69267272949219 15.64366149902344 C 72.72721862792969 11.67819976806641 68.11033630371094 8.565200805664063 62.97024536132813 6.391143798828125 C 57.65020370483398 4.140945434570313 51.99716186523438 3 46.16817474365234 3 M 46.16817474365234 0 C 71.66614532470703 0 92.33634948730469 20.67018890380859 92.33634948730469 46.16817474365234 C 92.33634948730469 71.66614532470703 71.66614532470703 92.33634948730469 46.16817474365234 92.33634948730469 C 20.67018890380859 92.33634948730469 0 71.66614532470703 0 46.16817474365234 C 0 20.67018890380859 20.67018890380859 0 46.16817474365234 0 Z" stroke="none" fill="#a63333"/>
+      <path id="Path_355" data-name="Path 355" d="M7.73,0l4.051,7.293,3.679,6.622H0Z" transform="matrix(0.454, 0.891, -0.891, 0.454, 173.469, 104.346)" fill="#a63333"/>
+      <path id="Path_356" data-name="Path 356" d="M.191,0s2.7,15.833,11.375,28.341S39.979,44.954,39.979,44.954L26.263,58.67S12.937,48.156,5.677,34.23.191,0,.191,0Z" transform="translate(164.997 116.72) rotate(57)" fill="#a63333"/>
+      <path id="Path_389" data-name="Path 389" d="M7.73,0l4.051,7.293,3.679,6.622H0Z" transform="translate(293.173 180.702) rotate(-170)" fill="#a63333"/>
+      <path id="Path_390" data-name="Path 390" d="M.191,0s2.7,15.833,11.375,28.341S39.979,44.954,39.979,44.954L26.263,58.67S12.937,48.156,5.677,34.23.191,0,.191,0Z" transform="matrix(-0.998, -0.07, 0.07, -0.998, 288.385, 166.486)" fill="#a63333"/>
+      <path id="Path_391" data-name="Path 391" d="M7.73,0l4.051,7.293,3.679,6.622H0Z" transform="translate(170.417 242.898) rotate(-57)" fill="#a63333"/>
+      <path id="Path_392" data-name="Path 392" d="M.191,0s2.7,15.833,11.375,28.341S39.979,44.954,39.979,44.954L26.263,58.67S12.937,48.156,5.677,34.23.191,0,.191,0Z" transform="translate(185.368 244.047) rotate(-63)" fill="#a63333"/>
+      <text id="kills" transform="matrix(0.438, -0.899, 0.899, 0.438, 131.338, 141.856)" fill="#a63333" font-size="16" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-17.056" y="0">kills</tspan></text>
+      <text id="kills-2" data-name="kills" transform="translate(293.16 134.035) rotate(74)" fill="#a63333" font-size="16" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-17.056" y="0">kills</tspan></text>
+      <text id="kills-3" data-name="kills" transform="translate(217 267)" fill="#a63333" font-size="16" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-17.056" y="0">kills</tspan></text>
+      <g id="Path_412" data-name="Path 412" transform="translate(172.425 115.959)" fill="none">
+        <path d="M44.487,92.336Z" stroke="none"/>
+        <path d="M 38.80754470825195 92.33634948730469 L 50.16580581665039 92.33634948730469 L 38.80754470825195 92.33634948730469 Z" stroke="none" fill="#a63333"/>
       </g>
-      <g id="Group_418" data-name="Group 418" transform="translate(173.384 114.655)">
-        <g id="Rectangle_1564" data-name="Rectangle 1564" transform="translate(0 5.571)" fill="#a63333" stroke="#a63333" stroke-width="2">
-          <rect width="33.428" height="31.571" stroke="none"/>
-          <rect x="1" y="1" width="31.428" height="29.571" fill="none"/>
-        </g>
-        <g id="Rectangle_1565" data-name="Rectangle 1565" transform="translate(3.714 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
-          <rect width="33.428" height="35.286" stroke="none"/>
-          <rect x="1" y="1" width="31.428" height="33.286" fill="none"/>
-        </g>
-        <text id="D" transform="translate(20.143 24.857)" fill="#a63333" font-size="21" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-7.224" y="0">D</tspan></text>
-      </g>
-      <g id="Group_419" data-name="Group 419" transform="translate(173.571 195.272)">
-        <g id="Rectangle_1572" data-name="Rectangle 1572" transform="translate(0 5.571)" fill="#a63333" stroke="#a63333" stroke-width="2">
-          <rect width="35.286" height="31.571" stroke="none"/>
-          <rect x="1" y="1" width="33.286" height="29.571" fill="none"/>
-        </g>
-        <g id="Rectangle_1573" data-name="Rectangle 1573" transform="translate(3.714 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
-          <rect width="33.428" height="35.286" stroke="none"/>
-          <rect x="1" y="1" width="31.428" height="33.286" fill="none"/>
-        </g>
-        <text id="A" transform="translate(20.143 24.857)" fill="#a63333" font-size="20" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-6.98" y="0">A</tspan></text>
-      </g>
-      <path id="Path_410" data-name="Path 410" d="M10.945,0l5.737,10.326L21.891,19.7H0Z" transform="translate(244.875 156.6) rotate(150)" fill="#a63333"/>
-      <path id="Path_413" data-name="Path 413" d="M10.945,0l5.737,10.326L21.891,19.7H0Z" transform="translate(231.309 212.117) rotate(-150)" fill="#a63333"/>
-      <path id="Path_414" data-name="Path 414" d="M10.945,0l5.737,10.326L21.891,19.7H0Z" transform="translate(140.255 189.648) rotate(-30)" fill="#a63333"/>
-      <path id="Path_415" data-name="Path 415" d="M10.945,0l5.737,10.326L21.891,19.7H0Z" transform="translate(151.964 135.989) rotate(30)" fill="#a63333"/>
-      <text id="switch" transform="translate(190 178)" fill="#a63333" font-size="17" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-26.554" y="0">switch</tspan></text>
     </g>
-    <g id="Group_445" data-name="Group 445" transform="translate(-4 24)">
-      <g id="Group_442" data-name="Group 442" transform="translate(65.57 348.272)">
-        <g id="Rectangle_1572-2" data-name="Rectangle 1572" transform="translate(0 5.571)" fill="#a63333" stroke="#a63333" stroke-width="2">
-          <rect width="35.286" height="31.571" stroke="none"/>
-          <rect x="1" y="1" width="33.286" height="29.571" fill="none"/>
-        </g>
-        <g id="Rectangle_1573-2" data-name="Rectangle 1573" transform="translate(3.714 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
-          <rect width="33.428" height="35.286" stroke="none"/>
-          <rect x="1" y="1" width="31.428" height="33.286" fill="none"/>
-        </g>
-        <text id="W" transform="translate(20.143 24.857)" fill="#a63333" font-size="20" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-9.11" y="0">W</tspan></text>
+    <g id="Group_442" data-name="Group 442" transform="translate(90.57 356.114)">
+      <g id="Rectangle_1572" data-name="Rectangle 1572" transform="translate(0 4.692)" fill="#a63333" stroke="#a63333" stroke-width="2">
+        <rect width="29.714" height="26.586" stroke="none"/>
+        <rect x="1" y="1" width="27.714" height="24.586" fill="none"/>
       </g>
-      <text id="teleport" transform="translate(149 372)" fill="#a63333" font-size="17" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-34.629" y="0">teleport</tspan></text>
-      <g id="Group_443" data-name="Group 443" transform="translate(65.57 393.272)">
-        <g id="Rectangle_1572-3" data-name="Rectangle 1572" transform="translate(0 5.571)" fill="#a63333" stroke="#a63333" stroke-width="2">
-          <rect width="35.286" height="31.571" stroke="none"/>
-          <rect x="1" y="1" width="33.286" height="29.571" fill="none"/>
-        </g>
-        <g id="Rectangle_1573-3" data-name="Rectangle 1573" transform="translate(3.714 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
-          <rect width="33.428" height="35.286" stroke="none"/>
-          <rect x="1" y="1" width="31.428" height="33.286" fill="none"/>
-        </g>
-        <text id="S" transform="translate(20.143 24.857)" fill="#a63333" font-size="20" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.36" y="0">S</tspan></text>
+      <g id="Rectangle_1573" data-name="Rectangle 1573" transform="translate(3.128 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="28.15" height="29.714" stroke="none"/>
+        <rect x="1" y="1" width="26.15" height="27.714" fill="none"/>
       </g>
-      <text id="push" transform="translate(134 418)" fill="#a63333" font-size="17" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-19.601" y="0">push</tspan></text>
-      <g id="Group_444" data-name="Group 444" transform="translate(211.57 348.272)">
-        <g id="Rectangle_1572-4" data-name="Rectangle 1572" transform="translate(0 5.571)" fill="#a63333" stroke="#a63333" stroke-width="2">
-          <rect width="66.573" height="31.571" stroke="none"/>
-          <rect x="1" y="1" width="64.573" height="29.571" fill="none"/>
-        </g>
-        <g id="Rectangle_1573-4" data-name="Rectangle 1573" transform="translate(3.714 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
-          <rect width="64.715" height="35.286" stroke="none"/>
-          <rect x="1" y="1" width="62.715" height="33.286" fill="none"/>
-        </g>
-      </g>
-      <text id="speed_1_kill_" data-name="speed (1 kill)" transform="translate(348 372)" fill="#a63333" font-size="17" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-55.012" y="0">speed (1 kill)</tspan></text>
-      <text id="_1_kill_3_switch_speed" data-name="1 kill = 3 switch + speed" transform="translate(306 418)" fill="#a63333" font-size="17" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-93.867" y="0">1 kill =</tspan><tspan y="0" xml:space="preserve" font-size="15"> 3 switch + speed</tspan></text>
-      <text id="Space" transform="translate(249 372)" fill="#a63333" font-size="17" font-family="FuturaPressPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-24.327" y="0">Space</tspan></text>
+      <text id="W" transform="translate(17.383 20.932)" fill="#a63333" font-size="16" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-7.288" y="0">W</tspan></text>
     </g>
+    <text id="teleport" transform="translate(160 376)" fill="#a63333" font-size="14" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-28.518" y="0">teleport</tspan></text>
+    <g id="Group_443" data-name="Group 443" transform="translate(90.57 391.009)">
+      <g id="Rectangle_1572-2" data-name="Rectangle 1572" transform="translate(0 4.692)" fill="#a63333" stroke="#a63333" stroke-width="2">
+        <rect width="29.714" height="26.586" stroke="none"/>
+        <rect x="1" y="1" width="27.714" height="24.586" fill="none"/>
+      </g>
+      <g id="Rectangle_1573-2" data-name="Rectangle 1573" transform="translate(3.128 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="28.15" height="29.714" stroke="none"/>
+        <rect x="1" y="1" width="26.15" height="27.714" fill="none"/>
+      </g>
+      <text id="S" transform="translate(16.752 20.932)" fill="#a63333" font-size="16" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-4.288" y="0">S</tspan></text>
+    </g>
+    <text id="push" transform="translate(148 412)" fill="#a63333" font-size="15" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-17.295" y="0">push</tspan></text>
+    <g id="Group_444" data-name="Group 444" transform="translate(213.518 356.114)">
+      <g id="Rectangle_1572-3" data-name="Rectangle 1572" transform="translate(0 4.692)" fill="#a63333" stroke="#a63333" stroke-width="2">
+        <rect width="56.061" height="26.586" stroke="none"/>
+        <rect x="1" y="1" width="54.061" height="24.586" fill="none"/>
+      </g>
+      <g id="Rectangle_1573-3" data-name="Rectangle 1573" transform="translate(3.128 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="54.497" height="29.714" stroke="none"/>
+        <rect x="1" y="1" width="52.497" height="27.714" fill="none"/>
+      </g>
+    </g>
+    <text id="speed_1_kill_" data-name="speed (1 kill)" transform="translate(327 376)" fill="#a63333" font-size="14" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-45.304" y="0">speed (1 kill)</tspan></text>
+    <text id="_1_kill_3_switch_speed" data-name="1 kill = 3 switch + speed" transform="translate(290 412)" fill="#a63333" font-size="14" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-75.775" y="0">1 kill =</tspan><tspan y="0" xml:space="preserve" font-size="12"> 3 switch + speed</tspan></text>
+    <text id="Space" transform="translate(245 376)" fill="#a63333" font-size="14" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-20.034" y="0">Space</tspan></text>
+    <g id="Group_445" data-name="Group 445" transform="translate(90.57 320.535)">
+      <g id="Rectangle_1572-4" data-name="Rectangle 1572" transform="translate(0 4.692)" fill="#a63333" stroke="#a63333" stroke-width="2">
+        <rect width="29.714" height="26.586" stroke="none"/>
+        <rect x="1" y="1" width="27.714" height="24.586" fill="none"/>
+      </g>
+      <g id="Rectangle_1573-4" data-name="Rectangle 1573" transform="translate(3.128 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="28.15" height="29.714" stroke="none"/>
+        <rect x="1" y="1" width="26.15" height="27.714" fill="none"/>
+      </g>
+      <text id="A" transform="translate(17.068 19.932)" fill="#a63333" font-size="15" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.235" y="0">A</tspan></text>
+    </g>
+    <text id="switch_anti-clockwise" data-name="switch anti-clockwise" transform="translate(206 341)" fill="#a63333" font-size="14" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-74.774" y="0">switch anti-clockwise</tspan></text>
+    <g id="Group_447" data-name="Group 447" transform="translate(90.57 285.272)">
+      <g id="Rectangle_1572-5" data-name="Rectangle 1572" transform="translate(0 4.692)" fill="#a63333" stroke="#a63333" stroke-width="2">
+        <rect width="29.714" height="26.586" stroke="none"/>
+        <rect x="1" y="1" width="27.714" height="24.586" fill="none"/>
+      </g>
+      <g id="Rectangle_1573-5" data-name="Rectangle 1573" transform="translate(3.128 0)" fill="#d8d8d8" stroke="#a63333" stroke-width="2">
+        <rect width="28.15" height="29.714" stroke="none"/>
+        <rect x="1" y="1" width="26.15" height="27.714" fill="none"/>
+      </g>
+      <text id="D" transform="translate(17.068 19.932)" fill="#a63333" font-size="15" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.45em"><tspan x="-5.16" y="0">D</tspan></text>
+    </g>
+    <text id="switch_clockwise" data-name="switch clockwise" transform="translate(189 306)" fill="#a63333" font-size="14" font-family="FuturaPress, FuturaPress Press" letter-spacing="0.05em"><tspan x="-57.869" y="0">switch clockwise</tspan></text>
   </g>
 </svg>

@@ -224,6 +224,67 @@ button:focus {
     }
 }
 
+#how_to_play {
+    position: absolute;
+    background-color: #DDDDDD;
+    top: 10px;
+    left: 20px;
+    text-align: center;
+    width: calc( 140px + ( 400 - 140 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+    border: calc( 3px + ( 5 - 3 ) * ( 100vw - 320px ) / ( 1920 - 320 ) ) solid #a63333;
+    border-radius: 50px;
+    .header {
+        display: flex;
+        position: relative;
+        h2 {
+            width: 100%;
+            color: #a63333;
+            margin: 5px 10px;
+            font-size: calc( 16px + ( 35 - 16 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+            letter-spacing: 2px;
+        }
+        button {
+            display: none;
+            position: absolute;
+            right: 10px;
+            color: #a63333;
+            font-size: calc( 16px + ( 35 - 16 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+            background-color: transparent;
+            border: none;
+            outline: none;
+        }
+        button.active {
+            display: block;
+        }
+    }
+    .img {
+        height: 0;
+        display: flex;
+        opacity: 0;
+        transition: all .8s ease-in-out;
+        img {
+            width: 100%;
+        }
+    }
+    .img.show {
+        height: calc( 140px + ( 427 - 140 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
+        padding: 0 20px 20px;
+        opacity: 1;
+    }
+    #close_how_to_play {
+        display: none;
+    }
+    #close_how_to_play.active {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+}
+
 @media (max-width: 991px ) {
     #game-info {
         padding: 10px;
@@ -283,65 +344,9 @@ button:focus {
             }
         }
     }
-}
-
-#how_to_play {
-    position: absolute;
-    background-color: rgba(241, 241, 241, 0.6);
-    top: 10px;
-    left: 20px;
-    text-align: center;
-    width: calc( 140px + ( 400 - 140 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
-    border: calc( 3px + ( 5 - 3 ) * ( 100vw - 320px ) / ( 1920 - 320 ) ) solid #a63333;
-    border-radius: 50px;
-    .header {
-        display: flex;
-        position: relative;
-        h2 {
-            width: 100%;
-            color: #a63333;
-            margin: 5px 10px;
-            font-size: calc( 16px + ( 35 - 16 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
-            letter-spacing: 2px;
-        }
+    #how_to_play {
         button {
-            display: none;
-            position: absolute;
-            right: 10px;
-            color: #a63333;
-            font-size: calc( 16px + ( 35 - 16 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
-            background-color: transparent;
-            border: none;
-            outline: none;
+            display: none!important;
         }
-        button.active {
-            display: block;
-        }
-    }
-    .img {
-        height: 0;
-        display: flex;
-        opacity: 0;
-        transition: all .8s ease-in-out;
-        img {
-            width: 100%;
-        }
-    }
-    .img.show {
-        height: calc( 140px + ( 427 - 140 ) * ( 100vw - 320px ) / ( 1920 - 320 ) );
-        padding: 0 20px 20px;
-        opacity: 1;
-    }
-    #close_how_to_play {
-        display: none;
-    }
-    #close_how_to_play.active {
-        display: block;
-        position: fixed;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 1;
     }
 }
