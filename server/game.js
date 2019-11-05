@@ -121,6 +121,7 @@ class Game {
                     const dist = player.distanceTo(obj);
                     if (dist <= 200) {
                         this.teleport(socket);
+                        return true;
                     }
                 }
             });
