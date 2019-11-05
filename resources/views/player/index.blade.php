@@ -102,15 +102,15 @@
             </div>
         </div>
         <div class="google-reklam">
-            <script data-ad-client="ca-pub-5688279952546872" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <ins class="adsbygoogle"
-                 style="display:inline-block;width:300px;height:230px"
-                 data-ad-client="ca-pub-xxxxxxxxxxxxxx"
-                 data-ad-slot="yyyyyyyyyyy">
-            </ins>
-            <script>
-                (adsbygoogle=window.adsbygoogle || []).push({});
-            </script>
+{{--            <script data-ad-client="ca-pub-5688279952546872" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--}}
+{{--            <ins class="adsbygoogle"--}}
+{{--                 style="display:inline-block;width:300px;height:230px"--}}
+{{--                 data-ad-client="ca-pub-xxxxxxxxxxxxxx"--}}
+{{--                 data-ad-slot="yyyyyyyyyyy">--}}
+{{--            </ins>--}}
+{{--            <script>--}}
+{{--                (adsbygoogle=window.adsbygoogle || []).push({});--}}
+{{--            </script>--}}
         </div>
         <div class="row justify-content-center" style="margin: 0 71px;">
             <div class="col-lg-10">
