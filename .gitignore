@@ -8,6 +8,7 @@
 /public/storage
 /resources/js/game/configs.js
 /storage/*.key
+/server/logs
 /vendor
 .env
 .env.backup

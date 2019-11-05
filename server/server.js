@@ -8,6 +8,15 @@ const socketio  = require('socket.io');
 // Setup an Express server
 const app = express();
 
+//Storing error logs in log file
+process.on('uncaughtException', (err) => {
+    const today = new Date();
+    const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    fs.appendFile(`./server/logs/node_log_${date}.log`, `${new Date()} \n ${err.stack} \n\n`, (error) => {
+        console.log("Trows an error please read log file! {node_log.log} ", err);
+    });
+});
+
 let rootCas = require('ssl-root-cas/latest').create();
 https.globalAgent.options.ca = rootCas;
 require('tls').createSecureContext({
@@ -59,7 +68,7 @@ io.on('connection', socket => {
 const game = new Game();
 
 function joinGame(username, userAbility) {
-  game.addPlayer(this, username, userAbility);
+   game.addPlayer(this, username, userAbility);
 }
 
 function handleInput(dir) {
