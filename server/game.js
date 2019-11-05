@@ -119,8 +119,8 @@ class Game {
             Object.values(this.players).forEach(player => {
                 if (obj.status !== player.status) {
                     const dist = player.distanceTo(obj);
-                    if (obj && dist <= 100) {
-                        obj.teleport(socket);
+                    if (dist <= 100) {
+                        this.teleport(socket);
                     }
                 }
             });
