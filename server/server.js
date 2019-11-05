@@ -1,18 +1,25 @@
-const https     = require('https');
-const request   = require('request');
-const fs        = require('fs');
-const Constants = require('../resources/js/constants');
-const express   = require('express');
-const config    = require('../resources/js/game/configs');
-const socketio  = require('socket.io');
+const https         = require('https');
+const request       = require('request');
+const fs            = require('fs');
+const Constants     = require('../resources/js/constants');
+const express       = require('express');
+const config        = require('../resources/js/game/configs');
+const socketio      = require('socket.io');
+const {execSync}    = require('child_process');
 // Setup an Express server
 const app = express();
+
+//Out players from game
+process.on('exit', (code) => {
+    execSync("php artisan playing:off");
+});
 
 //Storing error logs in log file
 process.on('uncaughtException', (err) => {
     const today = new Date();
     const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-    fs.appendFile(`./server/logs/node_log_${date}.log`, `${new Date()} \n ${err.stack} \n\n`, (error) => {
+
+    fs.appendFile(`./server/logs/node_log_${date}.log`, `${new Date()} \n ${err.stack} \n\n\n`, (error) => {
         console.log("Trows an error please read log file! {node_log.log} ", err);
     });
 });
