@@ -25,6 +25,7 @@ mix.js('resources/js/app.js', 'public/js')
 
 mix.js('resources/js/bootstrap.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
+    .sourceMaps()
     .options({
         autoprefixer: {
             options: {
