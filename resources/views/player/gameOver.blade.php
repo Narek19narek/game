@@ -51,7 +51,7 @@
                             @endphp
                             <form action="{{ route('play') }}" method="post">
                                 <button type="submit" id="playBtn"> {{ __('PLAY AGAIN') }} </button>
-                                <input id="nickname" type="text" class="form-control-plaintext text-center" name="nickname"
+                                <input id="nickname" type="text" class="form-control-plaintext text-center field" name="nickname"
                                      value="{{ session()->get('nickname') }}" hidden>
                             </form>
                         </div>

@@ -34,7 +34,7 @@
                                 <div class="row justify-content-center my-5 py-2">
                                     <label for="email" class="col-md-8 text-center">{{ __('EMAIL OR USERNAME:') }}</label>
                                     <div class="col-md-8 px-0">
-                                        <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        <input id="email" type="email" class="@error('email') is-invalid @enderror field" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                         @error('email')
                                         <span class="invalid-feedback" role="alert">

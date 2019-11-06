@@ -24,10 +24,10 @@ class Player extends ObjectClass {
   updateSpeed() {
     if (this.point) {
       this.point--;
-      this.speed = 400;
+      this.speed = Constants.PLAYER_SPEED + 100;
       const changeSpeed = setInterval(() => {
         clearInterval(changeSpeed);
-        this.speed = 200;
+        this.speed = Constants.PLAYER_SPEED;
       }, 2000);
     }
   }

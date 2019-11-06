@@ -34,34 +34,34 @@
                                 <div class="row justify-content-center pt-4">
                                     <label for="email" class="col-md-4 text-md-right">{{ __('EMAIL:') }}</label>
                                     <div class="col-md-6 px-0">
-                                        <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                        <input id="email" type="email" class="@error('email') is-invalid @enderror field" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <label for="name" class="col-md-4 text-md-right">{{ __('USERNAME:') }}</label>
                                     <div class="col-md-6 px-0">
-                                        <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name">
+                                        <input id="name" type="text" class="@error('name') is-invalid @enderror field" name="name" value="{{ old('name') }}" required autocomplete="name">
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <label for="password" class="col-md-4 text-md-right">{{ __('PASSWORD:') }}</label>
                                     <div class="col-md-6 px-0">
-                                        <input id="password" type="password" class="@error('password') is-invalid @enderror" name="password" required>
+                                        <input id="password" type="password" class="@error('password') is-invalid @enderror field" name="password" required>
                                     </div>
                                 </div>
 
                                 <div class="row justify-content-center">
                                     <label for="password-confirm" class="col-md-4 text-md-right">{{ __('RE-ENTER:') }}</label>
                                     <div class="col-md-6 px-0">
-                                        <input id="password-confirm" type="password" name="password_confirmation" required>
+                                        <input id="password-confirm field" type="password" name="password_confirmation" required>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center pb-4">
                                     <label for="conditions" class="col-md-4 text-md-right conditions"><a href="{{route('term-and-condition')}}">{{ __('Terms and Conditions') }}</a></label>
                                     <div class="col-md-6 px-0 mt-1">
-                                        <input id="conditions" type="radio" name="conditions" required>
+                                        <input id="conditions field" type="radio" name="conditions" required>
                                         <label for="conditions" class="pl-2">ACCEPT</label>
                                     </div>
                                 </div>

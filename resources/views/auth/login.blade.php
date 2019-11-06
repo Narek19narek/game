@@ -30,7 +30,7 @@
                             <label for="email"
                                    class="col-md-4 offset-md-1 text-md-right">{{ __('EMAIL:') }}</label>
                             <div class="col-md-4">
-                                <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email"
+                                <input id="email" type="email" class="@error('email') is-invalid @enderror field" name="email"
                                        value="{{ old('email') }}" required autocomplete="email" autofocus>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             <label for="password" class="col-md-4 offset-md-1 text-md-right">{{ __('PASSWORD:') }}</label>
 
                             <div class="col-md-4">
-                                <input id="password" type="password" class="@error('password') is-invalid @enderror"
+                                <input id="password" type="password" class="@error('password') is-invalid @enderror field"
                                        name="password" required autocomplete="current-password">
                             </div>
                         </div>

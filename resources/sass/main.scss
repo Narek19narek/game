@@ -1,8 +1,11 @@
-*:not(input) {
+* {
     padding: 0;
     margin: 0;
     outline: none;
     font-family: 'FuturaPress', sans-serif;
+}
+
+*:not(input.field) {
     user-select: none;
 }
 

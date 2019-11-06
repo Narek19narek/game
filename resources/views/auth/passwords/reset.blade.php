@@ -39,7 +39,7 @@
                                     <label for="password" class="col-md-4 text-md-right">{{ __('PASSWORD:') }}</label>
                                     <div class="col-md-6 px-0">
                                         <input id="password" type="password"
-                                               class=" @error('password') is-invalid @enderror"
+                                               class=" @error('password') is-invalid @enderror field"
                                                name="password" required autocomplete="new-password">
                                     </div>
                                 </div>
@@ -49,7 +49,7 @@
                                            class="col-md-4 text-md-right">{{ __('RE-ENTER:') }}</label>
                                     <div class="col-md-6 px-0">
                                         <input id="password-confirm" type="password"
-                                               class=" @error('password-confirm') is-invalid @enderror"
+                                               class=" @error('password-confirm') is-invalid @enderror field"
                                                name="password_confirmation" required autocomplete="new-password">
                                     </div>
                                 </div>
