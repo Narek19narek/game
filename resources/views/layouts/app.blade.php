@@ -33,11 +33,20 @@
     <link rel="shortcut icon" type="image/x-icon" href="{{ asset('images/menu/logo.ico') }}" />
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/main.css') }}">
+    <style id="safariCss"></style>
 
     @stack('css')
     <link rel="stylesheet" type="text/css" href=""  id="ie_styles"/>
 
     <script type="text/javascript">
+        var ua = navigator.userAgent.toLowerCase();
+        if (ua.indexOf('safari') !== -1) {
+            if (ua.indexOf('chrome') > -1) {
+
+            } else {
+                document.getElementById('safariCss').innerText = '*{filter: none!important}';
+            }
+        }
         const isIE = /*@cc_on!@*/false || !!document.documentMode;
         if(isIE) {
             document.getElementById('ie_styles').setAttribute('href', '{{ asset('css/ie.css') }}')
