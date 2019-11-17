@@ -74,8 +74,18 @@ io.on('connection', socket => {
 // Setup the Game
 const game = new Game();
 
+setInterval(() => {
+    const players = Object.keys(game.players);
+    if (players.length < 10) {
+        const k = 10 - players.length;
+        for (let i = 0; i < k; i++) {
+            game.addPlayer('player', {isUser: false} );
+        }
+    }
+}, 1000);
+
 function joinGame(username, userAbility) {
-   game.addPlayer(this, username, userAbility);
+   game.addPlayer(username, userAbility, this);
 }
 
 function handleInput(dir) {

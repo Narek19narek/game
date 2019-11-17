@@ -2,6 +2,8 @@ const Constants = require('../resources/js/constants');
 const Player = require('./player');
 const applyCollisions = require('./collisions');
 // const request = require('request');
+let bootId = 1;
+let bootStatus = true;
 
 class Game {
     constructor() {
@@ -67,116 +69,159 @@ class Game {
         return { x, y };
     }
 
-    addPlayer(socket, username, userAbility) {
-        const switches = userAbility.isUser ? userAbility.userSwitches : Constants.PLAYER_SWITCHES;
-        const push = userAbility.isUser ? userAbility.userPush : Constants.PLAYER_PUSH_PLAYERS;
-        const teleport = userAbility.isUser ? userAbility.userTeleport : Constants.PLAYER_TELEPORTS;
-        const skin = userAbility.isUser ? userAbility.userSkin : Constants.PLAYER_SKIN;
-        const hideName = userAbility.isUser ? userAbility.hideName : 0;
-        const hidePosition = userAbility.isUser ? userAbility.hidePosition : 0;
-        const userId = userAbility.isUser ? userAbility.userId : 0;
-        this.sockets[socket.id] = socket;
-        const { x, y } = this.getCordinates();
+    addPlayer(username, userAbility, socket) {
+        const switches      = userAbility.isUser ? userAbility.userSwitches : Constants.PLAYER_SWITCHES;
+        const push          = userAbility.isUser ? userAbility.userPush : Constants.PLAYER_PUSH_PLAYERS;
+        const teleport      = userAbility.isUser ? userAbility.userTeleport : Constants.PLAYER_TELEPORTS;
+        const skin          = userAbility.isUser ? userAbility.userSkin : Constants.PLAYER_SKIN;
+        const hideName      = userAbility.isUser ? userAbility.hideName : 0;
+        const hidePosition  = userAbility.isUser ? userAbility.hidePosition : 0;
+        const userId        = userAbility.isUser ? userAbility.userId : 0;
         // Generate a position to start this player at.
-        const status = this.getStatus();
-        // const time = this.updateTime();
-        // const score = 0;
-        this.players[socket.id] = new Player(socket.id, username, x, y, status, +switches, +teleport, +push, +skin, hideName, hidePosition, userId);
+        const { x, y }      = this.getCordinates();
+        const status        = this.getStatus();
+        if (socket) {
+            this.sockets[socket.id] = socket;
+            this.players[socket.id] = new Player(socket.id, username, x, y, status, +switches, +teleport, +push, +skin, hideName, hidePosition, userId);
+        }
+        else {
+            this.players['boot' + bootId] = new Player('boot' + bootId, username, x, y, status, +switches, +teleport, +push, +skin, hideName, hidePosition, userId);
+            bootId++;
+        }
     }
 
     removePlayer(socket) {
         if (socket) {
-            delete this.sockets[socket.id];
+            if (this.sockets[socket.id]) {
+                delete this.sockets[socket.id];
+            }
             delete this.players[socket.id];
         }
     }
 
     handleInput(socket, dir) {
-        if (this.players[socket.id]) {
-            this.players[socket.id].setDirection(dir);
+        if(socket) {
+            if (this.players[socket.id]) {
+                this.players[socket.id].setDirection(dir);
+            }
         }
+
+    }
+    
+    bootDirection(player) {
+        const time = Math.random() * 7 + 3;
+        setTimeout(() => {
+            player.setDirection(Math.random() * 2 * Math.PI);
+        }, time * 1000);
     }
 
     changePlayerStatus(socket, status) {
-        if (this.players[socket.id] && this.players[socket.id].switches !== 0) {
-            const myStatus = this.players[socket.id].status + status;
-            if (myStatus < 0) {
-                this.players[socket.id].status = 2;
-            } else if (myStatus > 2) {
-                this.players[socket.id].status = 0;
-            } else {
-                this.players[socket.id].status = myStatus;
+        if (socket) {
+            if (this.players[socket.id] && this.players[socket.id].switches !== 0) {
+                const myStatus = this.players[socket.id].status + status;
+                if (myStatus < 0) {
+                    this.players[socket.id].status = 2;
+                } else if (myStatus > 2) {
+                    this.players[socket.id].status = 0;
+                } else {
+                    this.players[socket.id].status = myStatus;
+                }
+                this.players[socket.id].updateSwitches();
             }
-            this.players[socket.id].updateSwitches();
         }
     }
 
     teleport(socket) {
-        if (this.players[socket.id] && this.players[socket.id].teleport > 0) {
-            this.players[socket.id].x = Constants.MAP_SIZE * Math.random();
-            this.players[socket.id].y = Constants.MAP_SIZE * Math.random();
-            const obj = this.players[socket.id];
-            Object.values(this.players).forEach(player => {
-                if (obj.status !== player.status) {
-                    const dist = player.distanceTo(obj);
-                    if (dist <= 200) {
-                        this.teleport(socket);
-                        return true;
+        if(socket) {
+            if (this.players[socket.id] && this.players[socket.id].teleport > 0) {
+                this.players[socket.id].x = Constants.MAP_SIZE * Math.random();
+                this.players[socket.id].y = Constants.MAP_SIZE * Math.random();
+                const obj = this.players[socket.id];
+                Object.values(this.players).forEach(player => {
+                    if (obj.status !== player.status) {
+                        const dist = player.distanceTo(obj);
+                        if (dist <= 200) {
+                            this.teleport(socket);
+                            return true;
+                        }
                     }
-                }
-            });
-            obj.updateTeleport();
+                });
+                obj.updateTeleport();
+            }
         }
+
     }
 
     pushPlayers(socket) {
-        const obj = this.players[socket.id];
-        if (obj && obj.pushPlayer > 0) {
-            obj.updatePushPlayer();
-            Object.values(this.players).forEach(player => {
-                if (obj.id !== player.id) {
-                    const dist = player.distanceTo(obj);
-                    if (dist <= 300) {
-                        player.updatePush(dist, obj);
+        if (socket) {
+            const obj = this.players[socket.id];
+            if (obj && obj.pushPlayer > 0) {
+                obj.updatePushPlayer();
+                Object.values(this.players).forEach(player => {
+                    if (obj.id !== player.id) {
+                        const dist = player.distanceTo(obj);
+                        if (dist <= 300) {
+                            player.updatePush(dist, obj);
+                        }
                     }
-                }
-            });
+                });
+            }
         }
+
     }
 
     updateSpeed(socket) {
-        if (this.players[socket.id]) {
-            this.players[socket.id].updateSpeed();
+        if (socket) {
+            if (this.players[socket.id]) {
+                this.players[socket.id].updateSpeed();
+            }
         }
     }
 
     addPoints(socket) {
-        if (this.players[socket.id]) {
-            this.players[socket.id].addPoints();
+        if (socket) {
+            if (this.players[socket.id]) {
+                this.players[socket.id].addPoints();
+            }
         }
+
     }
 
-    updatePosition(sockets, dt) {
+    updatePosition(players, dt) {
         let newSocket;
-        if (sockets) {
-            newSocket = Object.keys(sockets);
+        if (players) {
+            newSocket = Object.keys(players);
             if (!newSocket.length) {
                 // console.log('not a socket')
             } else {
+                const bootPlayers = [];
                 let leaderBoard;
                 if (this.shouldSendUpdate) {
                     leaderBoard = this.getLeaderboard();
                 }
                 // const subSockets = newSocket.splice(0, 10);
                 for (const playerID of newSocket) {
-                    const socket = this.sockets[playerID];
                     const player = this.players[playerID];
+                    if (player.id.includes('boot')) {
+                        bootPlayers.push(player);
+                    }
                     player.update(dt);
-                    if(leaderBoard) {
+                    const socket = this.sockets[playerID];
+                    if(leaderBoard && socket) {
                         socket.emit(Constants.MSG_TYPES.GAME_UPDATE, this.createUpdate(player, leaderBoard));
                     }
                 }
-                setImmediate(this.updatePosition);
+                if (bootStatus) {
+                    bootStatus = false;
+                    setTimeout(() => {
+                        bootPlayers.forEach(bootPlayer => {
+                            this.bootDirection(bootPlayer);
+                        });
+                        bootStatus = true;
+                    }, 3000);
+                }
+                
+                // setImmediate(this.updatePosition);
             }
             this.shouldSendUpdate = !this.shouldSendUpdate;
         }
@@ -190,7 +235,7 @@ class Game {
         this.lastUpdateTime = now;
 
         // Update each player
-        this.updatePosition(this.sockets, dt);
+        this.updatePosition(this.players, dt);
 
         // Object.keys(this.sockets).forEach(playerID => {
         //   const player = this.players[playerID];
@@ -210,6 +255,8 @@ class Game {
             const socket = this.sockets[player.id];
             if (socket) {
                 socket.emit(Constants.MSG_TYPES.GAME_OVER);
+            } else {
+                this.removePlayer(player);
             }
             this.removePlayer(socket);
         });
