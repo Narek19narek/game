@@ -220,7 +220,9 @@ class Game {
                         bootStatus = true;
                     }, 3000);
                 }
-                
+                if (!bootPlayers.find(player => player.id.length < 6)) {
+                    bootId = 1;
+                }
                 // setImmediate(this.updatePosition);
             }
             this.shouldSendUpdate = !this.shouldSendUpdate;
