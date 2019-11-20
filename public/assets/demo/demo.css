@@ -1,3 +1,6 @@
+body{
+    background-color: #ebecf1;
+}
 .tim-row {
   margin-bottom: 20px;
 }
@@ -60,4 +63,61 @@
 .card.card-upgrade .card-category {
   max-width: 530px;
   margin: 0 auto;
+}
+.footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #ebecf1;
+    text-align: center;
+}
+
+
+body {
+    font-family: "Century Gothic", 'Lato', sans-serif;
+}
+
+.et-hero-tabs-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 70px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+.et-hero-tab {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    color: #000;
+    letter-spacing: 0.1rem;
+    transition: all 0.5s ease;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+.et-hero-tab:hover {
+    color: white;
+    background: rgba(102, 177, 241, 0.8);
+    transition: all 0.5s ease;
+}
+.et-hero-tab-slider {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 6px;
+    background: #66b1f1;
+    transition: left 0.3s ease;
+}
+@media (min-width: 800px) {
+    .et-hero-tab {
+        font-size: 1rem;
+    }
+}
+.form-row{
+    margin-right: 0;
+    margin-left: 0;
 }

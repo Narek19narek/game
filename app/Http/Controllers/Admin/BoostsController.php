@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Boost;
+use App\Http\Requests\Admin\BoostRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,7 +16,7 @@ class BoostsController extends Controller
      */
     public function index()
     {
-        $boosts = Boost::all();
+        $boosts = Boost::type(get_type('boost'))->get();
         return view('admin.shop.boosts.index', compact('boosts'));
     }
 
@@ -32,10 +33,10 @@ class BoostsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  BoostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BoostRequest $request)
     {
         Boost::query()->create([
             'name' => $request->get('name'),

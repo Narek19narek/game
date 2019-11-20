@@ -39,9 +39,26 @@
                             <img src="{{ asset("images/menu/coin2.svg") }}" alt="coin image">
                         </a>
                     </div>
+
                     <div class="item">
                         <a href="{{ route('get-skin') }}">
-                            <img src="{{ asset("images/skins/skin-".($user->skeen_id).".svg") }}" alt="skin image" width="56px">
+                            @if(user_is_selected('colors'))
+                                <svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56">
+                                    <g id="Mini_Skin" data-name="Mini Skin" fill="none">
+                                        <path d="M28,0A28,28,0,1,1,0,28,28,28,0,0,1,28,0Z" stroke="none"/>
+                                        <path
+                                            d="M 28 10 C 18.07476425170898 10 10 18.07476425170898 10 28 C 10 37.92523574829102 18.07476425170898 46 28 46 C 37.92523574829102 46 46 37.92523574829102 46 28 C 46 18.07476425170898 37.92523574829102 10 28 10 M 28 0 C 43.46398162841797 0 56 12.53601837158203 56 28 C 56 43.46398162841797 43.46398162841797 56 28 56 C 12.53601837158203 56 0 43.46398162841797 0 28 C 0 12.53601837158203 12.53601837158203 0 28 0 Z"
+                                            stroke="none"
+                                            fill="{{$user->selectedSkin->color}}"/>
+                                    </g>
+                                </svg>
+                            @else
+                                <img src="{{ $user->selectedSkin->imageUrl }}" alt="skin image"
+                                     width="56px"
+                                     height="56px"
+                                     style="border-radius: 33px;"
+                                >
+                            @endif
                         </a>
                     </div>
                 @endguest
@@ -102,15 +119,15 @@
             </div>
         </div>
         <div class="google-reklam">
-{{--            <script data-ad-client="ca-pub-5688279952546872" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--}}
-{{--            <ins class="adsbygoogle"--}}
-{{--                 style="display:inline-block;width:300px;height:230px"--}}
-{{--                 data-ad-client="ca-pub-xxxxxxxxxxxxxx"--}}
-{{--                 data-ad-slot="yyyyyyyyyyy">--}}
-{{--            </ins>--}}
-{{--            <script>--}}
-{{--                (adsbygoogle=window.adsbygoogle || []).push({});--}}
-{{--            </script>--}}
+            {{--            <script data-ad-client="ca-pub-5688279952546872" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>--}}
+            {{--            <ins class="adsbygoogle"--}}
+            {{--                 style="display:inline-block;width:300px;height:230px"--}}
+            {{--                 data-ad-client="ca-pub-xxxxxxxxxxxxxx"--}}
+            {{--                 data-ad-slot="yyyyyyyyyyy">--}}
+            {{--            </ins>--}}
+            {{--            <script>--}}
+            {{--                (adsbygoogle=window.adsbygoogle || []).push({});--}}
+            {{--            </script>--}}
         </div>
         <div class="row justify-content-center" style="margin: 0 71px;">
             <div class="col-lg-10">
@@ -127,8 +144,10 @@
                 <div class="text-center play-btn">
                     <form method="POST" action="{{ route('play') }}" autocomplete="off">
                         <input type="image" src="{{ asset('images/play-btn.png') }}" alt="PLAY" id="playBtn">
-                        <input id="nickname" type="text" class="form-control-plaintext text-center p-0 field" name="nickname"
-                               @guest placeholder="NICKNAME" @else value="{{ substr(Auth::user()->name, 0, 5) }}" @endguest maxlength="5">
+                        <input id="nickname" type="text" class="form-control-plaintext text-center p-0 field"
+                               name="nickname"
+                               @guest placeholder="NICKNAME" @else value="{{ substr(Auth::user()->name, 0, 5) }}"
+                               @endguest maxlength="5">
                     </form>
                 </div>
             </div>

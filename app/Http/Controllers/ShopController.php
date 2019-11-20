@@ -14,33 +14,26 @@ class ShopController extends Controller
 {
     public function index()
     {
-        $coins  = Coin::all();
+        $coins = Coin::all();
         $boosts = Boost::all();
-        $skins  = Skin::all();
+        $skins = Skin::all();
         return view('player.shop.index', compact('coins', 'boosts', 'skins'));
     }
 
     public function skin()
     {
-        $arrSkins   = [];
-        $skins      = Skin::all();
-        $user_skins = User::query()->findOrFail(Auth::id())->skins()->get(['skin_id']);
-        foreach ($skins as $skin) {
-            foreach ($user_skins as $user_skin) {
-                if ($user_skin->skin_id === $skin->id) {
-                    $arrSkins[] = $skin->id;
-                }
-            }
-        }
-        return view('player.shop.skin.index', compact('skins','arrSkins'));
+        $skins = Skin::all()->groupBy('type');
+        $arrSkins = Auth::user()->skins->pluck('id')->toArray();
+        $typesValues = Skin::getTypesValue();
+        return view('player.shop.skin.index', compact('skins', 'arrSkins', 'typesValues'));
     }
 
     public function selectSkin(Request $request, $id)
     {
-        $err            = [];
-        $selected_skin  = Skin::query()->findOrFail($id);
-        $user           = User::query()->findOrFail(Auth::id());
-        $user_skins     = $user->skins;
+        $err = [];
+        $selected_skin = Skin::query()->findOrFail($id);
+        $user = User::query()->findOrFail(Auth::id());
+        $user_skins = $user->skins;
         foreach ($user_skins as $skin) {
             if ((int)$id === (int)$skin->id) {
                 $err[] = $skin->id;
@@ -68,20 +61,21 @@ class ShopController extends Controller
         return view('player.shop.boosts.index', compact('boosts'));
     }
 
-    public function getSwitches(Request $request) {
+    public function getSwitches(Request $request)
+    {
 
-        $name       = $request->name;
-        $amount     = $request->amount;
-        $coin       = $request->coin;
-        $duration   = $request->duration;
-        $boosts     = Boost::query()
+        $name = $request->name;
+        $amount = $request->amount;
+        $coin = $request->coin;
+        $duration = $request->duration;
+        $boosts = Boost::query()
             ->where('name', $name)
             ->where('amount', $amount)
             ->where('duration', $duration)
             ->where('coin', $coin)
             ->firstOrFail();
 
-        $user       = User::query()->findOrFail(Auth::id());
+        $user = User::query()->findOrFail(Auth::id());
         $user_boost = $boosts->amount;
         if ($user->coins >= $coin) {
             if ($name === "switch") {

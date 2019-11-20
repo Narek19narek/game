@@ -68,4 +68,8 @@ class User extends Authenticatable
             $xp = round((($level + 1) ** self::K));
             return $xp;
     }
+
+    public function selectedSkin(){
+        return  $this->belongsTo(Skin::class ,  'skeen_id', 'id');
+    }
 }

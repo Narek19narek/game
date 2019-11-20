@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 @section('content')
     <h2 class="text-center">Skin</h2>
-    <div class="row">
+    <div class="row form-row">
         <div class="col-4 m-auto">
-            <form action="{{ route('skins.store') }}" method="post">
+            <form action="{{ _route('skins.store') }}" method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group @error('skins') has-error @enderror">
                     <label for="skin_name">Skin name</label>
@@ -12,26 +12,28 @@
                     <p class="text-danger">{{$message}}</p>
                     @enderror
                 </div>
-                <div class="form-group @error('image') has-error @enderror">
-                    <label>Skin images</label>
-                    <div class="row">
-                        <div class="col-3">
-                            <input type="file" name="image" id="skin_img_1" value="{{ old('skin') }}" onchange="readURL(this);" />
-                            <img src="http://placehold.it/180" alt="your image" />
-                        </div>
-                        <div class="col-3">
-                            <input type="file" name="image" id="skin_img_2" value="{{ old('skin') }}" onchange="readURL(this);" />
-                            <img src="http://placehold.it/180" alt="your image" />
-                        </div>
-                        <div class="col-3">
-                            <input type="file" name="image" id="skin_img_3" value="{{ old('skin') }}" onchange="readURL(this);" />
-                            <img src="http://placehold.it/180" alt="your image" />
-                        </div>
-                    </div>
-                    @error('skin')
+                @if(type_is('colors'))
+                <div class="form-group @error('color') has-error @enderror">
+                    <label for="skin_color">Skin color</label>
+                    <input class="form-control" id="skin_color" type="color" placeholder="Please enter skin color" name="color" value="{{ old('color')?? \App\Skin::DEF_COLOR}}">
+                    @error('color')
                     <p class="text-danger">{{$message}}</p>
                     @enderror
                 </div>
+                @else
+                <div class="form-group @error('image') has-error @enderror">
+                    <label>Skin image</label>
+                    <div class="row">
+                        <div class="col-3">
+                            <input type="file" name="image" id="skin_img" value="{{ old('skin') }}" onchange="readURL(this);" />
+                            <img src="http://placehold.it/180" id="show_skin_img" alt="your image" />
+                        </div>
+                    </div>
+                    @error('image')
+                    <p class="text-danger">{{$message}}</p>
+                    @enderror
+                </div>
+                @endif
                 <div class="form-group @error('coin') has-error @enderror">
                     <label for="skin_cost">Coin</label>
                     <input class="form-control" id="skin_cost" type="number" placeholder="Please enter skin price" name="coin" value="{{ old('coin') }}">
@@ -46,13 +48,11 @@
     <script type="text/javascript">
         function readURL(input) {
             if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
+                let reader = new FileReader();
                 reader.onload = function (e) {
-                    $(this).siblings('img')
+                    $('#show_skin_img')
                         .attr('src', e.target.result);
                 };
-
                 reader.readAsDataURL(input.files[0]);
             }
         }

@@ -2,8 +2,9 @@ import Swiper from 'swiper';
 export default class Slider {
     constructor() {}
 
-    initSkinSlider(selector) {
+    initSkinSlider(selector, index = 0) {
         this.skin_slider = new Swiper(selector, {
+        // new Swiper(selector, {
             direction: 'horizontal',
             loop: false,
             keyboard:
@@ -20,6 +21,7 @@ export default class Slider {
             freeMode: false,
             freeModeSticky: false,
             centeredSlides: true,
+            initialSlide: index,
         });
     }
 

@@ -963,7 +963,10 @@ a.btn:focus {
             }
         }
     }
-    #select_skin > div {
+    .select_skin > div {
+        .skin-image {
+            border-radius: 50%;
+        }
         position: relative;
         i.fas {
             position: absolute;
@@ -982,6 +985,7 @@ a.btn:focus {
         .getSkin {
             display: flex;
             position: relative;
+
             div.img {
                 filter: drop-shadow(0px 3px 20px rgba(0, 0, 0, 0.51));
                 position: absolute;
@@ -1058,7 +1062,7 @@ a.btn:focus {
         transition: transform .3s ease-in-out;
         opacity: .5;
     }
-    .swiper-slide-active {
+    .carousel-item.active .swiper-slide-active {
         z-index: 1;
         opacity: 1;
         transform: scale(1.75);

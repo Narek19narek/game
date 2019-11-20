@@ -1,9 +1,9 @@
 @extends('layouts.dashboard')
 @section('content')
     <h2 class="text-center">Edit Boost</h2>
-    <div class="row">
+    <div class="row form-row">
         <div class="col-4 m-auto">
-            <form action="{{ route('boosts.update', ['id' => $boost->id]) }}" method="post">
+            <form action="{{ _route('boosts.update', ['id' => $boost->id], old('name') ?? $boost->name) }}" method="post">
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
                 <div class="form-group @error('boosts') has-error @enderror">
