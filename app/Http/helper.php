@@ -55,8 +55,6 @@ if (!function_exists('get_skin_type')) {
                 $type = 3;
                 break;
         }
-
-
         return $type;
     }
 }

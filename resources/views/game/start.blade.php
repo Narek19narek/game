@@ -11,14 +11,13 @@
                        data-switches="{{auth()->user()->switch}}"
                        data-push="{{auth()->user()->push}}"
                        data-teleport="{{auth()->user()->teleport}}"
-                       data-skin="{{auth()->user()->skeen_id}}"
+                       data-skin="{{(string)auth()->user()->selectedSkin}}"
                        data-game-mode="{{ auth()->user()->game_mode }}"
                        data-hide-name="{{ auth()->user()->hide_name }}"
                        data-hide-position="{{ auth()->user()->hide_position }}"
                        data-user-id="{{ auth()->id() }}"
                 />
             @endif
-
         </label>
     </div>
     <div id="leaderboard" class="hidden">

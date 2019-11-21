@@ -24,7 +24,6 @@ class BoostRequest extends FormRequest
      */
     public function rules()
     {
-//        dd($this->request->all());
         return [
             'name' => 'required|string',
             'amount' => 'required|integer',

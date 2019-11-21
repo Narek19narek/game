@@ -29,7 +29,7 @@ if (userInfo) {
     userAbility.userSwitches = userInfo.dataset.switches;
     userAbility.userTeleport = userInfo.dataset.teleport;
     userAbility.userPush = userInfo.dataset.push;
-    userAbility.userSkin = userInfo.dataset.skin;
+    userAbility.userSkin = JSON.parse(userInfo.dataset.skin);
     userAbility.hideName = userInfo.dataset.hideName;
     userAbility.hidePosition = userInfo.dataset.hidePosition;
     userAbility.userId = userInfo.dataset.userId;

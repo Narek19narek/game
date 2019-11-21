@@ -27,6 +27,7 @@ export const connect = onGameOver => (
 );
 
 export const play = (username, userAbility) => {
+    console.log(userAbility)
   socket.emit(Constants.MSG_TYPES.JOIN_GAME, username, userAbility);
 };
 

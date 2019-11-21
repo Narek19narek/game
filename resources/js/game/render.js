@@ -135,7 +135,10 @@ function renderPlayer(me, player) {
     } else {
         context.arc(0, 0, 25, 0, 2 * Math.PI);
     }
-    context.strokeStyle = Constants.SKINS[player.skin];
+
+    const COLOR = (player.skin) ? player.skin.color : Constants.PLAYER_COLOR;
+    context.strokeStyle =  COLOR;
+
     context.lineWidth = 4;
     context.stroke();
     context.restore();
@@ -162,7 +165,7 @@ function renderPlayer(me, player) {
         context.fillStyle = '#FFA200';
         context.font = '25px FuturaPress';
     } else if (playerPosition > 1) {
-        context.fillStyle = Constants.SKINS[player.skin];
+        context.fillStyle = COLOR;
         context.font = '16px FuturaPress';
         if (playerPosition.toString().length === 2) {
             textPos = textX - 4;
@@ -172,7 +175,7 @@ function renderPlayer(me, player) {
     }
     const textY = (player.status === 0) ? canvasY + PLAYER_RADIUS - 8 : canvasY + PLAYER_RADIUS;
     context.fillText(playerPosition, textPos, canvasY - PLAYER_RADIUS - 18);
-    context.fillStyle = Constants.SKINS[player.skin];
+    context.fillStyle = COLOR;
     context.font = '16px FuturaPress';
 
 

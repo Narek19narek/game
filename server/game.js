@@ -73,7 +73,7 @@ class Game {
         const switches      = userAbility.isUser ? userAbility.userSwitches : Constants.PLAYER_SWITCHES;
         const push          = userAbility.isUser ? userAbility.userPush : Constants.PLAYER_PUSH_PLAYERS;
         const teleport      = userAbility.isUser ? userAbility.userTeleport : Constants.PLAYER_TELEPORTS;
-        const skin          = userAbility.isUser ? userAbility.userSkin : Constants.PLAYER_SKIN;
+        const skin          = userAbility.isUser ? userAbility.userSkin : null;
         const hideName      = userAbility.isUser ? userAbility.hideName : 0;
         const hidePosition  = userAbility.isUser ? userAbility.hidePosition : 0;
         const userId        = userAbility.isUser ? userAbility.userId : 0;
@@ -82,10 +82,10 @@ class Game {
         const status        = this.getStatus();
         if (socket) {
             this.sockets[socket.id] = socket;
-            this.players[socket.id] = new Player(socket.id, username, x, y, status, +switches, +teleport, +push, +skin, hideName, hidePosition, userId);
+            this.players[socket.id] = new Player(socket.id, username, x, y, status, +switches, +teleport, +push, skin, hideName, hidePosition, userId);
         }
         else {
-            this.players['boot' + bootId] = new Player('boot' + bootId, username, x, y, status, +switches, +teleport, +push, +skin, hideName, hidePosition, userId);
+            this.players['boot' + bootId] = new Player('boot' + bootId, username, x, y, status, +switches, +teleport, +push, skin, hideName, hidePosition, userId);
             bootId++;
         }
     }
@@ -107,7 +107,7 @@ class Game {
         }
 
     }
-    
+
     bootDirection(player) {
         const time = Math.random() * 7 + 3;
         setTimeout(() => {
@@ -239,11 +239,6 @@ class Game {
         // Update each player
         this.updatePosition(this.players, dt);
 
-        // Object.keys(this.sockets).forEach(playerID => {
-        //   const player = this.players[playerID];
-        //   player.update(dt);
-        // });
-
         const {destroyedPlayers, killPlayers} = applyCollisions(Object.values(this.players));
 
         destroyedPlayers.forEach(obj => {
@@ -262,27 +257,7 @@ class Game {
             }
             this.removePlayer(socket);
         });
-
-        // Send a game update to each player every other time
-        // if (this.shouldSendUpdate) {
-        //   const leaderBoard = this.getLeaderboard();
-        //   Object.keys(this.sockets).forEach(playerID => {
-        //     const socket = this.sockets[playerID];
-        //     const player = this.players[playerID];
-        //     socket.emit(Constants.MSG_TYPES.GAME_UPDATE, this.createUpdate(player, leaderBoard));
-        //   });
-        //   this.shouldSendUpdate = false;
-        // } else {
-        //   this.shouldSendUpdate = true;
-        // }
     }
-
-    // updateTime() {
-    //   Object.keys(this.sockets).forEach(playerID => {
-    //     const player = this.players[playerID];
-    //     player.updateTime();
-    //   });
-    // }
 
     getLeaderboard() {
         let i = 1;
