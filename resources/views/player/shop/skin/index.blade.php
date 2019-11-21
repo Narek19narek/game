@@ -151,18 +151,16 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
-
                                     </div>
                                 </div>
                                 @foreach($typesValues as $typeValue)
                                     @continue($typeValue==get_skin_type('colors'))
-
                                     <div class="carousel-item @if(user_is_selected($typeValue)) active @endif">
-                                        <div class="formContent row justify-content-around">
-                                            <div class="row skin-image skin-slider swiper-container select_skin"
-                                                 id="select_skin">
-                                                <div class="swiper-wrapper d-flex">
-                                                    @if($_skins = $skins[$typeValue]??null)
+                                        @if($_skins = $skins[$typeValue] ?? null)
+                                            <div class="formContent row justify-content-around">
+                                                <div class="row skin-image skin-slider swiper-container select_skin"
+                                                     id="select_skin">
+                                                    <div class="swiper-wrapper d-flex">
                                                         @foreach($_skins as $index => $skin)
                                                             @php
                                                                 $_index = user_is_selected_skin($skin->id) ? $index : $_index;
@@ -212,26 +210,28 @@
                                                                 @endif
 
                                                             </div>
-
                                                         @endforeach
-                                                    @endif
+                                                    </div>
                                                 </div>
-
+                                                <div class="col-12 d-flex align-items-center get_success"
+                                                     id="get_success">
+                                                    <div class="position-relative w-25 pl-4">
+                                                        <img src="" alt="Skin" class="img-fluid " width="150">
+                                                    </div>
+                                                    <div class="col">
+                                                        <h1 class="text-center"></h1>
+                                                        <p class="text-center"></p>
+                                                    </div>
+                                                    <button type="button" class="btn close-btn" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
                                             </div>
-                                            <div class="col-12 d-flex align-items-center get_success" id="get_success">
-                                                <div class="position-relative w-25 pl-4">
-                                                    <img src="" alt="Skin" class="img-fluid " width="150">
-                                                </div>
-                                                <div class="col">
-                                                    <h1 class="text-center"></h1>
-                                                    <p class="text-center"></p>
-                                                </div>
-                                                <button type="button" class="btn close-btn" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
+                                        @else
+                                            <div class="formContent row justify-content-center align-items-center">
+                                                <h1 class="text-center">COMING SOON</h1>
                                             </div>
-
-                                        </div>
+                                        @endif
                                     </div>
                                 @endforeach
                             </div>
@@ -277,8 +277,8 @@
                                 $('.fas.fa-check').remove();
                                 $('input[value="' + id + '"]').parent().append('<i class="fas fa-check" id="check"></i>');
                             } else {
-                               let activeSlide =  $('.active .skin-slider');
-                               activeSlide.fadeOut(200);
+                                let activeSlide = $('.active .skin-slider');
+                                activeSlide.fadeOut(200);
                                 // const url = "images/skins/color-" + data.id + ".svg";
                                 let str = '';
                                 let link = '';
@@ -290,7 +290,7 @@
                                 } else {
                                     str = data.message;
                                 }
-                                let get_success =  $('.carousel-item.active .get_success')
+                                let get_success = $('.carousel-item.active .get_success')
                                 get_success.find('#skin_svg_fill').attr('fill', color).end().find('h1').text(data.title).siblings().text(str + ' ').append(link);
                                 get_success.find('.img-fluid').attr('src', image).end().find('h1').text(data.title).siblings().text(str + ' ').append(link);
                                 if (data.status === 2) {
@@ -324,7 +324,7 @@
         const slider = new Slider();
         slider.initSkinSlider(".carousel-item.active .skin-slider", {{$_index}});
 
-        $('#carousel').on('slid.bs.carousel',  function (e) {
+        $('#carousel').on('slid.bs.carousel', function (e) {
             slider.initSkinSlider('.carousel-item.active .skin-slider');
         });
     </script>
