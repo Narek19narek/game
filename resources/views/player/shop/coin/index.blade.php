@@ -146,7 +146,8 @@
                                     return;
                                 }
 
-                                alert('Payment Failed.')
+                                alert('Payment Failed.');
+                                console.log(data);
                             },
                             error: function(err) {
                                 console.log(err)

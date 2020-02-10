@@ -31,6 +31,7 @@ class CoinsController extends Controller
      */
     public function paymentInfo(PaymentInfoRequest $request)
     {
+
         $sessionID = Session::get('payment_session_id');
 
         $coin  = Coin::query()->findOrFail($request->input('coin'));
@@ -53,14 +54,14 @@ class CoinsController extends Controller
                         'status'  => $request->input('status'),
                         'type'    => $request->input('type')
                     ]);
-
-                    if($transaction) {
+                    if((int)$transaction->status === Transaction::APPROVED) {
                         User::query()
                             ->where('id', '=', Auth::id())
                             ->update(['coins' => DB::raw("coins + {$coin->coin}" )]);
+                        $responseData = ['headline' => 'Payment Success', 'message' => 'Congratulations!', 'success' => true];
+                    } else {
+                        $responseData = ['headline' => 'Payment Failed', 'message' => 'Invalid details!', 'success' => false];
                     }
-
-                    $responseData = ['headline' => 'Payment Success', 'message' => 'Congratulations!', 'success' => true];
                 } else {
                     $responseData = ['headline' => 'Payment Failed', 'message' => 'Token Invalid!', 'success' => false];
                 }
@@ -146,14 +147,13 @@ class CoinsController extends Controller
             );
 
             Session::put('payment_session_id', $token);
-            return response()->json(['url'  => route('payment-info', [
-                'coin' => $coin->id,
-                'status' => ($status ? Transaction::APPROVED : Transaction::REJECTED),
-                'type' => Transaction::PAYPAL
-            ])]);
         }
+        return response()->json(['url'  => route('payment-info', [
+            'coin' => $coin->id,
+            'status' => ($status ? Transaction::APPROVED : Transaction::REJECTED),
+            'type' => Transaction::PAYPAL
+        ])]);
 
-        return response()->json(['message' => 'Payment Error'], 400);
     }
 
 //    public function shop()
